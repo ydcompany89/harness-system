@@ -1,7 +1,7 @@
 ---
 name: researcher
 description: 뉴스/키워드 모니터링, 이메일 분류·요약, 웹 크롤링, 반복적인 정보 수집·정리 작업에 사용. "뉴스 찾아줘", "이메일 정리해줘", "이 사이트들 크롤링해줘" 같은 요청이 오면 반드시 이 에이전트를 사용.
-tools: Read, Write, Edit, Bash, WebSearch, WebFetch
+tools: Read, Write, Edit, Bash, WebSearch, WebFetch, mcp__Gmail__search_threads, mcp__Gmail__get_thread, mcp__Gmail__get_message, mcp__Gmail__list_labels, mcp__Gmail__label_thread, mcp__Gmail__label_message, mcp__Gmail__create_label
 model: sonnet
 ---
 
