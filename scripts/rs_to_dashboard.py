@@ -16,7 +16,7 @@ SRC = ROOT / "launch/rs/checklist.csv"
 OUT = ROOT / "launch/rs/dashboard-sync.csv"
 
 # 기간과 무관하게 항상 대시보드에 올릴 마일스톤
-MILESTONES = {"B05", "K05", "DP04", "H05", "P05", "P07", "G02", "G03", "X01", "E01"}
+MILESTONES = {"B05", "K05", "DP04", "H05", "P05", "P07", "G02", "G03", "EM1", "ES1"}
 OWNER = {"대표": "신동규", "대표/공장": "신동규"}
 
 def owner(v):
