@@ -1,0 +1,11 @@
+# 자격증명/시크릿 — 절대 커밋하지 않음
+.env
+*.env
+!*.env.example
+scripts/**/secrets/
+scripts/**/*.key
+
+# 로컬 산출물
+__pycache__/
+*.pyc
+.DS_Store
