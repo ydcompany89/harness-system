@@ -27,7 +27,7 @@
 2. 실제 영상 편집(컷 편집)은 이 시스템 범위 밖 — 편집 지시서만 산출
 
 ### E. 숏폼(릴스·쇼츠)
-- `workflows/sns-content.md` 로 이관 (담당: sns-content-planner).
+- `workflows/sns-content.md` 로 이관 (담당: marketing-expert).
 
 ## VALIDATE
 - [ ] 학습목표/목차가 브리프 요구사항을 100% 커버하는가

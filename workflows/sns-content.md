@@ -1,7 +1,8 @@
 # Workflow: SNS 콘텐츠 퍼널 (인스타그램 · 유튜브 쇼츠)
 
+> 판단 기준: `workflows/marketing-principles.md` (30원칙 + 법적 경계)
 > SNS = 팔로워 숫자가 아니라 **사업의 입구**. 모든 콘텐츠는 아래 3가지 역할 중 하나를 맡는다.
-> 담당 서브에이전트: `sns-content-planner` · 현재 적용 브랜드: RS(RhaRa Shoe·라라슈)
+> 담당 서브에이전트: `marketing-expert` · 현재 적용 브랜드: RS(RhaRa Shoe·라라슈)
 
 ## 3가지 콘텐츠 역할
 

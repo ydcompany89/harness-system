@@ -2,7 +2,7 @@
 
 > 기간: 2026-10-06 ~ 11-30 (런칭 11/1 · 메가쇼 11/12~15 · 서울디자인페스티벌 11/26~29)
 > 원칙: **제품 광고가 아니라 "서서 일하는 사람의 문제 해결"**. 폰 촬영 B급 OK, 비트 컷(1초 단위), 억지 자막 금지.
-> 규칙: `workflows/sns-content.md` · 담당: `sns-content-planner`
+> 규칙: `workflows/sns-content.md` · 담당: `marketing-expert`
 
 ## 0. 타깃 4그룹
 
