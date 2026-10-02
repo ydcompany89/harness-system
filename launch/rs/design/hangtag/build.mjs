@@ -17,12 +17,10 @@ const ic = {
 };
 const icon = (k) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</svg>`;
 
-// ---------- 임시 RS 로고 (기하학적 스트로크) ----------
-// 임시 로고 — 실제 벡터(RS 로고 AI/SVG)로 교체할 것
-const logo = (cls='') => `<svg class="logo ${cls}" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
-<!-- 임시 로고 — 실제 벡터로 교체 -->
-<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
-<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg>`;
+// ---------- RS 로고 (2026-10-02 대표 확정 원본 PNG를 라임 #C6F432로 재색) ----------
+// 인쇄 최종본은 원본 벡터(AI/SVG) 수령 후 교체 — 현재 원본: ../brand/rs-logo-source.png (587px)
+let _lg = 0;
+const logo = (cls='') => { const id = `lgf${_lg++}`; return `<svg class="logo ${cls}" viewBox="66 39 478 402" style="overflow:hidden"><defs><clipPath id="c${id}"><rect x="66" y="39" width="478" height="402"/></clipPath><filter id="${id}" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter></defs><g clip-path="url(#c${id})"><image href="../brand/rs-logo-source.png" width="587" height="481" filter="url(#${id})"/></g></svg>`; };
 
 // ---------- 헤링본 배경 ----------
 const herring = (id, color='#262626') => `<svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><defs><pattern id="${id}" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 3.5 L3.5 0 L7 3.5 M0 7 L3.5 3.5 L7 7" fill="none" stroke="${color}" stroke-width="0.7"/></pattern></defs><rect width="55" height="110" fill="url(#${id})"/></svg>`;
@@ -204,8 +202,8 @@ for (const key of Object.keys(products)) {
 <!--
  RS (RhaRa Shoe · 라라슈) 행택 인쇄 데이터 — ${p.nameKR}
  - 이 파일은 build.mjs 로 생성됨 (직접 수정 시 다음 빌드에서 덮어써짐)
- - 컬러: 배경 #111111 / 포인트 네온 라임 #C6F432 (근사값, 팬톤 확정 필요) / 보조 화이트·그레이
- - 로고: 임시 기하학 로고 — 실제 벡터로 교체
+ - 컬러: 배경 #111111 / 포인트 네온 라임 #C6F432 (2026-10-02 화면색 확정, 인쇄 팬톤 별색 확정 필요) / 보조 화이트·그레이
+ - 로고: 대표 확정 RS 로고(원본 PNG 재색) — 인쇄용 벡터 수령 후 교체
  - 종이: 350g 이상 재생지/크라프트 권장
  - ?lines=0 쿼리 또는 body.nolines → 칼선·접는선·안전선 제외본
  - 한글은 전부 HTML 텍스트(Noto Sans KR/JP 로컬 폰트 임베드 렌더) — AI 이미지 생성 사용 안 함

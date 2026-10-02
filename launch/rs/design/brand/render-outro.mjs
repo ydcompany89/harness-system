@@ -1,0 +1,11 @@
+import { createRequire } from 'module';
+const require = createRequire('/opt/node22/lib/node_modules/');
+const { chromium } = require('playwright');
+import fs from 'fs';
+const here = new URL('.', import.meta.url).pathname;
+const b = await chromium.launch();
+const ctx = await b.newContext({ viewport:{width:1080,height:1920}, recordVideo:{dir:here+'tmpvid', size:{width:1080,height:1920}} });
+const p = await ctx.newPage(); await p.goto(`file://${here}outro.html`); await p.waitForTimeout(2600);
+await p.screenshot({path:here+'outro-lastframe.png'});
+const v = p.video(); await ctx.close(); fs.renameSync(await v.path(), here+'outro-2s.webm'); fs.rmSync(here+'tmpvid',{recursive:true,force:true});
+await b.close();

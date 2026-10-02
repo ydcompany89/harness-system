@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>RS outro 2s</title><style>
+@font-face{font-family:K;font-weight:700;src:url(../hangtag/fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:K;font-weight:400;src:url(../hangtag/fonts/NotoSansKR-400.ttf)}
+html,body{margin:0;width:1080px;height:1920px;background:#111;overflow:hidden;font-family:K,sans-serif}
+.dots{position:absolute;top:900px;left:0;right:0;display:flex;justify-content:center;gap:56px}
+.dots i{width:84px;height:84px;border-radius:50%;background:#C6F432;transform:scale(0);animation:pop .18s ease-out forwards, out .25s ease-in 1.05s forwards}
+.dots i:nth-child(1){animation-delay:.10s,1.05s}.dots i:nth-child(2){animation-delay:.30s,1.05s}.dots i:nth-child(3){animation-delay:.50s,1.05s}.dots i:nth-child(4){animation-delay:.70s,1.05s}
+@keyframes pop{to{transform:scale(1)}}@keyframes out{to{transform:scale(0);opacity:0}}
+.logo{position:absolute;top:640px;left:50%;width:520px;margin-left:-260px;opacity:0;transform:scale(.85);animation:in .3s ease-out 1.2s forwards}
+.t{position:absolute;top:1130px;left:0;right:0;text-align:center;color:#fff;opacity:0;animation:in .3s ease-out 1.35s forwards}
+.t b{display:block;font-size:64px;font-weight:700;letter-spacing:1px}.t span{font-size:40px;color:#C6F432}
+@keyframes in{to{opacity:1;transform:scale(1)}}
+</style></head><body>
+<div class="dots"><i></i><i></i><i></i><i></i></div>
+<svg class="logo" viewBox="66 39 478 402"><defs><clipPath id="c"><rect x="66" y="39" width="478" height="402"/></clipPath><filter id="f" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter></defs><g clip-path="url(#c)"><image href="rs-logo-source.png" width="587" height="481" filter="url(#f)"/></g></svg>
+<div class="t"><b>RhaRa Shoe</b><span>라라슈</span></div>
+</body></html>
