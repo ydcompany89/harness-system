@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<title>라라슈 쿼드그립 아치가득 인솔 행택 인쇄 데이터</title>
+<!--
+ RS (RhaRa Shoe · 라라슈) 행택 인쇄 데이터 — 라라슈 쿼드그립 아치가득 인솔
+ - 이 파일은 build.mjs 로 생성됨 (직접 수정 시 다음 빌드에서 덮어써짐)
+ - 컬러: 배경 #111111 / 포인트 네온 라임 #C6F432 (근사값, 팬톤 확정 필요) / 보조 화이트·그레이
+ - 로고: 임시 기하학 로고 — 실제 벡터로 교체
+ - 종이: 350g 이상 재생지/크라프트 권장
+ - ?lines=0 쿼리 또는 body.nolines → 칼선·접는선·안전선 제외본
+ - 한글은 전부 HTML 텍스트(Noto Sans KR/JP 로컬 폰트 임베드 렌더) — AI 이미지 생성 사용 안 함
+-->
+<style>
+@page { size: 240mm 180mm; margin: 0; }
+@font-face{font-family:'Noto Sans KR';font-weight:400;src:url(fonts/NotoSansKR-400.ttf)}
+@font-face{font-family:'Noto Sans KR';font-weight:700;src:url(fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:'Noto Sans KR';font-weight:900;src:url(fonts/NotoSansKR-900.ttf)}
+@font-face{font-family:'Noto Sans JP';font-weight:400;src:url(fonts/NotoSansJP-400.ttf)}
+@font-face{font-family:'Noto Sans JP';font-weight:700;src:url(fonts/NotoSansJP-700.ttf)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#888}
+body{font-family:'Noto Sans KR','Noto Sans JP',sans-serif;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+[lang=ja]{font-family:'Noto Sans JP','Noto Sans KR',sans-serif}
+.page{position:relative;width:240mm;height:180mm;background:#fff;overflow:hidden;page-break-after:always;break-after:page;margin:0 auto 6mm}
+@media print{html,body{background:#fff}.page{margin:0}.page:last-child{page-break-after:auto}}
+.net{position:absolute}
+.layer{position:absolute;left:0;top:0;width:228mm;height:165mm;pointer-events:none}
+.layer.lines{z-index:50}
+.cut{stroke:#FF00FF;stroke-width:.0882;}   /* 0.25pt */
+.fold{stroke:#00B7EB;stroke-width:.0882;stroke-dasharray:1.2 .8}
+.guide rect{fill:none;stroke:#00A651;stroke-width:.1;stroke-dasharray:.6 .6}
+.gluetxt text{font-size:2.4px;fill:#999;font-family:'Noto Sans KR'}
+.note{position:absolute;left:124mm;top:128mm;width:98mm;font-size:4.6pt;line-height:1.5;color:#777;z-index:60;background:#fff;padding:1.5mm;border:.1mm solid #ccc}
+body.nolines .lines, body.nolines .note{display:none}
+.panel{position:absolute;width:55mm;height:110mm;overflow:hidden}
+.panel.qual{background:transparent}
+.bgsvg{position:absolute;left:0;top:0;width:55mm;height:110mm}
+.red{color:#E00000;font-weight:900}
+/* 표지 */
+.cov{position:absolute;inset:0;padding:12.5mm 4.5mm 4.5mm}
+.cov-top{display:flex;align-items:center;gap:2.4mm;height:11mm;margin-bottom:2mm}
+.logo.lg{width:17mm;height:11mm}
+.cov-brand b{display:block;font-size:10.5pt;font-weight:900;letter-spacing:-.2pt;line-height:1.1;color:#fff}
+.cov-brand span{display:block;font-size:7pt;font-weight:700;color:#C6F432;line-height:1.3}
+.photo{height:28mm;background:#8a8a8a;border:.25mm dashed #d8d8d8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5mm;margin-bottom:3mm}
+.photo span{font-size:6.5pt;font-weight:700;color:#fff}.photo em{font-size:4.6pt;font-style:normal;color:#eee}
+.photo.sm{height:16mm;margin:2mm 0 0}
+.cov-name .k1{font-size:8.2pt;font-weight:700;line-height:1.25}
+.cov-name .k2{font-size:11pt;font-weight:900;line-height:1.25;color:#C6F432;letter-spacing:-.3pt}
+.cov-name .e{font-size:5.6pt;font-weight:700;letter-spacing:.5pt;margin-top:.8mm;color:#ddd;display:flex;align-items:center;gap:1.4mm}
+.cov-name .e i{display:inline-block;width:3mm;height:.2mm;background:#C6F432}
+.cov-ic{display:grid;grid-template-columns:1fr 1fr;gap:1.6mm 2mm;margin-top:3mm;border-top:.15mm solid #444;padding-top:2.4mm}
+.cov-ic>div{display:flex;align-items:center;gap:1.4mm}
+.cov-ic .ico{width:6.6mm;height:6.6mm;flex:none}
+.cov-ic p{font-size:5.1pt;line-height:1.3;font-weight:700;color:#eee}
+.ico{display:block}
+/* 명언 */
+.quote{position:absolute;left:4.5mm;right:4.5mm;top:24mm}
+.quote .num{font-size:5pt;letter-spacing:1pt;color:#C6F432;margin-bottom:3mm;font-weight:700}
+.qk{font-size:12pt;font-weight:900;line-height:1.38;word-break:keep-all;letter-spacing:-.3pt}
+.q3 .qk{font-size:10.6pt}
+.qe{font-size:5.6pt;line-height:1.5;color:#cfcfcf;margin-top:3.2mm;max-width:40mm}
+.qfoot{position:absolute;left:4.5mm;bottom:5mm;display:flex;align-items:center;gap:1.6mm}
+.qfoot span{font-size:5pt;color:#aaa;letter-spacing:.3pt}
+.logo.sm{width:6mm;height:3.9mm}
+.logo.md{width:20mm;height:13mm}
+/* 안쪽 */
+.inp{position:absolute;inset:0;padding:5mm 4.5mm 4mm}
+h3{font-size:8.4pt;font-weight:900;color:#C6F432;letter-spacing:.4pt;line-height:1.2;margin-bottom:3mm;padding-bottom:1.6mm;border-bottom:.2mm solid #C6F432}
+h3 small{display:block;font-size:6pt;font-weight:700;color:#fff;letter-spacing:0;margin-top:.5mm}
+.inp p.kr{font-size:6.1pt;line-height:1.62;word-break:keep-all;margin-bottom:2mm;color:#f0f0f0}
+.inp p.en{font-size:5pt;line-height:1.5;color:#bdbdbd;margin-bottom:2mm}
+.zz{height:4mm;margin-top:3mm}.zz svg{width:100%;height:100%}
+.sig{position:absolute;left:4.5mm;bottom:5mm;display:flex;gap:1.6mm;align-items:center;font-size:5pt;color:#aaa}
+.pname{font-size:7.4pt;font-weight:900;line-height:1.35;margin-bottom:2.4mm;word-break:keep-all}
+.pname span{font-size:5.2pt;color:#C6F432;letter-spacing:.5pt;font-weight:700}
+.who{margin-top:2.6mm}.wl{font-size:5.4pt;color:#C6F432;font-weight:700;margin-bottom:1.2mm}
+.wi{display:flex;gap:1.4mm;margin-bottom:1.4mm;font-size:5.8pt;line-height:1.4;word-break:keep-all}
+.wi b{flex:none;width:1.6mm;height:1.6mm;border-radius:50%;background:#C6F432;margin-top:1mm}
+.wi em,.ft em{font-style:normal;color:#bdbdbd;font-size:4.8pt}
+.ft{display:flex;gap:2.2mm;margin-bottom:3.6mm}
+.ft .ico{width:8mm;height:8mm;flex:none;margin-top:.4mm}
+.ft b{display:block;font-size:6.8pt;font-weight:900;line-height:1.25;word-break:keep-all}
+.ft i{display:block;font-style:normal;font-size:5pt;font-weight:700;color:#C6F432;margin-bottom:.8mm;line-height:1.25}
+.ft p{font-size:5.4pt;line-height:1.45;color:#eaeaea;word-break:keep-all}
+/* 품질표시 */
+.inq{position:absolute;inset:0;padding:4.5mm 4mm 3mm;color:#111;font-size:5pt}
+.inq h3{color:#111;border-bottom:.3mm solid #111;font-size:8pt;margin-bottom:1.6mm;padding-bottom:1mm}
+.inq h3 small{color:#444;font-size:5.2pt;display:inline;margin-left:1.2mm}
+.qr1{margin-bottom:.8mm;padding-bottom:.55mm;border-bottom:.1mm solid #cfcfc6}
+.qr1 .l{font-size:3.9pt;color:#6a6a6a;line-height:1.25}
+.qr1 .v{font-size:5pt;font-weight:700;line-height:1.3;word-break:keep-all}
+.qr1 .v em{font-weight:400;font-style:normal;font-size:4.5pt;color:#333}
+.qg{display:grid;grid-template-columns:1fr 1fr;column-gap:2mm}
+.mrow{display:flex;justify-content:space-between;align-items:baseline;font-size:5pt}
+.mrow em{font-weight:400;font-style:normal;font-size:4pt;color:#555}
+.care{list-style:none;margin-top:.3mm}
+.care li{font-size:4.9pt;font-weight:700;line-height:1.28;margin-bottom:.7mm;padding-left:1.8mm;position:relative;word-break:keep-all}
+.care li:before{content:'';position:absolute;left:0;top:1mm;width:.9mm;height:.9mm;background:#111;border-radius:50%}
+.care li em{font-weight:400;font-style:normal;font-size:4.2pt;color:#444}
+.qrbox{display:flex;gap:2mm;align-items:center;margin-top:1.2mm}
+.qr{width:11mm;height:11mm;border:.25mm dashed #777;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:7pt;color:#777;flex:none}
+.qrt{font-size:4.6pt;line-height:1.4;color:#333;font-weight:700}.qrt em{font-weight:400;font-style:normal;color:#666;font-size:4pt}
+.botp.out{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm}
+.bb{text-align:center}.bb b{display:block;font-size:8pt;font-weight:900}.bb span{font-size:6pt;color:#C6F432;font-weight:700}
+
+.qrt b{font-weight:700}.qrt .l2{font-size:3.9pt;color:#6a6a6a;margin-top:.8mm;font-weight:400}
+.inq{padding-top:4mm}
+
+</style></head>
+<body>
+<section class="page out"><div class="net" style="left:6mm;top:6mm;width:228mm;height:165mm"><svg class="layer base" viewBox="0 0 228 165" style="overflow:visible"><g ><path d="M8,0 L0,6 L0,104 L8,110 L12,120 L59,120 L63,110 L63,165 L118,165 L118,110 L122,120 L169,120 L173,110 L177,120 L224,120 L228,110 L228,0 Z" fill="#111111" stroke="#111111" stroke-width="6" stroke-linejoin="miter"/></g></svg><div class="panel cover" style="left:8mm;top:0"><div class="cov">
+  <div class="cov-top"><svg class="logo lg" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
+<!-- 임시 로고 — 실제 벡터로 교체 -->
+<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
+<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg><div class="cov-brand"><b>RhaRa Shoe</b><span>라라슈</span></div></div>
+  <div class="photo"><span>제품 누끼 사진 삽입</span><em>Product cutout photo here</em></div>
+  <div class="cov-name"><div class="k1">라라슈 쿼드그립</div><div class="k2">아치가득 인솔</div><div class="e">QUAD GRIP<i></i>ARCH INSOLE</div></div>
+  <div class="cov-ic"><div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 19 H22"/><path d="M3.5 19 C7 19 8 10.5 12.5 10.5 C17 10.5 17.5 17 21 19"/><path d="M3 15.5 H5"/></svg><p>아치 라인을<br>따라 가득</p></div><div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="1.5" width="17" height="21" rx="8" /><circle cx="9" cy="8" r="2"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/><circle cx="15" cy="16" r="2"/></svg><p>쿼드그립<br>4점</p></div><div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 V13 A7 7 0 0 0 19 13 V4"/><path d="M8.5 4 V12.5 A3.5 3.5 0 0 0 15.5 12.5 V4" /></svg><p>뒤꿈치<br>컵</p></div><div><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="1.6"/><circle cx="6" cy="12" r="1.6"/><circle cx="6" cy="18" r="1.6"/><circle cx="12" cy="6" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="18" r="1.6"/><circle cx="18" cy="6" r="1.6"/><circle cx="18" cy="12" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg><p>통기<br>도트</p></div></div>
+</div></div><div class="panel quotep" style="left:63mm;top:0"><svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><defs><pattern id="h0insole" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 3.5 L3.5 0 L7 3.5 M0 7 L3.5 3.5 L7 7" fill="none" stroke="#262626" stroke-width="0.7"/></pattern></defs><rect width="55" height="110" fill="url(#h0insole)"/></svg><svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><circle cx="12" cy="12" r="3" fill="#C6F432"/><circle cx="22.3" cy="12" r="3" fill="none" stroke="#C6F432" stroke-width="0.6"/><circle cx="32.6" cy="12" r="3" fill="none" stroke="#C6F432" stroke-width="0.6"/><circle cx="42.900000000000006" cy="12" r="3" fill="none" stroke="#C6F432" stroke-width="0.6"/><polyline points="0,91.5 7.857,88 15.714,91.5 23.571,88 31.428,91.5 39.285000000000004,88 47.142,91.5 54.999,88" fill="none" stroke="#C6F432" stroke-width="0.9"/></svg>
+  <div class="quote "><div class="num">01 / 03</div><div class="qk">좋은 하루는 좋은 걸음에서 시작된다.</div><div class="qe">A good day starts with a good step.</div></div>
+  <div class="qfoot"><svg class="logo sm" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
+<!-- 임시 로고 — 실제 벡터로 교체 -->
+<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
+<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg><span>RhaRa Shoe · 라라슈</span></div></div><div class="panel quotep" style="left:118mm;top:0"><svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><defs><pattern id="h1insole" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 3.5 L3.5 0 L7 3.5 M0 7 L3.5 3.5 L7 7" fill="none" stroke="#262626" stroke-width="0.7"/></pattern></defs><rect width="55" height="110" fill="url(#h1insole)"/></svg><svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><circle cx="12" cy="12" r="3" fill="#C6F432"/><circle cx="22.3" cy="12" r="3" fill="#C6F432"/><circle cx="32.6" cy="12" r="3" fill="none" stroke="#C6F432" stroke-width="0.6"/><circle cx="42.900000000000006" cy="12" r="3" fill="none" stroke="#C6F432" stroke-width="0.6"/><polyline points="0,91.5 7.857,88 15.714,91.5 23.571,88 31.428,91.5 39.285000000000004,88 47.142,91.5 54.999,88" fill="none" stroke="#C6F432" stroke-width="0.9"/></svg>
+  <div class="quote "><div class="num">02 / 03</div><div class="qk">발이 편해야 일이 편하다.</div><div class="qe">When your feet are at ease, work is easier.</div></div>
+  <div class="qfoot"><svg class="logo sm" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
+<!-- 임시 로고 — 실제 벡터로 교체 -->
+<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
+<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg><span>RhaRa Shoe · 라라슈</span></div></div><div class="panel quotep" style="left:173mm;top:0"><svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><defs><pattern id="h2insole" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 3.5 L3.5 0 L7 3.5 M0 7 L3.5 3.5 L7 7" fill="none" stroke="#262626" stroke-width="0.7"/></pattern></defs><rect width="55" height="110" fill="url(#h2insole)"/></svg><svg class="bgsvg" viewBox="0 0 55 110" preserveAspectRatio="none"><circle cx="12" cy="12" r="3" fill="#C6F432"/><circle cx="22.3" cy="12" r="3" fill="#C6F432"/><circle cx="32.6" cy="12" r="3" fill="#C6F432"/><circle cx="42.900000000000006" cy="12" r="3" fill="#C6F432"/><polyline points="0,95.5 7.857,92 15.714,95.5 23.571,92 31.428,95.5 39.285000000000004,92 47.142,95.5 54.999,92" fill="none" stroke="#C6F432" stroke-width="0.9"/></svg>
+  <div class="quote q3"><div class="num">03 / 03</div><div class="qk">버려진 타이어가, 다시 걷는 길이 되었습니다.</div><div class="qe">Discarded tires, now a path to walk again.</div></div>
+  <div class="qfoot"><svg class="logo sm" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
+<!-- 임시 로고 — 실제 벡터로 교체 -->
+<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
+<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg><span>RhaRa Shoe · 라라슈</span></div></div><div class="panel botpanel" style="left:63mm;top:110mm;width:55mm;height:55mm"><div class="botp out"><svg class="logo md" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
+<!-- 임시 로고 — 실제 벡터로 교체 -->
+<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
+<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg><div class="bb"><b>RhaRa Shoe</b><span>라라슈</span></div></div></div><svg class="layer lines" viewBox="0 0 228 165" style="overflow:visible">
+  <g >
+   <path class="cut" d="M8,0 L0,6 L0,104 L8,110 L12,120 L59,120 L63,110 L63,165 L118,165 L118,110 L122,120 L169,120 L173,110 L177,120 L224,120 L228,110 L228,0 Z" fill="none"/>
+   <path class="fold" d="M8,0 V110 M63,0 V110 M118,0 V110 M173,0 V110 M8,110 H228" fill="none"/>
+   <circle class="cut" cx="35.5" cy="7.5" r="2.5" fill="none"/>
+  </g>
+  <g class="guide" ><rect x="11" y="3" width="49" height="104"/><rect x="66" y="3" width="49" height="104"/><rect x="121" y="3" width="49" height="104"/><rect x="176" y="3" width="49" height="104"/><rect x="66" y="113" width="49" height="49"/></g>
+  <g class="gluetxt"><text x="4" y="55" transform="rotate(-90 4 55)" text-anchor="middle">풀칠 날개 GLUE 8mm</text></g>
+  </svg><div class="note lines">바깥면 OUTSIDE · 라라슈 쿼드그립 아치가득 인솔<br>전개 228×165mm (날개 8 + 55×4 / 높이 110 + 바닥 55) · 재단여백 3mm · 안전선 3mm<br>마젠타 실선=칼선 0.25pt · 시안 점선=접는선 · 녹색 점선=안전선(인쇄 제외)<br>종이: 350g 이상 재생지/크라프트 권장 · 행거 구멍 Ø5mm</div></div></section>
+<section class="page in"><div class="net" style="left:6mm;top:6mm;width:228mm;height:165mm"><svg class="layer base" viewBox="0 0 228 165" style="overflow:visible"><g transform="translate(228,0) scale(-1,1)"><path d="M8,0 L8,110 L12,120 L59,120 L63,110 L63,165 L118,165 L118,110 L122,120 L169,120 L173,110 L177,120 L224,120 L228,110 L228,0 Z" fill="#111111" stroke="#111111" stroke-width="6" stroke-linejoin="miter"/></g><rect x="-3" y="-3" width="58" height="126" fill="#F3F2EC"/></svg><div class="panel innerp" style="left:165mm;top:0"><div class="inp" style="padding-top:12.5mm"><h3>BRAND STORY<small>브랜드 스토리</small></h3>
+  <p class="kr">도로 위에서 수명을 다한 폐타이어 고무를 새활용해 신발로 만드는 브랜드, 라라슈(RhaRa Shoe)입니다.</p>
+  <p class="kr">하루 종일 서서 일하는 사람들의 걸음 곁에서, 버려진 것이 다시 걷는 길이 되도록 만듭니다.</p>
+  <p class="en">RhaRa Shoe makes footwear from rubber upcycled from waste tires that have reached the end of their life on the road.</p>
+  <p class="en">For people on their feet all day, we turn what was discarded into a path to walk again.</p>
+  <div class="zz"><svg viewBox="0 0 55 8" preserveAspectRatio="none"><polyline points="0,5.5 7.857,2 15.714,5.5 23.571,2 31.428,5.5 39.285000000000004,2 47.142,5.5 54.999,2" fill="none" stroke="#C6F432" stroke-width="0.9"/></svg></div>
+  <div class="sig"><svg class="logo sm" viewBox="0 0 62 40" fill="none" stroke="#C6F432" stroke-width="5.2" stroke-linejoin="miter" stroke-linecap="butt">
+<!-- 임시 로고 — 실제 벡터로 교체 -->
+<path d="M4 38 V2.6 H19 A8.6 8.6 0 0 1 19 19.8 H4"/><path d="M17 19.8 L27 38"/>
+<path d="M58 2.6 H44 A8.4 8.4 0 0 0 44 19.4 H48 A9 9 0 0 1 48 37.4 H33"/></svg><span>RhaRa Shoe · 라라슈</span></div></div></div><div class="panel innerp" style="left:110mm;top:0"><div class="inp"><h3>PRODUCT<small>제품 소개</small></h3>
+  <div class="pname">라라슈 쿼드그립 아치가득 인솔<br><span>QUAD GRIP / ARCH INSOLE</span></div>
+  <p class="kr">발 아치 라인을 따라 가득 채우는 형태에 쿼드그립 4점, 뒤꿈치 컵, 통기 도트를 더한 인솔입니다. 신고 있는 신발 속에 넣어 사용합니다.</p><p class="en">An insole shaped to fill along the arch, with Quad Grip 4-point, a heel cup and ventilation dots. Place it inside your shoes.</p>
+  <div class="who"><div class="wl">추천 · For</div><div class="wi"><b></b><div>오래 서 있거나 걷는 일이 많은 분<br><em>People who stand or walk a lot</em></div></div><div class="wi"><b></b><div>신발 속 구성을 바꿔보고 싶은 분<br><em>People who want to change their in-shoe setup</em></div></div></div>
+  <div class="photo sm"><span>제품 사진·도해 자리</span><em>Product photo / diagram</em></div></div></div><div class="panel innerp" style="left:55mm;top:0"><div class="inp"><h3>KEY FEATURES<small>핵심 기능</small></h3>
+  <div class="ft"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 19 H22"/><path d="M3.5 19 C7 19 8 10.5 12.5 10.5 C17 10.5 17.5 17 21 19"/><path d="M3 15.5 H5"/></svg><div><b>아치 라인을 따라 가득</b><i>Arch-contour design</i><p>발 아치 라인을 따라 채우는 형태로 설계했습니다.<br><em>Shaped to follow the contour of the foot arch.</em></p></div></div><div class="ft"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="1.5" width="17" height="21" rx="8" /><circle cx="9" cy="8" r="2"/><circle cx="15" cy="8" r="2"/><circle cx="9" cy="16" r="2"/><circle cx="15" cy="16" r="2"/></svg><div><b>쿼드그립 4점</b><i>Quad Grip 4-point</i><p>쿼드그립 4점 패드 구성을 적용했습니다.<br><em>Features the Quad Grip 4-point pad layout.</em></p></div></div><div class="ft"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 V13 A7 7 0 0 0 19 13 V4"/><path d="M8.5 4 V12.5 A3.5 3.5 0 0 0 15.5 12.5 V4" /></svg><div><b>뒤꿈치 컵</b><i>Heel cup</i><p>뒤꿈치를 감싸는 컵 형태 구조입니다.<br><em>A cup-shaped structure that cradles the heel.</em></p></div></div><div class="ft"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="1.6"/><circle cx="6" cy="12" r="1.6"/><circle cx="6" cy="18" r="1.6"/><circle cx="12" cy="6" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="18" r="1.6"/><circle cx="18" cy="6" r="1.6"/><circle cx="18" cy="12" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg><div><b>통기 도트</b><i>Ventilation dots</i><p>도트 패턴으로 통기 구조를 더했습니다.<br><em>A dot pattern adds a ventilation structure.</em></p></div></div></div></div><div class="panel qual" style="left:0mm;top:0"><div class="inq">
+  <h3>품질표시<small>Quality Label · <span lang="ja">品質表示</span></small></h3>
+  <div class="qr1"><div class="l">제품명 · Product · <span lang="ja">製品名</span></div><div class="v">라라슈 쿼드그립 아치가득 인솔<br><em>RhaRa Shoe Quad Grip Arch Insole</em><br><em>RhaRa Shoe <span lang="ja">クアッドグリップ アーチインソール</span></em></div></div>
+  <div class="qr1"><div class="l">품목 · Item · <span lang="ja">品目</span></div><div class="v">신발 깔창 (인솔)<br><em>Shoe insole</em> · <em lang="ja">インソール（中敷）</em></div></div>
+  <div class="qr1"><div class="l">재질 · Material · <span lang="ja">素材</span></div><div class="v"><div class="mrow"><span>본체<em> Body · <span lang="ja">本体</span></em></span><span class="red">[확인필요]</span></div><div class="mrow"><span>패드<em> Pad · <span lang="ja">パッド</span></em></span><span class="red">[확인필요]</span></div></div></div>
+  <div class="qg"><div class="qr1"><div class="l">치수 · Size · <span lang="ja">サイズ</span></div><div class="v"><span class="red">[확인필요]</span></div></div>
+  <div class="qr1"><div class="l">색상 · Color · <span lang="ja">色</span></div><div class="v"><span class="red">[확인필요]</span></div></div>
+  <div class="qr1"><div class="l">제조연월 · Mfd. · <span lang="ja">製造年月</span></div><div class="v"><span class="red">[확인필요]</span></div></div>
+  <div class="qr1"><div class="l">제조국 · Origin · <span lang="ja">原産国</span></div><div class="v"><span class="red">[확인필요]</span></div></div></div>
+  <div class="qr1"><div class="l">제조자·판매자 · Maker/Seller · <span lang="ja">製造・販売元</span></div><div class="v">주식회사 알앤디메이커스</div></div>
+  <div class="qg"><div class="qr1"><div class="l">주소 · Address · <span lang="ja">住所</span></div><div class="v"><span class="red">[확인필요]</span></div></div>
+  <div class="qr1"><div class="l">고객센터 · Contact · <span lang="ja">連絡先</span></div><div class="v"><span class="red">[확인필요]</span></div></div></div>
+  <div class="qr1"><div class="l">취급상 주의 · Care · <span lang="ja">取扱上の注意</span></div>
+  <ul class="care"><li>고온·직사광선·화기를 피해 보관하세요.<br><em>Store away from high heat, direct sunlight and open flame.</em><br><em lang="ja">高温・直射日光・火気を避けて保管してください。</em></li><li>신발 안 깔창 용도 외 사용을 금지합니다.<br><em>Do not use for purposes other than as a shoe insole.</em><br><em lang="ja">靴の中敷用途以外には使用しないでください。</em></li><li>사용 중 이상이 있으면 사용을 중단하세요.<br><em>Stop using it if you notice anything unusual.</em><br><em lang="ja">異常を感じた場合は使用を中止してください。</em></li></ul></div>
+  <div class="qrbox"><div class="qr"><span>QR</span></div><div class="qrt"><b>박람회 리드폼 / 홈페이지 연결 예정</b><br><em>Lead form / website — TBD</em><div class="l2">바코드·분리배출표시 · Barcode / Recycling mark</div><span class="red">[확인필요]</span></div></div>
+  </div></div><div class="panel botpanel" style="left:110mm;top:110mm;width:55mm;height:55mm"></div><svg class="layer lines" viewBox="0 0 228 165" style="overflow:visible">
+  <g transform="translate(228,0) scale(-1,1)">
+   <path class="cut" d="M8,0 L0,6 L0,104 L8,110 L12,120 L59,120 L63,110 L63,165 L118,165 L118,110 L122,120 L169,120 L173,110 L177,120 L224,120 L228,110 L228,0 Z" fill="none"/>
+   <path class="fold" d="M8,0 V110 M63,0 V110 M118,0 V110 M173,0 V110 M8,110 H228" fill="none"/>
+   <circle class="cut" cx="35.5" cy="7.5" r="2.5" fill="none"/>
+  </g>
+  <g class="guide" transform="translate(228,0) scale(-1,1)"><rect x="11" y="3" width="49" height="104"/><rect x="66" y="3" width="49" height="104"/><rect x="121" y="3" width="49" height="104"/><rect x="176" y="3" width="49" height="104"/><rect x="66" y="113" width="49" height="49"/></g>
+  <g class="gluetxt"><text x="224" y="55" transform="rotate(90 224 55)" text-anchor="middle">풀칠 날개 GLUE 8mm (안쪽면 무인쇄 권장)</text></g>
+  </svg><div class="note lines">안쪽면 INSIDE (좌우 반전 배치) · 라라슈 쿼드그립 아치가득 인솔<br>전개 228×165mm (날개 8 + 55×4 / 높이 110 + 바닥 55) · 재단여백 3mm · 안전선 3mm<br>마젠타 실선=칼선 0.25pt · 시안 점선=접는선 · 녹색 점선=안전선(인쇄 제외)<br>종이: 350g 이상 재생지/크라프트 권장 · 행거 구멍 Ø5mm</div></div></section>
+<script>if(/[?&]lines=0/.test(location.search))document.body.classList.add('nolines');</script>
+</body></html>
