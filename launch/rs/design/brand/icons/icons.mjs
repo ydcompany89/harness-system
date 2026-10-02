@@ -6,7 +6,7 @@ export const LIME = '#C6F432';
 export const glyph = {
   quadgrip: `<path d="M24 3.5C32 3.5 35.5 10 35 18C34.5 25 31.5 28.5 31.5 35.5C31.5 41.5 28.5 44.5 24 44.5S16.5 41.5 16.5 35.5C16.5 28.5 13.5 25 13 18C12.5 10 16 3.5 24 3.5Z"/><path d="M19.5 22L24 19.5L28.5 22M19.5 27L24 24.5L28.5 27" stroke-width="1.8"/><circle cx="19.5" cy="11" r="2.4"/><circle cx="28.5" cy="11" r="2.4"/><circle cx="20.5" cy="37" r="2.4"/><circle cx="27.5" cy="37" r="2.4"/>`,
   onepiece: `<path d="M4 37H44V33C44 29 40 28 36 27L28 23L23 13H13L11 26C7 27 4 30 4 33Z"/><path d="M9 31.5H40" stroke-width="4"/><path d="M15 8L19 4M33 15l5-4M24 9l2-5" opacity=".0"/>`,
-  collar: `<path d="M5 40H44V36C44 32 40 31 36 30L28 26L25 17L24 9H13L11 29C7.5 30 5 33 5 36Z"/><path d="M12 9.5C15 6.5 21.5 6.5 25 9.5" stroke-width="3.4"/><path d="M33 20V7M29 11L33 7L37 11"/>`,
+  collar: `<path d="M4 38H44V33C44 29.5 41 28.5 37 27.5L29 24.5L26.5 22H9.5L8 28C5.5 29 4 30.5 4 33Z"/><path d="M8 22.5C8.5 19.5 10.5 18.5 13 18.5H23C25.5 18.5 27.5 19.5 28 22.5" stroke-width="5"/><path d="M33 13L29 18M18 10V15M8 12L11 16" stroke-width="2"/>`,
   tire: `<circle cx="22" cy="24" r="17"/><circle cx="22" cy="24" r="8"/><path d="M22 7V12M22 36V41M5 24H10M34 24H39M10 12l3.5 3.5M30.5 32.5L34 36M10 36l3.5-3.5M30.5 15.5L34 12"/><path d="M38 38a8 8 0 0 0 6-7.5M44 30.5l-2.5 2.5M44 30.5l1.5 3" />`,
   wallpaper: `<rect x="7" y="9" width="22" height="31" rx="2"/><path d="M29 12C35 12 37 15 37 18S35 24 29 24"/><path d="M11 16L15 13L19 16L23 13M11 24L15 21L19 24L23 21M11 32L15 29L19 32L23 29"/><path d="M33 34a6 6 0 1 0 8-6M41 28l-.5 3.5M41 28l3.2 1.4"/>`,
   woodchip: `<path d="M6 30L14 18L26 21L22 34Z"/><path d="M27 15L36 7L43 14L35 23Z"/><path d="M26 32L36 27L42 37L31 42Z"/><path d="M12 25L21 27M31 12L38 15M31 34L38 35" stroke-width="1.8"/>`,
@@ -25,7 +25,7 @@ export const glyph = {
 export const badges = [
   ['quadgrip','쿼드그립 4점 패드','QUAD GRIP 4-POINT','ok','디자인·구조 설명. 미끄럼 성능 수치는 시험 후'],
   ['onepiece','깔창 없는 일체형 안창','ONE-PIECE FOOTBED','ok','구조 설명(10/02 확정)'],
-  ['collar','높게 감싼 발목 라인','RAISED COLLAR','ok','P15 최종 디자인 확정 후 실물 대조'],
+  ['collar','도톰한 발목 테두리','THICK COLLAR RIM','ok','입구 테두리를 몸판보다 두껍게(시사출 반영). "물 안 들어감" 금지'],
   ['esp','E-실리폴리렌 자체 소재','E-SILIPOLYRENE','ok','EVA·실리콘 배합 자체 소재명. "고탄력"은 C09 성적서 후'],
   ['herring','헤링본 트레드','HERRINGBONE TREAD','ok','밑창 무늬 설명'],
   ['tire','폐타이어 새활용 고무','UPCYCLED TIRE RUBBER','ok','배합 사실. 함량 %는 배합표 근거 후'],

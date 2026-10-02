@@ -69,7 +69,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 |---|---|
 | 원형 점 4개 | 쿼드그립 4점 패드 |
 | 신발 단면 | 깔창 없는 일체형 안창 |
-| 높은 발목 | 높게 감싼 발목 라인 |
+| 두꺼운 테두리 | 도톰한 발목 테두리 |
 | 타이어 | 폐타이어 새활용 고무 |
 
 ### 명언 (바깥 칸 2~4) — 라임 도트 1→2→4개, 헤링본 배경
@@ -83,9 +83,9 @@ RS 로고 · RhaRa Shoe · 라라슈
 **PRODUCT** 제품 소개
 **라라슈 쿼드그립 종일편한 워킹화** · QUAD GRIP / WORKING SHOE
 
-> 깔창 없이 안창을 하나로 만든 일체형 구조, 발목 라인을 높여 감싼 슬립온에 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.
+> EVA와 실리콘을 배합한 자체 소재 E-실리폴리렌으로 안창까지 하나로 만든 워킹화입니다. 발목 입구 테두리를 도톰하게 두르고, 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.
 >
-> A one-piece footbed, a raised collar, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.
+> Moulded in one piece, footbed included, from E-Silipolyrene, our own EVA–silicone blend. A thick collar rim, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.
 
 **추천 · For**
 - 조리·서비스·매장 등 서서 일하는 분 / People who work on their feet
@@ -100,7 +100,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 |---|---|---|---|
 | 쿼드그립 4점 패드 | Quad Grip 4-point pads | 밑창에 원형 그립 패드 4개를 배치했습니다. | Four round grip pads are placed on the outsole. |
 | 깔창 없는 일체형 안창 | One-piece footbed | 안창을 본체와 하나로 만들어 깔창과 신발 사이에 틈이 없습니다. | The footbed is moulded into the shoe, with no gap between insole and shoe. |
-| 높게 감싼 발목 라인 | Raised collar line | 발목 입구 라인을 높여 감싸도록 디자인했습니다. | The collar line is raised to wrap around the ankle. |
+| 도톰한 발목 테두리 | Thick collar rim | 발목이 들어가는 입구 테두리를 다른 부분보다 두껍게 둘렀습니다. | The rim around the opening is made thicker than the rest of the shoe. |
 | 폐타이어·폐벽지 새활용 패드 | Upcycled grip pads | 그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다. | Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper. |
 
 ### 품질표시 (안쪽 칸 4) — 품질표시 · Quality Label · 品質表示

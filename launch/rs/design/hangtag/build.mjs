@@ -47,17 +47,17 @@ const products = {
     feats: [
       ['grip4','쿼드그립 4점 패드','Quad Grip 4-point pads','밑창에 원형 그립 패드 4개를 배치했습니다.','Four round grip pads are placed on the outsole.'],
       ['onepiece','깔창 없는 일체형 안창','One-piece footbed','EVA·실리콘 배합 자체 소재 E-실리폴리렌으로 안창까지 하나로 만들어, 깔창을 따로 넣지 않습니다.','Moulded in one piece from E-Silipolyrene, our own EVA–silicone blend — no separate insole needed.'],
-      ['collar','높게 감싼 발목 라인','Raised collar line','발목 입구 라인을 높여 감싸도록 디자인했습니다.','The collar line is raised to wrap around the ankle.'],
+      ['collar','도톰한 발목 테두리','Thick collar rim','발목이 들어가는 입구 테두리를 다른 부분보다 두껍게 둘렀습니다.','The rim around the opening is made thicker than the rest of the shoe.'],
       ['tire','폐타이어·폐벽지 새활용 패드','Upcycled grip pads','그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다.','Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper.'],
     ],
-    coverIcons: [['grip4','쿼드그립','4점 패드'],['onepiece','깔창 없는','일체형 안창'],['collar','높게 감싼','발목 라인'],['tire','폐타이어·폐벽지','새활용 패드']],
+    coverIcons: [['grip4','쿼드그립','4점 패드'],['onepiece','깔창 없는','일체형 안창'],['collar','도톰한','발목 테두리'],['tire','폐타이어·폐벽지','새활용 패드']],
     quotes: [
       ['오늘도, 내 속도로.','Today, at my own pace.'],
       ['하루 종일 서 있는 당신에게.','For you, on your feet all day.'],
       ['버려진 타이어가, 다시 걷는 길이 되었습니다.','Discarded tires, now a path to walk again.'],
     ],
-    introKR: 'EVA와 실리콘을 배합한 자체 소재 E-실리폴리렌으로 안창까지 하나로 만든 워킹화입니다. 발목 라인을 높여 감싸고, 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.',
-    introEN: 'Moulded in one piece, footbed included, from E-Silipolyrene, our own EVA–silicone blend. A raised collar, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.',
+    introKR: 'EVA와 실리콘을 배합한 자체 소재 E-실리폴리렌으로 안창까지 하나로 만든 워킹화입니다. 발목 입구 테두리를 도톰하게 두르고, 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.',
+    introEN: 'Moulded in one piece, footbed included, from E-Silipolyrene, our own EVA–silicone blend. A thick collar rim, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.',
     who: ['조리·서비스·매장 등 서서 일하는 분','하루 종일 걷는 분'],
     whoEN: ['People who work on their feet','People who walk all day'],
     caution: [
