@@ -68,8 +68,8 @@ RS 로고 · RhaRa Shoe · 라라슈
 | 아이콘 | 문구 |
 |---|---|
 | 원형 점 4개 | 쿼드그립 4점 패드 |
-| 지그재그 | 헤링본 트레드 |
-| 신발 | 뒤꿈치 감싸는 슬립온 |
+| 신발 단면 | 깔창 없는 일체형 안창 |
+| 높은 발목 | 높게 감싼 발목 라인 |
 | 타이어 | 폐타이어 새활용 고무 |
 
 ### 명언 (바깥 칸 2~4) — 라임 도트 1→2→4개, 헤링본 배경
@@ -83,9 +83,9 @@ RS 로고 · RhaRa Shoe · 라라슈
 **PRODUCT** 제품 소개
 **라라슈 쿼드그립 종일편한 워킹화** · QUAD GRIP / WORKING SHOE
 
-> 뒤꿈치를 감싸는 슬립온 구조에 쿼드그립 4점 패드와 헤링본 트레드를 더한 워킹화입니다. 서서 일하고 걷는 하루를 생각하며 설계했습니다.
+> 깔창 없이 안창을 하나로 만든 일체형 구조, 발목 라인을 높여 감싼 슬립온에 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.
 >
-> A closed-heel slip-on with Quad Grip 4-point pads and a herringbone tread, designed with long days of standing and walking in mind.
+> A one-piece footbed, a raised collar, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.
 
 **추천 · For**
 - 조리·서비스·매장 등 서서 일하는 분 / People who work on their feet
@@ -99,8 +99,8 @@ RS 로고 · RhaRa Shoe · 라라슈
 | 기능 | 영문 | 설명 (한) | 설명 (영) |
 |---|---|---|---|
 | 쿼드그립 4점 패드 | Quad Grip 4-point pads | 밑창에 원형 그립 패드 4개를 배치했습니다. | Four round grip pads are placed on the outsole. |
-| 헤링본 트레드 | Herringbone tread | V자가 이어지는 헤링본 패턴의 밑창 무늬입니다. | A tread pattern of continuous V-shaped herringbone lines. |
-| 뒤꿈치 감싸는 슬립온 | Closed-heel slip-on | 신고 벗기 쉬운 슬립온, 뒤꿈치까지 감싸는 구조입니다. | An easy slip-on that closes around the heel. |
+| 깔창 없는 일체형 안창 | One-piece footbed | 안창을 본체와 하나로 만들어 깔창과 신발 사이에 틈이 없습니다. | The footbed is moulded into the shoe, with no gap between insole and shoe. |
+| 높게 감싼 발목 라인 | Raised collar line | 발목 입구 라인을 높여 감싸도록 디자인했습니다. | The collar line is raised to wrap around the ankle. |
 | 폐타이어·폐벽지 새활용 패드 | Upcycled grip pads | 그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다. | Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper. |
 
 ### 품질표시 (안쪽 칸 4) — 품질표시 · Quality Label · 品質表示
@@ -110,7 +110,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 | 제품명 · Product · 製品名 | 라라슈 쿼드그립 종일편한 워킹화 / RhaRa Shoe Quad Grip Working Shoe / RhaRa Shoe クアッドグリップ ワーキングシューズ |
 | 품목 · Item · 品目 | 신발 (워킹화·슬립온) / Footwear (working shoe, slip-on) / 靴（ワーキングシューズ） |
 | 재질 — 갑피·밑창 · Upper·Outsole | 합성수지(EVA·실리콘 복합 E-실리폴리렌) |
-| 재질 — 안창 · Insole · 中敷 | 합성수지(EVA) |
+| 재질 — 안창(일체형) · Footbed · 中敷（一体型） | 합성수지(EVA) |
 | 재질 — 그립패드 · Grip pad | 재생고무(폐타이어)·재생 PVC(실크벽지) |
 | 치수 · Size · サイズ | 🔴 `[확인필요]` |
 | 색상 · Color · 色 | 🔴 `[확인필요]` |

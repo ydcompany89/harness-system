@@ -13,6 +13,8 @@ const ic = {
   tire: `<circle cx="12" cy="12" r="9.5"/><circle cx="12" cy="12" r="4"/><path d="M12 2.5 V6 M12 18 V21.5 M2.5 12 H6 M18 12 H21.5"/>`,
   arch: `<path d="M2 19 H22"/><path d="M3.5 19 C7 19 8 10.5 12.5 10.5 C17 10.5 17.5 17 21 19"/><path d="M3 15.5 H5"/>`,
   heel: `<path d="M5 4 V13 A7 7 0 0 0 19 13 V4"/><path d="M8.5 4 V12.5 A3.5 3.5 0 0 0 15.5 12.5 V4" />`,
+  onepiece: `<path d="M2.5 17 H21.5 V14.5 Q21.5 12.5 18.5 12 L14.5 10.5 L11.5 6 H7.5 L6 11.5 Q2.5 12.5 2.5 15 Z"/><path d="M2.5 20.5 H21.5"/><path d="M6 14.5 H19" stroke-dasharray="0"/>`,
+  collar: `<path d="M3 19 H21 V16.5 Q21 14.5 18 14 L14 12.5 L12 8.5"/><path d="M12 8.5 L9.5 4 H6.5 L5.5 13 Q3 14 3 16.5 Z"/><path d="M8 7.5 V2.5 M6.5 4 L8 2.5 L9.5 4"/>`,
   vent: [6,12,18].flatMap(x=>[6,12,18].map(y=>`<circle cx="${x}" cy="${y}" r="1.6"/>`)).join(''),
 };
 const icon = (k) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</svg>`;
@@ -35,21 +37,21 @@ const products = {
     en1: 'QUAD GRIP', en2: 'WORKING SHOE',
     nameKR: '라라슈 쿼드그립 종일편한 워킹화', nameEN: 'RhaRa Shoe Quad Grip Working Shoe', nameJA: 'クアッドグリップ ワーキングシューズ',
     itemKR: '신발 (워킹화·슬립온)', itemEN: 'Footwear (working shoe, slip-on)', itemJA: '靴（ワーキングシューズ）',
-    material: [['갑피·밑창','Upper·Outsole','アッパー・ソール','합성수지(EVA·실리콘 복합 E-실리폴리렌)'],['안창','Insole','中敷','합성수지(EVA)'],['그립패드','Grip pad','グリップパッド','재생고무(폐타이어)·재생 PVC(실크벽지)']],
+    material: [['갑피·밑창','Upper·Outsole','アッパー・ソール','합성수지(EVA·실리콘 복합 E-실리폴리렌)'],['안창(일체형)','Footbed (one-piece)','中敷（一体型）','합성수지(EVA)'],['그립패드','Grip pad','グリップパッド','재생고무(폐타이어)·재생 PVC(실크벽지)']],
     feats: [
       ['grip4','쿼드그립 4점 패드','Quad Grip 4-point pads','밑창에 원형 그립 패드 4개를 배치했습니다.','Four round grip pads are placed on the outsole.'],
-      ['herring','헤링본 트레드','Herringbone tread','V자가 이어지는 헤링본 패턴의 밑창 무늬입니다.','A tread pattern of continuous V-shaped herringbone lines.'],
-      ['slipon','뒤꿈치 감싸는 슬립온','Closed-heel slip-on','신고 벗기 쉬운 슬립온, 뒤꿈치까지 감싸는 구조입니다.','An easy slip-on that closes around the heel.'],
+      ['onepiece','깔창 없는 일체형 안창','One-piece footbed','안창을 본체와 하나로 만들어 깔창과 신발 사이에 틈이 없습니다.','The footbed is moulded into the shoe, with no gap between insole and shoe.'],
+      ['collar','높게 감싼 발목 라인','Raised collar line','발목 입구 라인을 높여 감싸도록 디자인했습니다.','The collar line is raised to wrap around the ankle.'],
       ['tire','폐타이어·폐벽지 새활용 패드','Upcycled grip pads','그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다.','Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper.'],
     ],
-    coverIcons: [['grip4','쿼드그립','4점 패드'],['herring','헤링본','트레드'],['slipon','뒤꿈치 감싸는','슬립온'],['tire','폐타이어·폐벽지','새활용 패드']],
+    coverIcons: [['grip4','쿼드그립','4점 패드'],['onepiece','깔창 없는','일체형 안창'],['collar','높게 감싼','발목 라인'],['tire','폐타이어·폐벽지','새활용 패드']],
     quotes: [
       ['오늘도, 내 속도로.','Today, at my own pace.'],
       ['하루 종일 서 있는 당신에게.','For you, on your feet all day.'],
       ['버려진 타이어가, 다시 걷는 길이 되었습니다.','Discarded tires, now a path to walk again.'],
     ],
-    introKR: '뒤꿈치를 감싸는 슬립온 구조에 쿼드그립 4점 패드와 헤링본 트레드를 더한 워킹화입니다. 서서 일하고 걷는 하루를 생각하며 설계했습니다.',
-    introEN: 'A closed-heel slip-on with Quad Grip 4-point pads and a herringbone tread, designed with long days of standing and walking in mind.',
+    introKR: '깔창 없이 안창을 하나로 만든 일체형 구조, 발목 라인을 높여 감싼 슬립온에 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.',
+    introEN: 'A one-piece footbed, a raised collar, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.',
     who: ['조리·서비스·매장 등 서서 일하는 분','하루 종일 걷는 분'],
     whoEN: ['People who work on their feet','People who walk all day'],
     caution: [
