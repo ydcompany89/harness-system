@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>RS 라임 포인트 컬러 비교</title>
+<style>
+@font-face{font-family:K;font-weight:400;src:url(../hangtag/fonts/NotoSansKR-400.ttf)}
+@font-face{font-family:K;font-weight:700;src:url(../hangtag/fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:K;font-weight:900;src:url(../hangtag/fonts/NotoSansKR-900.ttf)}
+*{box-sizing:border-box;margin:0}body{font-family:K,sans-serif;background:#ececec;width:1600px;padding:40px;color:#111}
+h1{font-size:34px;font-weight:900}p.sub{font-size:16px;color:#555;margin:6px 0 28px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 1px 3px #0002}
+.dark{background:#111;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative}
+.dark svg.logo{width:150px;height:auto}
+.brand{color:#fff;font-weight:700;font-size:20px;letter-spacing:.5px}.brand span{display:block;font-size:13px;text-align:center;font-weight:400;opacity:.8}
+.dots{position:absolute;bottom:16px;display:flex;gap:8px}.dots i{width:14px;height:14px;border-radius:50%}
+.light{height:170px;display:flex;align-items:center;justify-content:center;gap:16px;border-bottom:1px solid #eee}
+.light svg.logo{width:84px}.bar{width:10px;height:84px;border-radius:5px}
+.pad{height:120px;background:#1b1b1b;display:flex;align-items:center;justify-content:center;gap:14px}
+.pad .p{width:58px;height:58px;border-radius:50%;display:grid;grid-template-columns:repeat(3,12px);gap:4px;place-content:center}
+.pad .p b{width:12px;height:12px;border-radius:2px;background:#0003}
+.meta{padding:14px 16px}.meta h3{font-size:19px;font-weight:900}.meta .hex{font-family:monospace;font-size:15px;color:#333;margin:4px 0}
+.meta ul{font-size:13.5px;color:#444;padding-left:16px;line-height:1.55}.rec{display:inline-block;background:#111;color:#C6F432;font-size:12px;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.note{margin-top:26px;background:#fff;border-radius:14px;padding:18px 22px;font-size:15px;line-height:1.7}
+.note b{font-weight:900}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<filter id="fA" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter>
+<filter id="fB" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.831  0 0 0 0 1.000  0 0 0 0 0.000  -0.667 -0.667 -0.667 0 1.6"/></filter>
+<filter id="fC" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.851  0 0 0 0 0.941  0 0 0 0 0.235  -0.667 -0.667 -0.667 0 1.6"/></filter>
+<filter id="fD" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.710  0 0 0 0 0.902  0 0 0 0 0.114  -0.667 -0.667 -0.667 0 1.6"/></filter>
+<filter id="fE" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.651  0 0 0 0 0.847  0 0 0 0 0.122  -0.667 -0.667 -0.667 0 1.6"/></filter>
+<filter id="fK" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.067  0 0 0 0 0.067  0 0 0 0 0.067  -0.667 -0.667 -0.667 0 1.6"/></filter>
+</defs></svg>
+<h1>RS 포인트 컬러 — 라임 후보 5종</h1>
+<p class="sub">로고 원본(대표님 제공)에 각 색을 입혀 블랙 배경 · 화이트 배경 · 그립 패드에서 비교 · 화면 기준(RGB) 근사값, 인쇄 색은 팬톤 칩북으로 최종 확인</p>
+<div class="grid"><div class="card"><div class="dark"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fA)"/></svg><div class="brand">RhaRa Shoe<span>라라슈</span></div>
+<div class="dots"><i style="background:#C6F432"></i><i style="background:#C6F432"></i><i style="background:#C6F432"></i><i style="background:#C6F432"></i></div></div>
+<div class="light"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fK)"/></svg><div class="bar" style="background:#C6F432"></div></div>
+<div class="pad"><div class="p" style="background:#C6F432"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="p" style="background:#C6F432"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+<div class="meta"><h3>A. 네온 라임<span class="rec">추천</span></h3><div class="hex">#C6F432</div><ul><li>현재 행택 시안 색</li><li>검정 위 가독성 최상</li><li>행택·영상 이미 적용</li><li>형광 패드와 가장 근접</li></ul></div></div>
+<div class="card"><div class="dark"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fB)"/></svg><div class="brand">RhaRa Shoe<span>라라슈</span></div>
+<div class="dots"><i style="background:#D4FF00"></i><i style="background:#D4FF00"></i><i style="background:#D4FF00"></i><i style="background:#D4FF00"></i></div></div>
+<div class="light"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fK)"/></svg><div class="bar" style="background:#D4FF00"></div></div>
+<div class="pad"><div class="p" style="background:#D4FF00"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="p" style="background:#D4FF00"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+<div class="meta"><h3>B. 일렉트릭 라임</h3><div class="hex">#D4FF00</div><ul><li>가장 쨍한 형광</li><li>썸네일 시선 1등</li><li>안전·하이비즈 느낌 강함</li><li>화면마다 노랗게 튈 수 있음</li></ul></div></div>
+<div class="card"><div class="dark"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fC)"/></svg><div class="brand">RhaRa Shoe<span>라라슈</span></div>
+<div class="dots"><i style="background:#D9F03C"></i><i style="background:#D9F03C"></i><i style="background:#D9F03C"></i><i style="background:#D9F03C"></i></div></div>
+<div class="light"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fK)"/></svg><div class="bar" style="background:#D9F03C"></div></div>
+<div class="pad"><div class="p" style="background:#D9F03C"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="p" style="background:#D9F03C"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+<div class="meta"><h3>C. 패드 실물 근사</h3><div class="hex">#D9F03C</div><ul><li>시사출 라임 패드 사진 기준</li><li>실물 패드와 통일</li><li>A보다 살짝 노란 기</li><li>사진 기준이라 실측 필요</li></ul></div></div>
+<div class="card"><div class="dark"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fD)"/></svg><div class="brand">RhaRa Shoe<span>라라슈</span></div>
+<div class="dots"><i style="background:#B5E61D"></i><i style="background:#B5E61D"></i><i style="background:#B5E61D"></i><i style="background:#B5E61D"></i></div></div>
+<div class="light"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fK)"/></svg><div class="bar" style="background:#B5E61D"></div></div>
+<div class="pad"><div class="p" style="background:#B5E61D"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="p" style="background:#B5E61D"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+<div class="meta"><h3>D. 프레시 라임</h3><div class="hex">#B5E61D</div><ul><li>초록 기 더한 라임</li><li>친환경·자연 느낌</li><li>형광 덜해 고급스러움</li><li>썸네일 임팩트는 약함</li></ul></div></div>
+<div class="card"><div class="dark"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fE)"/></svg><div class="brand">RhaRa Shoe<span>라라슈</span></div>
+<div class="dots"><i style="background:#A6D81F"></i><i style="background:#A6D81F"></i><i style="background:#A6D81F"></i><i style="background:#A6D81F"></i></div></div>
+<div class="light"><svg class="logo" viewBox="66 39 478 402"><image href="rs-logo-source.png" width="587" height="481" filter="url(#fK)"/></svg><div class="bar" style="background:#A6D81F"></div></div>
+<div class="pad"><div class="p" style="background:#A6D81F"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="p" style="background:#A6D81F"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div></div>
+<div class="meta"><h3>E. 소프트 라임</h3><div class="hex">#A6D81F</div><ul><li>차분한 라임</li><li>인쇄 재현 쉬움(CMYK)</li><li>오래 봐도 덜 피곤</li><li>하이비즈 느낌 약함</li></ul></div></div></div>
+<div class="note">
+<b>사용 규칙 (공통)</b> · 라임은 <b>블랙/다크 배경 위에서만</b> 로고·글자로 쓴다. 화이트 배경에서는 로고는 블랙, 라임은 바·도트 같은 <b>면 포인트</b>로만 (흰 바탕 위 라임 글자는 안 읽힘)<br>
+<b>인쇄 주의</b> · 형광 라임은 일반 CMYK로 재현이 안 돼 탁해진다 → 행택·패키지는 <b>팬톤 별색(형광 계열 포함)</b> 지정 필요 · 그립 패드 사출색과 인쇄색은 <b>실물 칩을 나란히 놓고</b> 맞춘다
+</div>
+</body></html>
