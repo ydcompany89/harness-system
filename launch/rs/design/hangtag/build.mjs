@@ -35,14 +35,14 @@ const products = {
     en1: 'QUAD GRIP', en2: 'WORKING SHOE',
     nameKR: '라라슈 쿼드그립 종일편한 워킹화', nameEN: 'RhaRa Shoe Quad Grip Working Shoe', nameJA: 'クアッドグリップ ワーキングシューズ',
     itemKR: '신발 (워킹화·슬립온)', itemEN: 'Footwear (working shoe, slip-on)', itemJA: '靴（ワーキングシューズ）',
-    material: [['갑피','Upper','アッパー'],['안창','Insole','中敷'],['밑창','Outsole','アウトソール'],['그립패드','Grip pad','グリップパッド']],
+    material: [['갑피·밑창','Upper·Outsole','アッパー・ソール','합성수지(EVA·실리콘 복합 E-실리폴리렌)'],['안창','Insole','中敷',null],['그립패드','Grip pad','グリップパッド','재생고무(폐타이어)·재생 PVC(실크벽지)']],
     feats: [
       ['grip4','쿼드그립 4점 패드','Quad Grip 4-point pads','밑창에 원형 그립 패드 4개를 배치했습니다.','Four round grip pads are placed on the outsole.'],
       ['herring','헤링본 트레드','Herringbone tread','V자가 이어지는 헤링본 패턴의 밑창 무늬입니다.','A tread pattern of continuous V-shaped herringbone lines.'],
       ['slipon','뒤꿈치 감싸는 슬립온','Closed-heel slip-on','신고 벗기 쉬운 슬립온, 뒤꿈치까지 감싸는 구조입니다.','An easy slip-on that closes around the heel.'],
-      ['tire','폐타이어 새활용 고무','Upcycled tire rubber','폐타이어 고무를 새활용한 소재를 사용했습니다.','Made with rubber upcycled from waste tires.'],
+      ['tire','폐타이어·폐벽지 새활용 패드','Upcycled grip pads','그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다.','Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper.'],
     ],
-    coverIcons: [['grip4','쿼드그립','4점 패드'],['herring','헤링본','트레드'],['slipon','뒤꿈치 감싸는','슬립온'],['tire','폐타이어','새활용 고무']],
+    coverIcons: [['grip4','쿼드그립','4점 패드'],['herring','헤링본','트레드'],['slipon','뒤꿈치 감싸는','슬립온'],['tire','폐타이어·폐벽지','새활용 패드']],
     quotes: [
       ['오늘도, 내 속도로.','Today, at my own pace.'],
       ['하루 종일 서 있는 당신에게.','For you, on your feet all day.'],
@@ -65,14 +65,14 @@ const products = {
     en1: 'QUAD GRIP', en2: 'ARCH INSOLE',
     nameKR: '라라슈 쿼드그립 아치가득 인솔', nameEN: 'RhaRa Shoe Quad Grip Arch Insole', nameJA: 'クアッドグリップ アーチインソール',
     itemKR: '신발 깔창 (인솔)', itemEN: 'Shoe insole', itemJA: 'インソール（中敷）',
-    material: [['본체','Body','本体'],['패드','Pad','パッド']],
+    material: [['본체','Body','本体','합성수지(E-실리폴리렌)·목분(목공 자투리 우드칩)']],
     feats: [
       ['arch','아치 라인을 따라 가득','Arch-contour design','발 아치 라인을 따라 채우는 형태로 설계했습니다.','Shaped to follow the contour of the foot arch.'],
-      ['grip4','쿼드그립 4점','Quad Grip 4-point','쿼드그립 4점 패드 구성을 적용했습니다.','Features the Quad Grip 4-point pad layout.'],
+      ['tire','우드칩 배합 소재','Wood-chip blended material','목공소 자투리 우드칩을 배합한 소재입니다.','Made with offcut wood chips from woodworking shops.'],
       ['heel','뒤꿈치 컵','Heel cup','뒤꿈치를 감싸는 컵 형태 구조입니다.','A cup-shaped structure that cradles the heel.'],
       ['vent','통기 도트','Ventilation dots','도트 패턴으로 통기 구조를 더했습니다.','A dot pattern adds a ventilation structure.'],
     ],
-    coverIcons: [['arch','아치 라인을','따라 가득'],['grip4','쿼드그립','4점'],['heel','뒤꿈치','컵'],['vent','통기','도트']],
+    coverIcons: [['arch','아치 라인을','따라 가득'],['tire','우드칩','배합 소재'],['heel','뒤꿈치','컵'],['vent','통기','도트']],
     quotes: [
       ['좋은 하루는 좋은 걸음에서 시작된다.','A good day starts with a good step.'],
       ['발이 편해야 일이 편하다.','When your feet are at ease, work is easier.'],
@@ -119,9 +119,9 @@ function quote(p, n) {
 }
 function story(p) {
   return `<div class="inp" style="padding-top:12.5mm"><h3>BRAND STORY<small>브랜드 스토리</small></h3>
-  <p class="kr">도로 위에서 수명을 다한 폐타이어 고무를 새활용해 신발로 만드는 브랜드, 라라슈(RhaRa Shoe)입니다.</p>
+  <p class="kr">폐타이어 고무, 실크벽지 자투리, 목공소 우드칩 — 버려지던 자원을 새활용해 신발로 만드는 브랜드, 라라슈(RhaRa Shoe)입니다.</p>
   <p class="kr">하루 종일 서서 일하는 사람들의 걸음 곁에서, 버려진 것이 다시 걷는 길이 되도록 만듭니다.</p>
-  <p class="en">RhaRa Shoe makes footwear from rubber upcycled from waste tires that have reached the end of their life on the road.</p>
+  <p class="en">RhaRa Shoe makes footwear by upcycling discarded resources: waste-tire rubber, silk-wallpaper offcuts and wood chips.</p>
   <p class="en">For people on their feet all day, we turn what was discarded into a path to walk again.</p>
   <div class="zz"><svg viewBox="0 0 55 8" preserveAspectRatio="none">${zig(2)}</svg></div>
   <div class="sig">${logo('sm')}<span>RhaRa Shoe · 라라슈</span></div></div>`;
@@ -138,7 +138,7 @@ function feat(p) {
   ${p.feats.map(f=>`<div class="ft">${icon(f[0])}<div><b>${f[1]}</b><i>${f[2]}</i><p>${f[3]}<br><em>${f[4]}</em></p></div></div>`).join('')}</div>`;
 }
 function quality(p) {
-  const mats = p.material.map(m=>`<div class="mrow"><span>${m[0]}<em> ${m[1]} · <span lang="ja">${m[2]}</span></em></span>${NEED}</div>`).join('');
+  const mats = p.material.map(m=>`<div class="mrow"><span>${m[0]}<em> ${m[1]} · <span lang="ja">${m[2]}</span></em></span>${m[3] ? `<span class="mv">${m[3]}</span>` : NEED}</div>`).join('');
   return `<div class="inq">
   <h3>품질표시<small>Quality Label · <span lang="ja">品質表示</span></small></h3>
   <div class="qr1"><div class="l">제품명 · Product · <span lang="ja">製品名</span></div><div class="v">${p.nameKR}<br><em>${p.nameEN}</em><br><em>RhaRa Shoe <span lang="ja">${p.nameJA}</span></em></div></div>

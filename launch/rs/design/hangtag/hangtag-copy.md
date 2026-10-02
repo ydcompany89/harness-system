@@ -44,11 +44,11 @@
 ### 브랜드 스토리 (안쪽 칸 1)
 **BRAND STORY** 브랜드 스토리
 
-> 도로 위에서 수명을 다한 폐타이어 고무를 새활용해 신발로 만드는 브랜드, 라라슈(RhaRa Shoe)입니다.
+> 폐타이어 고무, 실크벽지 자투리, 목공소 우드칩 — 버려지던 자원을 새활용해 신발로 만드는 브랜드, 라라슈(RhaRa Shoe)입니다.
 >
 > 하루 종일 서서 일하는 사람들의 걸음 곁에서, 버려진 것이 다시 걷는 길이 되도록 만듭니다.
 
-> RhaRa Shoe makes footwear from rubber upcycled from waste tires that have reached the end of their life on the road.
+> RhaRa Shoe makes footwear by upcycling discarded resources: waste-tire rubber, silk-wallpaper offcuts and wood chips.
 >
 > For people on their feet all day, we turn what was discarded into a path to walk again.
 
@@ -101,7 +101,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 | 쿼드그립 4점 패드 | Quad Grip 4-point pads | 밑창에 원형 그립 패드 4개를 배치했습니다. | Four round grip pads are placed on the outsole. |
 | 헤링본 트레드 | Herringbone tread | V자가 이어지는 헤링본 패턴의 밑창 무늬입니다. | A tread pattern of continuous V-shaped herringbone lines. |
 | 뒤꿈치 감싸는 슬립온 | Closed-heel slip-on | 신고 벗기 쉬운 슬립온, 뒤꿈치까지 감싸는 구조입니다. | An easy slip-on that closes around the heel. |
-| 폐타이어 새활용 고무 | Upcycled tire rubber | 폐타이어 고무를 새활용한 소재를 사용했습니다. | Made with rubber upcycled from waste tires. |
+| 폐타이어·폐벽지 새활용 패드 | Upcycled grip pads | 그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다. | Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper. |
 
 ### 품질표시 (안쪽 칸 4) — 품질표시 · Quality Label · 品質表示
 
@@ -109,10 +109,9 @@ RS 로고 · RhaRa Shoe · 라라슈
 |---|---|
 | 제품명 · Product · 製品名 | 라라슈 쿼드그립 종일편한 워킹화 / RhaRa Shoe Quad Grip Working Shoe / RhaRa Shoe クアッドグリップ ワーキングシューズ |
 | 품목 · Item · 品目 | 신발 (워킹화·슬립온) / Footwear (working shoe, slip-on) / 靴（ワーキングシューズ） |
-| 재질 — 갑피 · Upper · アッパー | 🔴 `[확인필요]` |
+| 재질 — 갑피·밑창 · Upper·Outsole | 합성수지(EVA·실리콘 복합 E-실리폴리렌) |
 | 재질 — 안창 · Insole · 中敷 | 🔴 `[확인필요]` |
-| 재질 — 밑창 · Outsole · アウトソール | 🔴 `[확인필요]` |
-| 재질 — 그립패드 · Grip pad · グリップパッド | 🔴 `[확인필요]` |
+| 재질 — 그립패드 · Grip pad | 재생고무(폐타이어)·재생 PVC(실크벽지) |
 | 치수 · Size · サイズ | 🔴 `[확인필요]` |
 | 색상 · Color · 色 | 🔴 `[확인필요]` |
 | 제조연월 · Mfd. · 製造年月 | 🔴 `[확인필요]` |
@@ -171,7 +170,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 | 기능 | 영문 | 설명 (한) | 설명 (영) |
 |---|---|---|---|
 | 아치 라인을 따라 가득 | Arch-contour design | 발 아치 라인을 따라 채우는 형태로 설계했습니다. | Shaped to follow the contour of the foot arch. |
-| 쿼드그립 4점 | Quad Grip 4-point | 쿼드그립 4점 패드 구성을 적용했습니다. | Features the Quad Grip 4-point pad layout. |
+| 우드칩 배합 소재 | Wood-chip blended material | 목공소 자투리 우드칩을 배합한 소재입니다. | Made with offcut wood chips from woodworking shops. |
 | 뒤꿈치 컵 | Heel cup | 뒤꿈치를 감싸는 컵 형태 구조입니다. | A cup-shaped structure that cradles the heel. |
 | 통기 도트 | Ventilation dots | 도트 패턴으로 통기 구조를 더했습니다. | A dot pattern adds a ventilation structure. |
 
@@ -181,8 +180,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 |---|---|
 | 제품명 · Product · 製品名 | 라라슈 쿼드그립 아치가득 인솔 / RhaRa Shoe Quad Grip Arch Insole / RhaRa Shoe クアッドグリップ アーチインソール |
 | 품목 · Item · 品目 | 신발 깔창 (인솔) / Shoe insole / インソール（中敷） |
-| 재질 — 본체 · Body · 本体 | 🔴 `[확인필요]` |
-| 재질 — 패드 · Pad · パッド | 🔴 `[확인필요]` |
+| 재질 — 본체 · Body · 本体 | 합성수지(E-실리폴리렌)·목분(목공 자투리 우드칩) |
 | 치수 · Size · サイズ | 🔴 `[확인필요]` |
 | 색상 · Color · 色 | 🔴 `[확인필요]` |
 | 제조연월 · Mfd. · 製造年月 | 🔴 `[확인필요]` |
