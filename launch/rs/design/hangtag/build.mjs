@@ -46,7 +46,7 @@ const products = {
     material: [['갑피·밑창','Upper·Outsole','アッパー・ソール','합성수지(EVA·실리콘 복합 E-실리폴리렌)'],['안창(일체형)','Footbed (one-piece)','中敷（一体型）','합성수지(EVA)'],['그립패드','Grip pad','グリップパッド','재생고무(폐타이어)·재생 PVC(실크벽지)']],
     feats: [
       ['grip4','쿼드그립 4점 패드','Quad Grip 4-point pads','밑창에 원형 그립 패드 4개를 배치했습니다.','Four round grip pads are placed on the outsole.'],
-      ['onepiece','깔창 없는 일체형 안창','One-piece footbed','안창을 본체와 하나로 만들어 깔창과 신발 사이에 틈이 없습니다.','The footbed is moulded into the shoe, with no gap between insole and shoe.'],
+      ['onepiece','깔창 없는 일체형 안창','One-piece footbed','EVA·실리콘 배합 자체 소재 E-실리폴리렌으로 안창까지 하나로 만들어, 깔창을 따로 넣지 않습니다.','Moulded in one piece from E-Silipolyrene, our own EVA–silicone blend — no separate insole needed.'],
       ['collar','높게 감싼 발목 라인','Raised collar line','발목 입구 라인을 높여 감싸도록 디자인했습니다.','The collar line is raised to wrap around the ankle.'],
       ['tire','폐타이어·폐벽지 새활용 패드','Upcycled grip pads','그립 패드에 폐타이어 고무와 실크벽지 재생 PVC를 배합했습니다.','Grip pads blend waste-tire rubber with PVC recovered from silk wallpaper.'],
     ],
@@ -56,8 +56,8 @@ const products = {
       ['하루 종일 서 있는 당신에게.','For you, on your feet all day.'],
       ['버려진 타이어가, 다시 걷는 길이 되었습니다.','Discarded tires, now a path to walk again.'],
     ],
-    introKR: '깔창 없이 안창을 하나로 만든 일체형 구조, 발목 라인을 높여 감싼 슬립온에 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.',
-    introEN: 'A one-piece footbed, a raised collar, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.',
+    introKR: 'EVA와 실리콘을 배합한 자체 소재 E-실리폴리렌으로 안창까지 하나로 만든 워킹화입니다. 발목 라인을 높여 감싸고, 쿼드그립 4점 패드와 헤링본 트레드를 더했습니다. 물을 많이 쓰는 주방 현장의 목소리를 듣고 설계했습니다.',
+    introEN: 'Moulded in one piece, footbed included, from E-Silipolyrene, our own EVA–silicone blend. A raised collar, Quad Grip 4-point pads and a herringbone tread — designed by listening to people who work in wet kitchens.',
     who: ['조리·서비스·매장 등 서서 일하는 분','하루 종일 걷는 분'],
     whoEN: ['People who work on their feet','People who walk all day'],
     caution: [
@@ -88,8 +88,8 @@ const products = {
     ],
     introKR: '발 아치 라인을 따라 가득 채우는 형태에 쿼드그립 4점, 뒤꿈치 컵, 통기 도트를 더한 인솔입니다. 신고 있는 신발 속에 넣어 사용합니다.',
     introEN: 'An insole shaped to fill along the arch, with Quad Grip 4-point, a heel cup and ventilation dots. Place it inside your shoes.',
-    who: ['오래 서 있거나 걷는 일이 많은 분','신발 속 구성을 바꿔보고 싶은 분'],
-    whoEN: ['People who stand or walk a lot','People who want to change their in-shoe setup'],
+    who: ['발 아치가 낮은 편인 분','오래 서 있거나 걷는 일이 많은 분'],
+    whoEN: ['People with lower foot arches','People who stand or walk a lot'],
     caution: [
       ['고온·직사광선·화기를 피해 보관하세요.','Store away from high heat, direct sunlight and open flame.','高温・直射日光・火気を避けて保管してください。'],
       ['신발 안 깔창 용도 외 사용을 금지합니다.','Do not use for purposes other than as a shoe insole.','靴の中敷用途以外には使用しないでください。'],
