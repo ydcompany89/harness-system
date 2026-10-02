@@ -35,7 +35,7 @@ const products = {
     en1: 'QUAD GRIP', en2: 'WORKING SHOE',
     nameKR: '라라슈 쿼드그립 종일편한 워킹화', nameEN: 'RhaRa Shoe Quad Grip Working Shoe', nameJA: 'クアッドグリップ ワーキングシューズ',
     itemKR: '신발 (워킹화·슬립온)', itemEN: 'Footwear (working shoe, slip-on)', itemJA: '靴（ワーキングシューズ）',
-    material: [['갑피·밑창','Upper·Outsole','アッパー・ソール','합성수지(EVA·실리콘 복합 E-실리폴리렌)'],['안창','Insole','中敷',null],['그립패드','Grip pad','グリップパッド','재생고무(폐타이어)·재생 PVC(실크벽지)']],
+    material: [['갑피·밑창','Upper·Outsole','アッパー・ソール','합성수지(EVA·실리콘 복합 E-실리폴리렌)'],['안창','Insole','中敷','합성수지(EVA)'],['그립패드','Grip pad','グリップパッド','재생고무(폐타이어)·재생 PVC(실크벽지)']],
     feats: [
       ['grip4','쿼드그립 4점 패드','Quad Grip 4-point pads','밑창에 원형 그립 패드 4개를 배치했습니다.','Four round grip pads are placed on the outsole.'],
       ['herring','헤링본 트레드','Herringbone tread','V자가 이어지는 헤링본 패턴의 밑창 무늬입니다.','A tread pattern of continuous V-shaped herringbone lines.'],
