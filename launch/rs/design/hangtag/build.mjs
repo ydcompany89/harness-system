@@ -1,6 +1,7 @@
 // 행택 HTML 생성기: node build.mjs  -> hangtag-walking.html / hangtag-insole.html
 // 수정은 이 파일(데이터/레이아웃)에서 하고 다시 실행한다. 렌더: node render.mjs
 import fs from 'fs';
+import { badgeSVG, glyph } from '../brand/icons/icons.mjs';
 const here = new URL('.', import.meta.url).pathname;
 
 const NEED = '<span class="red">[확인필요]</span>';
@@ -17,7 +18,12 @@ const ic = {
   collar: `<path d="M3 19 H21 V16.5 Q21 14.5 18 14 L14 12.5 L12 8.5"/><path d="M12 8.5 L9.5 4 H6.5 L5.5 13 Q3 14 3 16.5 Z"/><path d="M8 7.5 V2.5 M6.5 4 L8 2.5 L9.5 4"/>`,
   vent: [6,12,18].flatMap(x=>[6,12,18].map(y=>`<circle cx="${x}" cy="${y}" r="1.6"/>`)).join(''),
 };
-const icon = (k) => `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${ic[k]}</svg>`;
+// 2026-10-02: RS 기술 배지(육각) 세트로 통일 — 원본 ../brand/icons/icons.mjs
+const BMAP = { grip4: 'quadgrip' };
+let _bi = 0;
+const icon = (k) => { const key = BMAP[k] || k; const id = `b${_bi++}`;
+  const custom = glyph[key] ? null : `<g transform="scale(2)" stroke-width="1.3">${ic[k]}</g>`;
+  return badgeSVG(key, { id, custom }).replace('class="badge"', 'class="ico"'); };
 
 // ---------- RS 로고 (2026-10-02 대표 확정 원본 PNG를 라임 #C6F432로 재색) ----------
 // 인쇄 최종본은 원본 벡터(AI/SVG) 수령 후 교체 — 현재 원본: ../brand/rs-logo-source.png (587px)
@@ -70,11 +76,11 @@ const products = {
     material: [['본체','Body','本体','합성수지(E-실리폴리렌)·목분(목공 자투리 우드칩)']],
     feats: [
       ['arch','아치 라인을 따라 가득','Arch-contour design','발 아치 라인을 따라 채우는 형태로 설계했습니다.','Shaped to follow the contour of the foot arch.'],
-      ['tire','우드칩 배합 소재','Wood-chip blended material','목공소 자투리 우드칩을 배합한 소재입니다.','Made with offcut wood chips from woodworking shops.'],
+      ['woodchip','우드칩 배합 소재','Wood-chip blended material','목공소 자투리 우드칩을 배합한 소재입니다.','Made with offcut wood chips from woodworking shops.'],
       ['heel','뒤꿈치 컵','Heel cup','뒤꿈치를 감싸는 컵 형태 구조입니다.','A cup-shaped structure that cradles the heel.'],
       ['vent','통기 도트','Ventilation dots','도트 패턴으로 통기 구조를 더했습니다.','A dot pattern adds a ventilation structure.'],
     ],
-    coverIcons: [['arch','아치 라인을','따라 가득'],['tire','우드칩','배합 소재'],['heel','뒤꿈치','컵'],['vent','통기','도트']],
+    coverIcons: [['arch','아치 라인을','따라 가득'],['woodchip','우드칩','배합 소재'],['heel','뒤꿈치','컵'],['vent','통기','도트']],
     quotes: [
       ['좋은 하루는 좋은 걸음에서 시작된다.','A good day starts with a good step.'],
       ['발이 편해야 일이 편하다.','When your feet are at ease, work is easier.'],
