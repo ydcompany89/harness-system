@@ -1,0 +1,176 @@
+<!doctype html><html><head><meta charset="utf-8"><title>RS day1 reel</title><style>
+@font-face{font-family:K;font-weight:400;src:url(../../design/hangtag/fonts/NotoSansKR-400.ttf)}
+@font-face{font-family:K;font-weight:700;src:url(../../design/hangtag/fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:K;font-weight:900;src:url(../../design/hangtag/fonts/NotoSansKR-900.ttf)}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0e0e0e;font-family:K,sans-serif;color:#fff;word-break:keep-all}
+.bg{position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 38px,#161616 38px 40px),repeating-linear-gradient(45deg,transparent 0 38px,#161616 38px 40px)}
+.L{color:#C6F432}
+.logo{display:block}
+.bd svg{width:100%;height:100%;display:block}
+.crop{position:relative;width:1080px;height:600px;overflow:hidden;border-radius:60px}
+.crop img{position:absolute;left:-95px;top:-60px;width:1181px}
+.ring{position:absolute;inset:0;width:1080px;height:600px}
+.dots{display:flex;gap:22px}.dots i{width:30px;height:30px;border-radius:50%;background:#C6F432;display:block}
+.lb{fill:#bbb;font-family:K;font-weight:700;font-size:34px}
+.g1{display:flex;gap:30px;justify-content:center}
+.g1 .sh{width:270px;height:300px;border:4px solid #333;border-radius:36px;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.g1 svg{width:200px}.g1 b{font-size:44px;font-weight:900}
+.g2{width:860px;display:block;margin:0 auto}
+.g3{height:560px;display:block;margin:0 auto}
+.g4{width:860px;margin:0 auto}
+.g4 .row{display:flex;align-items:center;gap:26px;margin-bottom:34px}
+.g4 .row span{width:260px;white-space:nowrap;font-size:40px;font-weight:700;color:#bbb;text-align:right}
+.g4 .row i{display:block;height:54px;border-radius:27px;background:#C6F432}
+.g4 .warn{margin:40px 0 0 286px;display:inline-block;border:4px solid #C6F432;border-radius:999px;padding:14px 40px;font-size:40px;font-weight:900;color:#C6F432}
+
+html,body{width:1080px;height:1920px;overflow:hidden}
+body:not(.go) *{animation-play-state:paused!important}
+.c{position:absolute;inset:0;opacity:0;text-align:center}
+@keyframes cut{0%{opacity:0}2%{opacity:1}98%{opacity:1}100%{opacity:0}}
+@keyframes cutIn{0%{opacity:0}4%{opacity:1}100%{opacity:1}}
+@keyframes pp{from{opacity:0;transform:scale(1.18)}to{opacity:1;transform:scale(1)}}
+@keyframes up{from{opacity:0;transform:translateY(80px)}to{opacity:1;transform:none}}
+@keyframes dot{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes zoom{from{transform:none}to{transform:translateY(-200px) scale(1.4)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pp{opacity:0;animation:pp .28s cubic-bezier(.2,.8,.2,1) both}
+.upa{opacity:0;animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+.top{position:absolute;top:250px;left:0;right:0;font-size:38px;font-weight:700;letter-spacing:2px}.lbl{color:#C6F432}
+h1,h2{margin:0;font-weight:900;letter-spacing:-3px}
+.c1 .who{position:absolute;top:390px;left:60px;right:60px;margin:0;font-size:58px;line-height:1.4;font-weight:700;color:#ddd}
+.c1 h1{position:absolute;top:640px;left:40px;right:40px;font-size:150px;line-height:1.14}
+.qq{position:absolute;top:300px;left:0;right:0;font-size:44px;font-weight:700;color:#bbb}
+.qq b{color:#C6F432}
+.qc{position:absolute;top:600px;left:80px;right:80px}
+.qc i{display:block;font-style:normal;font-size:220px;line-height:.8;font-weight:900;color:#C6F432}
+.qc p{margin:20px 0 0;font-size:88px;line-height:1.25;font-weight:900;letter-spacing:-2px}
+.c4{background:#C6F432;color:#0e0e0e}
+.c4 .dots{position:absolute;top:520px;left:0;right:0;justify-content:center;gap:60px}
+.c4 .dots i{width:110px;height:110px;background:#0e0e0e;transform:scale(0);animation:dot .2s ease-out both}
+.c4 h2{position:absolute;top:760px;left:40px;right:40px;font-size:140px;line-height:1.14}
+.c4 p{position:absolute;top:1120px;left:0;right:0;margin:0;font-size:52px;font-weight:900}
+.ck .num{margin:0 auto;width:170px;height:170px;border-radius:50%;background:#C6F432;color:#0e0e0e;font-size:120px;font-weight:900;display:flex;align-items:center;justify-content:center;line-height:1}
+.ck>div:nth-child(2){position:absolute;top:360px;left:0;right:0}
+.ck h2{position:absolute;top:580px;left:40px;right:40px;font-size:124px;line-height:1.14}
+.ck .gr{position:absolute;top:930px;left:0;right:0;height:560px;display:flex;align-items:center;justify-content:center}
+.ck .gr>div{width:100%}
+.ck .g3{height:540px}
+.c9 svg{position:absolute;top:420px;left:440px;width:200px}
+.c9 h2{position:absolute;top:720px;left:40px;right:40px;font-size:136px;line-height:1.16}
+.c10 .who,.c11 .who{position:absolute;top:250px;left:0;right:0;margin:0;font-size:48px;font-weight:700;color:#C6F432}
+.c10 h2{position:absolute;top:330px;left:40px;right:40px;font-size:112px;line-height:1.14}
+.pv{position:absolute;left:0;right:0;top:640px;height:1080px}
+.pv .rot{position:absolute;left:240px;top:0;width:600px;height:1080px}
+.pv .rot .crop{position:absolute;left:-240px;top:240px;transform:rotate(-90deg);box-shadow:0 30px 80px #000}
+.c10 .pv{animation:up .6s cubic-bezier(.2,.8,.2,1) 10.8s both}
+.c11 h2{position:absolute;top:330px;left:40px;right:40px;font-size:112px;line-height:1.14;z-index:2}
+.c11 .zm{position:absolute;inset:0;transform-origin:557px 1476px;animation:zoom 1.2s ease-out 12.6s both}
+.c11 .ring ellipse{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw .5s ease-out 12.75s forwards}
+.c11 .shade{position:absolute;left:0;right:0;top:0;height:720px;background:linear-gradient(#0e0e0e 0,#0e0e0e 75%,rgba(14,14,14,0));z-index:1}
+.c12 .dots{position:absolute;top:470px;left:0;right:0;justify-content:center;gap:44px}
+.c12 .dots i{width:70px;height:70px;transform:scale(0);animation:dot .2s ease-out both}
+.c12 .lw{position:absolute;top:610px;left:0;right:0;display:flex;justify-content:center}
+.c12 .nm{position:absolute;top:1010px;left:0;right:0}
+.c12 .nm b{display:block;font-size:72px;font-weight:900;letter-spacing:2px}.c12 .nm span{font-size:44px;color:#C6F432;font-weight:700}
+.c12 .open{position:absolute;top:1220px;left:0;right:0}
+.c12 .open span{display:inline-block;border:5px solid #C6F432;border-radius:999px;padding:22px 70px;font-size:60px;font-weight:900;letter-spacing:4px;white-space:nowrap}
+.c12 .fl{position:absolute;top:1420px;left:0;right:0;font-size:44px;font-weight:700;color:#ccc}
+</style></head><body>
+<div class="bg"></div>
+
+<section class="c c1" style="animation:cut 1.2s linear 0s both">
+  <p class="who">오래 서서 일하다<br>‘깔창 추천’ 검색해 본 분들</p>
+  <h1 class="pp" style="animation-delay:0.05s">깔창 사기 전에<br><span class="L">신던 신발부터<br>꺼내보세요</span></h1>
+</section>
+
+<section class="c c2" style="animation:cut 1.2s linear 1.2s both">
+  <div class="qq">영상 댓글 <b>약 210개</b>를 읽었더니</div>
+  <div class="qc" class="pp" style="animation-delay:1.2s"><i>“</i><p>러닝화에 아치깔창<br>넣어도 되나요?</p></div>
+</section>
+
+<section class="c c3" style="animation:cut 1.2000000000000002s linear 2.4s both">
+  <div class="qq">이런 질문이 <b>반복</b>됐어요</div>
+  <div class="qc" class="pp" style="animation-delay:2.4s"><i>“</i><p>깔창 추가하면<br>너무 푹신해서<br>역효과?</p></div>
+</section>
+
+<section class="c c4" style="animation:cut 1.1999999999999997s linear 3.6s both">
+  <div class="dots"><i style="animation-delay:3.65s"></i><i style="animation-delay:3.75s"></i><i style="animation-delay:3.85s"></i><i style="animation-delay:3.95s"></i></div>
+  <h2 class="pp" style="animation-delay:3.9s">깔창 사기 전<br>확인할 4가지</h2>
+  <p class="pp" style="animation-delay:4.05s">저장해두세요</p>
+</section>
+
+<section class="c ck" style="animation:cut 1.2000000000000002s linear 4.8s both">
+  <div class="top"><span class="lbl">깔창 사기 전 체크</span></div>
+  <div class="pp" style="animation-delay:4.8s"><div class="num">1</div></div>
+  <h2 class="pp" style="animation-delay:4.88s">어디에 넣을지<br>먼저 정하기</h2>
+  <div class="gr"><div class="pp" style="animation-delay:5s"><div class="g1"><div class="sh"><svg viewBox="0 0 120 80" fill="none" stroke="#C6F432" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 62H112V54C112 46 104 44 94 42L66 34L56 18H30L24 40C14 42 8 48 8 54Z"/><path d="M8 54H112"/><path d="M40 26L48 24M42 32L52 30"/></svg><b>운동화</b></div><div class="sh"><svg viewBox="0 0 120 80" fill="none" stroke="#C6F432" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 58H24V66H32V58H114C114 50 106 46 94 44L64 38L54 28H24C20 38 12 44 8 50Z"/><path d="M32 58H114"/></svg><b>구두</b></div><div class="sh"><svg viewBox="0 0 120 80" fill="none" stroke="#C6F432" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"><path d="M10 64H112V56C112 48 104 46 94 44L70 38L66 8H28L26 44C16 46 10 50 10 56Z"/><path d="M10 56H112"/><path d="M34 18H60M34 28H62"/></svg><b>안전화</b></div></div></div></div>
+</section>
+<section class="c ck" style="animation:cut 1.2000000000000002s linear 6s both">
+  <div class="top"><span class="lbl">깔창 사기 전 체크</span></div>
+  <div class="pp" style="animation-delay:6s"><div class="num">2</div></div>
+  <h2 class="pp" style="animation-delay:6.08s">원래 안창이<br>빠지는지 보기</h2>
+  <div class="gr"><div class="pp" style="animation-delay:6.2s"><svg class="g2" viewBox="0 0 860 380" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g><path d="M40 120V300Q40 330 70 330H350Q380 330 380 300V120" stroke="#777" stroke-width="8"/>
+    <rect x="70" y="70" width="280" height="26" rx="13" stroke="#bbb" stroke-width="5" stroke-dasharray="14 12"/>
+    <path d="M210 150V112M194 128L210 112L226 128" stroke="#bbb" stroke-width="6"/>
+    <rect x="62" y="280" width="296" height="30" rx="15" fill="#C6F432"/>
+    <text x="210" y="372" text-anchor="middle" class="lb">빼고 넣기</text></g>
+  <g transform="translate(440 0)"><path d="M40 120V300Q40 330 70 330H350Q380 330 380 300V120" stroke="#777" stroke-width="8"/>
+    <rect x="62" y="282" width="296" height="28" rx="14" fill="#666"/>
+    <rect x="62" y="244" width="296" height="30" rx="15" fill="#C6F432"/>
+    <text x="210" y="372" text-anchor="middle" class="lb">위에 겹치기</text></g>
+</svg></div></div>
+</section>
+<section class="c ck" style="animation:cut 1.2000000000000002s linear 7.2s both">
+  <div class="top"><span class="lbl">깔창 사기 전 체크</span></div>
+  <div class="pp" style="animation-delay:7.2s"><div class="num">3</div></div>
+  <h2 class="pp" style="animation-delay:7.28s">원래 안창 위에<br>겹쳐 대보기</h2>
+  <div class="gr"><div class="pp" style="animation-delay:7.4s"><svg class="g3" viewBox="-80 0 600 760" fill="none" stroke-linecap="round">
+  <path d="M150 20C232 20 272 92 270 200C268 300 238 360 240 452C242 566 220 680 150 680C80 680 58 566 60 452C62 372 30 300 30 200C28 92 68 20 150 20Z" transform="translate(70 40)" stroke="#bbb" stroke-width="6" stroke-dasharray="16 12"/>
+  <path d="M150 20C232 20 272 92 270 200C268 300 238 360 240 452C242 566 220 680 150 680C80 680 58 566 60 452C62 372 30 300 30 200C28 92 68 20 150 20Z" transform="translate(84 6) scale(.95 1.05)" stroke="#C6F432" stroke-width="8"/>
+  <path d="M40 30V740M28 30H52M28 740H52" stroke="#888" stroke-width="4"/>
+  <text x="0" y="400" class="lb">길이</text>
+  <path d="M110 520H420M110 508V532M420 508V532" stroke="#888" stroke-width="4"/>
+  <text x="265" y="505" class="lb" text-anchor="middle">폭</text>
+</svg></div></div>
+</section>
+<section class="c ck" style="animation:cut 1.1999999999999993s linear 8.4s both">
+  <div class="top"><span class="lbl">깔창 사기 전 체크</span></div>
+  <div class="pp" style="animation-delay:8.4s"><div class="num">4</div></div>
+  <h2 class="pp" style="animation-delay:8.48s">처음엔<br>짧게 신어보기</h2>
+  <div class="gr"><div class="pp" style="animation-delay:8.6s"><div class="g4">
+  <div class="row"><span>처음</span><i style="width:22%"></i></div>
+  <div class="row"><span>조금씩</span><i style="width:52%"></i></div>
+  <div class="row"><span>익숙해지면</span><i style="width:86%"></i></div>
+  <div class="warn">불편하면 참지 말고 빼기</div>
+</div></div></div>
+</section>
+
+<section class="c c9" style="animation:cut 1.200000000000001s linear 9.6s both">
+  <svg class="pp" style="animation-delay:9.6s" viewBox="0 0 24 24" fill="none" stroke="#C6F432" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+  <h2 class="pp" style="animation-delay:9.68s">저장해두고<br><span class="L">살 때</span><br>꺼내보세요</h2>
+</section>
+
+<section class="c c10" style="animation:cut 1.799999999999999s linear 10.8s both">
+  <p class="who upa" style="animation-delay:10.8s">라라슈가 만들고 있는 인솔</p>
+  <h2 class="upa" style="animation-delay:10.9s">쿼드그립<br><span class="L">아치가득 인솔</span></h2>
+  <div class="pv"><div class="rot"><div class="crop"><img src="../../design/film/insole-photo.png"></div></div></div>
+</section>
+
+<section class="c c11" style="animation:cut 1.200000000000001s linear 12.6s both">
+  <div class="shade"></div>
+  <p class="who" style="z-index:2">실물 시사출 샘플</p>
+  <h2 class="pp" style="animation-delay:12.6s">뒤꿈치 가운데를<br><span class="L">비운 링 구조</span></h2>
+  <div class="zm"><div class="pv"><div class="rot"><div class="crop"><img src="../../design/film/insole-photo.png"><svg class="ring " viewBox="0 0 1080 600"><ellipse cx="268" cy="312" rx="182" ry="128" fill="none" stroke="#C6F432" stroke-width="10"/></svg></div></div></div></div>
+</section>
+
+<section class="c c12" style="animation:cutIn 2.3999999999999986s linear 13.8s both">
+  <div class="dots"><i style="animation-delay:13.850000000000001s"></i><i style="animation-delay:14.000000000000002s"></i><i style="animation-delay:14.150000000000002s"></i><i style="animation-delay:14.3s"></i></div>
+  <div class="lw upa" style="animation-delay:14.450000000000001s"><svg class="logo" style="width:380px" viewBox="66 39 478 402"><defs><clipPath id="clg4"><rect x="66" y="39" width="478" height="402"/></clipPath><filter id="lg4" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter></defs><g clip-path="url(#clg4)"><image href="../../design/brand/rs-logo-source.png" width="587" height="481" filter="url(#lg4)"/></g></svg></div>
+  <div class="nm upa" style="animation-delay:14.600000000000001s"><b>RhaRa Shoe</b><span>라라슈</span></div>
+  <div class="open upa" style="animation-delay:14.8s"><span>2026. 11. 11 OPEN</span></div>
+  <div class="fl upa" style="animation-delay:15s">팔로우하고 오픈 소식 먼저 받기</div>
+</section>
+<script>document.fonts.ready.then(()=>requestAnimationFrame(()=>document.body.classList.add('go')))</script>
+</body></html>
