@@ -45,3 +45,11 @@
 - [ ] 브랜드 톤앤매너 위반 없는가
 - [ ] 저작권(인용/이미지) 문제 없는가
 - [ ] (디자인물) 텍스트는 HTML, 제품은 실물 사진, AI 이미지는 배경·연출에만 썼는가
+
+
+## G. 영상 제작 도구 — Lemo-Opuscar (2026-10-03 도입)
+- 코드로 영상 제작: HTML `window.render(t)` → 프레임별 캡처 → ffmpeg, 음악·효과음 합성과 믹스(-14 LUFS)까지 자동. 스타일 43종.
+- 설치: `sh scripts/setup-lemo-opuscar.sh` (클라우드 세션은 매번). 세로 영상은 모든 렌더 명령에 `--size 1080x1920`.
+- 페이지는 폰트·이미지 로드 후 `window.READY = true`, `window.DUR`(초) 지정, `render(t)`는 결정적(랜덤·Date 금지).
+- RS에 맞는 스타일: swiss-motion·dark-keynote(런칭필름), blueprint(구조 설명), iso-infographic·pictogram-motion(정보 릴스). **glass-product 금지**(가상 제품 렌더 = 실물 원칙 위반).
+- 한국어 내레이션: 기본 TTS 미지원 → 대표 녹음 또는 자막+음악. 샘플 음원은 상업 이용 라이선스 확인 후 사용.
