@@ -1,0 +1,132 @@
+<!doctype html><html><head><meta charset="utf-8"><title>RS insole launch film</title><style>
+@font-face{font-family:K;font-weight:400;src:url(../hangtag/fonts/NotoSansKR-400.ttf)}
+@font-face{font-family:K;font-weight:700;src:url(../hangtag/fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:K;font-weight:900;src:url(../hangtag/fonts/NotoSansKR-900.ttf)}
+*{box-sizing:border-box}html,body{margin:0;width:1080px;height:1920px;background:#0e0e0e;overflow:hidden;font-family:K,sans-serif;color:#fff}
+body:not(.go) *{animation-play-state:paused!important}
+.s{position:absolute;inset:0;opacity:0}
+@keyframes scene{0%{opacity:0}8%{opacity:1}92%{opacity:1}100%{opacity:0}}
+@keyframes sceneIn{0%{opacity:0}12%{opacity:1}100%{opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.a{opacity:0;animation:up .5s cubic-bezier(.2,.8,.2,1) both}
+.bg{position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 38px,#161616 38px 40px),repeating-linear-gradient(45deg,transparent 0 38px,#161616 38px 40px)}
+.logo{display:block}
+/* S1 */
+.dots{position:absolute;top:640px;left:0;right:0;display:flex;justify-content:center;gap:48px}
+.dots i{width:70px;height:70px;border-radius:50%;background:#C6F432;transform:scale(0);animation:pop .22s ease-out both}
+.s1 .logo{position:absolute;top:800px;left:50%;margin-left:-230px;opacity:0;animation:up .5s ease-out 1.0s both}
+.s1 .nm{position:absolute;top:1230px;left:0;right:0;text-align:center}
+.nm b{display:block;font-size:72px;font-weight:900;letter-spacing:2px}.nm span{font-size:44px;color:#C6F432;font-weight:700}
+/* 제품 */
+.crop{position:relative;width:1080px;height:600px;overflow:hidden;border-radius:60px}
+.crop img{position:absolute;left:-95px;top:-60px;width:1181px}
+.prod{position:absolute;left:50%;top:50%;width:1080px;height:600px;margin:-300px 0 0 -540px}
+.ring{position:absolute;inset:0;width:1080px;height:600px}
+.ring ellipse{stroke-dasharray:920;stroke-dashoffset:920;animation:draw .7s ease-out 8.5s forwards}
+.ring .pulse{animation:draw .7s ease-out 8.5s forwards, pl 1s ease-out 9.2s 2}
+@keyframes pl{from{transform:scale(1);opacity:1}to{transform:scale(1.25);opacity:0}}
+.ring .pulse{transform-origin:244px 317px}
+.cap{position:absolute;left:90px;right:90px}
+.no{font-size:40px;font-weight:900;color:#C6F432;letter-spacing:4px}
+.cap h2{margin:10px 0 18px;font-size:92px;line-height:1.12;font-weight:900;word-break:keep-all}
+.cap p{margin:0;font-size:44px;line-height:1.5;color:#d8d8d8;word-break:keep-all}
+.cap .en{font-size:30px;color:#8a8a8a;letter-spacing:3px;margin-top:22px}
+.badge{position:absolute;width:190px;height:190px}
+/* S2 */
+.s2 .p2{position:absolute;left:50%;top:1080px;transform:translateX(-50%) rotate(-90deg) scale(.95);animation:p2 2.4s ease-out 2.6s both}
+@keyframes p2{from{opacity:0;transform:translateX(-50%) translateY(200px) rotate(-90deg) scale(.85)}25%{opacity:1}to{opacity:1;transform:translateX(-50%) rotate(-90deg) scale(.95)}}
+.s2 .p2 .crop{box-shadow:0 30px 80px #000}
+/* S3 아치 도해 */
+.arch{position:absolute;left:90px;top:900px;width:900px;height:520px}
+.arch path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.arch .base{stroke:#555;stroke-width:8}
+.arch .foot{stroke:#bbb;stroke-width:6;stroke-dasharray:1600;stroke-dashoffset:1600;animation:draw 1s ease-out 5.4s forwards}
+.arch .sole{stroke:#C6F432;stroke-width:16;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 1.1s ease-out 6.0s forwards}
+.arch .fill{fill:#C6F432;opacity:0;animation:fade .6s ease-out 6.8s forwards}
+.arch text{fill:#8a8a8a;font-size:30px;font-family:K}
+/* S4 뒤꿈치 줌 */
+.s4 .p4{position:absolute;left:50%;top:1260px;width:1080px;height:600px;margin-left:-540px;transform:rotate(-90deg) scale(1.15);transform-origin:50% 50%;animation:zoom 3s ease-in-out 8s both}
+@keyframes zoom{from{transform:rotate(-90deg) scale(1.0)}to{transform:rotate(-90deg) scale(1.35) translateX(170px)}}
+.shade{position:absolute;left:0;right:0;top:0;height:980px;background:linear-gradient(#0e0e0e 0,#0e0e0e 68%,rgba(14,14,14,0))}
+.s4 .cap,.s4 .badge{z-index:2}
+/* S5 */
+.s5 .p5{position:absolute;left:50%;top:1080px;width:1080px;height:600px;margin-left:-540px;transform:rotate(-90deg) scale(.9);filter:brightness(.55)}
+.chip{position:absolute;left:50%;top:1380px;width:150px;height:150px;margin:-75px;opacity:0;animation:fly .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes fly{from{opacity:0;transform:translate(0,0) rotate(0) scale(.3)}to{opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1)}}
+/* S6 */
+.s6 .logo{position:absolute;top:560px;left:50%;margin-left:-200px;animation:up .5s ease-out 14.2s both}
+.s6 .t{position:absolute;top:1000px;left:0;right:0;text-align:center}
+.s6 .t span{display:block;font-size:44px;color:#ccc;font-weight:700}
+.s6 .t b{display:block;font-size:96px;font-weight:900;color:#C6F432;margin-top:6px}
+.s6 .open{position:absolute;top:1330px;left:0;right:0;text-align:center}
+.s6 .open span{display:inline-block;border:5px solid #C6F432;border-radius:999px;padding:22px 70px;font-size:56px;font-weight:900;letter-spacing:4px;white-space:nowrap}
+.s6 .sig{position:absolute;bottom:150px;left:0;right:0;text-align:center;font-size:34px;color:#888;letter-spacing:3px}
+</style></head><body>
+<div class="bg"></div>
+
+<section class="s s1" style="animation:scene 2.6s linear 0s both">
+  <div class="dots"><i style="animation-delay:0.15s"></i><i style="animation-delay:0.31s"></i><i style="animation-delay:0.47s"></i><i style="animation-delay:0.63s"></i></div>
+  <svg class="logo" style="width:460px" viewBox="66 39 478 402"><defs><clipPath id="clg0"><rect x="66" y="39" width="478" height="402"/></clipPath><filter id="lg0" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter></defs><g clip-path="url(#clg0)"><image href="../brand/rs-logo-source.png" width="587" height="481" filter="url(#lg0)"/></g></svg>
+  <div class="nm a" style="animation-delay:1.3s"><b>RhaRa Shoe</b><span>라라슈</span></div>
+</section>
+
+<section class="s s2" style="animation:scene 2.4s linear 2.6s both">
+  <div class="cap" style="top:230px"><div class="a" style="animation-delay:2.8s"><div class="no">NEW · RS</div><h2>라라슈 쿼드그립<br><span style="color:#C6F432">아치가득 인솔</span></h2></div></div>
+  <div class="p2"><div class="crop"><img src="insole-photo.png"></div></div>
+</section>
+
+<section class="s s3" style="animation:scene 3s linear 5s both">
+  <div class="badge a" style="right:90px;top:220px;animation-delay:5.2s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gf1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient><filter id="ff1" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gf1)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round" filter="url(#ff1)"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 33C10 33 12 33 15 29C19 22 27 22 31 29C33.5 33 38 33 44 33V38H4Z"/><path d="M23 8V18M19 14L23 18L27 14" /></g>
+
+</svg></div>
+  <div class="cap" style="top:220px"><div class="a" style="animation-delay:5.2s"><div class="no">01</div><h2>아치 라인을<br>따라 가득</h2><p>발 아치 곡선을 따라<br>빈틈을 채우는 형태</p><div class="en">ARCH CONTOUR</div></div></div>
+  <svg class="arch" viewBox="0 0 900 520">
+    <path class="base" d="M20 470H880"/>
+    <path class="foot" d="M60 440C60 400 90 380 150 380C230 380 270 250 380 220C480 195 560 170 650 120C720 80 800 90 830 160C850 210 850 300 840 360C835 420 820 440 800 440"/>
+    <path class="fill" d="M60 470C140 470 170 466 210 440C270 400 300 330 400 320C500 312 560 400 620 440C680 470 760 470 840 470Z"/>
+    <path class="sole" d="M60 470C140 470 170 466 210 440C270 400 300 330 400 320C500 312 560 400 620 440C680 470 760 470 840 470"/>
+    <text x="40" y="515">HEEL</text><text x="770" y="515">TOE</text>
+  </svg>
+</section>
+
+<section class="s s4" style="animation:scene 3s linear 8s both">
+  <div class="p4"><div class="crop"><img src="insole-photo.png"><svg class="ring" viewBox="0 0 1080 600"><ellipse cx="244" cy="317" rx="150" ry="140" fill="none" stroke="#C6F432" stroke-width="10"/><ellipse cx="244" cy="317" rx="150" ry="140" fill="none" stroke="#C6F432" stroke-width="4" class="pulse"/></svg></div></div>
+  <div class="shade"></div>
+  <div class="badge a" style="right:90px;top:220px;animation-delay:8.2s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gf2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient><filter id="ff2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gf2)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round" filter="url(#ff2)"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><g transform="scale(2)" stroke-width="1.3"><path d="M5 4 V13 A7 7 0 0 0 19 13 V4"/><path d="M8.5 4 V12.5 A3.5 3.5 0 0 0 15.5 12.5 V4" /></g></g>
+
+</svg></div>
+  <div class="cap" style="top:220px"><div class="a" style="animation-delay:8.2s"><div class="no">02</div><h2>뒤꿈치를<br>감싸는 컵</h2><p>가운데를 비운 링 구조로<br>뒤꿈치를 감싸 안습니다</p><div class="en">HEEL CUP · RING</div></div></div>
+</section>
+
+<section class="s s5" style="animation:scene 3s linear 11s both">
+  <div class="p5"><div class="crop"><img src="insole-photo.png"></div></div>
+  <svg class="chip" style="--x:-300px;--y:-200px;--r:25deg;animation-delay:11.3s" viewBox="0 0 48 48"><path d="M6 30L14 18L26 21L22 34Z" fill="#b8874b" stroke="#C6F432" stroke-width="1.5"/><path d="M12 25L21 27" stroke="#7a5428" stroke-width="1.5"/></svg><svg class="chip" style="--x:320px;--y:-120px;--r:-40deg;animation-delay:11.42s" viewBox="0 0 48 48"><path d="M6 30L14 18L26 21L22 34Z" fill="#b8874b" stroke="#C6F432" stroke-width="1.5"/><path d="M12 25L21 27" stroke="#7a5428" stroke-width="1.5"/></svg><svg class="chip" style="--x:-260px;--y:260px;--r:60deg;animation-delay:11.540000000000001s" viewBox="0 0 48 48"><path d="M6 30L14 18L26 21L22 34Z" fill="#b8874b" stroke="#C6F432" stroke-width="1.5"/><path d="M12 25L21 27" stroke="#7a5428" stroke-width="1.5"/></svg><svg class="chip" style="--x:280px;--y:300px;--r:-15deg;animation-delay:11.66s" viewBox="0 0 48 48"><path d="M6 30L14 18L26 21L22 34Z" fill="#b8874b" stroke="#C6F432" stroke-width="1.5"/><path d="M12 25L21 27" stroke="#7a5428" stroke-width="1.5"/></svg><svg class="chip" style="--x:0px;--y:-360px;--r:80deg;animation-delay:11.780000000000001s" viewBox="0 0 48 48"><path d="M6 30L14 18L26 21L22 34Z" fill="#b8874b" stroke="#C6F432" stroke-width="1.5"/><path d="M12 25L21 27" stroke="#7a5428" stroke-width="1.5"/></svg>
+  <div class="badge a" style="right:90px;top:220px;animation-delay:11.2s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gf3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient><filter id="ff3" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gf3)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round" filter="url(#ff3)"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30L14 18L26 21L22 34Z"/><path d="M27 15L36 7L43 14L35 23Z"/><path d="M26 32L36 27L42 37L31 42Z"/><path d="M12 25L21 27M31 12L38 15M31 34L38 35" stroke-width="1.8"/></g>
+
+</svg></div>
+  <div class="cap" style="top:220px"><div class="a" style="animation-delay:11.2s"><div class="no">03</div><h2>우드칩<br>배합 소재</h2><p>목공소 자투리 우드칩을<br>새활용해 배합했습니다</p><div class="en">UPCYCLED WOOD-CHIP BLEND</div></div></div>
+</section>
+
+<section class="s s6" style="animation:sceneIn 2.5s linear 14s both">
+  <svg class="logo" style="width:400px" viewBox="66 39 478 402"><defs><clipPath id="clg1"><rect x="66" y="39" width="478" height="402"/></clipPath><filter id="lg1" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter></defs><g clip-path="url(#clg1)"><image href="../brand/rs-logo-source.png" width="587" height="481" filter="url(#lg1)"/></g></svg>
+  <div class="t a" style="animation-delay:14.4s"><span>라라슈 쿼드그립</span><b>아치가득 인솔</b></div>
+  <div class="open a" style="animation-delay:14.7s"><span>2026. 11. 11 OPEN</span></div>
+  <div class="sig a" style="animation-delay:14.9s">RhaRa Shoe · 라라슈</div>
+</section>
+<script>document.fonts.ready.then(()=>requestAnimationFrame(()=>document.body.classList.add('go')))</script>
+</body></html>
