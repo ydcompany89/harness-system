@@ -1,0 +1,7 @@
+라라슈 쿼드그립 종일편한 워킹화 — 런칭필름 · 사용 자원
+
+- 제품 사진: 주식회사 알앤디메이커스 자체 촬영 (2026-09-30 시사출 샘플) — 자사 소유
+- RS 로고: 주식회사 알앤디메이커스 — 자사 소유
+- 서체: Noto Sans KR (Google, SIL Open Font License 1.1)
+- 음악·효과음: numpy 합성 (외부 샘플·음원 미사용). 효과음 함수 sfx.py — Lemo-Opuscar (MIT License, github.com/lemomo-ai/lemo-opuscar)
+- 렌더링·마스터링 도구: Lemo-Opuscar core (MIT), Playwright/Chromium, FFmpeg

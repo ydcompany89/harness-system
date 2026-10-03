@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>라라슈 쿼드그립 종일편한 워킹화 — 런칭필름</title>
+<style>html,body{margin:0;background:#0B0B0B;overflow:hidden}canvas{display:block}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// RS 런칭필름 (워킹화) — Swiss Motion, 1080x1920, 120 BPM. render(t)는 결정적(랜덤·시계 미사용).
+const W = innerWidth, H = innerHeight;
+const cv = document.getElementById('c'); cv.width = W; cv.height = H;
+const g = cv.getContext('2d');
+const C = { page: '#0B0B0B', paper: '#EDEDE8', ink: '#0B0B0B', white: '#F2F2EE', grey: '#8C8C86', dim: '#1C1C1C', rule: '#2E2E2E', lime: '#C6F432' };
+const M = 72, GUT = 24, COL = (W - 2 * M - 5 * GUT) / 6;   // 6단 그리드
+const colX = (i) => M + i * (COL + GUT);
+const FONT = 'NotoKR';
+window.DUR = 22.5;
+
+// ---------- 이징: cubic-bezier(.7,0,.2,1) ----------
+function bez(x1, y1, x2, y2) {
+  const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx, cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+  const X = (s) => ((ax * s + bx) * s + cx) * s, Y = (s) => ((ay * s + by) * s + cy) * s, dX = (s) => (3 * ax * s + 2 * bx) * s + cx;
+  return (x) => { if (x <= 0) return 0; if (x >= 1) return 1; let s = x; for (let i = 0; i < 8; i++) { const d = dX(s); if (Math.abs(d) < 1e-6) break; s -= (X(s) - x) / d; } return Y(Math.min(1, Math.max(0, s))); };
+}
+const E = bez(.7, 0, .2, 1);
+const cl = (x) => Math.max(0, Math.min(1, x));
+const snap = (t, t0, d) => E(cl((t - t0) / d));          // 박에 착지: t0+d = 박
+const lin = (t, t0, d) => cl((t - t0) / d);
+
+// ---------- 자원 ----------
+const IMG = {};
+function loadImg(k, src) { return new Promise((r) => { const i = new Image(); i.onload = () => { IMG[k] = i; r(); }; i.onerror = () => r(); i.src = src; }); }
+let LOGO_LIME = null, LOGO_INK = null;
+function tintLogo(img, rgb) {   // 원본 로고(밝은 배경 위 어두운 선) → 밝기를 알파로, 단색 칠
+  const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+  const x = c.getContext('2d'); x.drawImage(img, 0, 0);
+  const d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+  for (let i = 0; i < p.length; i += 4) { const l = (p[i] + p[i + 1] + p[i + 2]) / 765; const a = Math.max(0, Math.min(1, (1 - l) * 1.6 - 0.25)); p[i] = rgb[0]; p[i + 1] = rgb[1]; p[i + 2] = rgb[2]; p[i + 3] = a * 255; }
+  x.putImageData(d, 0, 0); return c;
+}
+// 로고 유효 영역 (원본 587x481 중 66,39 ~ 544,441)
+const LG = { sx: 66, sy: 39, sw: 478, sh: 402 };
+
+// ---------- 텍스트 (클립 리빌, 레이아웃 자막) ----------
+let TX = [];
+function font(sz, wt) { g.font = `${wt} ${sz}px ${FONT}`; }
+// id, 텍스트, x, 베이스라인 y, 크기, 굵기, 색, 등장 t0, 퇴장 t1
+function txt(t, id, s, x, y, sz, wt, col, t0, t1, dur = 0.35) {
+  if (t < t0 - dur || t > t1 + dur) return;
+  font(sz, wt); const w = g.measureText(s).width, h = sz * 1.25, top = y - sz * 1.0;
+  const pin = snap(t, t0 - dur, dur), pout = snap(t, t1, dur);
+  if (pin <= 0 || pout >= 1) return;
+  const off = (1 - pin) * h - pout * h;
+  g.save(); g.beginPath(); g.rect(x - 4, top - 4, w + 8, h + 8); g.clip();
+  g.fillStyle = col; g.fillText(s, x, y + off); g.restore();
+  TX.push({ id, text: s, x0: x, y0: top, x1: x + w, y1: top + h });
+}
+function rule(t, x, y, w, t0, t1, col = C.rule) {   // 선은 길이 방향으로 선형 성장
+  const p = lin(t, t0 - 0.25, 0.25) * (1 - lin(t, t1, 0.25)); if (p <= 0) return;
+  g.fillStyle = col; g.fillRect(x, y, w * p, 2);
+}
+// 사진: 소스 사각형 → 패널, zoom은 초점(fx,fy, 소스좌표) 기준
+function photo(img, s, d, zoom = 1, fx = s.x + s.w / 2, fy = s.y + s.h / 2) {
+  if (!img) { g.fillStyle = '#222'; g.fillRect(d.x, d.y, d.w, d.h); return; }
+  const sw = s.w / zoom, sh = s.h / zoom;
+  const sx = fx - (fx - s.x) / zoom, sy = fy - (fy - s.y) / zoom;
+  g.drawImage(img, sx, sy, sw, sh, d.x, d.y, d.w, d.h);
+}
+function wipeClip(x, y, w, h, p) { g.beginPath(); g.rect(x, y, w * p, h); g.clip(); }
+
+// 지속 고지 (4.0 ~ 18.5): 시사출 샘플
+function sampleNote(t) { txt(t, 'note', '시사출 샘플 · 양산품과 다를 수 있음', M, H - 96, 26, 400, C.grey, 4.3, 18.1); }
+
+// ---------- 장면 ----------
+function s1(t) {   // 0–4: 점 하나 → 그리드 → 도트 4 → 로고
+  const cy = 760, gap = 112, x0 = W / 2 - gap * 1.5;
+  // 그리드 선: 첫 점(0.5)에서 자라남
+  const gp = lin(t, 0.25, 1.0) * (1 - lin(t, 3.8, 0.2));
+  if (gp > 0) {
+    g.fillStyle = C.dim;
+    for (let i = 0; i < 6; i++) { const x = colX(i); const hh = (H) * gp; g.fillRect(x, cy - hh / 2, 1, hh); g.fillRect(x + COL, cy - hh / 2, 1, hh); }
+    const ww = W * gp; g.fillRect(W / 2 - ww / 2, cy, ww, 1);
+  }
+  for (let i = 0; i < 4; i++) {
+    const p = snap(t, 0.25 * (i + 1) - 0.2, 0.2), up = snap(t, 1.0, 0.25), out = snap(t, 3.75, 0.25);
+    if (p <= 0 || out >= 1) continue;
+    const y = cy - up * 300, r = 34 * (1 - up * 0.45) * (1 - out);
+    g.fillStyle = C.lime; g.beginPath(); g.arc(x0 + i * gap * (1 - up * 0.4) + up * gap * 0.6 * 1.5, y, r * p, 0, Math.PI * 2); g.fill();
+  }
+  // 로고 와이프 2.5
+  const lp = snap(t, 1.0, 0.25), lo = snap(t, 3.75, 0.25);
+  if (lp > 0 && lo < 1 && LOGO_LIME) {
+    const lw = 420, lh = lw * LG.sh / LG.sw, lx = W / 2 - lw / 2, ly = 640;
+    g.save(); wipeClip(lx, ly, lw, lh, lp); g.beginPath(); g.rect(lx, ly + lo * lh, lw, lh); g.clip();
+    g.drawImage(LOGO_LIME, LG.sx, LG.sy, LG.sw, LG.sh, lx, ly, lw, lh); g.restore();
+  }
+  font(64, 900); const nw = g.measureText('RhaRa Shoe').width;
+  txt(t, 'brand', 'RhaRa Shoe', W / 2 - nw / 2, 1120, 64, 900, C.white, 1.5, 3.75, 0.25);
+  font(40, 700); const kw = g.measureText('라라슈').width;
+  txt(t, 'brandk', '라라슈', W / 2 - kw / 2, 1190, 40, 700, C.lime, 1.5, 3.75, 0.25);
+}
+
+function s2(t) {   // 4–7: 제품명 + 실물 사진 패널
+  txt(t, 's2a', '라라슈 쿼드그립', M, 330, 46, 700, C.grey, 4.25, 6.75);
+  txt(t, 's2b', '종일편한', M, 500, 150, 900, C.white, 4.4, 6.75);
+  txt(t, 's2c', '워킹화', M, 670, 150, 900, C.white, 4.55, 6.75);
+  rule(t, M, 740, W - 2 * M, 4.75, 6.75);
+  const p = snap(t, 4.25, 0.25), o = snap(t, 6.75, 0.25);
+  if (p > 0 && o < 1) {
+    const d = { x: M, y: 800, w: W - 2 * M, h: 642 };
+    g.save(); wipeClip(d.x, d.y, d.w, d.h, p); g.beginPath(); g.rect(d.x + o * d.w, d.y, d.w, d.h); g.clip();
+    photo(IMG.pair, { x: 300, y: 0, w: 2100, h: 1441 }, d, 1 + 0.04 * lin(t, 4.5, 2.5), 1350, 720); g.restore();
+  }
+  txt(t, 's2d', 'QUAD GRIP · WORKING SHOE', M, 1520, 30, 700, C.grey, 4.55, 6.75);
+}
+
+function bigNum(t, id, n, t0, t1) { txt(t, id, n, M - 8, 520, 380, 900, C.white, t0, t1, 0.35); }
+
+function s3(t) {   // 7–10.5: 01 쿼드그립 4점 패드
+  bigNum(t, 'n1', '01', 7.25, 10.25);
+  txt(t, 's3a', '쿼드그립 4점 패드', M, 640, 72, 900, C.white, 7.25, 10.25);
+  txt(t, 's3b', '밑창에 그립 패드 4개', M, 720, 42, 400, C.grey, 7.4, 10.25);
+  const d = { x: M, y: 820, w: W - 2 * M, h: 520 };
+  const p = snap(t, 7.0, 0.25), o = snap(t, 10.25, 0.25);
+  if (p > 0 && o < 1) {
+    g.save(); wipeClip(d.x, d.y, d.w, d.h, p); g.beginPath(); g.rect(d.x + o * d.w, d.y, d.w, d.h); g.clip();
+    photo(IMG.sole, { x: 600, y: 150, w: 1800, h: 1000 }, d);
+    // 패드 링: 오프닝 도트가 패드 위로 (박마다)
+    const k = d.w / 1800, pads = [[973, 384, 115], [1280, 819, 100], [1760, 781, 100], [2208, 640, 100]];
+    pads.forEach(([sx, sy, r], i) => {
+      const q = snap(t, 7.5 + 0.5 * i - 0.25, 0.25); if (q <= 0) return;
+      const x = d.x + (sx - 600) * k, y = d.y + (sy - 150) * k, rr = (r * k + 10) * (1.8 - 0.8 * q);
+      g.strokeStyle = C.lime; g.lineWidth = 7; g.globalAlpha = 1; g.beginPath(); g.arc(x, y, rr, 0, Math.PI * 2); g.stroke();
+    });
+    g.restore();
+  }
+  // 코너 기술 노트
+  txt(t, 's3c', 'PAD ×4', W - M - 150, 1400, 30, 700, C.lime, 8.85, 10.25, 0.25);
+}
+
+function s4(t) {   // 10.5–14.5: 02 일체형 안창
+  bigNum(t, 'n2', '02', 10.75, 14.25);
+  txt(t, 's4a', '깔창 없는 일체형 안창', M, 640, 72, 900, C.white, 10.75, 14.25);
+  txt(t, 's4b', '안창까지 하나로', M, 720, 42, 400, C.grey, 10.9, 14.25);
+  const d = { x: M, y: 820, w: W - 2 * M, h: 580 };
+  const p = snap(t, 10.75, 0.25), o = snap(t, 14.25, 0.25);
+  if (p > 0 && o < 1) {
+    g.save(); wipeClip(d.x, d.y, d.w, d.h, p); g.beginPath(); g.rect(d.x + o * d.w, d.y, d.w, d.h); g.clip();
+    photo(IMG.top, { x: 150, y: 500, w: 1291, h: 800 }, d, 1 + 0.25 * lin(t, 11.0, 3.25), 1130, 1000); g.restore();
+  }
+  // 라임 신호: 소재 태그 블록 (검정 글자 오버프린트)
+  const bp = snap(t, 11.0, 0.25), bo = snap(t, 14.25, 0.25);
+  if (bp > 0 && bo < 1) {
+    font(30, 900); const s = 'E-SILIPOLYRENE · ONE-PIECE', w = g.measureText(s).width + 36;
+    g.save(); g.beginPath(); g.rect(M, 1440, w * bp, 56); g.clip(); g.beginPath(); g.rect(M, 1440 - bo * 56, w, 56); g.clip();
+    g.fillStyle = C.lime; g.fillRect(M, 1440, w, 56); g.fillStyle = C.ink; g.fillText(s, M + 18, 1479); g.restore();
+    if (bp > 0 && bo < 1) TX.push({ id: 's4tag', text: s, x0: M, y0: 1440, x1: M + w, y1: 1496 });
+  }
+}
+
+function s5(t) {   // 14.5–18.5: 03 도톰한 발목 테두리
+  bigNum(t, 'n3', '03', 14.75, 18.0);
+  txt(t, 's5a', '도톰한 발목 테두리', M, 640, 72, 900, C.white, 14.75, 18.0);
+  txt(t, 's5b', '입구 테두리를 두껍게', M, 720, 42, 400, C.grey, 14.9, 18.0);
+  const d = { x: M, y: 820, w: W - 2 * M, h: 580 };
+  const p = snap(t, 14.75, 0.25), o = snap(t, 18.0, 0.25);
+  if (p > 0 && o < 1) {
+    g.save(); wipeClip(d.x, d.y, d.w, d.h, p); g.beginPath(); g.rect(d.x + o * d.w, d.y, d.w, d.h); g.clip();
+    photo(IMG.side, { x: 200, y: 0, w: 2100, h: 1300 }, d, 1 + 0.6 * snap(t, 15.5, 0.5), 1152, 520); g.restore();
+  }
+  // 라임 표시: 테두리 쪽을 가리키는 짧은 막대 (푸시 후)
+  const mp = lin(t, 16.0, 0.3) * (1 - snap(t, 18.0, 0.25));
+  if (mp > 0) { g.fillStyle = C.lime; g.fillRect(M, 1430, 220 * mp, 10); }
+  txt(t, 's5c', 'COLLAR RIM', M, 1490, 30, 700, C.grey, 16.25, 18.0, 0.25);
+}
+
+function end(t) {   // 18.5–22.5: 종이 엔딩카드
+  const p = snap(t, 18.25, 0.25); if (p <= 0) return;
+  g.save(); g.fillStyle = C.paper; g.fillRect(0, H * (1 - p), W, H * p); g.restore();
+  if (p < 1) return;
+  if (LOGO_INK) { const lw = 300, lh = lw * LG.sh / LG.sw, q = snap(t, 18.75, 0.25); g.save(); wipeClip(M, 260, lw, lh, q); g.drawImage(LOGO_INK, LG.sx, LG.sy, LG.sw, LG.sh, M, 260, lw, lh); g.restore(); }
+  txt(t, 'e1', '라라슈 쿼드그립', M, 760, 46, 700, '#5A5A55', 19.0, 99);
+  txt(t, 'e2', '종일편한', M, 920, 140, 900, C.ink, 19.1, 99);
+  txt(t, 'e3', '워킹화', M, 1080, 140, 900, C.ink, 19.2, 99);
+  const bp = snap(t, 19.25, 0.25);
+  if (bp > 0) {
+    font(56, 900); const s = '2026. 11. 11 OPEN', w = g.measureText(s).width + 56;
+    g.save(); g.beginPath(); g.rect(M, 1180, w * bp, 96); g.clip(); g.fillStyle = C.lime; g.fillRect(M, 1180, w, 96); g.fillStyle = C.ink; g.fillText(s, M + 28, 1248); g.restore();
+    TX.push({ id: 'e4', text: s, x0: M, y0: 1180, x1: M + w, y1: 1276 });
+  }
+  for (let i = 0; i < 4; i++) { const q = snap(t, 19.75 + 0.25 * i - 0.25, 0.25); if (q > 0) { g.fillStyle = C.ink; g.beginPath(); g.arc(M + 22 + i * 64, 1420, 18 * q, 0, Math.PI * 2); g.fill(); } }
+  g.fillStyle = C.rule; g.fillRect(M, H - 200, W - 2 * M, 2);
+  txt(t, 'e5', 'RhaRa Shoe · 라라슈', M, H - 140, 34, 700, C.ink, 20.0, 99);
+}
+
+window.render = (t) => {
+  TX = [];
+  g.fillStyle = C.page; g.fillRect(0, 0, W, H);
+  if (t < 4.0) s1(t);
+  if (t >= 3.9 && t < 7.2) s2(t);
+  if (t >= 6.9 && t < 10.7) s3(t);
+  if (t >= 10.4 && t < 14.7) s4(t);
+  if (t >= 14.4 && t < 18.6) s5(t);
+  if (t >= 4.0 && t < 18.6) sampleNote(t);
+  if (t >= 18.2) end(t);
+};
+window.TEXTS = (t) => { window.render(t); return TX; };
+
+// 사운드 이벤트 (mix.py가 읽음)
+const EV = [];
+[0.25, 0.5, 0.75, 1.0].forEach((t, i) => EV.push({ t, type: 'dot', i }));
+EV.push({ t: 1.25, type: 'logo' }, { t: 4.5, type: 'wipe' }, { t: 7.0, type: 'wipe' }, { t: 7.25, type: 'num' });
+[7.5, 8.0, 8.5, 9.0].forEach((t, i) => EV.push({ t, type: 'pad', i }));
+EV.push({ t: 10.75, type: 'num' }, { t: 11.0, type: 'wipe' }, { t: 11.25, type: 'tag' });
+EV.push({ t: 14.75, type: 'num' }, { t: 15.0, type: 'wipe' }, { t: 16.0, type: 'push' });
+EV.push({ t: 18.0, type: 'stop' }, { t: 18.5, type: 'end' }, { t: 19.5, type: 'stamp' });
+[19.75, 20.0, 20.25, 20.5].forEach((t, i) => EV.push({ t, type: 'enddot', i }));
+window.EV = EV;
+
+(async () => {
+  for (const [w, f] of [[400, 'NotoSansKR-400'], [700, 'NotoSansKR-700'], [900, 'NotoSansKR-900']]) {
+    const ff = new FontFace(FONT, `url(fonts/${f}.ttf)`, { weight: String(w) }); await ff.load(); document.fonts.add(ff);
+  }
+  await Promise.all([loadImg('pair', 'assets/02-pair-angle.jpg'), loadImg('sole', 'assets/01-outsole.jpg'), loadImg('top', 'assets/03-pair-top.jpg'), loadImg('side', 'assets/04-side-heel.jpg'), loadImg('logo', 'assets/rs-logo-source.png')]);
+  if (IMG.logo) { LOGO_LIME = tintLogo(IMG.logo, [198, 244, 50]); LOGO_INK = tintLogo(IMG.logo, [11, 11, 11]); }
+  window.render(0); window.READY = true;
+})();
+</script>
+</body>
+</html>
