@@ -167,7 +167,7 @@ function quality(p) {
 
 // ---------- 페이지 조립 ----------
 function bottomOutside() {
-  return `<div class="botp out">${logo('md')}<div class="bb"><b>RhaRa Shoe</b><span>라라슈</span></div></div>`;
+  return `<div class="botp out">${logo('md')}<div class="bb"><b>RhaRa Shoe</b><span>라라슈</span><i>Made for Standing.</i></div></div>`;
 }
 function page(p, side) {
   const out = side === 'out';

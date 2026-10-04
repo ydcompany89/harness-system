@@ -128,7 +128,7 @@ body:not(.go) *{animation-play-state:paused!important}
   ${logo(400)}
   <div class="t a" style="${at(14.4)}"><span>라라슈 쿼드그립</span><b>아치가득 인솔</b></div>
   <div class="open a" style="${at(14.7)}"><span>2026. 11. 11 OPEN</span></div>
-  <div class="sig a" style="${at(14.9)}">RhaRa Shoe · 라라슈</div>
+  <div class="sig a" style="${at(14.9)}">RhaRa Shoe · Made for Standing.</div>
 </section>
 <script>document.fonts.ready.then(()=>requestAnimationFrame(()=>document.body.classList.add('go')))</script>
 </body></html>`;

@@ -192,7 +192,7 @@ function end(t) {   // 18.5–22.5: 종이 엔딩카드
   }
   for (let i = 0; i < 4; i++) { const q = snap(t, 19.75 + 0.25 * i - 0.25, 0.25); if (q > 0) { g.fillStyle = C.ink; g.beginPath(); g.arc(M + 22 + i * 64, 1420, 18 * q, 0, Math.PI * 2); g.fill(); } }
   g.fillStyle = C.rule; g.fillRect(M, H - 200, W - 2 * M, 2);
-  txt(t, 'e5', 'RhaRa Shoe · 라라슈', M, H - 140, 34, 700, C.ink, 20.0, 99);
+  txt(t, 'e5', 'RhaRa Shoe · Made for Standing.', M, H - 140, 34, 700, C.ink, 20.0, 99);
 }
 
 window.render = (t) => {

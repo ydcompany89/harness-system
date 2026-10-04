@@ -273,9 +273,9 @@ function outro(t) {   // 9.5–12.0 공용 아웃트로
   if (lp > 0 && LOGO_LIME) { const lw = 420, lh = lw * LG.sh / LG.sw; g.save(); g.beginPath(); g.rect(W / 2 - lw / 2, cy - lh / 2, lw * lp, lh); g.clip(); g.drawImage(LOGO_LIME, LG.sx, LG.sy, LG.sw, LG.sh, W / 2 - lw / 2, cy - lh / 2, lw, lh); g.restore(); }
   if (t >= 11.0) {
     font(52, 700); g.textAlign = 'center'; g.fillStyle = C.paper; g.fillText('RhaRa Shoe · 라라슈', W / 2, 1160);
-    font(40, 400); g.fillStyle = C.grey; g.fillText('서서 일하는 하루를 위한 신발', W / 2, 1230); g.textAlign = 'left';
+    font(40, 400); g.fillStyle = C.grey; g.fillText('Made for Standing.', W / 2, 1230); g.textAlign = 'left';
     TX.push({ id: 'o1', text: 'RhaRa Shoe · 라라슈', x0: W / 2 - 260, y0: 1110, x1: W / 2 + 260, y1: 1175 });
-    TX.push({ id: 'o2', text: '서서 일하는 하루를 위한 신발', x0: W / 2 - 280, y0: 1190, x1: W / 2 + 280, y1: 1245 });
+    TX.push({ id: 'o2', text: 'Made for Standing.', x0: W / 2 - 200, y0: 1190, x1: W / 2 + 200, y1: 1245 });
   }
   const bp = snap(t, 11.25, 0.25);
   if (bp > 0) {

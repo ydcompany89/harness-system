@@ -89,6 +89,7 @@ h3 small{display:block;font-size:6pt;font-weight:700;color:#fff;letter-spacing:0
 .qrt{font-size:4.6pt;line-height:1.4;color:#333;font-weight:700}.qrt em{font-weight:400;font-style:normal;color:#666;font-size:4pt}
 .botp.out{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm}
 .bb{text-align:center}.bb b{display:block;font-size:8pt;font-weight:900}.bb span{font-size:6pt;color:#C6F432;font-weight:700}
+.bb i{display:block;margin-top:1.2mm;font-size:6.5pt;font-style:normal;font-weight:700;letter-spacing:.2pt;color:#EDEDE8}
 
 .qrt b{font-weight:700}.qrt .l2{font-size:3.9pt;color:#6a6a6a;margin-top:.8mm;font-weight:400}
 .inq{padding-top:4mm}
