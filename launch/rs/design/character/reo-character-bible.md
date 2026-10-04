@@ -119,7 +119,7 @@ large logo on shoes, detailed shoe outsole, extra fingers, distorted sunglasses,
 2. 표정 6종 + 포즈 6종 시트 생성
 3. 1편 "에어컨 밤새 켜둔 날" 콘티 (marketing-expert)
 
-## 턴어라운드 마스터 (2026-10-04 확정 후보)
+## 턴어라운드 마스터 (2026-10-04 대표 승인)
 - 원본: `refs/reo-turnaround-master-2026-10-04.jpg` (Gemini 이미지, 6컷)
 - 4뷰 시트: `reo-turnaround-v2.jpg` (FRONT · 3/4 · SIDE · BACK)
 - 통과: 얼굴·목 진갈색 / 앞치마 흰 REO 패치 / 등 라임 RS / 구멍 없는 매끈한 클로그 / 깨진 글자 없음
