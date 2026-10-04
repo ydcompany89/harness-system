@@ -10,7 +10,7 @@
 | 이름 (검색에 잡힘, 30자) | `라라슈 RhaRa Shoe · 레오 사장` | 22자. "라라슈"·"레오 사장" 둘 다 검색됨 |
 | 카테고리 | 신발 | 프로페셔널(비즈니스) 계정 |
 | 소개 (150자) | 아래 블록 그대로 | 115자 |
-| 링크 1 | `[알림신청 링크]` (UTM: utm_source=instagram&utm_medium=bio) | 대표 확정 필요 |
+| 링크 1 | `https://rharashoe.netlify.app/?src=insta` | 상시 랜딩 (landing/SETUP.md) — Netlify 이름 확보 후 |
 | 하이라이트 커버 | `design/instagram/highlight-01~05-*.png` | REO · MAKING · GUIDE · SIZE · OPEN |
 
 **소개 문구**
