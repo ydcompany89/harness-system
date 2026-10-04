@@ -110,3 +110,4 @@
 - 2026-10-04 대표 Netlify Drop 업로드 완료 (임시 주소 moonlit-capybara-b18d04.netlify.app). 사이트 클레임·이름 rharashoe 변경 대기 — 변경 전 QR 인쇄 금지.
 - 2026-10-04 대표: 최신 zip 재업로드·소유등록 완료 보고(사이트 이름 rharashoe 여부 확인 대기).
 - 2026-10-04 랜딩 개통 확인: https://rharashoe.netlify.app/ — QR 5종 인쇄 가능.
+- 2026-10-04 fire-your-seo-agency 스킬 설치(scripts/setup-fire-seo.sh). rndmakers.kr 진단: 네트워크 차단으로 외부 관측만 — 검색·AI가 알앤디메이커스/라라슈를 모름(엔티티 미형성). 계획: research/seo-rndmakers-plan.md
