@@ -57,5 +57,13 @@ canvas.paste(cut, (ox, oy), ca)
 c = np.asarray(canvas).astype(float)
 vig = 1 - 0.35 * np.clip(np.sqrt(((x - BW / 2) / (BW * 0.62)) ** 2 + ((y - BH / 2) / (BH * 0.62)) ** 2) - 0.45, 0, 1)
 c = c * vig[..., None] + np.random.default_rng(1).normal(0, 2.2, c.shape)
-Image.fromarray(np.clip(c, 0, 255).astype(np.uint8)).save('edit/outsole-studio.png')
+out = np.clip(c, 0, 255)
+# 6) 그립 패드 컬러 = 양산 확정 컬러 라임 #C6F432 (2026-10-05 대표 결정; 샘플 민트 → 양산 라임)
+R, G, B = out[..., 0], out[..., 1], out[..., 2]
+pm = ((G > R + 18) & (G > B + 8) & (G > 70)) | ((y > floor_y + 10) & (G > R + 6) & (G > B + 3) & (G > 30))
+pm = nd.binary_closing(pm, iterations=2)
+w = nd.gaussian_filter(pm.astype(float), 1.0)[..., None]
+L = (0.3 * R + 0.59 * G + 0.11 * B)[..., None] / 215.0
+out = out * (1 - w) + np.clip(np.array([198, 244, 50]) * np.clip(L, 0, 1.15), 0, 255) * w
+Image.fromarray(out.astype(np.uint8)).save('edit/outsole-studio.png')
 print('ok', cut.size, floor_y)
