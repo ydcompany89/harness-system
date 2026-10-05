@@ -113,3 +113,4 @@
 - 2026-10-04 fire-your-seo-agency 스킬 설치(scripts/setup-fire-seo.sh). rndmakers.kr 진단: 네트워크 차단으로 외부 관측만 — 검색·AI가 알앤디메이커스/라라슈를 모름(엔티티 미형성). 계획: research/seo-rndmakers-plan.md
 - 2026-10-05 대표 개인 스레드용 브랜드 팩(content/threads-brand-pack.md) — Aside Claude 지침용.
 - 2026-10-05 브랜드 소개영상(From Road to Floor) Flow 프롬프트 12초×4 작성 — 신발은 실물 합성 원칙. design/film/brand-film-flow/
+- 2026-10-05 STAND+(standshoes.com) 사이트 분해(검색 색인 기반) + 라라슈 자사몰 사이트맵·홈 와이어프레임·플랫폼안. research/standshoes-benchmark.md
