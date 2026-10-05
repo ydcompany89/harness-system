@@ -66,6 +66,8 @@ const products = {
       ['용도 외 사용을 금지합니다.','Do not use for other purposes.','用途以外には使用しないでください。'],
     ],
     paper: 'walking',
+    img: 'assets/walking-cut.png', detail: 'assets/outsole-lime.jpg', detailCap: '밑창 그립 패드 · 양산 컬러(라임)',
+    q: { size: '230~280mm', color: '차콜 · 그레이 · 민트화이트', mfd: '2026년 11월', origin: '대한민국', addr: '대전시 유성구 국제과학7로 8', tel: '0507-1317-2516' },
   },
   insole: {
     file: 'hangtag-insole.html',
@@ -96,23 +98,28 @@ const products = {
       ['사용 중 이상이 있으면 사용을 중단하세요.','Stop using it if you notice anything unusual.','異常を感じた場合は使用を中止してください。'],
     ],
     paper: 'insole',
+    img: 'assets/insole-cut.png', detail: null, detailCap: '',
+    q: { size: null, color: null, mfd: null, origin: null, addr: '대전시 유성구 국제과학7로 8', tel: '0507-1317-2516' },
   },
 };
 
 // ---------- 전개도 기하 (mm, 바깥면 좌표) ----------
-const W = 228, H = 165, PW = 240, PH = 180, OX = 6, OY = 6, BLEED = 3;
-const PX = (i) => 8 + 55 * i;
-const BOT = 1;       // 바닥 정사각이 붙는 칸 인덱스
-const outline = `M8,0 L0,6 L0,104 L8,110 L12,120 L59,120 L63,110 L63,165 L118,165 L118,110 L122,120 L169,120 L173,110 L177,120 L224,120 L228,110 L228,0 Z`;
-const outlineNoFlap = `M8,0 L8,110 L12,120 L59,120 L63,110 L63,165 L118,165 L118,110 L122,120 L169,120 L173,110 L177,120 L224,120 L228,110 L228,0 Z`;
-const folds = `M8,0 V110 M63,0 V110 M118,0 V110 M173,0 V110 M8,110 H228`;
-const HOLE = { cx: PX(0) + 27.5, cy: 7.5, r: 2.5 };
+// 2026-10-05 대표 스케치 반영: ①전면 ②측면 ③후면 ④측면(외부 4면) + ⑤보강면(① 뒤로 삽입·접착, 비노출) + 접착 날개
+// 바닥: ①~④ 아래 날개 4장(깊이 27.5 = 55/2) → 마주보는 두 쌍이 가운데서 만나 이중 바닥. ⑤ 덕분에 전면 이중벽 → 연필꽂이로 세웠을 때 흔들림↓
+const FL = 27.5, GL = 10, CH = 4;           // 바닥 날개 깊이, 접착 날개 폭, 날개 모서리 사선
+const W = 55 * 5 + GL, H = 110 + FL, PW = 300, PH = 150, OX = 7.5, OY = 6, BLEED = 3;
+const PX = (i) => 55 * i;
+const flapPath = (i) => { const x = PX(i); return `L${x+55-CH},${H} L${x+CH},${H} L${x},110`; };
+const outline = `M0,0 H275 L285,5 V105 L275,110 H220 ` + [3,2,1,0].map(i => `L${PX(i)+55},110 ${flapPath(i)}`).join(' ') + ` L0,0 Z`;
+const folds = `M55,0 V110 M110,0 V110 M165,0 V110 M220,0 V110 M275,0 V110 M0,110 H220`;
+const HOLES = [{ cx: 27.5, cy: 7.5, r: 2.5 }, { cx: 247.5, cy: 7.5, r: 2.5 }];   // ① + ⑤ (접으면 겹침)
+const GLUEFLAP = `M275,0 L285,5 V105 L275,110 Z`;
 
 // ---------- 패널 내용 ----------
 function cover(p) {
   return `<div class="cov">
   <div class="cov-top">${logo('lg')}<div class="cov-brand"><b>RhaRa Shoe</b><span>라라슈</span></div></div>
-  <div class="photo"><span>제품 누끼 사진 삽입</span><em>Product cutout photo here</em></div>
+  <div class="photo img"><img src="${p.img}" alt=""></div>
   <div class="cov-name"><div class="k1">${p.kr1} ${p.kr2}</div><div class="k2">${p.kr3}</div><div class="e">${p.en1}<i></i>${p.en2}</div></div>
   <div class="cov-ic">${p.coverIcons.map(c=>`<div>${icon(c[0])}<p>${c[1]}<br>${c[2]}</p></div>`).join('')}</div>
 </div>`;
@@ -139,7 +146,7 @@ function intro(p) {
   <div class="pname">${p.nameKR}<br><span>${p.en1} / ${p.en2}</span></div>
   <p class="kr">${p.introKR}</p><p class="en">${p.introEN}</p>
   <div class="who"><div class="wl">추천 · For</div>${p.who.map((w,i)=>`<div class="wi"><b></b><div>${w}<br><em>${p.whoEN[i]}</em></div></div>`).join('')}</div>
-  <div class="photo sm"><span>제품 사진·도해 자리</span><em>Product photo / diagram</em></div></div>`;
+  ${p.detail ? `<div class="detail"><img src="${p.detail}" alt=""><span>${p.detailCap}</span></div>` : ''}</div>`;
 }
 function feat(p) {
   return `<div class="inp"><h3>KEY FEATURES<small>핵심 기능</small></h3>
@@ -152,16 +159,16 @@ function quality(p) {
   <div class="qr1"><div class="l">제품명 · Product · <span lang="ja">製品名</span></div><div class="v">${p.nameKR}<br><em>${p.nameEN}</em><br><em>RhaRa Shoe <span lang="ja">${p.nameJA}</span></em></div></div>
   <div class="qr1"><div class="l">품목 · Item · <span lang="ja">品目</span></div><div class="v">${p.itemKR}<br><em>${p.itemEN}</em> · <em lang="ja">${p.itemJA}</em></div></div>
   <div class="qr1"><div class="l">재질 · Material · <span lang="ja">素材</span></div><div class="v">${mats}</div></div>
-  <div class="qg"><div class="qr1"><div class="l">치수 · Size · <span lang="ja">サイズ</span></div><div class="v">${NEED}</div></div>
-  <div class="qr1"><div class="l">색상 · Color · <span lang="ja">色</span></div><div class="v">${NEED}</div></div>
-  <div class="qr1"><div class="l">제조연월 · Mfd. · <span lang="ja">製造年月</span></div><div class="v">${NEED}</div></div>
-  <div class="qr1"><div class="l">제조국 · Origin · <span lang="ja">原産国</span></div><div class="v">${NEED}</div></div></div>
+  <div class="qg"><div class="qr1"><div class="l">치수 · Size · <span lang="ja">サイズ</span></div><div class="v">${p.q.size || NEED}</div></div>
+  <div class="qr1"><div class="l">색상 · Color · <span lang="ja">色</span></div><div class="v">${p.q.color || NEED}</div></div>
+  <div class="qr1"><div class="l">제조연월 · Mfd. · <span lang="ja">製造年月</span></div><div class="v">${p.q.mfd || NEED}</div></div>
+  <div class="qr1"><div class="l">제조국 · Origin · <span lang="ja">原産国</span></div><div class="v">${p.q.origin || NEED}${p.q.origin==='대한민국'?' <em>Korea · <span lang="ja">韓国</span></em>':''}</div></div></div>
   <div class="qr1"><div class="l">제조자·판매자 · Maker/Seller · <span lang="ja">製造・販売元</span></div><div class="v">주식회사 알앤디메이커스</div></div>
-  <div class="qg"><div class="qr1"><div class="l">주소 · Address · <span lang="ja">住所</span></div><div class="v">${NEED}</div></div>
-  <div class="qr1"><div class="l">고객센터 · Contact · <span lang="ja">連絡先</span></div><div class="v">${NEED}</div></div></div>
+  <div class="qg"><div class="qr1"><div class="l">주소 · Address · <span lang="ja">住所</span></div><div class="v">${p.q.addr || NEED}</div></div>
+  <div class="qr1"><div class="l">고객센터 · Contact · <span lang="ja">連絡先</span></div><div class="v">${p.q.tel || NEED}</div></div></div>
   <div class="qr1"><div class="l">취급상 주의 · Care · <span lang="ja">取扱上の注意</span></div>
   <ul class="care">${p.caution.map(c=>`<li>${c[0]}<br><em>${c[1]}</em><br><em lang="ja">${c[2]}</em></li>`).join('')}</ul></div>
-  <div class="qrbox"><div class="qr"><span>QR</span></div><div class="qrt"><b>박람회 리드폼 / 홈페이지 연결 예정</b><br><em>Lead form / website — TBD</em><div class="l2">바코드·분리배출표시 · Barcode / Recycling mark</div>${NEED}</div></div>
+  <div class="qrbox"><img class="qrimg" src="assets/qr-hangtag.svg" alt="QR"><div class="qrt"><b>오픈 알림<br>체험단 신청</b><br><em>rharashoe.netlify.app</em></div><div class="barcode"><span class="lines">바코드 자리</span></div></div>
   </div>`;
 }
 
@@ -172,32 +179,38 @@ function bottomOutside() {
 function page(p, side) {
   const out = side === 'out';
   const mx = (x, w) => out ? x : W - x - w;     // 안쪽면은 좌우 반전 배치(양면 인쇄 시 뒷면 정렬)
-  const panels = [0,1,2,3].map(i => {
+  const panels = [0,1,2,3,4].map(i => {
     const x = mx(PX(i), 55);
-    let inner, cls;
-    if (out) { cls = i===0 ? 'cover' : 'quotep'; inner = i===0 ? cover(p) : quote(p, i-1); }
-    else { cls = i===3 ? 'qual' : 'innerp'; inner = [story,intro,feat,quality][i](p); }
+    let inner = '', cls;
+    if (out) {
+      if (i === 4) { cls = 'blank'; inner = `<div class="glabel lines">⑤ 보강면 · 무인쇄 접착면<br>① 뒤로 접어 넣고 접착</div>`; }
+      else { cls = i===0 ? 'cover' : 'quotep'; inner = i===0 ? cover(p) : quote(p, i-1); }
+    } else {
+      if (i === 0) { cls = 'blank'; inner = `<div class="glabel lines">① 안쪽 · 무인쇄 접착면<br>(⑤ 보강면이 붙는 자리)</div>`; }
+      else { cls = i===4 ? 'qual' : 'innerp'; inner = [null, intro, feat, story, quality][i](p); }
+    }
     return `<div class="panel ${cls}" style="left:${x}mm;top:0">${inner}</div>`;
   }).join('');
-  const bx = mx(PX(BOT), 55);
-  const bottom = `<div class="panel botpanel" style="left:${bx}mm;top:110mm;width:55mm;height:55mm">${out ? bottomOutside() : ''}</div>`;
+  const fx = mx(PX(2), 55);
+  const bottom = out ? `<div class="panel botpanel" style="left:${fx}mm;top:110mm;width:55mm;height:${FL}mm">${bottomOutside()}</div>` : '';
   const tf = out ? '' : `transform="translate(${W},0) scale(-1,1)"`;
-  const hole = `<circle cx="${HOLE.cx}" cy="${HOLE.cy}" r="${HOLE.r}"/>`;
-  const holeBlack = `<circle cx="${HOLE.cx}" cy="${HOLE.cy}" r="${HOLE.r}" fill="#fff"/>`;
-  // 안쪽면 품질표시 칸(밝은 배경) — 재단 여백까지 연장 (원본 좌표 x=173..228 → 안쪽면에서는 반전)
-  const lightRect = out ? '' : `<rect x="${mx(PX(3),55)-BLEED}" y="${-BLEED}" width="${55+BLEED}" height="${123+BLEED}" fill="#F3F2EC"/>`;
-  const base = `<svg class="layer base" viewBox="0 0 ${W} ${H}" style="overflow:visible"><g ${tf}><path d="${out?outline:outlineNoFlap}" fill="#111111" stroke="#111111" stroke-width="${BLEED*2}" stroke-linejoin="miter"/></g>${lightRect}</svg>`;
-  const flapY = out ? '' : `<g ${tf}><path d="M8,0 L0,6 L0,104 L8,110 Z" fill="#fff" stroke="none"/></g>`;
+  // 무인쇄(흰) 영역: 접착 날개 양면, ⑤ 바깥면, ① 안쪽면 / 품질표시(⑤ 안쪽) 밝은 배경
+  const white = (d) => `<g ${tf}><path d="${d}" fill="#fff"/></g>`;
+  const blanks = `<g ${tf}><path d="${GLUEFLAP}" fill="#fff" stroke="#fff" stroke-width="${BLEED*2}" stroke-linejoin="miter"/></g>` + white(out ? 'M220,0 H275 V110 H220 Z' : 'M0,0 H55 V110 H0 Z');
+  const lightRect = out ? '' : `<g ${tf}><rect x="220" y="${-BLEED}" width="55" height="${110+2*BLEED}" fill="#F3F2EC"/></g>`;
+  const base = `<svg class="layer base" viewBox="0 0 ${W} ${H}" style="overflow:visible"><g ${tf}><path d="${outline}" fill="#111111" stroke="#111111" stroke-width="${BLEED*2}" stroke-linejoin="miter"/></g>${blanks}${lightRect}</svg>`;
   const lines = `<svg class="layer lines" viewBox="0 0 ${W} ${H}" style="overflow:visible">
   <g ${tf}>
    <path class="cut" d="${outline}" fill="none"/>
    <path class="fold" d="${folds}" fill="none"/>
-   <circle class="cut" cx="${HOLE.cx}" cy="${HOLE.cy}" r="${HOLE.r}" fill="none"/>
+   ${HOLES.map(h=>`<circle class="cut" cx="${h.cx}" cy="${h.cy}" r="${h.r}" fill="none"/>`).join('')}
   </g>
-  <g class="guide" ${tf}>${[0,1,2,3].map(i=>`<rect x="${PX(i)+3}" y="3" width="49" height="104"/>`).join('')}<rect x="${PX(BOT)+3}" y="113" width="49" height="49"/></g>
-  <g class="gluetxt">${out?`<text x="4" y="55" transform="rotate(-90 4 55)" text-anchor="middle">풀칠 날개 GLUE 8mm</text>`:`<text x="${W-4}" y="55" transform="rotate(90 ${W-4} 55)" text-anchor="middle">풀칠 날개 GLUE 8mm (안쪽면 무인쇄 권장)</text>`}</g>
+  <g class="guide" ${tf}>${[0,1,2,3,4].map(i=>`<rect x="${PX(i)+3}" y="3" width="49" height="104"/>`).join('')}${[0,1,2,3].map(i=>`<rect x="${PX(i)+5}" y="113" width="45" height="${FL-6}"/>`).join('')}</g>
+  <g class="gluetxt">${[0,1,2,3].map(i=>{const cx = mx(PX(i),55)+27.5; return `<text x="${cx}" y="${110+FL-3}" text-anchor="middle">바닥 날개 ${'①②③④'[i]} (깊이 ${FL})</text>`;}).join('')}
+   <text x="${out?280:5}" y="55" transform="rotate(${out?90:-90} ${out?280:5} 55)" text-anchor="middle">접착 날개 ${GL}mm · 무인쇄</text>
+   ${[0,1,2,3,4].map(i=>`<text x="${mx(PX(i),55)+27.5}" y="${-1}" text-anchor="middle">${'①②③④⑤'[i]}</text>`).join('')}</g>
   </svg>`;
-  const note = `<div class="note lines">${out?'바깥면 OUTSIDE':'안쪽면 INSIDE (좌우 반전 배치)'} · ${p.nameKR}<br>전개 ${W}×${H}mm (날개 8 + 55×4 / 높이 110 + 바닥 55) · 재단여백 3mm · 안전선 3mm<br>마젠타 실선=칼선 0.25pt · 시안 점선=접는선 · 녹색 점선=안전선(인쇄 제외)<br>종이: 350g 이상 재생지/크라프트 권장 · 행거 구멍 Ø5mm</div>`;
+  const note = `<div class="note lines" style="${out?'':'left:1mm'}">${out?'바깥면 OUTSIDE':'안쪽면 INSIDE (좌우 반전 배치)'} · ${p.nameKR}<br>전개 ${W}×${H}mm · ①전면 ②측면 ③후면 ④측면(외부) + ⑤보강면(① 뒤 삽입·접착, 비노출) + 접착날개 ${GL}<br>바닥 날개 4장(깊이 ${FL}) 이중 바닥 · 재단여백 3 · 안전선 3<br>마젠타=칼선 0.25pt · 시안 점선=접는선 · 녹색=안전선<br>행거 구멍 Ø5 ×2(① · ⑤ 겹침) · 350g 이상 권장</div>`;
   return `<section class="page ${side}"><div class="net" style="left:${OX}mm;top:${OY}mm;width:${W}mm;height:${H}mm">${base}${panels}${bottom}${lines}${note}</div></section>`;
 }
 

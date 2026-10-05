@@ -4,7 +4,7 @@ const require = createRequire('/opt/node22/lib/node_modules/');
 const { chromium } = require('playwright');
 import fs from 'fs';
 const here = new URL('.', import.meta.url).pathname;
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell' });
 for (const k of ['walking','insole']) {
   for (const lines of [1,0]) {
     const tag = lines ? 'dieline' : 'nodieline';
@@ -17,7 +17,7 @@ for (const k of ['walking','insole']) {
     for (const [i, side] of ['outside','inside'].entries()) {
       await pages[i].screenshot({ path: `${here}hangtag-${k}-${side}-${tag}.png` });
     }
-    await pg.pdf({ path: `${here}hangtag-${k}-${tag}.pdf`, width: '240mm', height: '180mm', printBackground: true, preferCSSPageSize: true });
+    await pg.pdf({ path: `${here}hangtag-${k}-${tag}.pdf`, width: '300mm', height: '150mm', printBackground: true, preferCSSPageSize: true });
     await ctx.close();
   }
 }
