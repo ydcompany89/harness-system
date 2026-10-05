@@ -107,3 +107,54 @@ clean empty space above it in the center of the case (for product placement late
 1. CLIP 4부터 생성 → 진열장 톤이 정해지면 그 프레임을 Flow 참조 이미지로 넣어 나머지 클립 색감을 맞춘다
 2. 마음에 드는 컷이 나오면 **같은 시드/같은 대화창**에서 다음 클립 진행
 3. 클립마다 3~4번 뽑고 고르기 (신발이 크게 나오거나 글자가 생긴 컷은 버림)
+
+---
+
+# v2 (10/5) — "하다 만 느낌" 수정판 ⭐ 이걸로 다시 생성
+
+## 왜 하다 만 것 같았나
+| 원인 | 설명 |
+|---|---|
+| 1. 길이 | 프롬프트 1개에 장면 3개(A·B·C, 12초)를 넣었는데 Flow는 **10초 안팎**만 만든다 → 마지막 장면(C)이 시작하다 잘림 |
+| 2. 끝이 없는 컷 | 카메라가 움직이는 중에 클립이 끝남 → 이어 붙이면 "뚝" 끊김 |
+| 3. 완성은 편집에서 | 자막·엔딩카드·음악·실물 신발 합성이 빠지면 결말이 없음 (원래 설계상 편집에서 완성) |
+
+## 고친 규칙
+- **프롬프트 1개 = 장면 1개 = 6~8초.** (Flow 길이에 맞춤, 남으면 편집에서 자름)
+- 모든 장면 끝에 **"마지막 2초는 카메라 정지"** → 어디서 잘라도 깔끔
+- 8컷을 만들어 편집에서 **약 45초**로 붙인다 + 엔딩카드 4초
+
+## 공통 스타일 블록 (매번 맨 앞에)
+```
+One single continuous shot, 8 seconds. Cinematic premium footwear brand film.
+Cold blue-grey palette, deep shadows, one small neon lime (#C6F432) accent only, soft top light,
+macro lens, shallow depth of field, slow precise camera move that comes to a complete stop and
+holds perfectly still for the final 2 seconds. Subtle 35mm grain. Photoreal. 16:9.
+No text, no letters, no logos, no brand names, no watermark. No shoes in focus.
+No people slipping, no water splashing. No dialogue, no music, quiet ambient sound only.
+```
+
+## 8컷 프롬프트 (스타일 블록 뒤에 붙이기)
+| # | 장 | 프롬프트 (영문 그대로 복사) | 편집 길이 |
+|---|---|---|---|
+| 1 | 도로 | `Extreme macro of a worn car tire tread on wet black asphalt at night, raindrops on the rubber, a cold street light reflecting. Slow push-in, then stop and hold.` | 5초 |
+| 2 | 도로 | `A tall stack of discarded tires in an empty recycling yard at blue dawn, light fog. Slow sideways dolly, then stop and hold.` | 5초 |
+| 3 | 고무 | `Macro slow motion: small black rubber granules pour onto a dark steel tray and settle, one granule catches a thin neon lime rim light. Camera static.` | 6초 |
+| 4 | 사람 | `Inside a small Korean gimbap restaurant kitchen at early morning, steam and cold window light. A Korean man in his 40s, seen from behind, ties a charcoal apron around his waist. Slow push-in, then stop and hold.` | 6초 |
+| 5 | 사람 | `Extreme close-up of a tired but focused man's eye in a steamy kitchen, soft cold light, he blinks once slowly. Camera static.` | 5초 |
+| 6 | 사람 | `Floor-level shot of a wet tiled restaurant kitchen floor, a person's feet standing still in dark shadow and out of focus, only the floor tiles sharp, steam drifting. Camera static.` | 5초 |
+| 7 | 만들기 | `Top-down shot on a dark steel workbench: a hand places four small round neon lime rubber pads in a neat row one by one, then the hand leaves the frame. Camera static, hold.` | 6초 |
+| 8 | 진열장 | `A minimal grey concrete studio, a tall empty glass display case in the center. The top light inside the case slowly turns on, revealing a broken chunk of old tire rubber on the floor of the case, clean empty space above it. Locked-off static camera.` | 7초 |
+
+## 편집 타임라인 (45초 + 엔딩 4초)
+| 시간 | 컷 | 자막 (CapCut) |
+|---|---|---|
+| 0–10초 | 1 → 2 | 6초 `한때 도로를 달리던 고무.` |
+| 10–16초 | 3 | — |
+| 16–32초 | 4 → 5 → 6 | 20초 `하루 10시간, 서서 일하는 사람들.` |
+| 32–38초 | 7 → (실물 밑창 패드 1초) | 34초 `그 고무를, 네 개의 패드로.` |
+| 38–45초 | 8 + 진열장 빈 공간에 **실물 신발 합성** | 41초 `From Road to Floor.` |
+| 45–49초 | 엔딩카드 | `Made for Standing.` · RS · `RhaRa Shoe · 라라슈` · `2026. 11. 11 OPEN` |
+
+## 편집은 제가 해도 됩니다
+Flow에서 뽑은 **8개 클립 + 실물 사진**을 올려주시면, 자르기·자막·엔딩카드·음악(저작권 문제 없는 합성 음악)·실물 합성까지 해서 완성본(16:9 + 9:16)으로 드릴게요.
