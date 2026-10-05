@@ -12,7 +12,7 @@ srcs = []
 for src, ss, d in SEG:
     if src not in srcs: srcs.append(src)
 for s in srcs:
-    if s == 'PHOTO': inp += ['-loop', '1', '-t', '3', '-i', 'edit/outsole-graded.png']
+    if s == 'PHOTO': inp += ['-loop', '1', '-t', '3', '-i', 'edit/outsole-studio.png']
     elif s == 'END': inp += ['-loop', '1', '-t', '5', '-i', 'edit/endcard.png']
     else: inp += ['-i', s]
 for name, a, b in OV: inp += ['-loop', '1', '-t', str(TOTAL), '-i', f'edit/{name}.png']
@@ -22,7 +22,7 @@ CROP = 'crop=1164:655:58:32,scale=1920:1080:flags=lanczos'   # 살짝 확대(가
 for i, (src, ss, d) in enumerate(SEG):
     k = srcs.index(src)
     if src == 'PHOTO':
-        fv.append(f"[{k}:v]scale=1920:1080,zoompan=z='1+0.0012*on':d=1:s=1920x1080:fps=24,trim=duration={d},setpts=PTS-STARTPTS,format=yuv420p[v{i}]")
+        fv.append(f"[{k}:v]scale=1920:1080,zoompan=z='1+0.0008*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1920x1080:fps=24,trim=duration={d},setpts=PTS-STARTPTS,format=yuv420p[v{i}]")
         fa.append(f"anullsrc=r=48000:cl=stereo,atrim=duration={d}[a{i}]")
     elif src == 'END':
         fv.append(f"[{k}:v]scale=1920:1080,fps=24,trim=duration={d},setpts=PTS-STARTPTS,fade=in:st=0:d=0.4,format=yuv420p[v{i}]")
