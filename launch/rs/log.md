@@ -116,3 +116,4 @@
 - 2026-10-05 STAND+(standshoes.com) 사이트 분해(검색 색인 기반) + 라라슈 자사몰 사이트맵·홈 와이어프레임·플랫폼안. research/standshoes-benchmark.md
 - 2026-10-05 브랜드 필름 v1 편집 완료 (Flow 클립 7 + 실물 밑창 + 자막·로고·엔딩·합성음악, 51초 16:9). AI 표시 유지.
 - 2026-10-05 브랜드 필름 밑창 장면 교체: 실물 사진 배경 제거·스튜디오 리터칭 + 그립 패드 라임 컬러(대표 결정: 양산도 라임, P18). 자막 "QUAD GRIP · 라임 그립 패드". retouch/retouch_outsole.py
+- 2026-10-05 워킹화·인솔 1장 상품소개서 PPT(design/onepager/rs-product-onepager.pptx) — 실물 사진 배경 제거·스튜디오 리터칭, 밑창은 라임 패드 적용 이미지(P18 확정 전 외부 배포 주의)
