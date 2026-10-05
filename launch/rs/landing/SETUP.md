@@ -54,6 +54,12 @@ forms.google.com → 새 양식, 제목 `라라슈 RhaRa Shoe 신청`
    - ⚠️ 이 이름이 이미 사용 중이면 다른 이름으로 정하고 알려주세요 → QR을 다시 만들어야 합니다 (`qr/make_qr.py`의 BASE만 수정)
 4. 수정할 때: Deploys 탭에 폴더를 다시 끌어다 놓으면 같은 주소로 갱신
 
+## 3-1단계 — 공개 확인 (필수, 1분)
+1. 휴대폰 **시크릿 창**에서 `https://rharashoe.netlify.app` 열기 → "This site is private"가 뜨면:
+   app.netlify.com → rharashoe → **Site configuration → Access & security → Visitor access → Site protection → No protection** 저장
+2. [신청하기] → 구글폼이 **로그인 없이** 열리는지 확인. 로그인이 뜨면 폼 설정 → 응답: 이메일 수집 '수집 안함', 1회 제한 끔, 조직 제한 끔
+3. 테스트 응답 1건 제출 → 시트에 들어왔는지 확인 후 삭제
+
 ## 4단계 — QR 사용처
 | 파일 | 붙이는 곳 | 명단에 찍히는 경로 |
 |---|---|---|

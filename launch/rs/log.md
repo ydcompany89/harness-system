@@ -118,3 +118,4 @@
 - 2026-10-05 브랜드 필름 밑창 장면 교체: 실물 사진 배경 제거·스튜디오 리터칭 + 그립 패드 라임 컬러(대표 결정: 양산도 라임, P18). 자막 "QUAD GRIP · 라임 그립 패드". retouch/retouch_outsole.py
 - 2026-10-05 워킹화·인솔 1장 상품소개서 PPT(design/onepager/rs-product-onepager.pptx) — 실물 사진 배경 제거·스튜디오 리터칭, 밑창은 라임 패드 적용 이미지(P18 확정 전 외부 배포 주의)
 - 2026-10-05 상품소개서 v2: 워킹화 사진 → 대표 제공 리터칭 탑뷰로 교체, VOC 인용("깔창이 딸려 나와요") 삭제(프리미엄 톤), 같은 화면 슬로건 2개 규칙 위반(From Road to Floor) 제거. B2B 1장 설명서(라이트·인쇄용) 신규 design/onepager/rs-b2b-onepager.pptx — 단가는 "수량별 개별 견적"(원가 F04 확정 후 단가표)
+- 2026-10-05 ⚠️ 랜딩이 Netlify 팀 로그인 보호(비공개)로 잠겨 있던 것 발견(대표). 해제 안내 + 재발방지 규칙을 workflows/rs-launch.md·SETUP.md 3-1단계에 추가
