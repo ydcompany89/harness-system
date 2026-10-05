@@ -24,7 +24,7 @@ def tile(cut, out, W, H, fill=0.82, rot=0, ground=True):
     arr = np.asarray(c).astype(float) + np.random.default_rng(2).normal(0, 1.6, (H, W, 3))
     Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8)).save(out); print(out)
 if __name__ == '__main__':
-    tile('shoes-cut.png', 'tile-shoes.png', 1200, 1000, fill=0.95)
+    tile('shoes2-cut.png', 'tile-shoes.png', 1200, 1000, fill=0.95)
     tile('insole-cut.png', 'tile-insole.png', 1600, 1000, fill=0.86, rot=90)
     # 밑창(라임 패드) — 브랜드 필름 리터칭본에서 크롭
     o = Image.open('../film/brand-film-flow/edit/outsole-studio.png').crop((140, 150, 1780, 820))

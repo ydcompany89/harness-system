@@ -21,14 +21,14 @@ const THEME = { name: 'RS RhaRa Shoe', headFontFace: 'Malgun Gothic', bodyFontFa
     { x: 1.42, y: 0.42, w: 4.5, h: 0.58, margin: 0, valign: 'middle', isTextBox: true, objectName: '브랜드명' });
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 10.73, y: 0.47, w: 2.0, h: 0.42, rectRadius: 0.21, fill: { color: C.accent1 }, line: { type: 'none' }, objectName: '오픈 배지' });
   s.addText('2026.11.11 OPEN', { x: 10.73, y: 0.47, w: 2.0, h: 0.42, align: 'center', valign: 'middle', bold: true, fontSize: 13, color: C.text1, margin: 0, isTextBox: true, objectName: '오픈 일자' });
-  s.addText([{ text: '“깔창이 자꾸 딸려 나와요”', options: { italic: true, color: C.background1, breakLine: true } },
-             { text: '김밥집 사장님의 한마디에서 시작한, 서서 일하는 하루를 위한 신발', options: { color: C.background2 } }],
+  s.addText([{ text: '서서 일하는 하루를 위해 설계한 워킹화와 인솔', options: { bold: true, color: C.background1, breakLine: true } },
+             { text: '현장의 목소리에서 출발해, 버려지는 자원으로 완성한 1차 라인업', options: { color: C.background2 } }],
     { x: 7.3, y: 1.1, w: 5.43, h: 0.75, fontSize: 12, align: 'right', valign: 'middle', margin: 0, isTextBox: true, objectName: '시작 이야기' });
   // 카드
   const COLW = 5.92, X = [0.6, 6.82], CY = 2.05, CH = 4.4, IH = 2.2;
   for (const x of X) s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: CY, w: COLW, h: CH, rectRadius: 0.08, fill: { color: C.text2 }, line: { type: 'none' }, objectName: '제품 카드' });
   // 워킹화 이미지: 탑뷰 + 밑창
-  s.addImage({ path: 'tile-shoes.png', x: X[0] + 0.12, y: CY + 0.12, w: IH * 1.2 - 0.24, h: IH - 0.24 - 0.04, objectName: '워킹화 탑뷰(실물 리터칭)' });
+  s.addImage({ path: 'tile-shoes.png', x: X[0] + 0.12, y: CY + 0.12, w: IH * 1.2 - 0.24, h: IH - 0.24 - 0.04, objectName: '워킹화 탑뷰' });
   const ow = COLW - (IH * 1.2) - 0.12, oh = ow * 490 / 1200;
   s.addImage({ path: 'tile-outsole.png', x: X[0] + IH * 1.2, y: CY + 0.3, w: ow, h: oh, objectName: '밑창 그립 패드' });
   s.addText('밑창 · 양산 컬러(라임) 적용 이미지', { x: X[0] + IH * 1.2, y: CY + 0.36 + oh, w: ow, h: 0.3, fontSize: 10, color: C.background2, margin: 0, isTextBox: true, objectName: '패드 캡션' });
@@ -53,14 +53,14 @@ const THEME = { name: 'RS RhaRa Shoe', headFontFace: 'Malgun Gothic', bodyFontFa
     });
   });
   // 푸터
-  s.addText([{ text: 'From Road to Floor.', options: { bold: true, color: C.accent1, fontSize: 13 } },
-             { text: '   도로를 달리던 폐타이어 고무가, 주방 바닥의 그립 패드로.', options: { color: C.background2, fontSize: 11 } }],
+  s.addText([{ text: '새활용 소재', options: { bold: true, color: C.accent1, fontSize: 12 } },
+             { text: '   그립 패드는 폐타이어 고무·폐벽지 PVC를, 인솔은 목공소 우드칩을 새활용해 만듭니다.', options: { color: C.background2, fontSize: 11 } }],
     { x: 0.6, y: 6.62, w: 8.5, h: 0.4, margin: 0, valign: 'middle', isTextBox: true, objectName: '소재 메시지' });
   s.addText([{ text: '오픈 알림·체험단·단체 문의', options: { color: C.background1, bold: true, breakLine: true } },
              { text: 'rharashoe.netlify.app', options: { color: C.background2 } }],
     { x: 9.2, y: 6.55, w: 2.82, h: 0.55, fontSize: 11, align: 'right', margin: 0, valign: 'middle', isTextBox: true, objectName: '문의' });
   s.addImage({ path: 'qr-onepager.png', x: 12.15, y: 6.52, w: 0.6, h: 0.6, objectName: 'QR' });
-  s.addNotes('제품 사진은 9/30 시사출 실물을 리터칭(배경 제거·조명 보정)한 것. 밑창 패드는 양산 컬러(라임) 적용 이미지 — 라파 양산 컬러 확정(P18) 전 외부 배포 시 주의. 10/28 촬영본으로 교체 예정.');
+  s.addNotes('워킹화 사진은 대표 제공 리터칭 이미지(2026-10-05), 인솔은 9/30 실물 리터칭. 밑창 패드는 양산 컬러(라임) 적용 이미지 — 라파 양산 컬러 확정(P18) 전 외부 배포 시 주의. 10/28 촬영본으로 교체 예정.');
   await pres.writeFile({ fileName: 'rs-product-onepager.pptx' });
   await applyTheme('rs-product-onepager.pptx', THEME);
   console.log('ok');
