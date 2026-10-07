@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gherring" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gherring)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 14L24 5L43 14M5 26L24 17L43 26M5 38L24 29L43 38"/></g>
+
+</svg>

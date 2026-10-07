@@ -1,0 +1,156 @@
+<!doctype html><html><head><meta charset="utf-8"><title>RS day1 carousel</title><style>
+@font-face{font-family:K;font-weight:400;src:url(../../design/hangtag/fonts/NotoSansKR-400.ttf)}
+@font-face{font-family:K;font-weight:700;src:url(../../design/hangtag/fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:K;font-weight:900;src:url(../../design/hangtag/fonts/NotoSansKR-900.ttf)}
+*{box-sizing:border-box}
+html,body{margin:0;background:#0e0e0e;font-family:K,sans-serif;color:#fff;word-break:keep-all}
+.bg{position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 38px,#161616 38px 40px),repeating-linear-gradient(45deg,transparent 0 38px,#161616 38px 40px)}
+.L{color:#C6F432}
+.logo{display:block}
+.bd svg{width:100%;height:100%;display:block}
+.crop{position:relative;width:1080px;height:600px;overflow:hidden;border-radius:60px}
+.crop img{position:absolute;left:-95px;top:-60px;width:1181px}
+.ring{position:absolute;inset:0;width:1080px;height:600px}
+.dots{display:flex;gap:22px}.dots i{width:30px;height:30px;border-radius:50%;background:#C6F432;display:block}
+.lb{fill:#bbb;font-family:K;font-weight:700;font-size:34px}
+.g1{display:flex;gap:30px;justify-content:center}
+.g1 .sh{width:270px;height:300px;border:4px solid #333;border-radius:36px;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px}
+.g1 svg{width:200px}.g1 b{font-size:44px;font-weight:900}
+.g2{width:860px;display:block;margin:0 auto}
+.g3{height:560px;display:block;margin:0 auto}
+.g4{width:860px;margin:0 auto}
+.g4 .row{display:flex;align-items:center;gap:26px;margin-bottom:34px}
+.g4 .row span{width:260px;white-space:nowrap;font-size:40px;font-weight:700;color:#bbb;text-align:right}
+.g4 .row i{display:block;height:54px;border-radius:27px;background:#C6F432}
+.g4 .warn{margin:40px 0 0 286px;display:inline-block;border:4px solid #C6F432;border-radius:999px;padding:14px 40px;font-size:40px;font-weight:900;color:#C6F432}
+
+body{width:1080px}
+.sl{position:relative;width:1080px;height:1350px;overflow:hidden}
+.sl>*{position:relative}
+.sl:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 38px,#161616 38px 40px),repeating-linear-gradient(45deg,transparent 0 38px,#161616 38px 40px)}
+.hd{position:absolute;top:70px;left:90px;right:90px;display:flex;justify-content:space-between;font-size:30px;font-weight:700;letter-spacing:1px}
+.hd .lbl{color:#C6F432}.hd .pg{color:#777}
+.ft{position:absolute;left:90px;right:90px;bottom:60px;display:flex;justify-content:space-between;align-items:center;font-size:28px;color:#777;letter-spacing:2px}
+.dots.sm{gap:12px}.dots.sm i{width:16px;height:16px}
+h1{position:absolute;left:90px;right:60px;top:430px;margin:0;font-size:132px;line-height:1.14;font-weight:900;letter-spacing:-3px}
+.who{position:absolute;left:90px;right:90px;top:200px;margin:0;font-size:46px;line-height:1.45;font-weight:700;color:#e0e0e0}
+.next{position:absolute;left:90px;top:1010px;display:flex;align-items:center;gap:30px;font-size:44px;font-weight:900}
+.s-q h2,.s-ck h2,.s-pd h2{position:absolute;left:90px;right:90px;margin:0;font-weight:900;letter-spacing:-2px}
+.s-q h2{top:160px;font-size:84px;line-height:1.18}
+.qs{position:absolute;left:90px;right:90px;top:410px;display:flex;flex-direction:column;gap:26px}
+.q{display:flex;gap:22px;background:#161616;border:3px solid #2b2b2b;border-radius:30px;padding:26px 34px}
+.q i{font-style:normal;font-size:90px;line-height:.9;font-weight:900;color:#C6F432}
+.q p{margin:0;font-size:42px;line-height:1.38;font-weight:700}
+.src{position:absolute;left:90px;right:90px;margin:0;font-size:24px;line-height:1.5;color:#777}
+.s-q .src{top:1190px}
+.num{position:absolute;left:90px;top:170px;width:120px;height:120px;border-radius:50%;background:#C6F432;color:#0e0e0e;font-size:80px;font-weight:900;display:flex;align-items:center;justify-content:center;line-height:1}
+.s-ck h2{top:320px;font-size:96px;line-height:1.14}
+.s-ck .sub{position:absolute;left:90px;right:90px;top:560px;margin:0;font-size:42px;line-height:1.5;color:#d0d0d0}
+.s-ck .gr{position:absolute;left:0;right:0;top:730px;height:520px;display:flex;align-items:center;justify-content:center}
+.s-ck .g3{height:500px}
+.s-pd .who{top:150px;font-size:40px;color:#C6F432}
+.s-pd h2{top:205px;font-size:84px;line-height:1.14}
+.ph{position:absolute;left:90px;top:420px;width:900px;height:480px;border-radius:50px;overflow:hidden;box-shadow:0 30px 80px #000}
+.phin{transform:scale(.8333);transform-origin:0 0}
+.facts{position:absolute;left:90px;right:60px;top:925px;display:flex;flex-direction:column;gap:8px}
+.f{display:flex;align-items:center;gap:26px}
+.f p{margin:0;font-size:34px;line-height:1.3;font-weight:700}
+.s-pd .src{top:1250px;font-size:24px}
+.s-end{text-align:center}
+.dots.big{position:absolute;top:220px;left:0;right:0;justify-content:center;gap:40px}.dots.big i{width:56px;height:56px}
+.s-end .logo{position:absolute;top:340px;left:375px}
+.nm{position:absolute;top:660px;left:0;right:0}
+.nm b{display:block;font-size:64px;font-weight:900;letter-spacing:2px}.nm span{font-size:40px;color:#C6F432;font-weight:700}
+.tag{position:absolute;top:830px;left:0;right:0;margin:0;font-size:44px;line-height:1.45;font-weight:700;color:#ddd}
+.open{position:absolute;top:1010px;left:0;right:0}
+.open span{display:inline-block;border:5px solid #C6F432;border-radius:999px;padding:18px 60px;font-size:50px;font-weight:900;letter-spacing:4px}
+.cta{position:absolute;top:1170px;left:0;right:0;font-size:34px;color:#aaa}.cta b{color:#C6F432}
+</style></head><body><div class="sl s-hook"><div class="hd"><span class="lbl">저장해두고 살 때 보기</span><span class="pg">01 / 08</span></div>
+    <p class="who">오래 서서 일하다<br>퇴근길에 <b class="L">‘깔창 추천’</b> 검색해 본 분들</p>
+    <h1>깔창 사기 전에<br>신던 신발부터<br><span class="L">꺼내보세요</span></h1>
+    <div class="next"><div class="dots"><i></i><i></i><i></i><i></i></div><span>확인할 4가지 →</span></div>
+    <div class="ft"><div class="dots sm"><i></i><i></i><i></i><i></i></div><span>RhaRa Shoe · 라라슈</span></div></div>
+<div class="sl s-q"><div class="hd"><span class="lbl">먼저, 실제로 많이 묻는 질문</span><span class="pg">02 / 08</span></div>
+    <h2>영상 댓글<br>약 <span class="L">210개</span>를 읽었습니다</h2>
+    <div class="qs"><div class="q"><i>“</i><p>안정화 러닝화에 아치깔창<br>넣어도 되나요?</p></div><div class="q"><i>“</i><p>깔창 추가로 깔면 너무 푹신해서<br>역효과?</p></div><div class="q"><i>“</i><p>슬리퍼에도 되나요?</p></div><div class="q"><i>“</i><p>운동용으로 쓸 수 있나요?</p></div></div>
+    <p class="src">출처: 유튜브 ‘서서 일하는 신발·깔창’ 영상 공개 댓글 (2026.10, 라라슈 직접 열람·익명)</p>
+    <div class="ft"><div class="dots sm"><i></i><i></i><i></i><i></i></div><span>RhaRa Shoe · 라라슈</span></div></div>
+<div class="sl s-ck"><div class="hd"><span class="lbl">깔창 사기 전 체크</span><span class="pg">03 / 08</span></div>
+    <div class="num">1</div>
+    <h2>어디에 넣을지<br>먼저 정하기</h2><p class="sub">운동화·구두·안전화는 신발 안 공간이 달라요. 넣을 신발부터 정하고 고르세요.</p>
+    <div class="gr"><div class="g1"><div class="sh"><svg viewBox="0 0 120 80" fill="none" stroke="#C6F432" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 62H112V54C112 46 104 44 94 42L66 34L56 18H30L24 40C14 42 8 48 8 54Z"/><path d="M8 54H112"/><path d="M40 26L48 24M42 32L52 30"/></svg><b>운동화</b></div><div class="sh"><svg viewBox="0 0 120 80" fill="none" stroke="#C6F432" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"><path d="M8 58H24V66H32V58H114C114 50 106 46 94 44L64 38L54 28H24C20 38 12 44 8 50Z"/><path d="M32 58H114"/></svg><b>구두</b></div><div class="sh"><svg viewBox="0 0 120 80" fill="none" stroke="#C6F432" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"><path d="M10 64H112V56C112 48 104 46 94 44L70 38L66 8H28L26 44C16 46 10 50 10 56Z"/><path d="M10 56H112"/><path d="M34 18H60M34 28H62"/></svg><b>안전화</b></div></div></div>
+    <div class="ft"><div class="dots sm"><i></i><i></i><i></i><i></i></div><span>RhaRa Shoe · 라라슈</span></div></div>
+<div class="sl s-ck"><div class="hd"><span class="lbl">깔창 사기 전 체크</span><span class="pg">04 / 08</span></div>
+    <div class="num">2</div>
+    <h2>원래 안창이<br>빠지는지 보기</h2><p class="sub">빼고 넣는 깔창인지, 위에 겹쳐 까는 깔창인지 먼저 확인하세요.</p>
+    <div class="gr"><svg class="g2" viewBox="0 0 860 380" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g><path d="M40 120V300Q40 330 70 330H350Q380 330 380 300V120" stroke="#777" stroke-width="8"/>
+    <rect x="70" y="70" width="280" height="26" rx="13" stroke="#bbb" stroke-width="5" stroke-dasharray="14 12"/>
+    <path d="M210 150V112M194 128L210 112L226 128" stroke="#bbb" stroke-width="6"/>
+    <rect x="62" y="280" width="296" height="30" rx="15" fill="#C6F432"/>
+    <text x="210" y="372" text-anchor="middle" class="lb">빼고 넣기</text></g>
+  <g transform="translate(440 0)"><path d="M40 120V300Q40 330 70 330H350Q380 330 380 300V120" stroke="#777" stroke-width="8"/>
+    <rect x="62" y="282" width="296" height="28" rx="14" fill="#666"/>
+    <rect x="62" y="244" width="296" height="30" rx="15" fill="#C6F432"/>
+    <text x="210" y="372" text-anchor="middle" class="lb">위에 겹치기</text></g>
+</svg></div>
+    <div class="ft"><div class="dots sm"><i></i><i></i><i></i><i></i></div><span>RhaRa Shoe · 라라슈</span></div></div>
+<div class="sl s-ck"><div class="hd"><span class="lbl">깔창 사기 전 체크</span><span class="pg">05 / 08</span></div>
+    <div class="num">3</div>
+    <h2>원래 안창 위에<br>겹쳐 대보기</h2><p class="sub">길이와 폭을 맞대어 보세요. 자를 수 있는 제품인지도 함께요.</p>
+    <div class="gr"><svg class="g3" viewBox="-80 0 600 760" fill="none" stroke-linecap="round">
+  <path d="M150 20C232 20 272 92 270 200C268 300 238 360 240 452C242 566 220 680 150 680C80 680 58 566 60 452C62 372 30 300 30 200C28 92 68 20 150 20Z" transform="translate(70 40)" stroke="#bbb" stroke-width="6" stroke-dasharray="16 12"/>
+  <path d="M150 20C232 20 272 92 270 200C268 300 238 360 240 452C242 566 220 680 150 680C80 680 58 566 60 452C62 372 30 300 30 200C28 92 68 20 150 20Z" transform="translate(84 6) scale(.95 1.05)" stroke="#C6F432" stroke-width="8"/>
+  <path d="M40 30V740M28 30H52M28 740H52" stroke="#888" stroke-width="4"/>
+  <text x="0" y="400" class="lb">길이</text>
+  <path d="M110 520H420M110 508V532M420 508V532" stroke="#888" stroke-width="4"/>
+  <text x="265" y="505" class="lb" text-anchor="middle">폭</text>
+</svg></div>
+    <div class="ft"><div class="dots sm"><i></i><i></i><i></i><i></i></div><span>RhaRa Shoe · 라라슈</span></div></div>
+<div class="sl s-ck"><div class="hd"><span class="lbl">깔창 사기 전 체크</span><span class="pg">06 / 08</span></div>
+    <div class="num">4</div>
+    <h2>처음엔<br>짧게 신어보기</h2><p class="sub">새 깔창은 발이 낯설 수 있어요. 불편하면 참지 말고 빼세요.</p>
+    <div class="gr"><div class="g4">
+  <div class="row"><span>처음</span><i style="width:22%"></i></div>
+  <div class="row"><span>조금씩</span><i style="width:52%"></i></div>
+  <div class="row"><span>익숙해지면</span><i style="width:86%"></i></div>
+  <div class="warn">불편하면 참지 말고 빼기</div>
+</div></div>
+    <div class="ft"><div class="dots sm"><i></i><i></i><i></i><i></i></div><span>RhaRa Shoe · 라라슈</span></div></div>
+<div class="sl s-pd"><div class="hd"><span class="lbl">그리고, 저희 이야기</span><span class="pg">07 / 08</span></div>
+    <p class="who">라라슈가 지금 만들고 있는 인솔</p>
+    <h2>쿼드그립<br><span class="L">아치가득 인솔</span></h2>
+    <div class="ph"><div class="phin"><div class="crop"><img src="../../design/film/insole-photo.png"><svg class="ring " viewBox="0 0 1080 600"><ellipse cx="268" cy="312" rx="182" ry="128" fill="none" stroke="#C6F432" stroke-width="10"/></svg></div></div></div>
+    <div class="facts">
+      <div class="f"><div class="bd" style="width:96px;height:96px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gb0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient><filter id="fb0" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gb0)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round" filter="url(#fb0)"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 33C10 33 12 33 15 29C19 22 27 22 31 29C33.5 33 38 33 44 33V38H4Z"/><path d="M23 8V18M19 14L23 18L27 14" /></g>
+
+</svg></div><p>아치 라인을 따라<br>가득 채운 형태</p></div>
+      <div class="f"><div class="bd" style="width:96px;height:96px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient><filter id="fb1" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gb1)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round" filter="url(#fb1)"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><g transform="scale(2)" stroke-width="1.3"><path d="M5 4 V13 A7 7 0 0 0 19 13 V4"/><path d="M8.5 4 V12.5 A3.5 3.5 0 0 0 15.5 12.5 V4" /></g></g>
+
+</svg></div><p>뒤꿈치 가운데를 비운 링<br>+ 감싸는 컵</p></div>
+      <div class="f"><div class="bd" style="width:96px;height:96px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="badge">
+<defs><linearGradient id="gb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232323"/><stop offset="1" stop-color="#0d0d0d"/></linearGradient><filter id="fb2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<polygon points="50,3 91,26.5 91,73.5 50,97 9,73.5 9,26.5" fill="url(#gb2)" stroke="#C6F432" stroke-width="3" stroke-linejoin="round" filter="url(#fb2)"/>
+<polygon points="50,10 85,30 85,70 50,90 15,70 15,30" fill="none" stroke="#3d4a12" stroke-width="1" stroke-linejoin="round"/>
+<g transform="translate(24 24) scale(1.0833)" fill="none" stroke="#C6F432" color="#C6F432" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30L14 18L26 21L22 34Z"/><path d="M27 15L36 7L43 14L35 23Z"/><path d="M26 32L36 27L42 37L31 42Z"/><path d="M12 25L21 27M31 12L38 15M31 34L38 35" stroke-width="1.8"/></g>
+
+</svg></div><p>E-실리폴리렌에 목공소<br>자투리 우드칩 배합</p></div>
+    </div>
+    <p class="src">운동화·구두·안전화 같은 일반 신발에 넣는 인솔<br>사진: 09/30 시사출 샘플 — 양산품과 색·표면이 다를 수 있습니다</p>
+    </div>
+<div class="sl s-end">
+    <div class="dots big"><i></i><i></i><i></i><i></i></div>
+    <svg class="logo" style="width:330px" viewBox="66 39 478 402"><defs><clipPath id="clg3"><rect x="66" y="39" width="478" height="402"/></clipPath><filter id="lg3" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0.776  0 0 0 0 0.957  0 0 0 0 0.196  -0.667 -0.667 -0.667 0 1.6"/></filter></defs><g clip-path="url(#clg3)"><image href="../../design/brand/rs-logo-source.png" width="587" height="481" filter="url(#lg3)"/></g></svg>
+    <div class="nm"><b>RhaRa Shoe</b><span>라라슈</span></div>
+    <p class="tag">서서 걷고 일하는 하루를 위한<br>신발과 인솔을 만듭니다</p>
+    <div class="open"><span>2026. 11. 11 OPEN</span></div>
+    <div class="cta"><b>저장</b> 해두고 · <b>팔로우</b> 하고 · 오픈 <b>알림</b>은 프로필 링크</div>
+  </div></body></html>

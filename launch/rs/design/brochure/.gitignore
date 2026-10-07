@@ -1,0 +1,5 @@
+node_modules
+src/
+p*.png
+src-*.png
+source-v1005.pdf

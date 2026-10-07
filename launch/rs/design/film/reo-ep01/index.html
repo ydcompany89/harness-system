@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>레오 사장 EP.01 — 에어컨</title>
+<style>html,body{margin:0;background:#0B0B0B;overflow:hidden}canvas{display:block}</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// 레오 사장 EP.01 "출근했는데 매장이 시원하다" — 1080x1920, 120 BPM, 12초. render(t)는 결정적.
+// 컷 이미지 교체: assets/cut1.png ~ cut7.png 가 있으면 그 컷은 이미지(9:16)로, 없으면 코드 그림 + 턴어라운드 컷아웃으로 그린다.
+const W = innerWidth, H = innerHeight;
+const cv = document.getElementById('c'); cv.width = W; cv.height = H;
+const g = cv.getContext('2d');
+const C = { ink: '#1A1A1A', page: '#0B0B0B', paper: '#EDEDE8', lime: '#C6F432', grey: '#8C8C86',
+  wall: '#EADFCB', wall2: '#DCCDB2', floor: '#B9B3A6', floor2: '#A9A396', steel: '#C9CCCF', wood: '#B98A5A', sky: '#CFE3EA', cold: '#BFE6FF' };
+const FONT = 'NotoKR';
+window.DUR = 15.5;
+// 자막 읽기 시간 확보: 콘티 시간(old) → 실제 시간(new) 구간별 늘림. 컷 경계는 모두 박(0.5초) 위.
+const OLD = [0, 1, 2, 3.5, 5, 6.5, 8, 9.5, 12], NEW = [0, 1.5, 3, 4.5, 6, 8, 10, 12, 14.5];
+function pw(x, A, B) { for (let i = 0; i < A.length - 1; i++) if (x <= A[i + 1]) return B[i] + (x - A[i]) * (B[i + 1] - B[i]) / (A[i + 1] - A[i]); return B[B.length - 1] + x - A[A.length - 1]; }
+const toOld = (t) => pw(t, NEW, OLD), toNew = (t) => pw(t, OLD, NEW);
+
+function bez(x1, y1, x2, y2) {
+  const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx, cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+  const X = (s) => ((ax * s + bx) * s + cx) * s, Y = (s) => ((ay * s + by) * s + cy) * s, dX = (s) => (3 * ax * s + 2 * bx) * s + cx;
+  return (x) => { if (x <= 0) return 0; if (x >= 1) return 1; let s = x; for (let i = 0; i < 8; i++) { const d = dX(s); if (Math.abs(d) < 1e-6) break; s -= (X(s) - x) / d; } return Y(Math.min(1, Math.max(0, s))); };
+}
+const E = bez(.7, 0, .2, 1), EO = bez(.2, .8, .3, 1);
+const cl = (x) => Math.max(0, Math.min(1, x));
+const snap = (t, t0, d) => E(cl((t - t0) / d));
+const out = (t, t0, d) => EO(cl((t - t0) / d));
+const lin = (t, t0, d) => cl((t - t0) / d);
+const shake = (t, t0, d, amp) => { const k = 1 - cl((t - t0) / d); if (k <= 0 || t < t0) return 0; return Math.sin((t - t0) * 90) * amp * k; };
+
+const IMG = {};
+function loadImg(k, src) { return new Promise((r) => { const i = new Image(); i.onload = () => { IMG[k] = i; r(); }; i.onerror = () => r(); i.src = src; }); }
+let LOGO_LIME = null;
+function tintLogo(img, rgb) {
+  const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+  const x = c.getContext('2d'); x.drawImage(img, 0, 0);
+  const d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+  for (let i = 0; i < p.length; i += 4) { const l = (p[i] + p[i + 1] + p[i + 2]) / 765; const a = cl((1 - l) * 1.6 - 0.25); p[i] = rgb[0]; p[i + 1] = rgb[1]; p[i + 2] = rgb[2]; p[i + 3] = a * 255; }
+  x.putImageData(d, 0, 0); return c;
+}
+const LG = { sx: 66, sy: 39, sw: 478, sh: 402 };
+
+let TX = [];
+function font(sz, wt) { g.font = `${wt} ${sz}px ${FONT}`; }
+function rr(x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+function inkFill(col, lw = 6) { g.fillStyle = col; g.fill(); g.lineWidth = lw; g.strokeStyle = C.ink; g.stroke(); }
+
+// ---------- 자막 (쇼츠형: 가운데, 흰 글자 + 검정 외곽선, 팝 등장) ----------
+const SUB_Y = 1470;
+function sub(t, id, s, t0, t1, opt = {}) {
+  if (t < t0 || t >= t1) return;
+  const sz = opt.size || 76, wt = opt.weight || 900;
+  const pop = out(t, t0, 0.18), sc = 0.86 + 0.14 * pop;
+  font(sz, wt); const w = g.measureText(s).width;
+  g.save(); g.translate(W / 2, SUB_Y); g.scale(sc, sc); g.globalAlpha = cl(pop * 1.4);
+  g.textAlign = 'center'; g.lineJoin = 'round';
+  g.lineWidth = sz * 0.2; g.strokeStyle = C.page; g.strokeText(s, 0, 0);
+  g.fillStyle = opt.col || '#FFFFFF'; g.fillText(s, 0, 0); g.restore();
+  TX.push({ id, text: s, x0: W / 2 - w / 2, y0: SUB_Y - sz, x1: W / 2 + w / 2, y1: SUB_Y + sz * 0.3 });
+}
+// 효과음 자막 (작게, 위쪽)
+function sfxText(t, id, s, x, y, t0, t1, rot = 0) {
+  if (t < t0 || t >= t1) return;
+  const p = out(t, t0, 0.2); font(54, 900);
+  g.save(); g.translate(x, y); g.rotate(rot); g.scale(0.7 + 0.3 * p, 0.7 + 0.3 * p);
+  g.lineJoin = 'round'; g.lineWidth = 12; g.strokeStyle = C.page; g.strokeText(s, 0, 0); g.fillStyle = C.cold; g.fillText(s, 0, 0); g.restore();
+  const w = g.measureText(s).width; TX.push({ id, text: s, x0: x, y0: y - 54, x1: x + w, y1: y + 10 });
+}
+
+// ---------- 배경: 김밥집 아침 (평면 코믹 톤) ----------
+function room(t, cool = 0) {
+  g.fillStyle = C.wall; g.fillRect(0, 0, W, 1240);
+  g.fillStyle = C.wall2; g.fillRect(0, 980, W, 260);               // 아래 벽 (징두리)
+  g.fillStyle = C.ink; g.fillRect(0, 976, W, 6);
+  // 바닥 타일
+  g.fillStyle = C.floor; g.fillRect(0, 1240, W, H - 1240); g.fillStyle = C.ink; g.fillRect(0, 1236, W, 6);
+  g.strokeStyle = C.floor2; g.lineWidth = 4;
+  for (let i = 0; i < 6; i++) { const y = 1240 + 40 * (i + 1) * (1 + i * 0.35); g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); }
+  for (let i = -6; i <= 6; i++) { g.beginPath(); g.moveTo(W / 2 + i * 120, 1240); g.lineTo(W / 2 + i * 420, H); g.stroke(); }
+  // 창문 + 아침 햇살
+  rr(70, 240, 360, 520, 8); inkFill(C.sky);
+  g.fillStyle = C.ink; g.fillRect(246, 240, 8, 520); g.fillRect(70, 496, 360, 8);
+  g.save(); g.globalAlpha = 0.18; g.fillStyle = '#FFF6D8';
+  g.beginPath(); g.moveTo(70, 760); g.lineTo(430, 760); g.lineTo(760, 1700); g.lineTo(200, 1700); g.closePath(); g.fill(); g.restore();
+  // 메뉴판
+  rr(560, 320, 440, 270, 10); inkFill('#2B2B2B');
+  font(44, 900); g.fillStyle = C.paper; g.fillText('메 뉴', 600, 384);
+  font(36, 700); g.fillStyle = '#D9D9D3'; ['김밥', '라면', '떡볶이', '오뎅'].forEach((s, i) => g.fillText(s, 600 + (i % 2) * 200, 452 + Math.floor(i / 2) * 70));
+  // 벽시계 8:00
+  g.beginPath(); g.arc(495, 330, 56, 0, Math.PI * 2); inkFill('#FFFFFF', 6);
+  g.lineCap = 'round'; g.strokeStyle = C.ink; g.lineWidth = 7; g.beginPath(); g.moveTo(495, 330); g.lineTo(495, 288); g.stroke();
+  g.lineWidth = 6; g.beginPath(); g.moveTo(495, 330); g.lineTo(495 - 30 * Math.sin(Math.PI / 3 * 2), 330 + 15); g.stroke();
+  // 벽걸이 에어컨 (오른쪽 위)
+  acUnit(t, 690, 660, 330, 1);
+  // 테이블 + 스툴
+  for (const [x, y, s] of [[110, 1130, 1], [760, 1180, 0.9]]) {
+    g.save(); g.translate(x, y); g.scale(s, s);
+    rr(0, 0, 300, 34, 6); inkFill(C.wood); g.fillStyle = C.ink; g.fillRect(40, 34, 14, 170); g.fillRect(246, 34, 14, 170);
+    g.beginPath(); g.ellipse(-30, 150, 54, 16, 0, 0, Math.PI * 2); inkFill('#C0392B', 5); g.fillRect(-36, 166, 12, 70);
+    g.restore();
+  }
+  // 차가운 공기 (cool 0..1)
+  if (cool > 0) coldAir(t, cool, 850, 790);
+}
+function acUnit(t, x, y, w, s) {
+  const h = w * 0.34;
+  rr(x, y, w, h, 18); inkFill('#F4F4F0');
+  g.fillStyle = '#DADAD4'; g.fillRect(x + 10, y + h * 0.66, w - 20, h * 0.1);
+  // 날개: 위아래로 흔들
+  const a = 0.25 + 0.25 * Math.sin(t * 6);
+  g.save(); g.translate(x + w / 2, y + h - 4); g.rotate(a * 0.4);
+  rr(-w / 2 + 16, -6, w - 32, 14, 7); inkFill('#E2E2DC', 4); g.restore();
+  // 운전 표시등 (켜져 있음)
+  g.fillStyle = '#4CD964'; g.beginPath(); g.arc(x + w - 36, y + 26, 8 * (w / 330), 0, Math.PI * 2); g.fill();
+}
+function coldAir(t, k, x0, y0) {
+  g.save(); g.globalAlpha = 0.75 * k; g.strokeStyle = C.cold; g.lineCap = 'round';
+  for (let i = 0; i < 7; i++) {
+    const ph = ((t * 0.9 + i / 7) % 1);
+    const sx = x0 - 60 + i * 26, sy = y0 + ph * 520, len = 90;
+    g.lineWidth = 9 - ph * 5; g.globalAlpha = 0.8 * k * (1 - ph);
+    g.beginPath(); g.moveTo(sx - ph * 260, sy);
+    g.bezierCurveTo(sx - ph * 260 - 30, sy + len * 0.3, sx - ph * 260 + 30, sy + len * 0.6, sx - ph * 260 - 10, sy + len); g.stroke();
+  }
+  g.restore();
+}
+
+// 레오 컷아웃 그리기: 발 기준(x=중앙, y=발바닥), 높이 h
+function reo(key, cx, footY, h, opt = {}) {
+  const im = IMG[key]; if (!im) return;
+  const s = h / im.height, w = im.width * s;
+  g.save(); g.translate(cx, footY);
+  if (opt.sx || opt.sy) g.scale(opt.sx || 1, opt.sy || 1);
+  if (opt.rot) g.rotate(opt.rot);
+  // 바닥 그림자
+  g.save(); g.globalAlpha = 0.18; g.fillStyle = C.ink; g.beginPath(); g.ellipse(0, -4, w * 0.42, 22, 0, 0, Math.PI * 2); g.fill(); g.restore();
+  g.drawImage(im, -w / 2, -h, w, h);
+  g.restore();
+}
+// 컷 이미지가 있으면 9:16 커버로 그리고 true
+function cutImg(k, t, t0, d) {
+  const im = IMG['cut' + k]; if (!im) return false;
+  const z = 1 + 0.06 * lin(t, t0, d), s = Math.max(W / im.width, H / im.height) * z;
+  g.drawImage(im, (W - im.width * s) / 2, (H - im.height * s) / 2, im.width * s, im.height * s); return true;
+}
+
+// ---------- 컷 ----------
+function c1(t) {   // 0.0–1.0 출근
+  if (!cutImg(1, t, 0, 1)) {
+    room(t, 0.25);
+    const p = out(t, 0.0, 0.9), x = 1240 - 700 * p, bob = Math.abs(Math.sin(t * 14)) * 16 * (1 - p);
+    reo('front', x, 1700 - bob, 1060);
+  }
+  sub(t, 's1', '아침 8시, 출근했는데', 0.05, 1.0);
+}
+function c2(t) {   // 1.0–2.0 멈칫, 부르르
+  if (!cutImg(2, t, 1, 1)) {
+    room(t, 0.7);
+    const jx = shake(t, 1.15, 0.7, 7);
+    reo('front', 540 + jx, 1700, 1060, { sx: 1 - 0.02 * Math.abs(Math.sin(t * 40)) * (t < 1.85 ? 1 : 0) });
+    // 부르르 선
+    g.save(); g.strokeStyle = C.ink; g.lineWidth = 6; g.lineCap = 'round';
+    for (const sgn of [-1, 1]) for (let i = 0; i < 3; i++) { const yy = 980 + i * 60, xx = 540 + sgn * (300 + (i % 2) * 20); g.beginPath(); g.moveTo(xx, yy); g.lineTo(xx + sgn * 40, yy - 10); g.stroke(); }
+    g.restore();
+    sfxText(t, 'f2', '부르르', 690, 880, 1.15, 2.0, 0.12);
+  }
+  sub(t, 's2', '…어? 매장이 시원하다', 1.0, 2.0);
+}
+function c3(t) {   // 2.0–3.5 에어컨 클로즈업
+  if (!cutImg(3, t, 2, 1.5)) {
+    g.fillStyle = C.wall; g.fillRect(0, 0, W, H);
+    const z = 1 + 0.05 * lin(t, 2.0, 1.5);
+    g.save(); g.translate(W / 2, 700); g.scale(z, z); g.translate(-W / 2, -700);
+    acUnit(t, 80, 520, 920, 1);
+    // 온도 표시창
+    rr(720, 560, 200, 92, 12); inkFill('#22303A', 5);
+    font(64, 900); g.fillStyle = '#7FE3FF'; g.fillText('18°', 748, 630);
+    g.restore();
+    coldAir(t, 1, 640, 900); coldAir(t + 0.37, 1, 380, 900);
+    sfxText(t, 'f3', '위이이잉—', 120, 1180, 2.15, 3.5, -0.06);
+  }
+  sub(t, 's3', '(밤새 돌아간 에어컨)', 2.1, 3.5, { size: 60, weight: 700, col: '#E6E6E0' });
+}
+function c4(t) {   // 3.5–5.0 얼굴 클로즈업, 철렁
+  if (!cutImg(4, t, 3.5, 1.5)) {
+    g.fillStyle = '#F2E6CF'; g.fillRect(0, 0, W, H);
+    // 집중선
+    g.save(); g.translate(W / 2, 760); g.strokeStyle = 'rgba(26,26,26,0.16)'; g.lineWidth = 8;
+    for (let i = 0; i < 36; i++) { const a = i / 36 * Math.PI * 2; g.beginPath(); g.moveTo(Math.cos(a) * 520, Math.sin(a) * 520); g.lineTo(Math.cos(a) * 1500, Math.sin(a) * 1500); g.stroke(); }
+    g.restore();
+    const im = IMG.front;
+    if (im) {
+      const zin = snap(t, 3.5, 0.25), sc = 2.4 + 0.5 * zin, jx = shake(t, 3.75, 0.5, 14);
+      // 머리 부분(컷아웃 상단 ~33%)을 화면 중앙에
+      g.save(); g.translate(W / 2 + jx, 760); g.scale(sc, sc);
+      g.drawImage(im, -im.width / 2, -im.height * 0.14, im.width, im.height); g.restore();
+    }
+    // 느낌표
+    const ep = out(t, 3.75, 0.2);
+    if (ep > 0) { font(220 * ep, 900); g.lineWidth = 18; g.lineJoin = 'round'; g.strokeStyle = C.page; g.strokeText('!', 820, 420); g.fillStyle = '#FFFFFF'; g.fillText('!', 820, 420); }
+  }
+  sub(t, 's4', '…설마.', 3.75, 5.0, { size: 92 });
+}
+function c5(t) {   // 5.0–6.5 리모컨 들고 멍
+  if (!cutImg(5, t, 5, 1.5)) {
+    room(t, 0.5);
+    g.fillStyle = 'rgba(11,11,11,0.10)'; g.fillRect(0, 0, W, H);
+    reo('34', 420, 1760, 1200);
+    // 리모컨: 레오 손 위치에 겹쳐 '들고 있는' 느낌 (앞발은 그리지 않음)
+    const ry = 1240 - 14 * out(t, 5.0, 0.3);
+    g.save(); g.translate(300, ry); g.rotate(-0.18); g.scale(0.62, 0.62);
+    rr(-95, -230, 190, 460, 40); inkFill('#F4F4F0', 9);
+    rr(-70, -195, 140, 110, 12); inkFill('#22303A', 6);
+    font(58, 900); g.fillStyle = '#7FE3FF'; g.fillText('18°', -52, -118);
+    font(24, 700); g.fillStyle = '#7FE3FF'; g.fillText('운전중', -40, -96);
+    for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(-40 + (i % 2) * 80, -20 + Math.floor(i / 2) * 70, 22, 0, Math.PI * 2); inkFill(i === 0 ? '#E74C3C' : '#DADAD4', 5); }
+    g.restore();
+    // 멍— 표시 (머리 위 점 세 개)
+    for (let i = 0; i < 3; i++) { const q = snap(t, 5.25 + i * 0.25, 0.2); if (q > 0) { g.fillStyle = C.ink; g.beginPath(); g.arc(560 + i * 44, 520, 10 * q, 0, Math.PI * 2); g.fill(); } }
+  }
+  sub(t, 's5', '…밤새 켜놨네.', 5.15, 6.5, { size: 88 });
+}
+function c6(t) {   // 6.5–8.0 한숨, 전기세
+  if (!cutImg(6, t, 6.5, 1.5)) {
+    room(t, 0.4);
+    g.fillStyle = 'rgba(30,40,60,0.18)'; g.fillRect(0, 0, W, H);
+    const k = out(t, 6.6, 0.6);
+    reo('front', 540, 1700 + 20 * k, 1060, { sy: 1 - 0.045 * k, sx: 1 + 0.015 * k });
+    // 한숨 김
+    const hp = lin(t, 6.8, 0.9);
+    if (hp > 0 && hp < 1) { g.save(); g.globalAlpha = 0.85 * (1 - hp); g.strokeStyle = '#FFFFFF'; g.lineWidth = 10; g.lineCap = 'round';
+      g.beginPath(); g.arc(560 + hp * 140, 800 - hp * 120, 30 + hp * 30, Math.PI * 0.9, Math.PI * 1.9); g.stroke(); g.restore(); }
+    // 떨어지는 고지서
+    const bp = lin(t, 6.7, 1.3);
+    g.save(); g.translate(850 - 40 * Math.sin(bp * 6), -200 + bp * 900); g.rotate(Math.sin(bp * 5) * 0.25);
+    rr(-110, -140, 220, 280, 6); inkFill('#FFFFFF', 5);
+    font(34, 900); g.fillStyle = C.ink; g.fillText('전기요금', -74, -82);
+    g.fillStyle = '#C9C9C3'; for (let i = 0; i < 4; i++) g.fillRect(-74, -40 + i * 40, 148 - (i % 2) * 40, 12);
+    g.restore();
+  }
+  sub(t, 's6', '전기세… (한숨)', 6.65, 8.0, { size: 84 });
+}
+function c7(t) {   // 8.0–9.5 앞치마 끈 묶기 (뒷모습)
+  if (!cutImg(7, t, 8, 1.5)) {
+    room(t, 0);
+    const z = 1 + 0.06 * snap(t, 8.0, 0.25) + 0.03 * lin(t, 8.25, 1.25);
+    g.save(); g.translate(W / 2, 1000); g.scale(z, z); g.translate(-W / 2, -1000);
+    reo('back', 540, 1720, 1120);
+    // 끈 매듭 (허리) — 박에 맞춰 조여짐
+    const kp = snap(t, 8.25, 0.25);
+    g.save(); g.translate(540, 1720 - 1120 * 0.505); g.strokeStyle = '#3A3D42'; g.lineWidth = 12; g.lineCap = 'round';
+    g.beginPath(); g.ellipse(-26, 0, 30 * kp + 6, 16, -0.3, 0, Math.PI * 2); g.stroke();
+    g.beginPath(); g.ellipse(26, 0, 30 * kp + 6, 16, 0.3, 0, Math.PI * 2); g.stroke(); g.restore();
+    g.restore();
+    sfxText(t, 'f7', '꽉!', 700, 900, 8.25, 9.5, 0.1);
+  }
+  sub(t, 's7', '…오늘도 영업 시작.', 8.25, 9.5, { size: 86 });
+}
+function outro(t) {   // 9.5–12.0 공용 아웃트로
+  g.fillStyle = C.page; g.fillRect(0, 0, W, H);
+  const cy = 820, gap = 112, x0 = W / 2 - gap * 1.5;
+  for (let i = 0; i < 4; i++) {
+    const q = snap(t, 9.5 + 0.25 * i, 0.25), fade = 1 - snap(t, 10.75, 0.25);
+    if (q > 0 && fade > 0) { g.fillStyle = C.lime; g.beginPath(); g.arc(x0 + i * gap, cy, 26 * q * fade + 0.01, 0, Math.PI * 2); g.fill(); }
+  }
+  const lp = snap(t, 10.75, 0.25);
+  if (lp > 0 && LOGO_LIME) { const lw = 420, lh = lw * LG.sh / LG.sw; g.save(); g.beginPath(); g.rect(W / 2 - lw / 2, cy - lh / 2, lw * lp, lh); g.clip(); g.drawImage(LOGO_LIME, LG.sx, LG.sy, LG.sw, LG.sh, W / 2 - lw / 2, cy - lh / 2, lw, lh); g.restore(); }
+  if (t >= 11.0) {
+    font(52, 700); g.textAlign = 'center'; g.fillStyle = C.paper; g.fillText('RhaRa Shoe · 라라슈', W / 2, 1160);
+    font(40, 400); g.fillStyle = C.grey; g.fillText('Made for Standing.', W / 2, 1230); g.textAlign = 'left';
+    TX.push({ id: 'o1', text: 'RhaRa Shoe · 라라슈', x0: W / 2 - 260, y0: 1110, x1: W / 2 + 260, y1: 1175 });
+    TX.push({ id: 'o2', text: 'Made for Standing.', x0: W / 2 - 200, y0: 1190, x1: W / 2 + 200, y1: 1245 });
+  }
+  const bp = snap(t, 11.25, 0.25);
+  if (bp > 0) {
+    font(56, 900); const s = '11.11 OPEN', w = g.measureText(s).width + 56, x = W / 2 - w / 2;
+    g.save(); g.beginPath(); g.rect(x, 1300, w * bp, 96); g.clip(); g.fillStyle = C.lime; g.fillRect(x, 1300, w, 96); g.fillStyle = C.page; g.fillText(s, x + 28, 1368); g.restore();
+    TX.push({ id: 'o3', text: s, x0: x, y0: 1300, x1: x + w, y1: 1396 });
+  }
+}
+function aiLabel(t) {   // 상시 고지: AI 캐릭터
+  font(28, 700); const s = 'AI 캐릭터', w = g.measureText(s).width + 32, x = W - 48 - w, y = 230;
+  rr(x, y, w, 50, 25); g.fillStyle = 'rgba(11,11,11,0.55)'; g.fill();
+  g.fillStyle = '#FFFFFF'; g.fillText(s, x + 16, y + 35);
+  TX.push({ id: 'ai', text: s, x0: x, y0: y, x1: x + w, y1: y + 50 });
+}
+
+function render0(t) {
+  TX = [];
+  g.fillStyle = C.page; g.fillRect(0, 0, W, H);
+  if (t < 1.0) c1(t);
+  else if (t < 2.0) c2(t);
+  else if (t < 3.5) c3(t);
+  else if (t < 5.0) c4(t);
+  else if (t < 6.5) c5(t);
+  else if (t < 8.0) c6(t);
+  else if (t < 9.5) c7(t);
+  else outro(t);
+  aiLabel(t);
+}
+window.render = (t) => render0(toOld(t));
+window.TEXTS = (t) => { window.render(t); return TX; };
+
+const EV = [];
+EV.push({ t: 0.0, type: 'door' }, { t: 1.0, type: 'cut' }, { t: 1.15, type: 'shiver' }, { t: 2.0, type: 'cut' }, { t: 2.0, type: 'hum' });
+EV.push({ t: 3.5, type: 'zoom' }, { t: 3.75, type: 'hit' }, { t: 5.0, type: 'cut' }, { t: 5.15, type: 'beep' }, { t: 6.5, type: 'cut' }, { t: 6.65, type: 'sigh' });
+EV.push({ t: 8.0, type: 'cut' }, { t: 8.25, type: 'tie' }, { t: 9.5, type: 'stop' });
+[9.75, 10.0, 10.25, 10.5].forEach((t, i) => EV.push({ t, type: 'dot', i }));
+EV.push({ t: 10.75, type: 'logo' }, { t: 11.25, type: 'stamp' });
+EV.forEach((e) => { e.t = Math.round(toNew(e.t) * 1000) / 1000; });
+window.EV = EV;
+
+(async () => {
+  for (const [w, f] of [[400, 'NotoSansKR-400'], [700, 'NotoSansKR-700'], [900, 'NotoSansKR-900']]) {
+    const ff = new FontFace(FONT, `url(fonts/${f}.ttf)`, { weight: String(w) }); await ff.load(); document.fonts.add(ff);
+  }
+  const L = [loadImg('front', 'assets/reo-front.png'), loadImg('34', 'assets/reo-34.png'), loadImg('back', 'assets/reo-back.png'), loadImg('logo', 'assets/rs-logo-source.png')];
+  for (let k = 1; k <= 7; k++) L.push(loadImg('cut' + k, `assets/cut${k}.png`));
+  await Promise.all(L);
+  if (IMG.logo) LOGO_LIME = tintLogo(IMG.logo, [198, 244, 50]);
+  window.render(0); window.READY = true;
+})();
+</script>
+</body>
+</html>
