@@ -85,7 +85,7 @@ const products = {
     coverIcons: [['arch','아치 라인을','따라 가득'],['woodchip','우드칩','배합 소재'],['heel','뒤꿈치','컵'],['vent','통기','도트']],
     quotes: [
       ['좋은 하루는 좋은 걸음에서 시작된다.','A good day starts with a good step.'],
-      ['발이 편해야 일이 편하다.','When your feet are at ease, work is easier.'],
+      ['발이 편해야, 일이 편하다.','When your feet are at ease, work is easier.'],
       ['버려진 타이어가, 다시 걷는 길이 되었습니다.','Discarded tires, now a path to walk again.'],
     ],
     introKR: '발 아치 라인을 따라 가득 채우는 형태에 쿼드그립 4점, 뒤꿈치 컵, 통기 도트를 더한 인솔입니다. 신고 있는 신발 속에 넣어 사용합니다.',

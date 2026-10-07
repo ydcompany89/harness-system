@@ -149,7 +149,7 @@ RS 로고 · RhaRa Shoe · 라라슈
 | 번호 | 한국어 | 영어 |
 |---|---|---|
 | 01 / 03 | 좋은 하루는 좋은 걸음에서 시작된다. | A good day starts with a good step. |
-| 02 / 03 | 발이 편해야 일이 편하다. | When your feet are at ease, work is easier. |
+| 02 / 03 | 발이 편해야, 일이 편하다. | When your feet are at ease, work is easier. |
 | 03 / 03 | 버려진 타이어가, 다시 걷는 길이 되었습니다. | Discarded tires, now a path to walk again. |
 
 ### 제품 소개 (안쪽 칸 2)

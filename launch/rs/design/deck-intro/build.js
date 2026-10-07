@@ -109,7 +109,7 @@ const W = 13.333, H = 7.5, M = 0.65, CW = W - 2 * M, NAVY = '181478', INK = '0B0
   s.addImage({ path: 'img/rs-logo.png', x: M, y: 0.6, w: 1.0, h: 0.84, objectName: 'RS 로고' });
   T(s, 'RhaRa Shoe  ·  라라슈  ·  2026.11.11 OPEN', { x: M + 1.25, y: 0.85, w: 7, h: 0.35, fontSize: 11, bold: true, charSpacing: 3, color: '8A8A85' });
   T(s, 'Made for\nStanding.', { x: M, y: 2.1, w: 7, h: 2.6, fontSize: 66, bold: true, color: 'EDEDE8', lineSpacingMultiple: 0.95, objectName: '슬로건' });
-  T(s, '서서 일하는 하루를 위해.\n주방·매장·현장에서 오래 서 있는 사람들을 위한 워킹화와 인솔.', { x: M, y: 4.9, w: 6.6, h: 0.9, fontSize: 15, color: 'C9C9C4', lineSpacingMultiple: 1.35, objectName: '브랜드 정의' });
+  T(s, '발이 편해야, 일이 편하다.\n주방·매장·현장에서 오래 서 있는 사람들을 위한 워킹화와 인솔.', { x: M, y: 4.9, w: 6.6, h: 0.9, fontSize: 15, color: 'C9C9C4', lineSpacingMultiple: 1.35, objectName: '브랜드 정의' });
   s.addImage({ path: 'img/shoes2-cut.png', x: 8.3, y: 1.2, w: 4.2, h: 4.2 * 1199 / 989, objectName: '워킹화 누끼' });
 
   // 7 시작 이야기
