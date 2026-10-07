@@ -126,3 +126,4 @@
 - 2026-10-06 알앤디메이커스×라라슈 소개서 PPT(16:9, 10p) design/deck-intro/rndmakers-rharashoe-intro.pptx(+PDF). QR ?src=deck
 - 2026-10-06 대표 승인: ① 납품처 실명(다이소·오피스디포·롯데패키징앤솔루션·서브원 등) 회사/B2B 자료 노출 OK ② 라임 패드 적용 자료(소개서·브로셔·영상·행택) 외부 배포 OK — 위키·스레드 팩·P18 반영
 - 2026-10-07 소개서 4페이지 요약판 design/deck-intro/rndmakers-rharashoe-intro-4p.pptx(+PDF)
+- 2026-10-07 4p 요약판 v2: ①표지 단독 ②re.feeel 구강용품(칫솔·치실·양치컵, Drive 브랜드컨셉 기준) ③라라슈 ④회사(역량·연혁)+상담, 11월 일정 삭제

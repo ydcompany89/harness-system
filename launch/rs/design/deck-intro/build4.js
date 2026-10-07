@@ -16,47 +16,47 @@ const W = 13.333, H = 7.5, M = 0.65, CW = W - 2 * M, NAVY = '181478', INK = '0B0
   pres.defineSlideMaster({ title: 'NAVY', background: { color: NAVY }, objects: [titlePh(C.background1), ...foot(C.background2)], slideNumber: sn(C.background2) });
   pres.defineSlideMaster({ title: 'PAPER', background: { color: 'FFFFFF' }, objects: [titlePh(C.text1), ...foot(C.text2)], slideNumber: sn(C.text2) });
   pres.defineSlideMaster({ title: 'INK', background: { color: INK }, objects: [titlePh(C.background1), ...foot('8A8A85')], slideNumber: sn('8A8A85') });
+  pres.defineSlideMaster({ title: 'IVORY', background: { color: 'F2EDE1' }, objects: [{ placeholder: { options: { name: 'title', type: 'title', x: M, y: 0.82, w: CW, h: 0.75, fontSize: 30, bold: true, color: '1F472C', margin: 0, valign: 'middle', align: 'left' }, text: '' } }, ...foot('6B6B5E')], slideNumber: sn('6B6B5E') });
   pres.defineSlideMaster({ title: 'BLANK_NAVY', background: { color: NAVY }, objects: [] });
   const T = (s, text, o) => s.addText(text, Object.assign({ margin: 0, isTextBox: true, valign: 'top' }, o));
   const eb = (s, text, color) => T(s, text, { x: M, y: 0.5, w: CW, h: 0.28, fontSize: 10, bold: true, charSpacing: 4, color, objectName: '아이브로' });
   const rr = (s, x, y, w, h, color, name, r = 0.08) => s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: r, fill: { color }, line: { type: 'none' }, objectName: name });
   const circ = (s, x, y, d, color, name) => s.addShape(pres.shapes.OVAL, { x, y, w: d, h: d, fill: { color }, line: { type: 'none' }, objectName: name });
 
-  // 1 표지 + 회사 한눈에
+  // 1 표지
   pres.addSection({ title: '표지' });
   let s = pres.addSlide({ masterName: 'BLANK_NAVY', sectionTitle: '표지' });
   T(s, 'R&D MAKERS', { x: M, y: 0.55, w: 4, h: 0.3, fontSize: 12, bold: true, charSpacing: 5, color: C.background1 });
   T(s, 'COMPANY & BRAND 2026', { x: W - M - 4, y: 0.55, w: 4, h: 0.3, fontSize: 10, charSpacing: 4, color: C.background2, align: 'right' });
-  circ(s, 4.6, 1.35, 0.45, C.accent3, '보라 원'); circ(s, 5.55, 1.15, 1.3, YEL, '라임 타깃'); circ(s, 5.88, 1.48, 0.64, NAVY, '타깃 속'); circ(s, 6.06, 1.66, 0.28, YEL, '타깃 중심');
-  T(s, '남은 것의\n다음 모양.', { x: M, y: 2.3, w: 6.2, h: 2.3, fontSize: 54, bold: true, color: C.background2, lineSpacingMultiple: 0.95, objectName: '헤드라인' });
-  T(s, '버려지는 소재로 제품을 만드는 제조사, 알앤디메이커스\n그리고 서서 일하는 사람들을 위한 새 브랜드, 라라슈', { x: M, y: 4.85, w: 6.2, h: 0.8, fontSize: 13.5, color: C.background1, lineSpacingMultiple: 1.3, objectName: '부제' });
-  T(s, '㈜알앤디메이커스  ·  RhaRa Shoe 라라슈', { x: M, y: H - 0.85, w: 6, h: 0.3, fontSize: 11, bold: true, color: YEL });
-  [['2023', '법인 창립\n창업진흥원 국가과제 수행'], ['전국', '다이소 전국 매장 입점\n2023.09~'], ['2회', '환경부 새활용 지원사업\n2024 · 2026 2차']].forEach(([big, d], i) => {
-    const y = 1.35 + i * 1.75;
-    rr(s, 7.55, y, 5.13, 1.5, C.accent5, '숫자 카드');
-    T(s, big, { x: 7.9, y: y + 0.28, w: 1.9, h: 0.9, fontSize: 40, bold: true, color: YEL, valign: 'middle', objectName: '큰 숫자' });
-    T(s, d, { x: 9.7, y: y + 0.28, w: 2.85, h: 0.9, fontSize: 13, lineSpacingMultiple: 1.25, color: C.background1, valign: 'middle', objectName: '설명' });
-  });
+  circ(s, 8.2, 1.6, 0.55, C.accent3, '보라 원'); circ(s, 9.3, 4.2, 1.0, C.accent2, '코랄 도넛'); circ(s, 9.62, 4.52, 0.36, NAVY, '도넛 속');
+  circ(s, 10.0, 1.3, 2.4, YEL, '라임 타깃'); circ(s, 10.6, 1.9, 1.2, NAVY, '타깃 속'); circ(s, 10.93, 2.23, 0.54, YEL, '타깃 중심');
+  T(s, '남은 것의\n다음 모양.', { x: M, y: 2.0, w: 7, h: 2.6, fontSize: 60, bold: true, color: C.background2, lineSpacingMultiple: 0.95, objectName: '헤드라인' });
+  T(s, '버려지는 소재로 제품을 만드는 제조사, 알앤디메이커스\n그리고 그 소재로 만든 두 브랜드, re.feeel과 라라슈', { x: M, y: 4.85, w: 7.5, h: 0.8, fontSize: 15, color: C.background1, lineSpacingMultiple: 1.3, objectName: '부제' });
+  T(s, '㈜알앤디메이커스  ·  re.feeel  ·  RhaRa Shoe 라라슈', { x: M, y: H - 0.85, w: 7, h: 0.3, fontSize: 11, bold: true, color: YEL, objectName: '하단' });
 
-  // 2 알앤디메이커스: 하는 일 + 연혁
-  pres.addSection({ title: '알앤디메이커스' });
-  s = pres.addSlide({ masterName: 'PAPER', sectionTitle: '알앤디메이커스' });
-  eb(s, 'COMPANY', C.accent3); s.addText('소재부터 납품까지, 한 회사에서', { placeholder: 'title' });
-  const steps = [['01  소재', '실크벽지 PVC · 폐타이어 고무 · CXP 목재 복합소재'], ['02  기획 · 설계', '제품 디자인 · 금형 · 상표/특허 출원 · 라이선싱'], ['03  생산 · 납품', '국내 제조 · 대형 매장 전국 납품 · B2B/OEM']];
-  const sw = (CW - 0.4) / 3;
-  steps.forEach(([t, d], i) => { const x = M + i * (sw + 0.2);
-    rr(s, x, 1.85, sw, 1.35, C.accent4, '역량 카드');
-    T(s, [{ text: t, options: { bold: true, fontSize: 16, color: C.text1, breakLine: true } }, { text: d, options: { fontSize: 11.5, color: C.text2 } }], { x: x + 0.3, y: 2.05, w: sw - 0.6, h: 1.0, lineSpacingMultiple: 1.25, objectName: '역량' }); });
-  T(s, 'HISTORY', { x: M, y: 3.55, w: 3, h: 0.28, fontSize: 10, bold: true, charSpacing: 4, color: C.accent3 });
-  s.addShape(pres.shapes.LINE, { x: M, y: 4.12, w: CW, h: 0, line: { color: 'D8D6EE', width: 2 }, objectName: '타임라인' });
-  const HIS = [['2023', '창업진흥원 국가과제\n㈜알앤디메이커스 창립\n다이소 전국 매장 입점'], ['2024', '환경부 새활용지원사업\n오피스디포·오피스웨이 납품\n중국 첫 수출'],
-    ['2025', '상표권·BM 특허 출원\n꿈돌이 캐릭터 라이선싱\n롯데패키징앤솔루션·서브원 납품'], ['2026', '환경부 새활용지원사업 2차\n라라슈(RhaRa Shoe) 런칭\n11.11 첫 라인업 오픈']];
-  const hw = (CW - 0.6) / 4;
-  HIS.forEach(([y, t], i) => { const x = M + i * (hw + 0.2), hot = y === '2026';
-    circ(s, x, 3.97, 0.3, hot ? LIME : C.accent3, '연혁 점');
-    T(s, y, { x, y: 4.45, w: hw, h: 0.5, fontSize: 24, bold: true, color: C.text1 });
-    if (hot) rr(s, x - 0.12, 5.0, hw + 0.12, 1.55, 'F4FBD9', '2026 강조', 0.06);
-    T(s, t, { x, y: 5.12, w: hw - 0.1, h: 1.4, fontSize: 11.5, color: hot ? C.text1 : C.text2, bold: hot, lineSpacingMultiple: 1.35, objectName: '연혁 ' + y }); });
+  // 2 re.feeel 구강용품
+  pres.addSection({ title: 're.feeel' });
+  s = pres.addSlide({ masterName: 'IVORY', sectionTitle: 're.feeel' });
+  const GR = '1F472C';
+  eb(s, 'RE.FEEEL  ·  ORAL CARE', '3F7A52'); s.addText('생활을 다시 채우다.', { placeholder: 'title' });
+  T(s, '숲을 가꾸며 솎아낸 간벌재(임업부산물)를 CXP 소재로 바꿔, 매일 쓰는 구강용품으로 만듭니다.', { x: M, y: 1.6, w: 9.6, h: 0.35, fontSize: 13, color: '4A4A40', objectName: '브랜드 설명' });
+  s.addImage({ path: 'img/refeeel-seal.png', x: W - M - 1.35, y: 0.35, w: 1.35, h: 1.35 * 500 / 490, objectName: 're.feeel 로고' });
+  const RP = [
+    ['img/toothbrush.jpg', "나이스샷 '왕모' 칫솔", ['CXP 소재 핸들 · 6개입', '넓은 헤드 · 이중미세모 / 스파이럴모']],
+    ['img/floss.jpg', '칫솔형 치실', ['ㄱ자 헤드 · 칫솔처럼 쥐는 손잡이', '리필 20개입 교체형 · 세트 4,900원']],
+    ['img/cup-tilt.jpg', '물때 제로 양치컵', ['40° 셀프 드레인 설계 — 기울여 세워 말림', 'CXP 소재 · 110g · 국내 제조']]];
+  const rw = (CW - 0.5) / 3;
+  RP.forEach(([img, name, lines], i) => {
+    const x = M + i * (rw + 0.25);
+    rr(s, x, 2.15, rw, 4.0, 'FFFFFF', '제품 카드');
+    s.addImage({ path: img, x: x + 0.15, y: 2.3, w: rw - 0.3, h: 2.35, sizing: { type: 'cover', w: rw - 0.3, h: 2.35 }, objectName: name });
+    T(s, name, { x: x + 0.3, y: 4.85, w: rw - 0.6, h: 0.4, fontSize: 16, bold: true, color: GR, objectName: '제품명' });
+    T(s, lines.map((t, j) => ({ text: t, options: { breakLine: j < lines.length - 1 } })), { x: x + 0.3, y: 5.3, w: rw - 0.6, h: 0.75, fontSize: 11, color: '4A4A40', lineSpacingMultiple: 1.3, objectName: '제품 설명' });
+  });
+  rr(s, M, 6.35, CW, 0.45, GR, 'CXP 띠', 0.06);
+  T(s, [{ text: 'CXP   ', options: { bold: true, color: 'FBD827' } }, { text: '간벌재 등 임업부산물을 활용한 셀룰로스 기반 복합소재  ·  칫솔·치실·양치컵 공통 소재', options: { color: 'F2EDE1' } }],
+    { x: M + 0.3, y: 6.35, w: CW - 0.6, h: 0.45, fontSize: 11, valign: 'middle', objectName: 'CXP 설명' });
+  s.addNotes('출처: Drive refeeel_brand_concept.docx §6 라인업, SALKO 린스컵 소개서(110g·40°·국내 제조). 효능 표현(충치·잇몸·물때 방지) 배제 — 의약외품 아님. CXP의 PEFC/KFCC-CoC는 소재 제조사 인증이라 미표기. 치실 세트가는 회사 소개서(2601ver) 권장가 기준.');
 
   // 3 라라슈
   pres.addSection({ title: '라라슈' });
@@ -78,21 +78,31 @@ const W = 13.333, H = 7.5, M = 0.65, CW = W - 2 * M, NAVY = '181478', INK = '0B0
     { x: M + 0.3, y: 6.1, w: CW - 0.6, h: 0.62, fontSize: 11.5, valign: 'middle', objectName: '소재' });
   s.addNotes('밑창 라임 패드는 양산 컬러 확정(10/6 대표 승인). 워킹화 사진: 대표 제공 리터칭, 인솔: 9/30 실물 리터칭.');
 
-  // 4 함께하기
-  pres.addSection({ title: '함께하기' });
-  s = pres.addSlide({ masterName: 'NAVY', sectionTitle: '함께하기' });
-  eb(s, 'LAUNCH & PARTNERSHIP', YEL); s.addText('11월, 현장에서 만나요', { placeholder: 'title' });
-  [['11.11', '라라슈 1차 라인업 오픈', '워킹화 · 인솔 온라인 출시'], ['11.12 – 15', '킨텍스 메가쇼', '실물 체험 · 단체 구매 상담'], ['11.26 – 29', '서울디자인페어 (코엑스)', '브랜드 · 소재 전시']].forEach(([d, t, sub], i) => {
-    const y = 1.95 + i * 1.08;
-    T(s, d, { x: M, y, w: 2.2, h: 0.5, fontSize: 22, bold: true, color: YEL });
-    T(s, [{ text: t, options: { bold: true, fontSize: 15, color: C.background1, breakLine: true } }, { text: sub, options: { fontSize: 11.5, color: C.background2 } }], { x: M + 2.35, y: y + 0.02, w: 4.3, h: 0.8 }); });
-  rr(s, 7.3, 1.95, 5.38, 3.75, YEL, '상담 박스', 0.1);
-  T(s, [{ text: 'B2B · OEM/ODM · 납품 상담', options: { bold: true, fontSize: 18, color: NAVY, breakLine: true } }, { text: '단체 공급 · 자체 브랜드 OEM · 소재 ODM', options: { fontSize: 11.5, color: NAVY } }], { x: 7.65, y: 2.25, w: 4.7, h: 0.8 });
+  // 4 회사 + 상담
+  pres.addSection({ title: '알앤디메이커스' });
+  s = pres.addSlide({ masterName: 'NAVY', sectionTitle: '알앤디메이커스' });
+  eb(s, 'COMPANY  ·  OEM / ODM', YEL); s.addText('소재부터 납품까지, 한 회사에서', { placeholder: 'title' });
+  const steps = [['01  소재', '실크벽지 PVC · 폐타이어 고무 · CXP 목재 복합소재'], ['02  기획 · 설계', '제품 디자인 · 금형 · 상표/특허 출원 · 라이선싱'], ['03  생산 · 납품', '국내 제조 · 대형 매장 전국 납품 · B2B/OEM']];
+  const sw = (CW - 0.4) / 3;
+  steps.forEach(([t, d], i) => { const x = M + i * (sw + 0.2);
+    rr(s, x, 1.8, sw, 1.2, C.accent5, '역량 카드');
+    T(s, [{ text: t, options: { bold: true, fontSize: 15, color: YEL, breakLine: true } }, { text: d, options: { fontSize: 11, color: C.background1 } }], { x: x + 0.3, y: 1.98, w: sw - 0.6, h: 0.9, lineSpacingMultiple: 1.25, objectName: '역량' }); });
+  T(s, 'HISTORY', { x: M, y: 3.35, w: 3, h: 0.28, fontSize: 10, bold: true, charSpacing: 4, color: YEL });
+  const HW = 7.55, hw = (HW - 0.45) / 4;
+  s.addShape(pres.shapes.LINE, { x: M, y: 3.9, w: HW, h: 0, line: { color: '4B46B0', width: 2 }, objectName: '타임라인' });
+  const HIS = [['2023', '창업진흥원 국가과제\n㈜알앤디메이커스 창립\n다이소 전국 매장 입점'], ['2024', '환경부 새활용\n지원사업 수행\n오피스디포·오피스웨이\n중국 첫 수출'],
+    ['2025', '상표권·BM 특허 출원\n꿈돌이 라이선싱\n롯데패키징앤솔루션\n· 서브원 납품'], ['2026', '환경부 새활용\n지원사업 2차\n라라슈 브랜드 런칭']];
+  HIS.forEach(([y, t], i) => { const x = M + i * (hw + 0.15), hot = y === '2026';
+    circ(s, x, 3.76, 0.28, hot ? LIME : C.accent3, '연혁 점');
+    T(s, y, { x, y: 4.2, w: hw, h: 0.45, fontSize: 20, bold: true, color: hot ? YEL : C.background1 });
+    T(s, t, { x, y: 4.75, w: hw, h: 1.6, fontSize: 10, color: hot ? YEL : C.background2, bold: hot, lineSpacingMultiple: 1.35, objectName: '연혁 ' + y }); });
+  rr(s, 8.6, 3.35, W - M - 8.6, 2.65, YEL, '상담 박스', 0.1);
+  T(s, [{ text: 'B2B · OEM/ODM · 납품 상담', options: { bold: true, fontSize: 15, color: NAVY } }], { x: 8.9, y: 3.55, w: 3.6, h: 0.4 });
   T(s, [{ text: '㈜알앤디메이커스  신동규 대표', options: { bold: true, breakLine: true } }, { text: '대전시 유성구 국제과학7로 8', options: { breakLine: true } },
         { text: 'T  010-6880-2516', options: { breakLine: true } }, { text: 'E  rndceo@rndmakers.kr', options: { breakLine: true } }, { text: 'www.rndmakers.kr', options: {} }],
-    { x: 7.65, y: 3.35, w: 3.0, h: 2.0, fontSize: 12, color: NAVY, lineSpacingMultiple: 1.3, objectName: '연락처' });
-  s.addImage({ path: 'img/qr-deck.png', x: 10.85, y: 3.4, w: 1.5, h: 1.5, objectName: 'QR' });
-  T(s, '라라슈 오픈 알림', { x: 10.6, y: 4.95, w: 2.0, h: 0.3, fontSize: 9.5, bold: true, color: NAVY, align: 'center' });
+    { x: 8.9, y: 4.1, w: 2.5, h: 1.9, fontSize: 10.5, color: NAVY, lineSpacingMultiple: 1.3, objectName: '연락처' });
+  s.addImage({ path: 'img/qr-deck.png', x: 11.38, y: 4.15, w: 1.1, h: 1.1, objectName: 'QR' });
+  T(s, '라라슈 알림', { x: 11.18, y: 5.3, w: 1.5, h: 0.25, fontSize: 8.5, bold: true, color: NAVY, align: 'center' });
 
   await pres.writeFile({ fileName: 'rndmakers-rharashoe-intro-4p.pptx' });
   await applyTheme('rndmakers-rharashoe-intro-4p.pptx', THEME);
