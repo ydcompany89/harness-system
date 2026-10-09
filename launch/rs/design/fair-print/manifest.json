@@ -1,0 +1,65 @@
+[
+ {
+  "name": "01_namecard_A_ceo",
+  "w": 94,
+  "h": 54,
+  "pages": 2,
+  "title": "명함 A 대표 (90x50)"
+ },
+ {
+  "name": "02_namecard_B_brand",
+  "w": 94,
+  "h": 54,
+  "pages": 2,
+  "title": "명함 B 브랜드 공용 (90x50)"
+ },
+ {
+  "name": "03_table_sign_tent",
+  "w": 216,
+  "h": 303,
+  "pages": 1,
+  "title": "테이블 사인 텐트형 (A4, 접어서 삼각)"
+ },
+ {
+  "name": "04_price_label_A4",
+  "w": 216,
+  "h": 303,
+  "pages": 2,
+  "title": "제품 라벨·가격표 A4 (워킹화 / 인솔)"
+ },
+ {
+  "name": "05_welcome_bag",
+  "w": 750,
+  "h": 465,
+  "pages": 1,
+  "title": "웰컴 쇼핑백 W250×H330×D100 전개도"
+ },
+ {
+  "name": "06_leaflet_A4_3fold",
+  "w": 303,
+  "h": 216,
+  "pages": 2,
+  "title": "리플렛 A4 3단 C접지 (1p 바깥 · 2p 안쪽)"
+ },
+ {
+  "name": "07_xbanner_600x1800",
+  "w": 600,
+  "h": 1800,
+  "pages": 2,
+  "title": "X배너 600×1800 (1 워킹화 / 2 인솔)"
+ },
+ {
+  "name": "08_banner_900x2200_x8",
+  "w": 900,
+  "h": 2200,
+  "pages": 8,
+  "title": "백월 족자 900×2200 ×8"
+ },
+ {
+  "name": "09_reo_standee",
+  "w": 830,
+  "h": 1780,
+  "pages": 1,
+  "title": "레오 등신대 830×1780mm (캐릭터 높이 1600)"
+ }
+]
