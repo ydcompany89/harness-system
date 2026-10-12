@@ -95,6 +95,6 @@
 
 ## 6. 이번 주 실행 (우선순위)
 1. 구글폼에 **문자 수신 동의** 항목 추가 (없으면 ④ 불가) — 대표 5분
-2. 리드 마그넷 A 체크리스트 1장 제작 — Claude
+2. ✅ 리드 마그넷 A 체크리스트 v1 (content/leadmagnet/checklist.pdf · checklist-mobile.png · QR ?src=checklist, 10/12)
 3. 교육 메시지 5통 원고 — Claude (marketing-expert 검수)
 4. 30일 사이즈 교환 정책 확정 — 대표 (스마트스토어 교환 정책과 일치)

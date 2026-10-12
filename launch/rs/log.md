@@ -142,3 +142,4 @@
 - 2026-10-09 워킹화 무게 실측(대표): 270mm 한쪽 257g → 상세 기획안 CUT 12·27·포지셔닝 반영. 230mm 실측 후 교체
 - 2026-10-09 정형외과 전문의 자문 긍정 검토 → expert/doctor-meeting-prep.md + doctor-briefing.pptx/pdf (질문 7 · 조건 A/B/C · 상세 CUT 08+ 배치 제언)
 - 2026-10-12 1페이지 마케팅 플랜 적용(content/one-page-marketing-plan.md): 1순위 니치=급식실 조리실무사, 리드마그넷 체크리스트, 교육 메시지 5통, 30일 사이즈 교환, 사후 시스템 / BARC 의사 컷 레퍼런스 검토(M08)
+- 2026-10-12 리드 마그넷 '서서 일하는 사람의 신발 고르는 체크리스트' v1 (A4 PDF + 모바일 1080px, QR ?src=checklist) → content/leadmagnet/
