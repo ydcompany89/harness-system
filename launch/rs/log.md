@@ -144,3 +144,4 @@
 - 2026-10-12 1페이지 마케팅 플랜 적용(content/one-page-marketing-plan.md): 1순위 니치=급식실 조리실무사, 리드마그넷 체크리스트, 교육 메시지 5통, 30일 사이즈 교환, 사후 시스템 / BARC 의사 컷 레퍼런스 검토(M08)
 - 2026-10-12 리드 마그넷 '서서 일하는 사람의 신발 고르는 체크리스트' v1 (A4 PDF + 모바일 1080px, QR ?src=checklist) → content/leadmagnet/
 - 2026-10-13 원장님 미팅(10/14) 대표 말하기 원고 + 예상 Q&A → expert/doctor-talk-script.md
+- 2026-10-13 원장님 자문 의뢰서 v2(7p): 표지·워킹화 설계·질문/약속 2장 추가, 날짜 10/14로 갱신 → expert/doctor-proposal-v2.pptx/pdf
