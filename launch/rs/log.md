@@ -145,3 +145,4 @@
 - 2026-10-12 리드 마그넷 '서서 일하는 사람의 신발 고르는 체크리스트' v1 (A4 PDF + 모바일 1080px, QR ?src=checklist) → content/leadmagnet/
 - 2026-10-13 원장님 미팅(10/14) 대표 말하기 원고 + 예상 Q&A → expert/doctor-talk-script.md
 - 2026-10-13 원장님 자문 의뢰서 v2(7p): 표지·워킹화 설계·질문/약속 2장 추가, 날짜 10/14로 갱신 → expert/doctor-proposal-v2.pptx/pdf
+- 2026-10-13 패키지 외주 시안 검토(K03): 쓸만함. 수정 필수 4건 — 태그라인 교체·러닝 이미지·라벨 품명/SKU·표시사항 → design/package/review-2026-10-13.md
