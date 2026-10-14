@@ -404,7 +404,7 @@ const CUTS = [
       { t: "box", x: 0.95, y: 0.9, w: 0.9, h: 2.3, fill: H.white, lineColor: H.line, r: 0.4, text: "" },
       { t: "circ", x: 1.25, y: 2.8, d: 0.3, text: "1" }, { t: "circ", x: 1.5, y: 2.15, d: 0.3, text: "2" },
       { t: "circ", x: 1.5, y: 1.5, d: 0.3, text: "3" }, { t: "circ", x: 1.05, y: 1.25, d: 0.3, text: "4" },
-      { t: "line", x: 2.05, y: 3.05, h: -2.0, color: H.olive },
+      { t: "line", x: 2.05, y: 1.05, h: 2.0, color: H.olive },
       { t: "txt", x: 1.95, y: 1.9, w: 0.8, h: 0.4, text: "압력이\n지나는 길", size: 7 },
       { t: "txt", x: 0.1, y: 3.3, w: 2.6, h: 0.3, text: "특허 출원 제10-[번호] (C07)", size: 7, color: H.mute },
     ] },
