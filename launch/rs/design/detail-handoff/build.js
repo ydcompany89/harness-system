@@ -9,7 +9,8 @@ const { applyTheme } = require(process.env.PPTX_SKILL + "/scripts/apply_theme.js
 const DIR = __dirname;
 const IMG = (f) => path.join(DIR, "..", "detail-walking", "img", f);
 const REF = (f) => path.join(DIR, "..", "detail-walking", "ref", f);
-const OUT = path.join(DIR, "rs-detail-handoff-v2.pptx");
+const ONLY = process.env.ONLY || "";
+const OUT = path.join(DIR, ONLY === "insole" ? "rs-insole-detail-v1.pptx" : "rs-detail-handoff-v2.pptx");
 
 const THEME = {
   name: "RhaRa Shoe Detail",
@@ -822,15 +823,16 @@ function confirmed() {
 // ---------- 인솔 CUTS ----------
 const I = (o) => Object.assign({ pre: "ICUT", total: TOTAL_I, project: PROJ_I }, o);
 const CUTS_I = [
-  I({ n: 1, section: "인솔", tag: "후킹", title: "첫 화면 — 신던 신발은 그대로",
+  I({ n: 1, section: "인솔", tag: "후킹", title: "첫 화면 — 아치 아래 빈 공간, 가득",
     ref: { caption: "워킹화 CUT 01 다크 렌더와 톤 통일",
       cards: [{ brand: "워킹화 상세", block: "CUT 01", what: "다크 배경 · 라임 포인트", take: "같은 브랜드로 읽히게" }] },
     lay: { dark: true, caption: "인솔 단독 플로팅 렌더 · 아치 곡선 측면", els: [
-      { t: "txt", x: 0.15, y: 0.2, w: 2.5, h: 0.5, text: "신던 신발은 그대로,\n바닥만 새로.", size: 11, bold: true, color: H.white },
+      { t: "txt", x: 0.15, y: 0.2, w: 2.5, h: 0.5, text: "아치 아래 빈 공간,\n가득 채웠습니다.", size: 11, bold: true, color: H.white },
+      { t: "txt", x: 0.15, y: 0.72, w: 2.5, h: 0.2, text: "신던 신발은 그대로, 바닥만 새로.", size: 7, color: H.lime },
       { t: "box", x: 0.3, y: 0.95, w: 2.2, h: 1.7, fill: "3A3A3A", text: "인솔 측면 렌더\n(아치 곡선 · 뒤꿈치 컵 보이게)", color: H.white },
       { t: "box", x: 0.5, y: 2.85, w: 1.8, h: 0.32, fill: H.lime, text: "RS · 쿼드그립 아치가득 인솔", size: 7, bold: true },
     ] },
-    copy: { head: "신던 신발은 그대로,\n바닥만 새로.", body: "RS 쿼드그립 아치가득 인솔\n\n지금 신는 운동화·출근화 속에" },
+    copy: { head: "아치 아래 빈 공간,\n가득 채웠습니다.", body: "신던 신발은 그대로, 바닥만 새로.\n\nRS 쿼드그립 아치가득 인솔\n\n[B안] 오후 4시,\n발이 먼저 퇴근하고 싶을 때.", flag: "A/B 택1 · 평발·교정·피로감소 금칙 (content/insole-detail-plan.md)" },
     notes: "인솔은 '다른 신발용'. 워킹화는 깔창이 없는 구조라 워킹화와 묶는 표현 금지(와디즈 가격안 원칙 4)." }),
   I({ n: 2, section: "인솔", tag: "공감", title: "공감 — 신발은 마음에 드는데",
     ref: { caption: "아치쿠션 기획안 CUT 05 형식",
@@ -984,6 +986,46 @@ function insoleIntro() {
   ], { x: 0.8, y: 5.0, w: 11.5, h: 1.3, fontSize: 12, color: "BFBFBF", paraSpaceAfter: 6 });
 }
 
+
+function insoleHooks() {
+  const s = pres.addSlide({ sectionTitle: "인솔" });
+  s.background = { color: H.white };
+  T(s, "ICUT 01 후킹 카피 — 10안 (효능 표현 없이)", { x: 0.7, y: 0.5, w: 11, h: 0.45, fontSize: 20, bold: true });
+  const rows = [
+    ["#", "유형", "메인 카피", "판정"],
+    ["1 ★A", "욕망변화", "아치 아래 빈 공간, 가득 채웠습니다.", "추천 — 제품명 '아치가득'과 직결"],
+    ["2 ★B", "고통자극", "오후 4시, 발이 먼저 퇴근하고 싶을 때.", "추천 — 상황 묘사 · 숏폼 첫 1초"],
+    ["3", "욕망변화", "새 신발 말고, 새 바닥.", "짧고 강함"],
+    ["4", "호기심", "신발 속 깔창, 마지막으로 꺼내 본 게 언제인가요?", "OK"],
+    ["5", "고통자극", "신발은 멀쩡한데, 바닥이 납작해서.", "OK"],
+    ["6 ★", "사회적증거", "정형외과 전문의가 직접 신어 보고 의견을 준 인솔", "원장 검수 + 히어로 노출 동의 시"],
+    ["7", "욕망변화", "발바닥 모양대로, 빈틈없이.", "OK"],
+    ["8", "타깃 호명", "하루 7시간 서 있는 당신의 신발 속.", "OK"],
+    ["9", "스토리", "목공소 우드칩이 발밑으로 왔습니다.", "우드칩 배합 확인 후"],
+    ["10", "브랜드", "신던 신발은 그대로, 바닥만 새로.", "서브카피로 강등"],
+  ];
+  s.addTable(rows.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: i === 0 || j === 2, color: i === 0 ? H.white : (j === 0 && c.includes("★") ? H.olive : H.ink), fill: { color: i === 0 ? H.ink : (c.includes && i > 0 && r[0].includes("★") ? "F4FBDF" : H.white) }, fontSize: 12 } }))),
+    { x: 0.7, y: 1.1, w: 11.9, colW: [0.9, 1.4, 6.0, 3.6], rowH: 0.42, border: { type: "solid", color: H.line, pt: 0.5 }, valign: "middle", fontFace: THEME.bodyFontFace, margin: 0.07 });
+  R(s, { x: 0.7, y: 5.95, w: 11.9, h: 0.75, fill: { color: H.white }, r: 0.06, lineColor: H.orange });
+  T(s, "⚠ 금칙어 — 교정 · 평발 · 오다리 · 자세교정 · 체형 · 족저근막염 · 통증 · 피로 감소/회복 · 치료 · 의료용 · 기능성\n공산품 인솔이 교정·효능을 표방하면 의료기기 오인 광고 (판매중지·단속) + 전문의 출연 블록과 결합 시 원장 계약 제6조 위반", { x: 0.9, y: 5.95, w: 11.5, h: 0.75, fontSize: 11, valign: "middle" });
+  s.addNotes("대표 10/14 요청: 오다리·평발·자세교정·발피로 저감에 적합한 후킹 → 그대로는 불가(의료기기법·표시광고법). 대체 카피 10안. 근거·대체 문장표: content/insole-detail-plan.md §0~1.");
+}
+
+function insoleCover() {
+  pres.addSection({ title: "개요" });
+  const s = pres.addSlide({ sectionTitle: "개요" });
+  s.background = { color: H.black };
+  R(s, { x: 0.8, y: 1.3, w: 2.3, h: 0.36, fill: { color: H.lime }, r: 0.05 });
+  T(s, "INSOLE DETAIL v1 · 재피드백", { x: 0.8, y: 1.3, w: 2.3, h: 0.36, fontSize: 10, bold: true, align: "center", valign: "middle" });
+  T(s, "쿼드그립 아치가득 인솔\n상세페이지 기획안", { x: 0.8, y: 2.0, w: 9, h: 1.9, fontSize: 36, bold: true, color: H.white, valign: "top" });
+  T(s, "아치 아래 빈 공간, 가득 채웠습니다.", { x: 0.8, y: 4.15, w: 9, h: 0.4, fontSize: 18, color: H.lime });
+  T(s, [
+    { text: "21,500원 · M(신발 220~255) / L(260~280) · 그레이 / 모카무스 · 국내 생산", options: { breakLine: true } },
+    { text: "14 CUT · 860px 세로형 · 스마트스토어 상세 = 와디즈 스토리 소스", options: { breakLine: true } },
+    { text: "2026-10-14 · ㈜알앤디메이커스 → 디핏파트너" },
+  ], { x: 0.8, y: 5.2, w: 11, h: 1.1, fontSize: 12, color: "BFBFBF", paraSpaceAfter: 4 });
+}
+
 function handoffMatter() {
   // 디핏 전달 체크리스트
   const s = pres.addSlide({ sectionTitle: "실행" });
@@ -1004,6 +1046,14 @@ function handoffMatter() {
 }
 
 (async () => {
+  if (ONLY === "insole") {
+    insoleCover(); insoleIntro(); insoleHooks();
+    CUTS_I.forEach((c) => cut(c));
+    await pres.writeFile({ fileName: OUT });
+    await applyTheme(OUT, THEME);
+    console.log("wrote", OUT);
+    return;
+  }
   cover(); confirmed(); summary(); refsOverview(); positioning(); flowMap(); toneGuide();
   let cur = null;
   CUTS.forEach((c) => { if (c.section !== cur) { pres.addSection({ title: c.section }); cur = c.section; } cut(c); });
