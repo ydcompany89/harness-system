@@ -800,6 +800,98 @@ def shot_list():
         seen.add(sid); rows.append(f'| {sid} | {t} | {d} | {ref or "—"} |')
     open(os.path.join(HERE, 'shot-list-v4.md'), 'w').write('# 스튜디오 촬영 레퍼런스 (박람회 인쇄물 v4)\n\n> 출력물의 📷 STUDIO 박스 = 이 컷으로 교체. 레퍼런스 열 = 구도 참고용 현재 사진(인쇄 사용 ✗)\n\n| ID | 컷 | 촬영 지시 | 현재 참고 사진 |\n|---|---|---|---|\n' + '\n'.join(rows) + '\n')
 
-cards(); table_sign(); pops_v4(); shopping_bag(); leaflet_v4(); xbanners_v4(); banners_v4(); standee(); shot_list()
+# ───────── 10. 포맥스 로고 사인 (자립형 · 재사용) ─────────
+# 공통: 포맥스(PVC) 5T · UV 직접 인쇄 · 외곽 칼선 컷팅 · 하단 중앙 슬롯(5.2×40) + 끼움 받침 다리 → 분리해 납작 보관
+# 재사용 원칙: 날짜·가격·전시회명 ✗ (계정·QR·제품명만) → 다음 전시회에서 그대로 씀
+SIGNS = []
+def contour_from_png(png, target_h, off, pad=0):
+    src = Image.open(os.path.join(HERE, A, png)).convert('RGBA')
+    w = round(target_h * src.width / src.height); h = target_h
+    W, H = w + 2 * off + 2 * pad, h + 2 * off + 2 * pad
+    m = np.zeros((H, W), np.uint8)
+    al = np.array(src.resize((w, h)).split()[3])
+    m[off + pad:off + pad + h, off + pad:off + pad + w] = (al > 40).astype(np.uint8) * 255
+    m = cv2.dilate(m, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * off + 1, 2 * off + 1)))
+    m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41)))
+    cs, _ = cv2.findContours(m, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    c = cv2.approxPolyDP(max(cs, key=cv2.contourArea), 0.6, True)[:, 0, :]
+    return W, H, w, h, 'M' + ' L'.join(f'{x},{y}' for x, y in c) + ' Z'
+
+def slot_lines(W, H, slot=True):
+    if not slot: return ''
+    cx = W / 2
+    return f'<rect class="cut" x="{cx-2.6}" y="{H-40}" width="5.2" height="40"/><text class="lbl" x="{cx+6}" y="{H-30}">슬롯 5.2×40 (받침 끼움)</text>'
+
+def sign(name, title, W, H, body, bg, cut, qty, where, mat):
+    lines = cut + slot_lines(W, H) + f'<text class="lbl" x="4" y="{H-4}">{title} · {W}×{H}mm · {mat} · {qty}개</text>'
+    write(name, (W, H), [(body, 'transparent', lines)], f'포맥스 사인 {title} {W}×{H}')
+    SIGNS.append(dict(name=name, title=title, W=W, H=H, qty=qty, where=where, mat=mat))
+
+def signs_foamex():
+    r = lambda W, H, rr: f'<rect class="cut" x="0" y="0" width="{W}" height="{H}" rx="{rr}"/>'
+    def panel(W, H, rr, bg, inner):
+        return f'<div class="abs" style="left:0;top:0;width:{W}mm;height:{H}mm;background:{bg};border-radius:{rr}mm"></div>' + inner
+    # S1 RS 로고 컷팅 (블랙 포맥스 실루엣 + 라임 로고)
+    W, H, lw, lh, path = contour_from_png('rs-logo-lime.png', 260, 14, 0)
+    H2 = H + 60
+    body = f'''<svg class="abs" style="left:0;top:0" width="{W}mm" height="{H2}mm" viewBox="0 0 {W} {H2}"><path d="{path}" fill="{INK}"/><rect x="{W/2-70}" y="{H-30}" width="140" height="90" rx="10" fill="{INK}"/></svg>
+      <img class="abs" src="{A}rs-logo-lime.png" style="left:14mm;top:14mm;width:{lw}mm;height:{lh}mm">
+      <div class="abs" style="left:{W/2-60}mm;top:{H-2}mm;width:120mm;text-align:center;font-size:20pt;font-weight:900;color:{LIME}">RhaRa Shoe</div>'''
+    cut = f'<path class="cut" d="{path}"/><rect class="cut" x="{W/2-70}" y="{H-30}" width="140" height="90" rx="10"/>'
+    sign('10a_foamex_RS_logo', 'S1 RS 로고 컷팅', W, H2, body, None, cut, 1, 'KD-03 3단진열대 상단 중앙 (높이 1,000 위 → 눈높이)', '블랙 포맥스 5T + 라임·화이트 UV')
+    # S2 re.feeel 씰 원형
+    D = 320
+    body = f'''<div class="abs" style="left:0;top:0;width:{D}mm;height:{D}mm;border-radius:50%;background:{CREAM}"></div>
+      <img class="abs" src="{A}refeeel-seal.png" style="left:12mm;top:12mm;width:{D-24}mm;height:{D-24}mm">
+      <div class="abs" style="left:{D/2-60}mm;top:{D-2}mm;width:120mm;height:60mm;background:{RF_GR};border-radius:0 0 10mm 10mm;text-align:center;font-size:20pt;font-weight:900;color:{RF_YL};padding-top:16mm">@re.feeel</div>'''
+    cut = f'<circle class="cut" cx="{D/2}" cy="{D/2}" r="{D/2}"/><rect class="cut" x="{D/2-60}" y="{D-10}" width="120" height="68" rx="10"/>'
+    sign('10b_foamex_refeeel_seal', 'S2 re.feeel 씰 원형', D, D + 58, body, None, cut, 1, 'KD-12 구강 쇼케이스 상단 (높이 900 위)', '화이트 포맥스 5T + 풀컬러 UV')
+    # S3 제품명 사인 ×2 (포디움 위)
+    for key, en, ko, sub in [('walking', 'QUAD GRIP', '종일편한 워킹화', '바닥에 닿는 길을 따라 그립 패드 4곳'), ('insole', 'QUAD GRIP', '아치가득 인솔', '쓰던 깔창 밑에 한 장 더 — 반굽')]:
+        W, H = 300, 160
+        body = panel(W, H, 12, INK, f'''<div class="abs" style="left:18mm;top:16mm">{logo(26)}</div>
+          <div class="abs" style="left:18mm;top:52mm;font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.04em">{en}</div>
+          <div class="abs" style="left:18mm;top:70mm;font-size:46pt;font-weight:900;color:#fff">{ko}</div>
+          <div class="abs" style="left:18mm;top:100mm;font-size:17pt;color:#cfcfcf">{sub}</div>
+          <div class="abs" style="right:18mm;top:18mm">{dots(7, 4.5)}</div>''')
+        sign(f'10c_foamex_product_{key}', f'S3 제품명 — {ko}', W, H, body, None, r(W, H, 12), 1, f'허니콤 포디움 위 ({ko} 옆)', '블랙 포맥스 5T + 라임·화이트 UV')
+    # S4 이벤트 사인 (QR 실제 링크)
+    W, H = 300, 220
+    body = panel(W, H, 14, RF_GR, f'''<div class="abs" style="left:16mm;top:16mm;width:120mm;height:120mm;background:#fff;border-radius:6mm;padding:6mm"><img src="{A}qr-refeeel-ig.svg" style="width:108mm;height:108mm"></div>
+      <div class="abs" style="left:146mm;top:18mm;font-size:16pt;font-weight:900;letter-spacing:.08em;color:{RF_YL}">INSTAGRAM</div>
+      <div class="abs" style="left:146mm;top:28mm;font-size:30pt;font-weight:900;color:#fff">@re.feeel</div>
+      <div class="abs" style="left:146mm;top:52mm;width:140mm;font-size:22pt;font-weight:900;line-height:1.35;color:{CREAM}">팔로우하면<br><span style="color:{RF_YL}">CXP 볼펜</span><br>스토리 태그엔<br><span style="color:{RF_YL}">칫솔</span>까지</div>
+      <div class="abs" style="left:16mm;top:146mm;width:268mm;font-size:13pt;color:{CREAM};line-height:1.5">QR로 팔로우 → 화면 보여 주세요 · 1인 1회 · 준비 수량 소진 시 종료<br><span style="color:#9fb5a5">스토리에는 #이벤트참여 를 함께 적어 주세요</span></div>''')
+    sign('10d_foamex_event_qr', 'S4 이벤트 QR (@re.feeel)', W, H, body, None, r(W, H, 14), 1, '기본 데스크(카운터) 위 — 통로 쪽 정면', '화이트 포맥스 5T + 풀컬러 UV')
+    # S5 쿼드그립 미니 (3단 중단)
+    W, H = 240, 120
+    body = panel(W, H, 10, INK, f'''<div class="abs" style="left:10mm;top:8mm">{foot_map(40, labels=False)}</div>
+      <div class="abs" style="left:62mm;top:20mm;font-size:16pt;font-weight:900;color:{LIME}">QUAD GRIP</div>
+      <div class="abs" style="left:62mm;top:32mm;font-size:24pt;font-weight:900;color:#fff;line-height:1.25">바닥에 닿는 길을<br>따라 4곳.</div>
+      <div class="abs" style="left:62mm;top:80mm;font-size:12pt;color:#bdbdbd">밑창을 뒤집어 확인해 보세요</div>''')
+    sign('10e_foamex_quadgrip_mini', 'S5 쿼드그립 미니', W, H, body, None, r(W, H, 10), 1, 'KD-03 중단 (밑창 뒤집어 놓은 단) 또는 타워쇼케이스 앞', '블랙 포맥스 5T + 라임·화이트 UV')
+    # S6 re.feeel 미니 ×2
+    for key, en, ko, sub, bg, fg, ac in [('oral', 'ORAL CARE', '나무에서 온 구강케어.', '간벌재(임업부산물) 기반 CXP 소재 — 칫솔 · 치실 · 양치컵', CREAM, INK, RF_GR),
+                                         ('slipper', 'BATH SLIPPER', '벽지가 욕실화가 됐습니다.', '실크벽지에서 분리한 PVC를 다시 원료로', RF_GR, CREAM, RF_YL)]:
+        W, H = 240, 100
+        body = panel(W, H, 10, bg, f'''<div class="abs" style="left:14mm;top:14mm;font-size:14pt;font-weight:900;letter-spacing:.08em;color:{ac}">re.feeel · {en}</div>
+          <div class="abs" style="left:14mm;top:30mm;font-size:24pt;font-weight:900;color:{fg}">{ko}</div>
+          <div class="abs" style="left:14mm;top:62mm;width:212mm;font-size:12pt;color:{fg};opacity:.8">{sub}</div>''')
+        sign(f'10f_foamex_refeeel_{key}', f'S6 re.feeel — {en}', W, H, body, None, r(W, H, 10), 1, 'KD-12 쇼케이스 앞' if key == 'oral' else 'KD-01 욕실화 매대 위', '화이트 포맥스 5T + 풀컬러 UV')
+    # S7 원장 코너 (성명 없이 — 재사용·계약 범위 안전)
+    W, H = 260, 130
+    body = panel(W, H, 10, INK, f'''<div class="abs" style="left:14mm;top:14mm;font-size:13pt;font-weight:900;letter-spacing:.1em;color:{LIME}">DESIGN ADVISORY</div>
+      <div class="abs" style="left:14mm;top:28mm;font-size:26pt;font-weight:900;color:#fff;line-height:1.25">정형외과 전문의<br>설계 자문</div>
+      <div class="abs" style="left:14mm;top:84mm;width:232mm;font-size:12pt;color:#bdbdbd;line-height:1.45">자문 범위: 패드 배치 · 인솔 형태 · 착용 방식<br>본 제품은 의료기기가 아닙니다.</div>
+      <div class="abs" style="right:14mm;top:16mm">{foot_map(30, labels=False)}</div>''')
+    sign('10g_foamex_advisory', 'S7 원장 코너', W, H, body, None, r(W, H, 10), 1, 'KET-22 아크릴단상 위 (X배너 ③ 옆)', '블랙 포맥스 5T + 라임·화이트 UV')
+    # 받침 다리 (공용, 9개)
+    W, H = 160, 70
+    body = f'<div class="abs" style="left:0;top:0;width:{W}mm;height:{H}mm;background:{INK};border-radius:35mm 35mm 4mm 4mm"></div>'
+    cut = f'<path class="cut" d="M0,{H} L0,35 A35,35 0 0 1 35,0 L{W-35},0 A35,35 0 0 1 {W},35 L{W},{H} Z"/><rect class="cut" x="{W/2-2.6}" y="0" width="5.2" height="35"/><text class="lbl" x="4" y="{H-4}">받침 다리 — 사인 슬롯에 직각 끼움 · 슬롯 5.2×35 위에서</text>'
+    write('10h_foamex_stand_leg', (W, H), [(body, 'transparent', cut)], '포맥스 받침 다리 160×70 (공용)')
+    SIGNS.append(dict(name='10h_foamex_stand_leg', title='받침 다리 (공용)', W=W, H=H, qty=9, where='사인 9개에 1개씩', mat='블랙 포맥스 5T'))
+
+cards(); table_sign(); pops_v4(); shopping_bag(); leaflet_v4(); xbanners_v4(); banners_v4(); standee(); shot_list(); signs_foamex()
 json.dump(MANIFEST, open(os.path.join(HERE, 'manifest.json'), 'w'), ensure_ascii=False, indent=1)
 for m in MANIFEST: print(m['name'], m['w'], 'x', m['h'], 'mm', m['pages'], 'p')

@@ -68,5 +68,75 @@
   "h": 1780,
   "pages": 1,
   "title": "레오 등신대 830×1780mm (캐릭터 높이 1600)"
+ },
+ {
+  "name": "10a_foamex_RS_logo",
+  "w": 337,
+  "h": 348,
+  "pages": 1,
+  "title": "포맥스 사인 S1 RS 로고 컷팅 337×348"
+ },
+ {
+  "name": "10b_foamex_refeeel_seal",
+  "w": 320,
+  "h": 378,
+  "pages": 1,
+  "title": "포맥스 사인 S2 re.feeel 씰 원형 320×378"
+ },
+ {
+  "name": "10c_foamex_product_walking",
+  "w": 300,
+  "h": 160,
+  "pages": 1,
+  "title": "포맥스 사인 S3 제품명 — 종일편한 워킹화 300×160"
+ },
+ {
+  "name": "10c_foamex_product_insole",
+  "w": 300,
+  "h": 160,
+  "pages": 1,
+  "title": "포맥스 사인 S3 제품명 — 아치가득 인솔 300×160"
+ },
+ {
+  "name": "10d_foamex_event_qr",
+  "w": 300,
+  "h": 220,
+  "pages": 1,
+  "title": "포맥스 사인 S4 이벤트 QR (@re.feeel) 300×220"
+ },
+ {
+  "name": "10e_foamex_quadgrip_mini",
+  "w": 240,
+  "h": 120,
+  "pages": 1,
+  "title": "포맥스 사인 S5 쿼드그립 미니 240×120"
+ },
+ {
+  "name": "10f_foamex_refeeel_oral",
+  "w": 240,
+  "h": 100,
+  "pages": 1,
+  "title": "포맥스 사인 S6 re.feeel — ORAL CARE 240×100"
+ },
+ {
+  "name": "10f_foamex_refeeel_slipper",
+  "w": 240,
+  "h": 100,
+  "pages": 1,
+  "title": "포맥스 사인 S6 re.feeel — BATH SLIPPER 240×100"
+ },
+ {
+  "name": "10g_foamex_advisory",
+  "w": 260,
+  "h": 130,
+  "pages": 1,
+  "title": "포맥스 사인 S7 원장 코너 260×130"
+ },
+ {
+  "name": "10h_foamex_stand_leg",
+  "w": 160,
+  "h": 70,
+  "pages": 1,
+  "title": "포맥스 받침 다리 160×70 (공용)"
  }
 ]
