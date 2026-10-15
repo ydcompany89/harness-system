@@ -437,7 +437,7 @@ def xbanner_doctor():
 
 # ───────────────────────── v3 (10/15) 스터닝 견적 기준 ─────────────────────────
 # 공통 톤: 크림 바탕 + 잉크 글자 + 포인트 1색 (라라슈 OLIVE / re.feeel RF_GR)
-EVENT_ACC = '@[계정]'
+EVENT_ACC = '@re.feeel'
 def ev_box(w_qr, big, small, acc):
     return f"""<div style="background:{acc};border-radius:20mm;padding:24mm 26mm;display:flex;align-items:center;gap:22mm">
       <div style="flex:none;width:{w_qr}mm;height:{w_qr}mm;background:#fff;border-radius:6mm;display:flex;align-items:center;justify-content:center;text-align:center;font-size:{small}pt;color:{acc}">인스타<br>QR 자리</div>
@@ -565,7 +565,7 @@ def pops():
             <div style="flex:none;width:70mm;height:70mm;background:#fff;border:.8mm dashed {RF_GR};border-radius:4mm;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12pt;color:{RF_GR}">인스타<br>QR 자리</div>
             <div style="font-size:13pt;line-height:1.7"><b>① QR로 {EVENT_ACC} 팔로우</b><br><b>② 팔로우 화면 보여 주기</b><br><b>③ 볼펜 받아 가기</b></div></div>
           <div style="background:{CREAM};border-radius:6mm;padding:7mm 8mm;font-size:10.5pt;line-height:1.6"><b style="color:{RF_GR}">CXP 볼펜이란?</b><br>숲을 가꾸며 솎아낸 나무(간벌재)로 만든 CXP 소재 볼펜.<br>re.feeel 칫솔·치실·양치컵과 같은 소재예요.</div>
-          <div style="font-size:8pt;color:{MUTE}">1인 1개 · 소진 시 종료 · ㈜알앤디메이커스 RhaRa Shoe · re.feeel</div>""", B + 22, H - B - 12, B + 14, W)
+          <div style="font-size:8pt;color:{MUTE}">1인 1회 · 일일 수량 소진 시 종료 · ㈜알앤디메이커스 RhaRa Shoe · re.feeel</div>""", B + 22, H - B - 12, B + 14, W)
     write('04_pop_A4_x3', (W, H), [(p1, WHITE, tr), (p2, WHITE, tr), (p3, WHITE, tr)], 'POP A4 세로 ×3 (워킹화 / 인솔 / 인스타 이벤트)')
 
 # ═════════════════════════ v4 (10/15 PM) 임팩트 리디자인 ═════════════════════════
@@ -614,8 +614,8 @@ def ev_box4(fs, acc, fg, sub, qr_bg='#fff'):
     return f"""<div style="background:{acc};border-radius:{8*fs:.1f}mm;padding:{8*fs:.1f}mm {9*fs:.1f}mm;display:flex;align-items:center;gap:{8*fs:.1f}mm">
       <div style="flex:none;width:{48*fs:.1f}mm;height:{48*fs:.1f}mm;background:{qr_bg};border-radius:{3*fs:.1f}mm;display:flex;align-items:center;justify-content:center;text-align:center;font-size:{14*fs:.1f}pt;color:#666">인스타<br>QR</div>
       <div><div style="font-size:{15*fs:.1f}pt;font-weight:900;letter-spacing:.08em;color:{sub}">INSTAGRAM EVENT</div>
-        <div style="font-size:{34*fs:.1f}pt;font-weight:900;line-height:1.15;color:{fg}">팔로우하면<br>CXP 볼펜 선물</div>
-        <div style="font-size:{13*fs:.1f}pt;color:{sub};margin-top:{2*fs:.1f}mm">{EVENT_ACC} · 팔로우 화면 보여 주세요 · 소진 시 종료</div></div></div>"""
+        <div style="font-size:{24*fs:.1f}pt;font-weight:900;line-height:1.2;color:{fg}">{EVENT_ACC} 팔로우<br>→ CXP 볼펜<br>+ 스토리 태그 → 칫솔</div>
+        <div style="font-size:{13*fs:.1f}pt;color:{sub};margin-top:{2*fs:.1f}mm">화면 보여 주세요 · 1인 1회 · 소진 시 종료 · 스토리엔 #이벤트참여</div></div></div>"""
 
 # ───────── 족자 950×2380 ×6 ─────────
 def banners_v4():
@@ -631,7 +631,7 @@ def banners_v4():
     rs1 = pg(INK, f"""<div>{logo(230)}</div>
         <div><div style="font-size:300pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
           <div style="font-size:120pt;font-weight:900;color:#fff;line-height:1.2;margin-top:30mm">하루 10시간,<br>서서 일하는 사람의 신발.</div></div>
-        {shot('RS-01', 790, 1000, 'walking-cut.png', '히어로 — 뒤꿈치 드는 순간, 밑창 라임 4점', '주방 바닥 로우앵글 · 블랙 바지 + 워킹화 · 뒤꿈치가 막 떨어지는 순간 밑창 4점이 보이게 · 바닥에 물기 반사', fs=F)}
+        {shot('RS-01', 790, 1000, 'walking-cut.png', '히어로 — 뒤꿈치 드는 순간, 밑창 라임 4점', '주방 바닥 로우앵글 · 블랙 바지 + 워킹화 · 뒤꿈치가 막 떨어지는 순간 밑창 4점이 보이게 · 광택 바닥 반사 (물기 연출 ✗)', fs=F)}
         <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>종일편한 워킹화</div><div style="font-size:50pt;font-weight:900;color:{LIME}">2026.11.11<br>OPEN</div></div>""", 'RS 1/3', LIME)
     rs2 = pg(INK, f"""<div><div style="font-size:90pt;font-weight:900;color:{LIME};letter-spacing:.04em">QUAD GRIP</div>
           <div style="font-size:220pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>길을 따라,<br><span style="color:{LIME}">4곳.</span></div></div>
@@ -642,7 +642,7 @@ def banners_v4():
         <div><div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.2;margin-bottom:12mm">패드 무늬 하나도,<br><span style="color:{LIME}">연구를 보고 그렸습니다.</span></div>
           <div style="display:flex;flex-direction:column;gap:10mm">{paper_cards(F, LIME)}</div>
           <div style="font-size:24pt;color:#8a8a8a;margin-top:8mm;line-height:1.4">{PAPER_NOTE}</div></div>
-        {shot('RS-02', 790, 300, 'outsole-studio.jpg', '패드 매크로 — 사각 블록 + 배수 홈 + 물방울', '라임 패드 1개 정면 매크로 · 3×3 블록 홈에 물방울 · 블랙 배경 · 측광', fs=F)}""", 'RS 2/3', LIME)
+        {shot('RS-02', 790, 300, 'outsole-studio.jpg', '패드 매크로 — 사각 블록 + 배수 홈', '라임 패드 1개 정면 매크로 · 3×3 블록 홈 결 · 블랙 배경 · 측광 (물 연출 ✗)', fs=F)}""", 'RS 2/3', LIME)
     rs3 = pg(LIME, f"""<div><div style="font-size:90pt;font-weight:900;color:{INK};letter-spacing:.04em">ARCH INSOLE</div>
           <div style="font-size:230pt;font-weight:900;line-height:1.05;color:{INK}">오후 4시,<br>발이 먼저<br>퇴근하고<br>싶을 때.</div>
           <div style="font-size:70pt;font-weight:700;color:{INK};margin-top:16mm">신던 신발 속 바닥만 바꿔 보세요.</div></div>
@@ -726,12 +726,12 @@ def pops_v4():
       {price('21,500원', INK, INK)}
       <div style="font-size:7.5pt;color:#3d4a12">신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div>""", B + 12, H - B - 12, B + 12, W)
     p3 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:40mm;background:{CREAM};border-radius:50%;padding:1.5mm"><div style="font-size:10pt;font-weight:900;color:{RF_YL}">INSTAGRAM EVENT</div></div>
-      <div style="font-size:44pt;font-weight:900;line-height:1.08;color:{CREAM}">팔로우하면<br><span style="color:{RF_YL}">CXP 볼펜</span><br>선물!</div>
+      <div style="font-size:36pt;font-weight:900;line-height:1.08;color:{CREAM}">팔로우하면<br><span style="color:{RF_YL}">CXP 볼펜</span>,<br>스토리 태그엔<br><span style="color:{RF_YL}">칫솔</span>까지!</div>
       <div style="display:flex;align-items:center;gap:8mm"><div style="flex:none;width:62mm;height:62mm;background:#fff;border-radius:4mm;display:flex;align-items:center;justify-content:center;font-size:12pt;color:#666;text-align:center">인스타<br>QR</div>
-        <div style="font-size:13pt;font-weight:700;line-height:1.9;color:{CREAM}"><span style="color:{RF_YL}">①</span> QR로 {EVENT_ACC} 팔로우<br><span style="color:{RF_YL}">②</span> 팔로우 화면 보여 주기<br><span style="color:{RF_YL}">③</span> 볼펜 받아 가기</div></div>
-      {shot('P3', 190, 55, 'cxp.jpg', 'CXP 볼펜 실물', '볼펜 3자루 + 원료(간벌재 칩) 나란히 · 크림 배경', acc=RF_YL, fs=0.5)}
+        <div style="font-size:13pt;font-weight:700;line-height:1.9;color:{CREAM}"><span style="color:{RF_YL}">①</span> QR로 {EVENT_ACC} 팔로우<br><span style="color:{RF_YL}">②</span> 팔로우 화면 → 볼펜<br><span style="color:{RF_YL}">③</span> 스토리에 {EVENT_ACC} 태그<br>　 + #이벤트참여 → 칫솔</div></div>
+      {shot('P3', 190, 55, 'cxp.jpg', '@re.feeel 로고 볼펜·칫솔 실물', '로고 인쇄된 볼펜 3 + 칫솔 2 + 원료(간벌재 칩) · 크림 배경', acc=RF_YL, fs=0.5)}
       <div style="font-size:10pt;line-height:1.6;color:{CREAM}"><b style="color:{RF_YL}">CXP 볼펜</b> — 숲을 가꾸며 솎아낸 나무(간벌재)로 만든 소재. re.feeel 칫솔·치실·양치컵과 같은 소재예요.</div>
-      <div style="font-size:7.5pt;color:#9fb5a5">1인 1개 · 소진 시 종료 · ㈜알앤디메이커스 RhaRa Shoe · re.feeel</div>""", B + 12, H - B - 12, B + 12, W)
+      <div style="font-size:7.5pt;color:#9fb5a5">1인 1회 · 일일 수량 소진 시 종료 · ㈜알앤디메이커스 RhaRa Shoe · re.feeel</div>""", B + 12, H - B - 12, B + 12, W)
     write('04_pop_A4_x3', (W, H), [(p1, INK, tr), (p2, LIME, tr), (p3, RF_GR, tr)], 'POP A4 세로 ×3 v4 (워킹화 / 인솔 / 인스타 이벤트)')
 
 # ───────── 리플렛 + 다국어 카탈로그 v4 (A4 3단 C접지) ─────────
