@@ -881,8 +881,9 @@ def signs_foamex():
     # S7 원장 코너 (성명 없이 — 재사용·계약 범위 안전)
     W, H = 260, 130
     body = panel(W, H, 10, INK, f'''<div class="abs" style="left:14mm;top:14mm;font-size:13pt;font-weight:900;letter-spacing:.1em;color:{LIME}">DESIGN ADVISORY</div>
-      <div class="abs" style="left:14mm;top:28mm;font-size:26pt;font-weight:900;color:#fff;line-height:1.25">정형외과 전문의<br>설계 자문</div>
-      <div class="abs" style="left:14mm;top:84mm;width:232mm;font-size:12pt;color:#bdbdbd;line-height:1.45">자문 범위: 패드 배치 · 인솔 형태 · 착용 방식<br>본 제품은 의료기기가 아닙니다.</div>
+      <div class="abs" style="left:14mm;top:26mm;font-size:24pt;font-weight:900;color:#fff;line-height:1.25">정형외과 전문의<br>설계 자문</div>
+      <div class="abs" style="left:14mm;top:66mm;font-size:17pt;font-weight:900;color:{LIME}">이문홍정형외과 <span style="font-size:12pt;font-weight:400;color:#bdbdbd">서울 목동</span></div>
+      <div class="abs" style="left:14mm;top:88mm;width:232mm;font-size:12pt;color:#bdbdbd;line-height:1.45">자문 범위: 패드 배치 · 인솔 형태 · 착용 방식<br>본 제품은 의료기기가 아닙니다.</div>
       <div class="abs" style="right:14mm;top:16mm">{foot_map(30, labels=False)}</div>''')
     sign('10g_foamex_advisory', 'S7 원장 코너', W, H, body, None, r(W, H, 10), 1, 'KET-22 아크릴단상 위 (X배너 ③ 옆)', '블랙 포맥스 5T + 라임·화이트 UV')
     # 받침 다리 (공용, 9개)
