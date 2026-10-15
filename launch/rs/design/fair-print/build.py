@@ -58,7 +58,7 @@ def write(name, size, pages, title):
     w, h = size
     for variant in ('dieline', 'art'):
         body = ''.join(page(w, h, b, bg, l if variant == 'dieline' else '') for b, bg, l in pages)
-        html = f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>{title}</title><style>@page{{size:{w}mm {h}mm;margin:0}}{CSS}</style></head><body>{body}</body></html>'
+        html = f'<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>{title}</title>{FONT_LINKS if name.startswith('06_') else ''}<style>@page{{size:{w}mm {h}mm;margin:0}}{CSS}</style></head><body>{body}</body></html>'
         open(os.path.join(HERE, f'{name}_{variant}.html'), 'w').write(html)
     MANIFEST.append(dict(name=name, w=w, h=h, pages=len(pages), title=title))
 
@@ -364,11 +364,11 @@ RF_GR, RF_MID, RF_IV, RF_YL = '#1F472C', '#3F7A52', '#F2EDE1', '#FBD827'
 
 def banners6():
     """v2.1 (10/15): 6면 공통 = 크림 바탕 + 잉크 글자, 브랜드 포인트 1색만 (RS 올리브 / re.feeel 그린)"""
-    W, H, POCKET = 900, 2200, 50
+    W, H, POCKET = 950, 2380, 50
     gl = trim_rect(W, H, 0) + f'<line class="fold" x1="0" y1="{POCKET}" x2="{W}" y2="{POCKET}"/><line class="fold" x1="0" y1="{H-POCKET}" x2="{W}" y2="{H-POCKET}"/>' + \
         f'<rect class="guide" x="50" y="{POCKET+50}" width="{W-100}" height="{H-2*POCKET-100}"/>' + \
-        f'<rect class="guide" x="0" y="1000" width="{W}" height="900" style="stroke:#F0A000"/><text class="lbl" x="55" y="{POCKET-12}" style="font-size:16px">봉 포켓 50mm (상·하)</text>' + \
-        f'<text class="lbl" x="55" y="995" style="font-size:16px;fill:#C08000">핵심 시선 띠 1,000~1,900</text>'
+        f'<rect class="guide" x="0" y="1050" width="{W}" height="900" style="stroke:#F0A000"/><text class="lbl" x="55" y="{POCKET-12}" style="font-size:16px">봉 포켓 50mm (상·하)</text>' + \
+        f'<text class="lbl" x="55" y="1045" style="font-size:16px;fill:#C08000">핵심 시선 띠 1,050~1,950</text>'
     HL, SUB, BODY, SM = 'font-size:250pt;font-weight:900;line-height:1.08', 'font-size:100pt;font-weight:900;line-height:1.15', 'font-size:76pt;font-weight:700;line-height:1.4', 'font-size:56pt;line-height:1.45'
     BG = CREAM
     def p(tag, n, acc, inner, under=''):
@@ -413,7 +413,7 @@ def banners6():
                 <div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.25;margin-top:6mm">팔로우하면<br>CXP 볼펜 선물</div>
                 <div style="font-size:36pt;color:{CREAM};margin-top:8mm">@[계정] · 팔로우 화면 보여 주세요 · 소진 시 종료</div></div></div>"""),
     ]
-    write('08_banner_900x2200_x6', (W, H), rs + rf, '백월 족자 900×2200 ×6 (라라슈 3 + re.feeel 3)')
+    write('08_banner_950x2380_x6', (W, H), rs + rf, '백월 족자 950×2380 ×6 (라라슈 3 + re.feeel 3) · 족자봉+PET')
 
 # ───────────────────────── 6-2. X배너 600×1800 — 정형외과 전문의 설계 자문 ─────────────────────────
 def xbanner_doctor():
@@ -435,6 +435,139 @@ def xbanner_doctor():
       <div style="font-size:28pt;color:{MUTE};line-height:1.5">이문홍 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.<br>본 제품은 의료기기가 아닙니다. 부스에서는 발 상담·진단을 하지 않습니다.</div>""", 80, 1730, 50, W)
     write('07b_xbanner_doctor_600x1800', (W, H), [(body, CREAM, gl)], 'X배너 600×1800 — 정형외과 전문의 설계 자문')
 
-cards(); table_sign(); price_labels(); shopping_bag(); leaflet(); xbanners(); xbanner_doctor(); banners6(); standee()
+# ───────────────────────── v3 (10/15) 스터닝 견적 기준 ─────────────────────────
+# 공통 톤: 크림 바탕 + 잉크 글자 + 포인트 1색 (라라슈 OLIVE / re.feeel RF_GR)
+EVENT_ACC = '@[계정]'
+def ev_box(w_qr, big, small, acc):
+    return f"""<div style="background:{acc};border-radius:20mm;padding:24mm 26mm;display:flex;align-items:center;gap:22mm">
+      <div style="flex:none;width:{w_qr}mm;height:{w_qr}mm;background:#fff;border-radius:6mm;display:flex;align-items:center;justify-content:center;text-align:center;font-size:{small}pt;color:{acc}">인스타<br>QR 자리</div>
+      <div><div style="font-size:{small}pt;font-weight:900;color:{CREAM};letter-spacing:.06em">INSTAGRAM EVENT</div>
+        <div style="font-size:{big}pt;font-weight:900;color:#fff;line-height:1.25;margin-top:4mm">팔로우하면<br>CXP 볼펜 선물</div>
+        <div style="font-size:{small*0.85:.0f}pt;color:{CREAM};margin-top:6mm">{EVENT_ACC} · 팔로우 화면 보여 주세요 · 소진 시 종료</div></div></div>"""
+
+def xbanners3():
+    """X배너 3건 = ① 라라슈 ② re.feeel ③ 정형외과(07b 별도 함수)"""
+    W, H = 600, 1800
+    gl = trim_rect(W, H, 0) + ''.join(f'<circle class="cut" cx="{cx}" cy="{cy}" r="6"/>' for cx in (25, W - 25) for cy in (25, H - 25)) + \
+        f'<rect class="guide" x="40" y="60" width="{W-80}" height="{H-120}"/><text class="lbl" x="45" y="56" style="font-size:12px">아일렛(타공) 4곳 · 안전영역 40mm</text>'
+    band = lambda acc: f'<div class="abs" style="left:0;top:0;width:{W}mm;height:30mm;background:{acc}"></div>'
+    def prod(img, name, price, acc, iw):
+        return f"""<div style="display:flex;align-items:center;gap:16mm"><img src="{A}{img}" style="width:{iw}mm;flex:none">
+          <div><div style="font-size:76pt;font-weight:900;line-height:1.2">{name}</div>
+          <div style="font-size:48pt;color:{MUTE};margin-top:4mm">정상가 {price}</div>
+          <div style="font-size:54pt;font-weight:900;color:{acc};margin-top:2mm">박람회 현장가 ______원</div></div></div>"""
+    a = band(OLIVE) + col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{logo(80,'ink')}<div style="font-size:34pt;font-weight:900;color:{OLIVE};letter-spacing:.08em">RS 1/3</div></div>
+      <div style="font-size:150pt;font-weight:900;line-height:1.08">Made<br>for<br><span style="color:{OLIVE}">Standing.</span></div>
+      <div style="font-size:72pt;line-height:1.4">서서 일하는 사람을 위한<br>워킹화와 인솔, 라라슈</div>
+      {prod("walking-cut.png","쿼드그립<br>종일편한 워킹화","42,500원",OLIVE,230)}
+      {prod("insole-cut.png","쿼드그립<br>아치가득 인솔","21,500원",OLIVE,230)}
+      {ev_box(150,64,30,OLIVE)}""", 70, 1730, 50, W)
+    b = band(RF_GR) + col(f"""<div style="display:flex;justify-content:space-between;align-items:flex-start"><img src="{A}refeeel-seal.png" style="width:220mm"><div style="font-size:34pt;font-weight:900;color:{RF_GR};letter-spacing:.08em">re.feeel</div></div>
+      <div style="font-size:130pt;font-weight:900;line-height:1.1">생활을<br><span style="color:{RF_GR}">다시 채우다.</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12mm">
+        <img src="{A}cup-life.jpg" style="width:100%;height:250mm;object-fit:cover;border-radius:14mm">
+        <img src="{A}slipper-quilt.jpg" style="width:100%;height:250mm;object-fit:cover;border-radius:14mm">
+        <div style="font-size:60pt;font-weight:900">ORAL CARE<br><span style="font-weight:400;font-size:50pt">칫솔 · 치실 · 양치컵<br>나무에서 온 CXP 소재</span></div>
+        <div style="font-size:60pt;font-weight:900">BATH SLIPPER<br><span style="font-weight:400;font-size:50pt">실크벽지 PVC를<br>다시 원료로</span></div></div>
+      <div style="font-size:60pt;line-height:1.45">숲에서 솎아낸 나무, 벽에서 떼어 낸 벽지로<br>매일 쓰는 물건을 만듭니다. <b>국내 제조</b></div>
+      {ev_box(150,64,30,RF_GR)}""", 70, 1730, 50, W)
+    write('07_xbanner_600x1800', (W, H), [(a, CREAM, gl), (b, CREAM, gl)], 'X배너 600×1800 ①라라슈 ②re.feeel (③정형외과 = 07b)')
+
+# ───────────────────────── 리플렛 + 다국어 카탈로그 (A4 3단 C접지 · 스노우지 200g · 1,000부) ─────────────────────────
+FONT_LINKS = ''.join(f'<link rel="stylesheet" href="fonts/{p}/{w}.css">' for p in ('sc', 'jp') for w in (400, 700))
+def leaflet_ml():
+    B, W, H = 3, 303, 216
+    P, Q = [97, 100, 100], [100, 100, 97]
+    def lines(widths):
+        xs, s = [], B
+        for wd in widths[:-1]:
+            s += wd; xs.append(s)
+        return trim_rect(W, H, B) + ''.join(f'<line class="fold" x1="{xx}" y1="{B}" x2="{xx}" y2="{H-B}"/>' for xx in xs) + \
+            ''.join(f'<rect class="guide" x="{xx-4}" y="{B+3}" width="8" height="{H-2*B-6}"/>' for xx in xs)
+    EN = 'font-size:7pt;line-height:1.5;color:#555'
+    def panel(x, w, acc, eyebrow, title, en_title, img, img_w, body, en, foot='', img_top=52):
+        return f"""<div class="abs" style="left:{x}mm;top:0;width:{w}mm;height:{H}mm">
+          <div class="abs" style="left:0;top:0;width:{w}mm;height:6mm;background:{acc}"></div>
+          <div class="abs" style="left:10mm;top:15mm;font-size:7.5pt;font-weight:700;letter-spacing:.15em;color:{acc}">{eyebrow}</div>
+          <div class="abs" style="left:10mm;top:21mm;width:{w-20}mm;font-size:15pt;font-weight:900;line-height:1.22">{title}</div>
+          <div class="abs" style="left:10mm;top:41mm;width:{w-20}mm;font-size:8pt;font-weight:700;color:{acc}">{en_title}</div>
+          <img class="abs" src="{A}{img}" style="left:{(w-img_w)/2}mm;top:{img_top}mm;width:{img_w}mm;max-height:62mm;object-fit:contain">
+          <div class="abs" style="left:10mm;top:120mm;width:{w-20}mm;font-size:8pt;line-height:1.65">{body}</div>
+          <div class="abs" style="left:10mm;top:158mm;width:{w-20}mm;{EN}">{en}</div>
+          <div class="abs mute" style="left:10mm;top:197mm;width:{w-20}mm;font-size:6.3pt;line-height:1.4">{foot}</div></div>"""
+    o0, o1, o2 = B, B + 97, B + 197
+    i0, i1, i2 = B, B + 100, B + 200
+    # 바깥면: 날개(re.feeel 욕실화) | 뒷면(회사·다국어) | 표지
+    flap = panel(0, o1, RF_GR, 're.feeel · BATH SLIPPER', '벽지가<br>욕실화가 됐습니다.', 'Wallpaper became bath slippers.', 'slipper-quilt.jpg', 78,
+        '실크벽지에서 분리한 PVC를 다시 원료로 만든 욕실화.<br>물빠짐 구멍 · 바닥 패턴<br>전국 생활용품 매장 납품 중 · 국내 제조',
+        'Bath slippers made with PVC separated from silk wallpaper. Drain holes and a patterned sole. Supplied to retail stores nationwide. Made in Korea.')
+    back = f"""<div class="abs" style="left:{o1}mm;top:0;width:100mm;height:{H}mm">
+      <div class="abs" style="left:0;top:0;width:100mm;height:6mm;background:{INK}"></div>
+      <div class="abs" style="left:10mm;top:15mm;font-size:7.5pt;font-weight:700;letter-spacing:.15em">MAKER · 제조사</div>
+      <div class="abs" style="left:10mm;top:21mm;font-size:13pt;font-weight:900">{CO["co"]}</div>
+      <div class="abs" style="left:10mm;top:29mm;font-size:8pt;font-weight:700;color:{MUTE}">R&amp;D Makers Co., Ltd.</div>
+      <div class="abs" style="left:10mm;top:37mm;width:80mm;font-size:7.4pt;line-height:1.6">버려지는 소재로 생활용품을 만드는 국내 제조사입니다.<br><span style="color:#555">A Korean maker turning discarded materials into everyday goods.</span></div>
+      <div class="abs" style="left:10mm;top:58mm;width:80mm;font-size:6.9pt;line-height:1.55;font-family:'Noto Sans SC',N">
+        <b>中文</b>　我们是利用回收材料制造生活用品的韩国制造商。RhaRa Shoe 为站立工作的人设计工作鞋与鞋垫，鞋底防滑垫采用回收轮胎橡胶与回收壁纸 PVC。re.feeel 推出以林业副产物 CXP 材料制成的口腔护理用品及回收 PVC 浴室拖鞋。全部韩国制造，欢迎批发及 OEM/ODM 洽谈。</div>
+      <div class="abs" style="left:10mm;top:94mm;width:80mm;font-size:6.9pt;line-height:1.55;font-family:'Noto Sans JP',N">
+        <b>日本語</b>　リサイクル素材で生活用品をつくる韓国のメーカーです。RhaRa Shoe は立ち仕事をする人のためのワーキングシューズとインソール。靴底のグリップパッドには廃タイヤゴムと壁紙由来の再生 PVC を使用。re.feeel は林業副産物を活用した CXP 素材のオーラルケア用品と再生 PVC のバススリッパ。すべて韓国製造。卸売・OEM/ODM のご相談を承ります。</div>
+      <div class="abs" style="left:10mm;top:134mm;width:80mm;height:.3mm;background:{INK}"></div>
+      <div class="abs" style="left:10mm;top:139mm;font-size:7.6pt;line-height:1.7">T  {CO["cs"]}<br>E  {CO["mail"]}<br>A  {CO["addr"]}<br>W  {CO["web"]}<br>IG  {CO["ig"]}</div>
+      <div class="abs" style="left:66mm;top:141mm">{qr("flyer",24)}</div>
+      <div class="abs" style="left:10mm;top:181mm;width:80mm;font-size:7.4pt;font-weight:700;line-height:1.5">단체 구매 · 도매 · OEM/ODM 상담<br><span style="font-weight:400;color:#555">Wholesale &amp; OEM/ODM inquiries welcome</span></div></div>"""
+    cover = f"""<div class="abs" style="left:{o2}mm;top:0;width:{W-o2}mm;height:{H}mm;background:{CREAM}">
+      <div class="abs" style="left:12mm;top:18mm;font-size:7.5pt;font-weight:700;letter-spacing:.2em;color:{MUTE}">KR · EN · 中文 · 日本語</div>
+      <div class="abs" style="left:12mm;top:30mm;font-size:24pt;font-weight:900;line-height:1.15">남은 것의<br>다음 모양.</div>
+      <div class="abs" style="left:12mm;top:58mm;font-size:9pt;font-weight:700;color:#555">The next shape of what's left.</div>
+      <div class="abs" style="left:12mm;top:80mm;display:flex;align-items:center;gap:8mm">{logo(26,'ink')}<img src="{A}refeeel-seal.png" style="height:34mm"></div>
+      <div class="abs" style="left:12mm;top:122mm;width:80mm;font-size:8pt;line-height:1.7"><b style="color:{OLIVE}">RhaRa Shoe 라라슈</b> — 서서 일하는 사람의 워킹화·인솔<br><b style="color:{RF_GR}">re.feeel</b> — 구강용품 · 욕실화</div>
+      <div class="abs" style="left:12mm;top:150mm;width:80mm;font-size:7pt;line-height:1.5;color:#555">RhaRa Shoe — walking shoes &amp; insoles for people who work on their feet<br>re.feeel — oral care &amp; bath slippers</div>
+      <div class="abs" style="left:12mm;top:190mm;font-size:9pt;font-weight:900">{CO["co"]}</div>
+      <div class="abs" style="left:12mm;top:197mm;font-size:7pt;color:{MUTE}">MADE IN KOREA</div></div>"""
+    out = f'<div class="abs" style="left:0;top:0;width:{W}mm;height:{H}mm;background:{WHITE}"></div>' + flap.replace(f'left:0mm;top:0;width:{o1}mm', f'left:0mm;top:0;width:{o1}mm;background:{WHITE}') + back + cover
+    inside = f'<div class="abs" style="left:0;top:0;width:{W}mm;height:{H}mm;background:{WHITE}"></div>'
+    inside += panel(0, i1, OLIVE, 'RhaRa Shoe · 01 WALKING SHOE', '쿼드그립<br>종일편한 워킹화', 'QUAD GRIP All-Day Walking Shoes', 'walking-cut.png', 64,
+        '<b>쿼드그립 4점</b> — 바닥에 닿는 길을 따라 밑창 4곳에 그립 패드<br><b>깔창 없는 일체형</b> — 안창까지 한 몸<br><b>그립 패드 소재</b> — 폐타이어 재생고무 + 실크벽지 재생 PVC',
+        'Grip pads at four points along the path your foot meets the floor. One-piece footbed with no loose insole. Pads made with recycled tire rubber and recycled wallpaper PVC.',
+        '230~280mm · 차콜 / 그레이 / 민트화이트 · 42,500원 · 국내 제조')
+    inside += panel(i1, 100, OLIVE, 'RhaRa Shoe · 02 ARCH INSOLE', '오후 4시, 발이 먼저<br>퇴근하고 싶을 때.', 'QUAD GRIP Arch Insole', 'insole-cut.png', 64,
+        '<b>아치가득</b> — 아치 아래 빈 공간을 채운 형태<br><b>반굽</b> — 쓰던 깔창 밑에 한 장 더<br><b>우드칩 배합</b> — 목공소 우드칩을 섞은 소재',
+        'Fills the space under your arch. Half-length: slip it under the insole you already use. Made with wood chips from carpentry shops.',
+        'M 15cm · L 17cm (±5%) · 21,500원 · 신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다. / Not a medical device.')
+    inside += panel(i2, W - i2, RF_GR, 're.feeel · ORAL CARE', '나무에서 온<br>구강케어.', 'Oral care from wood.', 'cup-life.jpg', 74,
+        '<b>칫솔</b> · <b>칫솔형 치실</b>(리필 20개입) · <b>양치컵</b><br>숲을 가꾸며 솎아낸 간벌재(임업부산물)로 만든 CXP 소재<br>양치컵은 40° 기울여 세워 말리는 구조',
+        'Toothbrush, toothbrush-style floss and rinse cup made with CXP, a material using thinned wood from forest care. The cup dries standing tilted at 40°.',
+        '국내 제조 · 가격은 부스에서 안내')
+    write('06_leaflet_A4_3fold', (W, H), [(out, WHITE, lines(P)), (inside, WHITE, lines(Q))], '리플렛+다국어 카탈로그 A4 3단 C접지 (1p 바깥 · 2p 안쪽)')
+
+# ───────────────────────── POP 3종 (A4 세로 · 아크릴 거치대) ─────────────────────────
+def pops():
+    B, W, H = 3, 216, 303
+    tr = trim_rect(W, H, B)
+    band = lambda acc: f'<div class="abs" style="left:0;top:0;width:{W}mm;height:{B+12}mm;background:{acc}"></div>'
+    def price_pop(tag, img, iw, name, en, pts, price, foot):
+        return band(OLIVE) + col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{logo(16,'ink')}<div style="font-size:11pt;font-weight:900;color:{OLIVE};letter-spacing:.1em">{tag}</div></div>
+          <div><div style="font-size:30pt;font-weight:900;line-height:1.15">{name}</div><div style="font-size:11pt;font-weight:700;color:{OLIVE};margin-top:2mm">{en}</div></div>
+          <img src="{A}{img}" style="width:{iw}mm;align-self:center;max-height:88mm;object-fit:contain">
+          <div style="font-size:13pt;font-weight:700;line-height:1.6">{pts}</div>
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;border-top:.6mm solid {INK};padding-top:5mm">
+            <div><div style="font-size:11pt;color:{MUTE}">정상가</div><div style="font-size:20pt;font-weight:900;color:{MUTE};text-decoration:line-through">{price}</div></div>
+            <div style="text-align:right"><div style="font-size:12pt;font-weight:900;color:{OLIVE}">박람회 현장가</div>
+              <div style="width:96mm;height:24mm;border:.8mm dashed {OLIVE};border-radius:4mm;margin-top:2mm;display:flex;align-items:center;justify-content:flex-end;padding-right:5mm;font-size:22pt;font-weight:900">원</div></div></div>
+          <div style="font-size:8pt;color:{MUTE};line-height:1.5">{foot}</div>""", B + 22, H - B - 12, B + 14, W)
+    p1 = price_pop('RS · WALKING', 'walking-cut.png', 110, '쿼드그립<br>종일편한 워킹화', 'QUAD GRIP All-Day Walking Shoes',
+        '01  바닥에 닿는 길을 따라 그립 패드 4곳<br>02  깔창 없는 일체형 안창<br>03  눌렀다, 다시 돌아옵니다', '42,500원', '230~280mm · 차콜 / 그레이 / 민트화이트 · 국내 제조')
+    p2 = price_pop('RS · INSOLE', 'insole-cut.png', 110, '쿼드그립<br>아치가득 인솔', '오후 4시, 발이 먼저 퇴근하고 싶을 때.',
+        '01  아치 아래 빈 공간, 가득<br>02  쓰던 깔창 밑에 한 장 더 (반굽)<br>03  M 15cm · L 17cm', '21,500원', '신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.')
+    p3 = band(RF_GR) + col(f"""<div style="display:flex;justify-content:space-between;align-items:flex-start"><img src="{A}refeeel-seal.png" style="width:52mm"><div style="font-size:11pt;font-weight:900;color:{RF_GR};letter-spacing:.1em">INSTAGRAM EVENT</div></div>
+          <div style="font-size:40pt;font-weight:900;line-height:1.15">팔로우하면<br><span style="color:{RF_GR}">CXP 볼펜</span><br>선물!</div>
+          <div style="display:flex;align-items:center;gap:10mm">
+            <div style="flex:none;width:70mm;height:70mm;background:#fff;border:.8mm dashed {RF_GR};border-radius:4mm;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12pt;color:{RF_GR}">인스타<br>QR 자리</div>
+            <div style="font-size:13pt;line-height:1.7"><b>① QR로 {EVENT_ACC} 팔로우</b><br><b>② 팔로우 화면 보여 주기</b><br><b>③ 볼펜 받아 가기</b></div></div>
+          <div style="background:{CREAM};border-radius:6mm;padding:7mm 8mm;font-size:10.5pt;line-height:1.6"><b style="color:{RF_GR}">CXP 볼펜이란?</b><br>숲을 가꾸며 솎아낸 나무(간벌재)로 만든 CXP 소재 볼펜.<br>re.feeel 칫솔·치실·양치컵과 같은 소재예요.</div>
+          <div style="font-size:8pt;color:{MUTE}">1인 1개 · 소진 시 종료 · ㈜알앤디메이커스 RhaRa Shoe · re.feeel</div>""", B + 22, H - B - 12, B + 14, W)
+    write('04_pop_A4_x3', (W, H), [(p1, WHITE, tr), (p2, WHITE, tr), (p3, WHITE, tr)], 'POP A4 세로 ×3 (워킹화 / 인솔 / 인스타 이벤트)')
+
+cards(); table_sign(); pops(); shopping_bag(); leaflet_ml(); xbanners3(); xbanner_doctor(); banners6(); standee()
 json.dump(MANIFEST, open(os.path.join(HERE, 'manifest.json'), 'w'), ensure_ascii=False, indent=1)
 for m in MANIFEST: print(m['name'], m['w'], 'x', m['h'], 'mm', m['pages'], 'p')
