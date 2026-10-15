@@ -36,7 +36,7 @@ pres.author = "RhaRa Shoe";
 const PROJECT = "라라슈 쿼드그립 종일편한 워킹화 · 스마트스토어/자사몰";
 const TOTAL = 30;
 const PROJ_I = "라라슈 쿼드그립 아치가득 인솔 · 스마트스토어/와디즈";
-const TOTAL_I = 14;
+const TOTAL_I = 15;
 const TAGS = {
   후킹: { fill: H.orange, color: H.white },
   공감: { fill: H.orange, color: H.white },
@@ -165,10 +165,10 @@ function cover() {
   T(s, "Made for Standing.", { x: 0.8, y: 4.35, w: 5.2, h: 0.4, fontSize: 16, color: H.lime });
   T(s, [
     { text: "받는 곳  디핏파트너 (상세 2종 제작)", options: { breakLine: true } },
-    { text: "워킹화 30 CUT + 인솔 14 CUT · 860px 세로형", options: { breakLine: true } },
+    { text: "워킹화 30 CUT + 인솔 15 CUT · 860px 세로형", options: { breakLine: true } },
     { text: "2026-10-14 · ㈜알앤디메이커스 → 촬영 10/28 · 1차 시안 11/3 · 오픈 11/11" },
   ], { x: 0.8, y: 5.4, w: 5.2, h: 1.0, fontSize: 11, color: "BFBFBF", paraSpaceAfter: 4 });
-  s.addNotes("디핏파트너 전달용 확정본 v2. 워킹화 30 CUT + 인솔 14 CUT. 성적서가 필요한 CUT은 🔒 표시, 오픈 시점에 없으면 블록째 빼고 오픈 → 수령 즉시 삽입.");
+  s.addNotes("디핏파트너 전달용 확정본 v2. 워킹화 30 CUT + 인솔 15 CUT. 성적서가 필요한 CUT은 🔒 표시, 오픈 시점에 없으면 블록째 빼고 오픈 → 수령 즉시 삽입.");
 }
 
 function summary() {
@@ -737,8 +737,8 @@ function backMatter() {
     ["8", "헹굼 GIF", "21", "싱크대", "세탁 테스트 후"],
     ["9", "컬러 × 4앵글", "24", "연회색 스튜디오", "양산 컬러로"],
     ["10", "대표 실사진", "06", "친구 가게 · 작업장", "서사"],
-    ["11", "원장 D1~D5 (손가락 4점 · 배치도 · 모형+인솔 · 프로필 · 인터뷰)", "08+ · I09", "병원 1시간 · X-ray ✗", "원장 검수"],
-    ["12", "인솔 측면 · 탑뷰 · 뒤꿈치 컵 · 도트 매크로 · 넣기 3스텝", "I01~I10", "스튜디오", "인솔 M·L"],
+    ["11", "원장 D1~D5 (손가락 4점 · 배치도 · 모형+인솔 · 프로필 · 인터뷰)", "08+ · I01 · I10", "병원 1시간 · X-ray ✗", "원장 검수"],
+    ["12", "오후 4시 장면 · 인솔 탑뷰 · 뒤꿈치 컵 · 도트 · 겹침 단면 · 슬립온 BEFORE/AFTER GIF", "I01~I12", "스튜디오", "반굽 M·L"],
   ];
   s.addTable(shots.map((r, i) => r.map((c) => ({ text: c, options: { bold: i === 0, color: i === 0 ? H.white : H.ink, fill: { color: i === 0 ? H.ink : (i % 2 ? H.white : H.panel) }, fontSize: 12 } }))),
     { x: 0.7, y: 1.2, w: 11.9, colW: [0.5, 4.3, 1.4, 3.3, 2.4], rowH: 0.4, border: { type: "solid", color: H.line, pt: 0.5 }, valign: "middle", fontFace: THEME.bodyFontFace, margin: 0.06 });
@@ -785,7 +785,7 @@ function backMatter() {
     ["대표", "원장 계약 서명 · 코멘트 검수 (expert/doctor-collab-plan.md)", "10/17 · 10/24"],
     ["대표", "C02 미끄럼 시험 의뢰 · P03 사이즈 · 인솔 패드 재질 확인", "이번 주"],
     ["촬영", "10/28 — 워킹화 #1~10 + 원장 D1~D5 + 인솔 #12", "10/28"],
-    ["디핏", "1차 시안 → 원장 검수(08+·I09) → 수정 → 최종", "11/3 → 11/8"],
+    ["디핏", "1차 시안 → 원장 검수(08+·I01·I10) → 수정 → 최종", "11/3 → 11/8"],
     ["Claude", "🔒 CUT 수치 들어오는 즉시 카피 교체본 전달", "수령 즉시"],
   ];
   steps.forEach(([who, what, when], i) => {
@@ -807,11 +807,11 @@ function confirmed() {
     ["제품명", "라라슈 쿼드그립 종일편한 워킹화", "라라슈 쿼드그립 아치가득 인솔"],
     ["가격", "42,500원 (할인 ✗ · 번들 ⭕)", "21,500원 (와디즈는 리워드가 별도)"],
     ["브랜드 메시지", "Made for Standing.  (서브: 발이 편해야, 일이 편하다.)", "동일 + 인솔 서브: 신던 신발은 그대로, 바닥만 새로."],
-    ["사이즈 · 컬러", "230~280 (10mm) · 차콜 / 그레이 / 민트화이트", "M · L 🔒 (P03 대응 발길이 확정 후)"],
+    ["사이즈 · 컬러", "230~280 (10mm) · 차콜 / 그레이 / 민트화이트", "M 15cm(신발 220~255) · L 17cm(260~280) ±5% · 그레이 / 모카무스"],
     ["무게", "한쪽 257g (270mm 기준) — 사이즈 기준 항상 병기", "🔒 실측 후"],
-    ["소재", "본체·안창 E-실리폴리렌 / 패드 폐타이어 재생고무 + 실크벽지 재생 PVC", "E-실리폴리렌 + 목공소 자투리 우드칩 (패드 재질 🔒)"],
+    ["소재", "본체·안창 E-실리폴리렌 / 패드 폐타이어 재생고무 + 실크벽지 재생 PVC", "합성수지(E-실리폴리렌), 목분(우드칩) ✅ · 패드 재질 🔒"],
     ["제조", "국내 생산 · ㈜알앤디메이커스", "국내 생산 · ㈜알앤디메이커스"],
-    ["신규 블록 ★", "08+ 정형외과 전문의 설계 자문 · 08++ 패드 표면 연구(국내 논문 2편)", "I09 전문의 설계 자문"],
+    ["신규 블록 ★", "08+ 정형외과 전문의 설계 자문 · 08++ 패드 표면 연구(국내 논문 2편)", "I01 전문의 배지 · I08 반굽(깔창 밑) · I10 전문의 자문"],
     ["🔒 성적서 대기", "C02 미끄럼 · C03 유해물질 · C09 반발탄성", "C03 유해물질"],
   ];
   s.addTable(rows.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: i === 0 || j === 0, color: i === 0 ? H.white : (j === 0 ? H.olive : H.ink), fill: { color: i === 0 ? H.ink : (j === 0 ? H.panel : H.white) }, fontSize: 11 } }))),
@@ -823,50 +823,54 @@ function confirmed() {
 // ---------- 인솔 CUTS ----------
 const I = (o) => Object.assign({ pre: "ICUT", total: TOTAL_I, project: PROJ_I }, o);
 const CUTS_I = [
-  I({ n: 1, section: "인솔", tag: "후킹", title: "첫 화면 — 오후 4시 (확정 10/15)",
-    ref: { caption: "워킹화 CUT 01 다크 렌더와 톤 통일",
-      cards: [{ brand: "워킹화 상세", block: "CUT 01", what: "다크 배경 · 라임 포인트", take: "같은 브랜드로 읽히게" }] },
-    lay: { dark: true, caption: "오후 4시 장면 · 인솔은 ICUT 02 끝에 등장", els: [
-      { t: "txt", x: 0.15, y: 0.2, w: 2.5, h: 0.5, text: "오후 4시,\n발이 먼저 퇴근하고 싶을 때.", size: 11, bold: true, color: H.white },
-      { t: "txt", x: 0.15, y: 0.72, w: 2.5, h: 0.2, text: "신던 신발 속 바닥만 바꿔 보세요", size: 7, color: H.lime },
-      { t: "box", x: 0.3, y: 0.95, w: 2.2, h: 1.7, fill: "3A3A3A", text: "벽시계 4시 + 오후 햇빛\n신발 뒤축을 살짝 빼는 발\n(얼굴 없음)", color: H.white },
-      { t: "box", x: 0.5, y: 2.85, w: 1.8, h: 0.32, fill: H.lime, text: "RS · 쿼드그립 아치가득 인솔", size: 7, bold: true },
+  I({ n: 1, section: "인솔", tag: "후킹", title: "첫 화면 — 오후 4시 + 전문의 자문 배지",
+    ref: { caption: "워킹화 CUT 01 다크 톤 통일 · BARC 전문의 배지",
+      cards: [{ brand: "워킹화 상세", block: "CUT 01", what: "다크 배경 · 라임 포인트", take: "같은 브랜드로 읽히게" },
+              { brand: "대표 10/15", block: "첫 화면 노출 OK", what: "원장 설계 자문 배지", take: "효능 문구와 분리 · 대가 표기" }] },
+    lay: { dark: true, caption: "오후 4시 장면 + 하단 전문의 배지", els: [
+      { t: "txt", x: 0.15, y: 0.15, w: 2.5, h: 0.5, text: "오후 4시,\n발이 먼저 퇴근하고 싶을 때.", size: 11, bold: true, color: H.white },
+      { t: "txt", x: 0.15, y: 0.67, w: 2.5, h: 0.2, text: "신던 신발 속 바닥만 바꿔 보세요", size: 7, color: H.lime },
+      { t: "box", x: 0.3, y: 0.92, w: 2.2, h: 1.5, fill: "3A3A3A", text: "벽시계 4시 + 오후 햇빛\n신발 뒤축을 살짝 빼는 발\n(얼굴 없음)", color: H.white },
+      { t: "box", x: 0.3, y: 2.52, w: 2.2, h: 0.42, fill: H.white, text: "정형외과 전문의 이문훈 설계 자문", size: 7, bold: true },
+      { t: "box", x: 0.5, y: 3.02, w: 1.8, h: 0.28, fill: H.lime, text: "RS · 쿼드그립 아치가득 인솔", size: 7, bold: true },
+      { t: "txt", x: 0.1, y: 3.35, w: 2.6, h: 0.3, text: "이문훈 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.", size: 5, color: H.mute },
     ] },
-    copy: { head: "오후 4시,\n발이 먼저 퇴근하고 싶을 때.", body: "신던 신발 속 바닥만 바꿔 보세요.\n\nRS 쿼드그립 아치가득 인솔", flag: "확정(대표 10/15) · 평발·교정·피로감소 금칙" },
-    notes: "확정 후킹(대표 10/15): '오후 4시, 발이 먼저 퇴근하고 싶을 때.' — 효능 대신 상황 묘사.\n비주얼: 오후 햇빛 + 벽시계 4시 + 신발 뒤축을 살짝 빼는 발(얼굴 없음). 인솔은 ICUT 02 끝에서 처음 등장.\n숏폼 비트컷: 0.0s 시계 4시 → 0.5s 신발 뒤축 빼는 발 → 1.0s 신발 속 납작한 깔창 → 1.5s 아치가득 인솔 꺼내기.\n'피로·통증·지친 발 회복' 등 효능 단어 추가 금지.\n인솔은 '다른 신발용' — 워킹화와 묶는 표현 금지." }),
+    copy: { head: "오후 4시,\n발이 먼저 퇴근하고 싶을 때.", body: "신던 신발 속 바닥만 바꿔 보세요.\n\n정형외과 전문의 이문훈 설계 자문\nRS 쿼드그립 아치가득 인솔", flag: "배지는 '설계 자문'만 · 추천·인정 ✗ · 대가 표기 같은 화면" },
+    notes: "확정 후킹(대표 10/15): '오후 4시, 발이 먼저 퇴근하고 싶을 때.' — 효능 대신 상황 묘사.\n전문의 배지: 대표 10/15 첫 화면 노출 OK → 원장 서면 승인(계약 제7조) 후 게시. 배지 문구는 '설계 자문'으로 고정, '추천·인정·보증' 금지.\n비주얼: 오후 햇빛 + 벽시계 4시 + 신발 뒤축을 살짝 빼는 발(얼굴 없음). 인솔은 ICUT 02 끝에서 처음 등장.\n숏폼 비트컷: 0.0s 시계 4시 → 0.5s 신발 뒤축 빼는 발 → 1.0s 신발 속 납작한 깔창 → 1.5s 아치가득 인솔 꺼내기.\n인솔은 '다른 신발용' — 워킹화와 묶는 표현 금지." }),
   I({ n: 2, section: "인솔", tag: "공감", title: "공감 — 신발이 아니라, 바닥이 납작해서",
     ref: { caption: "아치쿠션 기획안 CUT 05 형식",
       cards: [{ brand: "아치쿠션 기획안", block: "공감 3장면", what: "3분할 사진 + 칩", take: "상황 묘사만, 통증 ✗" }] },
     lay: { caption: "3분할 · 신발 속 납작한 기본 깔창", els: [
       { t: "txt", x: 0.1, y: 0.15, w: 2.6, h: 0.45, text: "신발은 멀쩡한데,\n바닥이 납작해서", size: 9, bold: true },
       { t: "box", x: 0.1, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "얇은\n기본 깔창" },
-      { t: "box", x: 0.98, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "하루 종일\n출근화" },
+      { t: "box", x: 0.98, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "헐거워진\n슬립온" },
       { t: "box", x: 1.86, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "주말\n운동화" },
-      { t: "txt", x: 0.1, y: 2.6, w: 2.6, h: 0.6, text: "새 신발을 사기엔 아깝고", size: 8, color: H.mute },
+      { t: "txt", x: 0.1, y: 2.6, w: 2.6, h: 0.6, text: "그래서, 바닥만 새로.", size: 9, bold: true, color: H.olive },
     ] },
-    copy: { head: "신발은 멀쩡한데,\n바닥이 납작해서", body: "얇은 기본 깔창,\n하루 종일 신는 출근화,\n새로 사기엔 아까운 운동화.\n\n그래서, 바닥만 새로." },
-    notes: "'발 아픔·통증·평발' 등 의학 단어 금지. 상황 묘사만." }),
-  I({ n: 3, section: "인솔", tag: "제품", title: "제품 등장 — 4가지 구조",
-    ref: { caption: "행택 앞표지 아이콘 4종 그대로",
-      cards: [{ brand: "행택 §4", block: "아이콘 4", what: "아치 · 4점 · 뒤꿈치 컵 · 통기 도트", take: "상세·행택 아이콘 통일" }] },
-    lay: { caption: "인솔 탑뷰 + 아이콘 4", els: [
+    copy: { head: "신발은 멀쩡한데,\n바닥이 납작해서", body: "얇은 기본 깔창,\n신을 때마다 헐거운 신발,\n새로 사기엔 아까운 운동화.\n\n그래서, 바닥만 새로." },
+    notes: "'발 아픔·통증·평발' 등 의학 단어 금지. 상황 묘사만. '헐거운 신발'은 ICUT 08(반굽·흘러내림)로 이어지는 복선." }),
+  I({ n: 3, section: "인솔", tag: "제품", title: "제품 등장 — 5가지 구조",
+    ref: { caption: "행택 앞표지 아이콘 + 반굽",
+      cards: [{ brand: "행택 §4", block: "아이콘", what: "아치 · 4점 · 뒤꿈치 컵 · 통기 도트", take: "+ 반굽 길이 추가" }] },
+    lay: { caption: "반굽 인솔 탑뷰 + 아이콘 5", els: [
       { t: "txt", x: 0.1, y: 0.15, w: 2.6, h: 0.35, text: "쿼드그립 아치가득 인솔", size: 9, bold: true },
-      { t: "box", x: 0.9, y: 0.6, w: 1.0, h: 2.0, fill: H.tan, r: 0.3, text: "인솔\n탑뷰" },
-      { t: "circ", x: 0.1, y: 0.8, d: 0.6, text: "아치\n가득", size: 7 }, { t: "circ", x: 2.1, y: 0.8, d: 0.6, text: "4점", size: 7 },
-      { t: "circ", x: 0.1, y: 1.8, d: 0.6, text: "뒤꿈치\n컵", size: 7 }, { t: "circ", x: 2.1, y: 1.8, d: 0.6, text: "통기\n도트", size: 7 },
+      { t: "box", x: 0.95, y: 1.15, w: 0.9, h: 1.5, fill: H.tan, r: 0.3, text: "반굽\n인솔" },
+      { t: "circ", x: 0.1, y: 0.6, d: 0.6, text: "아치\n가득", size: 7 }, { t: "circ", x: 2.1, y: 0.6, d: 0.6, text: "반굽", size: 7 },
+      { t: "circ", x: 0.1, y: 1.5, d: 0.6, text: "뒤꿈치\n컵", size: 7 }, { t: "circ", x: 2.1, y: 1.5, d: 0.6, text: "4점", size: 7 },
+      { t: "circ", x: 1.1, y: 2.75, d: 0.6, text: "통기\n도트", size: 7 },
     ] },
-    copy: { head: "네 가지를\n한 장에 담았습니다", body: "아치 라인을 따라 가득\n쿼드그립 4점\n뒤꿈치 컵\n통기 도트" } }),
-  I({ n: 4, section: "인솔", tag: "편안", title: "POINT 01 · 아치 라인을 따라 가득",
+    copy: { head: "다섯 가지를\n한 장에 담았습니다", body: "아치 라인을 따라 가득\n반굽 길이 — 쓰던 깔창 밑에도\n뒤꿈치 컵\n쿼드그립 4점\n통기 도트" } }),
+  I({ n: 4, section: "인솔", tag: "편안", title: "POINT 01 · 아치 아래 빈 공간, 가득",
     ref: { caption: "아치쿠션 기획안 측면 단면",
       cards: [{ brand: "기존 기획안", block: "측면 곡선", what: "아치 높이를 선으로", take: "측면 실루엣 + 곡선 하이라이트" }] },
     lay: { caption: "인솔 측면 실루엣 + 라임 곡선", els: [
       { t: "chip", x: 1.0, y: 0.15, w: 0.8, text: "POINT 01", fill: H.olive, color: H.white },
-      { t: "txt", x: 0.1, y: 0.45, w: 2.6, h: 0.35, text: "아치 라인을 따라 가득", size: 9, bold: true },
+      { t: "txt", x: 0.1, y: 0.45, w: 2.6, h: 0.35, text: "아치 아래 빈 공간, 가득", size: 9, bold: true },
       { t: "box", x: 0.2, y: 1.1, w: 2.4, h: 0.9, fill: H.tan, text: "측면 실루엣" },
       { t: "line", x: 0.6, y: 1.1, w: 1.4, h: 0, color: H.lime, width: 3 },
       { t: "txt", x: 0.1, y: 2.3, w: 2.6, h: 0.6, text: "발 아치 라인을 따라\n채우는 형태로 설계", size: 8 },
     ] },
-    copy: { head: "아치 아래 빈 공간,\n가득 채웠습니다.", body: "발 아치 라인을 따라\n채우는 형태로 설계했습니다." , flag: "'아치 지지·교정·평발 개선' ✗ — 형태 설명만" },
+    copy: { head: "아치 아래 빈 공간,\n가득 채웠습니다.", body: "발 아치 라인을 따라\n채우는 형태로 설계했습니다.", flag: "'아치 지지·교정·평발 개선' ✗ — 형태 설명만" },
     notes: "행택 핵심기능 문구 그대로. 아치 높이 mm 실측 있으면 측면 라벨로." }),
   I({ n: 5, section: "인솔", tag: "안전", title: "POINT 02 · 쿼드그립 4점",
     ref: { caption: "워킹화 CUT 07~08 그래픽 재사용",
@@ -874,11 +878,11 @@ const CUTS_I = [
     lay: { caption: "인솔 바닥면 4점 하이라이트", els: [
       { t: "chip", x: 1.0, y: 0.15, w: 0.8, text: "POINT 02" },
       { t: "txt", x: 0.1, y: 0.45, w: 2.6, h: 0.35, text: "워킹화의 4점을 인솔에도", size: 9, bold: true },
-      { t: "box", x: 0.9, y: 0.9, w: 1.0, h: 2.1, fill: H.tan, r: 0.3, text: "" },
-      { t: "circ", x: 1.15, y: 2.6, d: 0.25 }, { t: "circ", x: 1.4, y: 2.05, d: 0.25 }, { t: "circ", x: 1.45, y: 1.45, d: 0.25 }, { t: "circ", x: 1.05, y: 1.2, d: 0.25 },
+      { t: "box", x: 0.95, y: 1.0, w: 0.9, h: 1.8, fill: H.tan, r: 0.3, text: "" },
+      { t: "circ", x: 1.15, y: 2.4, d: 0.25 }, { t: "circ", x: 1.4, y: 1.95, d: 0.25 }, { t: "circ", x: 1.45, y: 1.45, d: 0.25 }, { t: "circ", x: 1.1, y: 1.15, d: 0.25 },
     ] },
-    copy: { head: "워킹화의 4점을\n인솔에도", body: "라라슈 쿼드그립 4점 배치를\n인솔에 그대로 담았습니다.", flag: "🔒 인솔 4점 실제 구조·패드 재질 확인 후 문구 확정" },
-    notes: "인솔 4점이 별도 패드인지, 형상(돌기)인지 확인 필요(상품정보고시 🔴 패드 재질). 미끄럼·고정력 효능 표현 금지." }),
+    copy: { head: "워킹화의 4점을\n인솔에도", body: "라라슈 쿼드그립 4점 배치를\n인솔에 그대로 담았습니다.", flag: "🔒 반굽 인솔 4점 실제 위치·패드 재질 확인 후 문구 확정" },
+    notes: "반굽(15/17cm) 인솔에서 4점이 어디에 있는지 실물 사진으로 확인. 미끄럼·고정력 효능 표현 금지." }),
   I({ n: 6, section: "인솔", tag: "편안", title: "POINT 03 · 뒤꿈치 컵",
     ref: { caption: "행택 핵심기능",
       cards: [{ brand: "행택", block: "뒤꿈치 컵", what: "뒤꿈치를 감싸는 컵 형태 구조", take: "깊이 mm 숫자 하나" }] },
@@ -898,7 +902,22 @@ const CUTS_I = [
       { t: "txt", x: 0.1, y: 2.6, w: 2.6, h: 0.5, text: "도트 패턴으로\n통기 구조를 더했습니다", size: 9 },
     ] },
     copy: { head: "통기 도트", body: "도트 패턴으로\n통기 구조를 더했습니다.", flag: "'땀·냄새·항균' 효능 ✗ (시험 없음)" } }),
-  I({ n: 8, section: "인솔", tag: "신뢰", title: "소재 — 목공소에서 온 우드칩",
+  I({ n: 8, section: "인솔", tag: "편안", title: "POINT 05 · 반굽 — 쓰던 깔창 밑에 한 장 더 (신규)",
+    ref: { caption: "대표 10/15 — 반굽 인솔 겹쳐 쓰기",
+      cards: [{ brand: "대표 코멘트", block: "반굽 길이", what: "기존 인솔 밑에 깔면 신발 재질에 따라 신을 때 흘러내리는 현상을 막는다", take: "겹침 단면도 + 전/후 GIF" }] },
+    lay: { caption: "겹침 단면도 (신발 · 기존 깔창 · 아치가득) + 뒤꿈치 GIF", els: [
+      { t: "chip", x: 1.0, y: 0.12, w: 0.8, text: "POINT 05", fill: H.olive, color: H.white },
+      { t: "txt", x: 0.1, y: 0.4, w: 2.6, h: 0.45, text: "쓰던 깔창 밑에\n한 장 더", size: 9, bold: true },
+      { t: "box", x: 0.25, y: 0.95, w: 2.3, h: 0.3, fill: H.white, lineColor: H.line, text: "① 쓰던 깔창 (위)", size: 7 },
+      { t: "box", x: 0.25, y: 1.28, w: 1.3, h: 0.3, fill: H.lime, text: "② 아치가득 반굽 (아래)", size: 6, bold: true },
+      { t: "box", x: 0.25, y: 1.61, w: 2.3, h: 0.25, fill: H.tan, text: "신발 바닥", size: 7 },
+      { t: "box", x: 0.15, y: 2.05, w: 1.2, h: 1.0, fill: "3A3A3A", text: "BEFORE\n뒤꿈치가\n헐겁게 빠짐", color: H.white, size: 7 },
+      { t: "box", x: 1.45, y: 2.05, w: 1.2, h: 1.0, fill: H.olive, text: "AFTER\n빈 공간이\n채워짐", color: H.white, size: 7 },
+      { t: "txt", x: 0.1, y: 3.15, w: 2.6, h: 0.35, text: "M 15cm · L 17cm 반굽", size: 7, color: H.mute },
+    ] },
+    copy: { head: "쓰던 깔창 밑에\n한 장 더", body: "뒤꿈치부터 아치까지 오는 반굽 길이라\n지금 쓰는 깔창 밑에 겹쳐 깔 수 있습니다.\n\n신발 속 빈 공간이 채워져\n신을 때 신발이 헐겁게 흘러내리는\n느낌을 잡아 줍니다.", flag: "하단 고지: 신발 형태·재질에 따라 착용감이 다를 수 있습니다" },
+    notes: "대표 10/15: 아치가득 = 반굽(뒤꿈치~아치) 인솔. 기존 인솔 밑에 깔면 신발 재질에 따라 신을 때 흘러내려가는 현상을 막을 수 있다.\n표현: '흘러내림을 잡아 준다'는 착용감·핏 설명(의학 효능 아님) — 단 '100% 방지·완벽 고정' 같은 단정 금지, 하단 고지 필수.\n촬영: 슬립온·로퍼 1켤레로 BEFORE(뒤꿈치 들림)/AFTER 비교 GIF 3초 — 같은 신발·같은 발·같은 각도. 연출 과장 금지." }),
+  I({ n: 9, section: "인솔", tag: "신뢰", title: "소재 — 목공소에서 온 우드칩",
     ref: { caption: "워킹화 CUT 18 From Road to Floor와 짝",
       cards: [{ brand: "스레드 팩", block: "새활용 서사", what: "버려지던 자투리 → 소재", take: "3단 그래픽" }] },
     lay: { caption: "자투리 → 우드칩 → 인솔 3단", els: [
@@ -909,57 +928,65 @@ const CUTS_I = [
       { t: "txt", x: 0.1, y: 1.8, w: 2.6, h: 0.6, text: "E-실리폴리렌에\n목공소 자투리 우드칩을 배합", size: 8 },
       { t: "txt", x: 0.1, y: 2.6, w: 2.6, h: 0.5, text: "환경부 새활용 산업 육성\n지원사업 수행 기업", size: 7, color: H.mute },
     ] },
-    copy: { head: "목공소에서 온\n우드칩", body: "E-실리폴리렌에\n목공소 자투리 우드칩을\n배합했습니다." , flag: "'환경부 인증·무공해' ✗" } }),
-  I({ n: 9, section: "인솔", tag: "신뢰", title: "정형외과 전문의 설계 자문 (신규)",
+    copy: { head: "목공소에서 온\n우드칩", body: "E-실리폴리렌에\n목공소 자투리 우드칩을\n배합했습니다.", flag: "'환경부 인증·무공해' ✗" },
+    notes: "우드칩 배합 확인(대표 10/15). 재질 표기: 합성수지(E-실리폴리렌), 목분(우드칩)." }),
+  I({ n: 10, section: "인솔", tag: "신뢰", title: "정형외과 전문의 설계 자문 — 인솔 형태·착용 방식",
     ref: { caption: "워킹화 08+와 같은 형식",
-      cards: [{ brand: "원장 촬영 D3", block: "족부 모형 + 인솔", what: "모형 옆에 인솔을 대어 봄", take: "X-ray ✗" }] },
-    lay: { caption: "D3 컷 + 인용 1문장 + 대가 표기", els: [
-      { t: "box", x: 0.15, y: 0.2, w: 2.5, h: 1.6, fill: H.tan, text: "D3 족부 모형 옆\n아치가득 인솔" },
-      { t: "txt", x: 0.1, y: 1.95, w: 2.6, h: 0.6, text: "\"아치 라인을 따라 채운 형태와\n뒤꿈치 컵 깊이를 착용해 보고\n의견을 드렸습니다.\"", size: 8, bold: true },
-      { t: "txt", x: 0.1, y: 2.65, w: 2.6, h: 0.25, text: "— 정형외과 전문의 이문훈", size: 7 },
-      { t: "txt", x: 0.1, y: 2.95, w: 2.6, h: 0.35, text: "자문료를 받았습니다 (대가 표기)", size: 6, color: H.mute },
+      cards: [{ brand: "원장 촬영 D3", block: "족부 모형 + 인솔", what: "모형 옆에 반굽 인솔을 대어 봄", take: "X-ray ✗" }] },
+    lay: { caption: "D3 컷 + 자문 포인트 3 + 인용 + 대가 표기", els: [
+      { t: "box", x: 0.15, y: 0.15, w: 2.5, h: 1.15, fill: H.tan, text: "D3 족부 모형 옆\n반굽 아치가득 인솔" },
+      { t: "box", x: 0.15, y: 1.38, w: 2.5, h: 0.26, fill: H.white, lineColor: H.line, text: "① 아치 라인을 채우는 형태", size: 7, align: "left" },
+      { t: "box", x: 0.15, y: 1.68, w: 2.5, h: 0.26, fill: H.white, lineColor: H.line, text: "② 뒤꿈치 컵 깊이", size: 7, align: "left" },
+      { t: "box", x: 0.15, y: 1.98, w: 2.5, h: 0.26, fill: H.white, lineColor: H.line, text: "③ 반굽 길이 · 깔창 밑 겹쳐 쓰는 방식", size: 7, align: "left" },
+      { t: "txt", x: 0.1, y: 2.32, w: 2.6, h: 0.65, text: "\"아치 라인을 채우는 형태와 뒤꿈치 컵 깊이,\n기존 깔창 밑에 겹쳐 쓰는 방식을\n직접 착용해 보고 의견을 드렸습니다.\"", size: 7, bold: true },
+      { t: "txt", x: 0.1, y: 3.0, w: 2.6, h: 0.22, text: "— 정형외과 전문의 이문훈", size: 7 },
+      { t: "txt", x: 0.1, y: 3.25, w: 2.6, h: 0.3, text: "이문훈 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.", size: 5, color: H.mute },
     ] },
-    copy: { head: "정형외과 전문의가\n직접 신어 봤습니다", body: "\"아치 라인을 따라 채운 형태와\n뒤꿈치 컵 깊이를\n착용해 보고 의견을 드렸습니다.\"\n— 정형외과 전문의 이문훈", flag: "원장 검수본만 · 효능 문구 같은 화면 ✗" },
-    notes: "expert/doctor-collab-plan.md §2-#2. 와디즈 스토리에도 같은 블록." }),
-  I({ n: 10, section: "인솔", tag: "제품", title: "이렇게 넣으세요",
-    ref: { caption: "Clove/르무통 사용 안내",
-      cards: [{ brand: "인솔 일반", block: "사용 3스텝", what: "기존 깔창 빼기 → 대보기 → 넣기", take: "재단 가능 여부 확인 후" }] },
-    lay: { caption: "3스텝 사진", els: [
-      { t: "circ", x: 0.2, y: 0.4, d: 0.65, text: "1\n빼기", size: 7 }, { t: "circ", x: 1.08, y: 0.4, d: 0.65, text: "2\n대보기", size: 7 }, { t: "circ", x: 1.95, y: 0.4, d: 0.65, text: "3\n넣기", size: 7 },
-      { t: "box", x: 0.15, y: 1.3, w: 2.5, h: 1.4, fill: H.tan, text: "기존 깔창 위에 겹쳐\n길이 비교 사진" },
-      { t: "txt", x: 0.1, y: 2.85, w: 2.6, h: 0.45, text: "[재단 가능 시] 앞부분을 조금씩 잘라 맞추세요", size: 7, color: H.mute },
+    copy: { head: "정형외과 전문의가\n직접 신어 보고\n의견을 주었습니다", body: "아치 라인을 채우는 형태\n뒤꿈치 컵 깊이\n깔창 밑에 겹쳐 쓰는 방식\n\n— 정형외과 전문의 이문훈", flag: "자문 = 형태·착용 방식 · 효능(피로·교정·평발) ✗ · 원장 검수본만" },
+    notes: "대표 10/15: 원장 인솔 기능 관련 자문 추가, 첫 화면 노출 가능.\n자문 범위는 '형태·착용 방식'으로 한정 — 원장이 '피로가 줄어든다/평발에 좋다'고 말하는 구조는 의료기기 오인 + 계약 제6조 위반.\n인용문은 초안 — 원장 확정본으로 교체(임의 편집·발췌 금지). expert/doctor-collab-plan.md §2-#2." }),
+  I({ n: 11, section: "인솔", tag: "제품", title: "이렇게 쓰세요 — 깔창 밑에",
+    ref: { caption: "사용 3스텝",
+      cards: [{ brand: "반굽 인솔", block: "겹쳐 쓰기", what: "쓰던 깔창 들기 → 밑에 깔기 → 다시 덮기", take: "재단 불필요" }] },
+    lay: { caption: "3스텝 사진 + 단독 사용 안내", els: [
+      { t: "circ", x: 0.2, y: 0.3, d: 0.65, text: "1\n깔창\n들기", size: 6 }, { t: "circ", x: 1.08, y: 0.3, d: 0.65, text: "2\n뒤꿈치에\n맞춰 깔기", size: 6 }, { t: "circ", x: 1.95, y: 0.3, d: 0.65, text: "3\n깔창\n덮기", size: 6 },
+      { t: "box", x: 0.15, y: 1.15, w: 2.5, h: 1.4, fill: H.tan, text: "신발 속 단면 사진\n(뒤꿈치 끝에 맞춘 반굽)" },
+      { t: "txt", x: 0.1, y: 2.7, w: 2.6, h: 0.55, text: "깔창이 없는 신발엔\n아치가득만 단독으로 넣어도 됩니다", size: 7, color: H.mute },
     ] },
-    copy: { head: "이렇게 넣으세요", body: "1 기존 깔창을 빼고\n2 길이를 대보고\n3 신발 속에 넣으면 끝", flag: "🔒 재단 가능 여부 확인 (고시 취급주의 ⑤와 일치)" } }),
-  I({ n: 11, section: "인솔", tag: "구매", title: "사이즈 M · L 🔒",
+    copy: { head: "쓰던 깔창 밑에\n깔기만 하세요", body: "1 쓰던 깔창을 들고\n2 뒤꿈치 끝에 맞춰 깔고\n3 깔창을 다시 덮으면 끝.\n\n자를 필요 없습니다.", flag: "🔒 단독 사용 권장 여부 대표 확인" },
+    notes: "반굽이라 재단 불필요(대표 확인 필요). 고시 취급주의의 '재단' 문구 삭제." }),
+  I({ n: 12, section: "인솔", tag: "구매", title: "사이즈 M · L",
     ref: { caption: "슈니엘 #23 FAQ",
       cards: [{ brand: "슈니엘", block: "사이즈표", what: "발길이 범위 표", take: "M/L 2칸 표" }] },
-    lay: { caption: "M/L 대응 발길이 표", els: [
-      { t: "box", x: 0.15, y: 0.3, w: 1.2, h: 1.2, fill: H.lime, text: "M\n[○○○~○○○mm]", bold: true },
-      { t: "box", x: 1.45, y: 0.3, w: 1.2, h: 1.2, fill: H.lime, text: "L\n[○○○~○○○mm]", bold: true },
-      { t: "box", x: 0.15, y: 1.7, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "Q 사이즈가 애매하면?", align: "left" },
-      { t: "box", x: 0.15, y: 2.22, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "Q 물로 씻어도 되나요?", align: "left" },
+    lay: { caption: "M/L 표 + 편차 고지", els: [
+      { t: "box", x: 0.15, y: 0.3, w: 1.2, h: 1.2, fill: H.lime, text: "M\n길이 15cm\n신발 220~255", bold: true, size: 8 },
+      { t: "box", x: 1.45, y: 0.3, w: 1.2, h: 1.2, fill: H.lime, text: "L\n길이 17cm\n신발 260~280", bold: true, size: 8 },
+      { t: "txt", x: 0.1, y: 1.6, w: 2.6, h: 0.35, text: "※ 사출 특성상 ±5% 편차가 있을 수 있습니다", size: 6, color: H.mute },
+      { t: "box", x: 0.15, y: 2.05, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "Q 경계 사이즈면?", align: "left" },
+      { t: "box", x: 0.15, y: 2.57, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "Q 물로 씻어도 되나요?", align: "left" },
     ] },
-    copy: { head: "M · L", body: "M [○○○~○○○mm]\nL [○○○~○○○mm]\n\n사이즈가 애매하면 [안내]", flag: "🔒 P03 대응 발길이 확정 전 CUT 보류" } }),
-  I({ n: 12, section: "인솔", tag: "공감", title: "이런 분께 + 워킹화엔 필요 없어요",
+    copy: { head: "M · L", body: "M 길이 15cm · 신발 220~255mm\nL 길이 17cm · 신발 260~280mm\n\n※ 사출 특성상 ±5% 편차가 있을 수 있습니다.", flag: "경계 사이즈(255/260) 안내 문구 대표 확인" },
+    notes: "대표 10/15: M 15cm / L 17cm, 실제 사출 시 5% 편차. 상품정보고시 치수와 동일 표기." }),
+  I({ n: 13, section: "인솔", tag: "공감", title: "이런 분께 + 워킹화엔 필요 없어요",
     ref: { caption: "역설 메시지 (스레드 실측 반응 좋음)",
       cards: [{ brand: "1페이지 마케팅", block: "⑧ 교차판매", what: "워킹화엔 깔창 필요 없음", take: "그래서 '다른 신발용'" }] },
-    lay: { caption: "체크 3줄 + 하단 워킹화 배너", els: [
-      { t: "box", x: 0.15, y: 0.25, w: 2.5, h: 0.45, fill: H.white, lineColor: H.line, text: "✓ 오래 서 있거나 걷는 일이 많다", align: "left" },
-      { t: "box", x: 0.15, y: 0.8, w: 2.5, h: 0.45, fill: H.white, lineColor: H.line, text: "✓ 출근화 속을 바꿔보고 싶다", align: "left" },
-      { t: "box", x: 0.15, y: 1.35, w: 2.5, h: 0.45, fill: H.white, lineColor: H.line, text: "✓ 새 신발 대신 바닥만 바꾸고 싶다", align: "left" },
-      { t: "box", x: 0.15, y: 2.1, w: 2.5, h: 1.1, fill: H.ink, text: "라라슈 워킹화엔 필요 없어요\n— 깔창 없는 일체형이니까\n워킹화 보러 가기 →", color: H.lime, size: 7 },
+    lay: { caption: "체크 4줄 + 하단 워킹화 배너", els: [
+      { t: "box", x: 0.15, y: 0.2, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 오래 서 있거나 걷는 일이 많다", align: "left" },
+      { t: "box", x: 0.15, y: 0.7, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 신을 때 신발이 헐겁게 빠진다", align: "left" },
+      { t: "box", x: 0.15, y: 1.2, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 쓰던 깔창은 그대로 두고 싶다", align: "left" },
+      { t: "box", x: 0.15, y: 1.7, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 새 신발 대신 바닥만 바꾸고 싶다", align: "left" },
+      { t: "box", x: 0.15, y: 2.3, w: 2.5, h: 0.95, fill: H.ink, text: "라라슈 워킹화엔 필요 없어요\n— 깔창 없는 일체형이니까\n워킹화 보러 가기 →", color: H.lime, size: 7 },
     ] },
-    copy: { head: "하나라도 해당되면", body: "✓ 오래 서 있거나 걷는 일이 많다\n✓ 출근화 속을 바꿔보고 싶다\n✓ 새 신발 대신 바닥만 바꾸고 싶다\n\n라라슈 워킹화엔 필요 없어요." } }),
-  I({ n: 13, section: "인솔", tag: "구매", title: "스펙 · 주의 · 상품정보고시",
+    copy: { head: "하나라도 해당되면", body: "✓ 오래 서 있거나 걷는 일이 많다\n✓ 신을 때 신발이 헐겁게 빠진다\n✓ 쓰던 깔창은 그대로 두고 싶다\n✓ 새 신발 대신 바닥만 바꾸고 싶다\n\n라라슈 워킹화엔 필요 없어요." } }),
+  I({ n: 14, section: "인솔", tag: "구매", title: "스펙 · 주의 · 상품정보고시",
     ref: { caption: "content/insole-product-info-notice.md",
-      cards: [{ brand: "고시", block: "구두/신발 + 패션잡화", what: "두 유형 모두 채움", take: "행택 품질표시와 1:1" }] },
-    lay: { caption: "스펙 표 + 주의 아이콘 + 의료기기 아님 고지", els: [
-      { t: "box", x: 0.15, y: 0.15, w: 2.5, h: 1.5, fill: H.white, lineColor: H.line, text: "제품명 · 모델명 [K02]\n소재: E-실리폴리렌 + 우드칩\n사이즈 M · L · 색상 [ ]\n제조국 대한민국 · ㈜알앤디메이커스\n고객센터 0507-1317-2516", size: 7, align: "left" },
-      { t: "box", x: 0.15, y: 1.8, w: 2.5, h: 0.6, fill: H.white, lineColor: H.orange, text: "고온·직사광선 ✗ · 건조기·표백제 ✗\n깔창 용도 외 사용 ✗", size: 7 },
-      { t: "box", x: 0.15, y: 2.55, w: 2.5, h: 0.5, fill: H.panel, text: "본 제품은 의료기기가 아닙니다.", size: 7, bold: true },
+      cards: [{ brand: "고시", block: "구두/신발 + 패션잡화", what: "두 유형 모두 채움", take: "박스·행택 표기와 1:1" }] },
+    lay: { caption: "스펙 표 + 주의 + 의료기기 아님 고지", els: [
+      { t: "box", x: 0.15, y: 0.15, w: 2.5, h: 1.55, fill: H.white, lineColor: H.line, text: "라라슈 쿼드그립 아치가득 인솔 (반굽)\n재질: 합성수지(E-실리폴리렌), 목분(우드칩)\nM 15cm · L 17cm (±5%) · 그레이 / 모카무스\n제조국 대한민국 · ㈜알앤디메이커스\n고객센터 0507-1317-2516", size: 7, align: "left" },
+      { t: "box", x: 0.15, y: 1.85, w: 2.5, h: 0.6, fill: H.white, lineColor: H.orange, text: "고온·직사광선 ✗ · 건조기·표백제 ✗\n깔창 용도 외 사용 ✗", size: 7 },
+      { t: "box", x: 0.15, y: 2.6, w: 2.5, h: 0.5, fill: H.panel, text: "본 제품은 의료기기가 아닙니다.", size: 7, bold: true },
     ] },
-    copy: { head: "PRODUCT SPEC", body: "소재 · 사이즈 · 제조국 · 제조자\n\n고온 · 건조기 · 표백제 주의\n본 제품은 의료기기가 아닙니다." , flag: "🔴 고시 빈칸(모델명·색상·mm·보증일수·CS시간) 채운 뒤 확정" } }),
-  I({ n: 14, section: "인솔", tag: "구매", title: "구성 · 엔딩 — Made for Standing.",
+    copy: { head: "PRODUCT SPEC", body: "합성수지(E-실리폴리렌), 목분(우드칩)\nM 15cm · L 17cm (±5%)\n그레이 / 모카무스 · 대한민국\n\n본 제품은 의료기기가 아닙니다.", flag: "🔴 고시 빈칸(모델명·보증 일수·CS 시간) 채운 뒤 확정" } }),
+  I({ n: 15, section: "인솔", tag: "구매", title: "구성 · 엔딩 — Made for Standing.",
     ref: { caption: "와디즈 리워드 구성 (I1~I4)",
       cards: [{ brand: "가격안", block: "1·2·3·4개", what: "운동화 하나, 출근화 하나 / 가족 / 우리 가게", take: "스마트스토어는 1개 21,500 + 묶음" }] },
     lay: { dark: true, caption: "구성 카드 + 로고 락업", els: [
@@ -968,7 +995,7 @@ const CUTS_I = [
       { t: "img", x: 1.05, y: 1.6, w: 0.7, h: 0.59, path: IMG("rs-logo.png"), fit: "contain" },
       { t: "txt", x: 0.1, y: 2.4, w: 2.6, h: 0.4, text: "Made for Standing.", size: 11, bold: true, color: H.lime },
     ] },
-    copy: { head: "Made for Standing.", body: "1개 21,500원\n2개 — 운동화 하나, 출근화 하나\n\nRS · RhaRa Shoe" , flag: "와디즈 펀딩가는 별도 (wadiz-reward-pricing.md) · 할인 표기 ✗" } }),
+    copy: { head: "Made for Standing.", body: "1개 21,500원\n2개 — 운동화 하나, 출근화 하나\n\nRS · RhaRa Shoe", flag: "와디즈 펀딩가는 별도 (wadiz-reward-pricing.md) · 할인 표기 ✗" } }),
 ];
 
 function insoleIntro() {
@@ -977,10 +1004,10 @@ function insoleIntro() {
   s.background = { color: H.black };
   R(s, { x: 0.8, y: 1.3, w: 1.9, h: 0.36, fill: { color: H.lime }, r: 0.05 });
   T(s, "PART 2 · INSOLE", { x: 0.8, y: 1.3, w: 1.9, h: 0.36, fontSize: 10, bold: true, align: "center", valign: "middle" });
-  T(s, "쿼드그립 아치가득 인솔\n상세페이지 14 CUT", { x: 0.8, y: 2.0, w: 8, h: 1.8, fontSize: 34, bold: true, color: H.white, valign: "top" });
+  T(s, "쿼드그립 아치가득 인솔\n상세페이지 15 CUT", { x: 0.8, y: 2.0, w: 8, h: 1.8, fontSize: 34, bold: true, color: H.white, valign: "top" });
   T(s, "오후 4시, 발이 먼저 퇴근하고 싶을 때.", { x: 0.8, y: 4.0, w: 8, h: 0.4, fontSize: 16, color: H.lime });
   T(s, [
-    { text: "흐름  후킹(01~02) → 구조 4가지(03~07) → 소재·전문의(08~09) → 사용·사이즈(10~11) → 구매(12~14)", options: { breakLine: true } },
+    { text: "흐름  후킹·전문의 배지(01~02) → 구조 5가지(03~08, 08 반굽) → 소재·전문의(09~10) → 사용·사이즈(11~12) → 구매(13~15)", options: { breakLine: true } },
     { text: "원칙  '다른 신발용' · 워킹화와 묶지 않기 · 아치 '지지·교정' 등 효능 ✗ · 의료기기 아님 고지", options: { breakLine: true } },
     { text: "채널  스마트스토어 상세 = 이 14 CUT / 와디즈 스토리 = 같은 소스 재구성 (리워드가 별도)" },
   ], { x: 0.8, y: 5.0, w: 11.5, h: 1.3, fontSize: 12, color: "BFBFBF", paraSpaceAfter: 6 });
@@ -998,10 +1025,10 @@ function insoleHooks() {
     ["3", "욕망변화", "새 신발 말고, 새 바닥.", "짧고 강함"],
     ["4", "호기심", "신발 속 깔창, 마지막으로 꺼내 본 게 언제인가요?", "OK"],
     ["5", "고통자극", "신발은 멀쩡한데, 바닥이 납작해서.", "OK"],
-    ["6 ★", "사회적증거", "정형외과 전문의가 직접 신어 보고 의견을 준 인솔", "원장 검수 + 히어로 노출 동의 시"],
+    ["6 ★", "사회적증거", "정형외과 전문의가 직접 신어 보고 의견을 준 인솔", "✅ 첫 화면 배지로 사용 (대표 10/15) · 원장 검수"],
     ["7", "욕망변화", "발바닥 모양대로, 빈틈없이.", "OK"],
     ["8", "타깃 호명", "하루 7시간 서 있는 당신의 신발 속.", "OK"],
-    ["9", "스토리", "목공소 우드칩이 발밑으로 왔습니다.", "우드칩 배합 확인 후"],
+    ["9", "스토리", "목공소 우드칩이 발밑으로 왔습니다.", "OK (우드칩 확인 10/15)"],
     ["10", "브랜드", "신던 신발은 그대로, 바닥만 새로.", "서브카피로 강등"],
   ];
   s.addTable(rows.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: i === 0 || j === 2, color: i === 0 ? H.white : (j === 0 && c.includes("★") ? H.olive : H.ink), fill: { color: i === 0 ? H.ink : (c.includes && i > 0 && r[0].includes("★") ? "F4FBDF" : H.white) }, fontSize: 12 } }))),
@@ -1020,8 +1047,8 @@ function insoleCover() {
   T(s, "쿼드그립 아치가득 인솔\n상세페이지 기획안", { x: 0.8, y: 2.0, w: 9, h: 1.9, fontSize: 36, bold: true, color: H.white, valign: "top" });
   T(s, "오후 4시, 발이 먼저 퇴근하고 싶을 때.", { x: 0.8, y: 4.15, w: 9, h: 0.4, fontSize: 18, color: H.lime });
   T(s, [
-    { text: "21,500원 · M(신발 220~255) / L(260~280) · 그레이 / 모카무스 · 국내 생산", options: { breakLine: true } },
-    { text: "14 CUT · 860px 세로형 · 스마트스토어 상세 = 와디즈 스토리 소스", options: { breakLine: true } },
+    { text: "21,500원 · 반굽 M 15cm(신발 220~255) / L 17cm(260~280) · 그레이 / 모카무스 · 국내 생산", options: { breakLine: true } },
+    { text: "15 CUT · 860px 세로형 · 스마트스토어 상세 = 와디즈 스토리 소스", options: { breakLine: true } },
     { text: "2026-10-14 · ㈜알앤디메이커스 → 디핏파트너" },
   ], { x: 0.8, y: 5.2, w: 11, h: 1.1, fontSize: 12, color: "BFBFBF", paraSpaceAfter: 4 });
 }
@@ -1034,8 +1061,8 @@ function handoffMatter() {
   const rows = [
     ["구분", "내용", "상태"],
     ["제작 범위", "워킹화 상세 30 CUT + 인솔 상세 14 CUT (860px 세로) · 썸네일 10장(워킹화) · GIF 5종", "확정"],
-    ["바로 제작 ✅", "워킹화 01~09, 11, 15~21, 24~26, 28 · 인솔 01~04, 06~08, 12, 14", "카피 확정"],
-    ["자리만 🔒", "워킹화 10·12~14·22·23·27 · 인솔 05·10·11·13 — 성적서·실측·사이즈 후 삽입", "11/7까지 수령분만"],
+    ["바로 제작 ✅", "워킹화 01~09, 11, 15~21, 24~26, 28 · 인솔 01~04, 06~10, 12, 13, 15", "카피 확정"],
+    ["자리만 🔒", "워킹화 10·12~14·22·23·27 · 인솔 05·11·14 — 성적서·실측·사이즈 후 삽입", "11/7까지 수령분만"],
     ["원장 검수 필수", "워킹화 08+ · 인솔 09 · 브로셔 출연면 — 게시 전 원장 서면 승인", "11/3 시안 → 검수"],
     ["전달 자료", "로고 벡터(AI) · 밑창 리터칭 · 브랜드 필름 소스 · 행택/박스 문안 · 논문 카드 문구 · 원장 확정 인용문", "10/24까지"],
     ["일정", "촬영 10/28 → 1차 시안 11/3 → 수정 11/6 → 최종 11/8 → 오픈 11/11", "제안"],
