@@ -823,28 +823,29 @@ function confirmed() {
 // ---------- 인솔 CUTS ----------
 const I = (o) => Object.assign({ pre: "ICUT", total: TOTAL_I, project: PROJ_I }, o);
 const CUTS_I = [
-  I({ n: 1, section: "인솔", tag: "후킹", title: "첫 화면 — 아치 아래 빈 공간, 가득",
+  I({ n: 1, section: "인솔", tag: "후킹", title: "첫 화면 — 오후 4시 (확정 10/15)",
     ref: { caption: "워킹화 CUT 01 다크 렌더와 톤 통일",
       cards: [{ brand: "워킹화 상세", block: "CUT 01", what: "다크 배경 · 라임 포인트", take: "같은 브랜드로 읽히게" }] },
     lay: { dark: true, caption: "인솔 단독 플로팅 렌더 · 아치 곡선 측면", els: [
-      { t: "txt", x: 0.15, y: 0.2, w: 2.5, h: 0.5, text: "아치 아래 빈 공간,\n가득 채웠습니다.", size: 11, bold: true, color: H.white },
-      { t: "txt", x: 0.15, y: 0.72, w: 2.5, h: 0.2, text: "신던 신발은 그대로, 바닥만 새로.", size: 7, color: H.lime },
+      { t: "txt", x: 0.15, y: 0.2, w: 2.5, h: 0.5, text: "오후 4시,\n발이 먼저 퇴근하고 싶을 때.", size: 11, bold: true, color: H.white },
+      { t: "txt", x: 0.15, y: 0.72, w: 2.5, h: 0.2, text: "신던 신발 속 바닥만 바꿔 보세요", size: 7, color: H.lime },
       { t: "box", x: 0.3, y: 0.95, w: 2.2, h: 1.7, fill: "3A3A3A", text: "인솔 측면 렌더\n(아치 곡선 · 뒤꿈치 컵 보이게)", color: H.white },
       { t: "box", x: 0.5, y: 2.85, w: 1.8, h: 0.32, fill: H.lime, text: "RS · 쿼드그립 아치가득 인솔", size: 7, bold: true },
     ] },
-    copy: { head: "아치 아래 빈 공간,\n가득 채웠습니다.", body: "신던 신발은 그대로, 바닥만 새로.\n\nRS 쿼드그립 아치가득 인솔\n\n[B안] 오후 4시,\n발이 먼저 퇴근하고 싶을 때.", flag: "A/B 택1 · 평발·교정·피로감소 금칙 (content/insole-detail-plan.md)" },
+    copy: { head: "오후 4시,\n발이 먼저 퇴근하고 싶을 때.", body: "신던 신발 속 바닥만 바꿔 보세요.\n\nRS 쿼드그립 아치가득 인솔", flag: "확정(대표 10/15) · 평발·교정·피로감소 금칙" },
+    notes: "확정 후킹(대표 10/15): '오후 4시, 발이 먼저 퇴근하고 싶을 때.' — 효능 대신 상황 묘사.\n비주얼: 오후 햇빛 + 벽시계 4시 + 신발 뒤축을 살짝 빼는 발(얼굴 없음). 인솔은 ICUT 02 끝에서 처음 등장.\n숏폼 비트컷: 0.0s 시계 4시 → 0.5s 신발 뒤축 빼는 발 → 1.0s 신발 속 납작한 깔창 → 1.5s 아치가득 인솔 꺼내기.\n'피로·통증·지친 발 회복' 등 효능 단어 추가 금지." },
     notes: "인솔은 '다른 신발용'. 워킹화는 깔창이 없는 구조라 워킹화와 묶는 표현 금지(와디즈 가격안 원칙 4)." }),
-  I({ n: 2, section: "인솔", tag: "공감", title: "공감 — 신발은 마음에 드는데",
+  I({ n: 2, section: "인솔", tag: "공감", title: "공감 — 신발이 아니라, 바닥이 납작해서",
     ref: { caption: "아치쿠션 기획안 CUT 05 형식",
       cards: [{ brand: "아치쿠션 기획안", block: "공감 3장면", what: "3분할 사진 + 칩", take: "상황 묘사만, 통증 ✗" }] },
     lay: { caption: "3분할 · 신발 속 납작한 기본 깔창", els: [
-      { t: "txt", x: 0.1, y: 0.15, w: 2.6, h: 0.45, text: "신발은 마음에 드는데,\n바닥이 아쉬울 때", size: 9, bold: true },
+      { t: "txt", x: 0.1, y: 0.15, w: 2.6, h: 0.45, text: "신발은 멀쩡한데,\n바닥이 납작해서", size: 9, bold: true },
       { t: "box", x: 0.1, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "얇은\n기본 깔창" },
       { t: "box", x: 0.98, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "하루 종일\n출근화" },
       { t: "box", x: 1.86, y: 0.75, w: 0.83, h: 1.6, fill: H.tan, text: "주말\n운동화" },
       { t: "txt", x: 0.1, y: 2.6, w: 2.6, h: 0.6, text: "새 신발을 사기엔 아깝고", size: 8, color: H.mute },
     ] },
-    copy: { head: "신발은 마음에 드는데,\n바닥이 아쉬울 때", body: "얇은 기본 깔창,\n하루 종일 신는 출근화,\n새로 사기엔 아까운 운동화." },
+    copy: { head: "신발은 멀쩡한데,\n바닥이 납작해서", body: "얇은 기본 깔창,\n하루 종일 신는 출근화,\n새로 사기엔 아까운 운동화.\n\n그래서, 바닥만 새로." },
     notes: "'발 아픔·통증·평발' 등 의학 단어 금지. 상황 묘사만." }),
   I({ n: 3, section: "인솔", tag: "제품", title: "제품 등장 — 4가지 구조",
     ref: { caption: "행택 앞표지 아이콘 4종 그대로",
@@ -866,7 +867,7 @@ const CUTS_I = [
       { t: "line", x: 0.6, y: 1.1, w: 1.4, h: 0, color: H.lime, width: 3 },
       { t: "txt", x: 0.1, y: 2.3, w: 2.6, h: 0.6, text: "발 아치 라인을 따라\n채우는 형태로 설계", size: 8 },
     ] },
-    copy: { head: "아치 라인을 따라\n가득", body: "발 아치 라인을 따라\n채우는 형태로 설계했습니다." , flag: "'아치 지지·교정·평발 개선' ✗ — 형태 설명만" },
+    copy: { head: "아치 아래 빈 공간,\n가득 채웠습니다.", body: "발 아치 라인을 따라\n채우는 형태로 설계했습니다." , flag: "'아치 지지·교정·평발 개선' ✗ — 형태 설명만" },
     notes: "행택 핵심기능 문구 그대로. 아치 높이 mm 실측 있으면 측면 라벨로." }),
   I({ n: 5, section: "인솔", tag: "안전", title: "POINT 02 · 쿼드그립 4점",
     ref: { caption: "워킹화 CUT 07~08 그래픽 재사용",
@@ -978,7 +979,7 @@ function insoleIntro() {
   R(s, { x: 0.8, y: 1.3, w: 1.9, h: 0.36, fill: { color: H.lime }, r: 0.05 });
   T(s, "PART 2 · INSOLE", { x: 0.8, y: 1.3, w: 1.9, h: 0.36, fontSize: 10, bold: true, align: "center", valign: "middle" });
   T(s, "쿼드그립 아치가득 인솔\n상세페이지 14 CUT", { x: 0.8, y: 2.0, w: 8, h: 1.8, fontSize: 34, bold: true, color: H.white, valign: "top" });
-  T(s, "신던 신발은 그대로, 바닥만 새로.", { x: 0.8, y: 4.0, w: 8, h: 0.4, fontSize: 16, color: H.lime });
+  T(s, "오후 4시, 발이 먼저 퇴근하고 싶을 때.", { x: 0.8, y: 4.0, w: 8, h: 0.4, fontSize: 16, color: H.lime });
   T(s, [
     { text: "흐름  후킹(01~02) → 구조 4가지(03~07) → 소재·전문의(08~09) → 사용·사이즈(10~11) → 구매(12~14)", options: { breakLine: true } },
     { text: "원칙  '다른 신발용' · 워킹화와 묶지 않기 · 아치 '지지·교정' 등 효능 ✗ · 의료기기 아님 고지", options: { breakLine: true } },
@@ -990,11 +991,11 @@ function insoleIntro() {
 function insoleHooks() {
   const s = pres.addSlide({ sectionTitle: "인솔" });
   s.background = { color: H.white };
-  T(s, "ICUT 01 후킹 카피 — 10안 (효능 표현 없이)", { x: 0.7, y: 0.5, w: 11, h: 0.45, fontSize: 20, bold: true });
+  T(s, "ICUT 01 후킹 카피 — 확정: 2번 (10/15)", { x: 0.7, y: 0.5, w: 11, h: 0.45, fontSize: 20, bold: true });
   const rows = [
     ["#", "유형", "메인 카피", "판정"],
-    ["1 ★A", "욕망변화", "아치 아래 빈 공간, 가득 채웠습니다.", "추천 — 제품명 '아치가득'과 직결"],
-    ["2 ★B", "고통자극", "오후 4시, 발이 먼저 퇴근하고 싶을 때.", "추천 — 상황 묘사 · 숏폼 첫 1초"],
+    ["1", "욕망변화", "아치 아래 빈 공간, 가득 채웠습니다.", "ICUT 04 본문 헤드로 활용"],
+    ["2 ★", "고통자극", "오후 4시, 발이 먼저 퇴근하고 싶을 때.", "✅ 확정 (대표 10/15) — 히어로 · 썸네일 · 숏폼"],
     ["3", "욕망변화", "새 신발 말고, 새 바닥.", "짧고 강함"],
     ["4", "호기심", "신발 속 깔창, 마지막으로 꺼내 본 게 언제인가요?", "OK"],
     ["5", "고통자극", "신발은 멀쩡한데, 바닥이 납작해서.", "OK"],
@@ -1018,7 +1019,7 @@ function insoleCover() {
   R(s, { x: 0.8, y: 1.3, w: 2.3, h: 0.36, fill: { color: H.lime }, r: 0.05 });
   T(s, "INSOLE DETAIL v1 · 재피드백", { x: 0.8, y: 1.3, w: 2.3, h: 0.36, fontSize: 10, bold: true, align: "center", valign: "middle" });
   T(s, "쿼드그립 아치가득 인솔\n상세페이지 기획안", { x: 0.8, y: 2.0, w: 9, h: 1.9, fontSize: 36, bold: true, color: H.white, valign: "top" });
-  T(s, "아치 아래 빈 공간, 가득 채웠습니다.", { x: 0.8, y: 4.15, w: 9, h: 0.4, fontSize: 18, color: H.lime });
+  T(s, "오후 4시, 발이 먼저 퇴근하고 싶을 때.", { x: 0.8, y: 4.15, w: 9, h: 0.4, fontSize: 18, color: H.lime });
   T(s, [
     { text: "21,500원 · M(신발 220~255) / L(260~280) · 그레이 / 모카무스 · 국내 생산", options: { breakLine: true } },
     { text: "14 CUT · 860px 세로형 · 스마트스토어 상세 = 와디즈 스토리 소스", options: { breakLine: true } },

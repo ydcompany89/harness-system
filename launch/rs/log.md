@@ -173,3 +173,4 @@
 ## 2026-10-14 인솔 상세 분리 · 후킹 재작성
 - 대표 요청(오다리·평발·자세교정·발피로 저감 후킹) → 의료기기 오인·효능 표현이라 불가, 대체 후킹 10안(추천 A '아치 아래 빈 공간, 가득 채웠습니다.' / B '오후 4시, 발이 먼저 퇴근하고 싶을 때.') + 금칙어 → `content/insole-detail-plan.md`
 - 인솔 단독 PPT `design/detail-handoff/rs-insole-detail-v1.pptx/pdf` (17p, `ONLY=insole node build.js`)
+- (10/15) 인솔 후킹 확정: **"오후 4시, 발이 먼저 퇴근하고 싶을 때."** → ICUT 01·02·04, 표지, 인솔 단독 PPT·디핏 v2 반영
