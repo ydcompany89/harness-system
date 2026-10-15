@@ -363,51 +363,55 @@ def standee():
 RF_GR, RF_MID, RF_IV, RF_YL = '#1F472C', '#3F7A52', '#F2EDE1', '#FBD827'
 
 def banners6():
+    """v2.1 (10/15): 6면 공통 = 크림 바탕 + 잉크 글자, 브랜드 포인트 1색만 (RS 올리브 / re.feeel 그린)"""
     W, H, POCKET = 900, 2200, 50
     gl = trim_rect(W, H, 0) + f'<line class="fold" x1="0" y1="{POCKET}" x2="{W}" y2="{POCKET}"/><line class="fold" x1="0" y1="{H-POCKET}" x2="{W}" y2="{H-POCKET}"/>' + \
         f'<rect class="guide" x="50" y="{POCKET+50}" width="{W-100}" height="{H-2*POCKET-100}"/>' + \
         f'<rect class="guide" x="0" y="1000" width="{W}" height="900" style="stroke:#F0A000"/><text class="lbl" x="55" y="{POCKET-12}" style="font-size:16px">봉 포켓 50mm (상·하)</text>' + \
         f'<text class="lbl" x="55" y="995" style="font-size:16px;fill:#C08000">핵심 시선 띠 1,000~1,900</text>'
-    HL, SUB, BODY, SM = 'font-size:270pt;font-weight:900;line-height:1.08', 'font-size:110pt;font-weight:900;line-height:1.15', 'font-size:80pt;font-weight:700;line-height:1.4', 'font-size:58pt;line-height:1.45'
-    def p(tag, n, bg, inner, under='', col_=MUTE):
-        num = f'<div class="abs" style="right:70mm;top:110mm;font-size:40pt;font-weight:900;color:{col_}">{tag} {n}/3</div>'
-        return (under + num + col(inner, 170, 2080, 80, W), bg, gl)
+    HL, SUB, BODY, SM = 'font-size:250pt;font-weight:900;line-height:1.08', 'font-size:100pt;font-weight:900;line-height:1.15', 'font-size:76pt;font-weight:700;line-height:1.4', 'font-size:56pt;line-height:1.45'
+    BG = CREAM
+    def p(tag, n, acc, inner, under=''):
+        top = f'<div class="abs" style="left:0;top:{POCKET}mm;width:{W}mm;height:36mm;background:{acc}"></div>'
+        num = f'<div class="abs" style="right:80mm;top:120mm;font-size:40pt;font-weight:900;color:{acc}">{tag} {n}/3</div>'
+        return (top + under + num + col(inner, 180, 2080, 80, W), BG, gl)
     def photo(src, w, h, r=24):
         return f'<img src="{A}{src}" style="width:{w}mm;height:{h}mm;object-fit:cover;border-radius:{r}mm">'
+    def pt(n, t, acc):
+        return f'<div style="display:flex;gap:30mm;align-items:baseline"><div style="font-size:70pt;font-weight:900;color:{acc}">{n}</div><div style="{BODY}">{t}</div></div>'
     rs = [
-        p('RS', 1, INK, f"""<div>{logo(260)}<div class="w" style="{SUB};margin-top:26mm">RhaRa Shoe<br>라라슈</div></div>
-            <div style="{HL};font-size:230pt;color:{LIME}">Made<br>for<br>Standing.</div>
+        p('RS', 1, OLIVE, f"""<div>{logo(240,'ink')}<div style="{SUB};margin-top:24mm">RhaRa Shoe<br>라라슈</div></div>
+            <div style="{HL};font-size:230pt">Made<br>for<br><span style="color:{OLIVE}">Standing.</span></div>
             <img src="{A}walking-cut.png" style="width:640mm;align-self:center">
-            <div><div class="w" style="{BODY}">쿼드그립 종일편한 워킹화</div><div style="{SM};color:#bbb">2026.11.11 OPEN</div></div>"""),
-        p('RS', 2, INK, f"""<div><div style="{SUB};color:{LIME}">QUAD GRIP</div><div class="w" style="{HL};font-size:230pt">바닥에<br>닿는 길을<br>따라 4곳.</div></div>
-            <div style="height:600mm"></div>
-            <div style="display:flex;flex-direction:column;gap:24mm">
-              <div style="display:flex;align-items:center;gap:36mm"><img src="{A}rs-badge-onepiece.svg" style="width:220mm"><div class="w" style="{BODY}">깔창 없는<br>일체형 안창</div></div>
-              <div style="display:flex;align-items:center;gap:36mm"><img src="{A}rs-badge-rebound.svg" style="width:220mm"><div class="w" style="{BODY}">눌렀다,<br>다시 돌아옵니다</div></div></div>
-            <div style="{SUB};color:{LIME}">MADE IN KOREA</div>""",
-            f'<img class="abs" src="{A}outsole-studio.jpg" style="left:0;top:880mm;width:900mm;height:600mm;object-fit:cover">'),
-        p('RS', 3, CREAM, f"""<div style="{HL};font-size:250pt">From<br>Road<br>to <span style="color:{OLIVE}">Floor.</span></div>
-            <div style="{SM}">도로를 달리던 타이어 고무와<br>벽에서 떼어 낸 실크벽지 PVC가<br><b>밑창 그립 패드</b>가 됐습니다.</div>
-            <div style="display:flex;gap:40mm;justify-content:center"><img src="{A}rs-badge-tire.svg" style="width:220mm"><img src="{A}rs-badge-wallpaper.svg" style="width:220mm"><img src="{A}rs-badge-quadgrip.svg" style="width:220mm"></div>
-            <div style="background:{INK};border-radius:30mm;padding:40mm 44mm;display:flex;align-items:center;gap:36mm">{qr("kintex",300)}
-              <div><div style="{SUB};color:{LIME}">FOR TEAMS</div><div class="w" style="{SM}">급식실·주방·매장<br>단체 구매 견적 · 오픈 알림</div></div></div>"""),
+            <div><div style="{BODY}">쿼드그립 종일편한 워킹화</div><div class="mute" style="{SM}">2026.11.11 OPEN</div></div>"""),
+        p('RS', 2, OLIVE, f"""<div><div style="{SUB};color:{OLIVE}">QUAD GRIP</div><div style="{HL};font-size:230pt">바닥에<br>닿는 길을<br>따라 4곳.</div></div>
+            {photo("outsole-studio.jpg",740,520)}
+            <div style="display:flex;flex-direction:column;gap:22mm">{pt("01","밑창 4곳 그립 패드",OLIVE)}{pt("02","깔창 없는 일체형 안창",OLIVE)}{pt("03","눌렀다, 다시 돌아옵니다",OLIVE)}</div>
+            <div style="{SUB};color:{OLIVE}">MADE IN KOREA</div>"""),
+        p('RS', 3, OLIVE, f"""<div><div style="{SUB};color:{OLIVE}">ARCH INSOLE</div><div style="{HL};font-size:210pt">오후 4시,<br>발이 먼저<br>퇴근하고<br>싶을 때.</div>
+              <div style="{SM};margin-top:16mm">신던 신발 속 바닥만 바꿔 보세요.</div></div>
+            <img src="{A}insole-cut.png" style="width:560mm;align-self:center">
+            <div style="display:flex;flex-direction:column;gap:22mm">{pt("01","아치 아래 빈 공간, 가득",OLIVE)}{pt("02","쓰던 깔창 밑에 한 장 더",OLIVE)}{pt("03","반굽 M 15cm · L 17cm",OLIVE)}</div>
+            <div><div style="{BODY}">쿼드그립 아치가득 인솔</div><div class="mute" style="font-size:34pt;line-height:1.5">신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div></div>"""),
     ]
     rf = [
-        p('re.feeel', 1, RF_IV, f"""<div style="display:flex;justify-content:center"><img src="{A}refeeel-seal.png" style="width:520mm"></div>
-            <div><div style="{HL};font-size:240pt;color:{RF_GR}">남은 것의<br>다음 모양.</div>
-            <div style="{SUB};color:{RF_MID};margin-top:20mm">생활을 다시 채우다.</div></div>
+        p('re.feeel', 1, RF_GR, f"""<div style="display:flex;justify-content:center"><img src="{A}refeeel-seal.png" style="width:480mm"></div>
+            <div><div style="{HL};font-size:230pt">남은 것의<br><span style="color:{RF_GR}">다음 모양.</span></div>
+            <div style="{SUB};color:{RF_GR};margin-top:20mm">생활을 다시 채우다.</div></div>
             <div style="display:flex;gap:18mm">{photo("cup-life.jpg",360,360)}{photo("slipper-quilt.jpg",360,360)}</div>
-            <div style="{SM};color:{RF_GR}">숲에서 솎아낸 나무, 벽에서 떼어 낸 벽지로<br>매일 쓰는 구강용품과 욕실화를 만듭니다.<br><b>㈜알앤디메이커스 · 국내 제조</b></div>""", col_=RF_MID),
-        p('re.feeel', 2, RF_GR, f"""<div><div style="{SUB};color:{RF_YL}">ORAL CARE</div><div style="{HL};color:{RF_IV}">나무에서<br>온<br>구강케어.</div></div>
-            {photo("cup-life.jpg",740,600)}
+            <div style="{SM}">숲에서 솎아낸 나무, 벽에서 떼어 낸 벽지로<br>매일 쓰는 구강용품과 욕실화를 만듭니다.<br><b>㈜알앤디메이커스 · 국내 제조</b></div>"""),
+        p('re.feeel', 2, RF_GR, f"""<div><div style="{SUB};color:{RF_GR}">ORAL CARE</div><div style="{HL}">나무에서<br>온<br><span style="color:{RF_GR}">구강케어.</span></div></div>
+            {photo("cup-life.jpg",740,560)}
             <div style="display:flex;gap:20mm">{photo("toothbrush.jpg",360,240,16)}{photo("floss.jpg",360,240,16)}</div>
-            <div style="{SM};color:{RF_IV}"><b style="color:{RF_YL}">칫솔 · 칫솔형 치실 · 양치컵</b><br>간벌재(임업부산물) 기반 CXP 소재<br>양치컵은 40° 기울여 세워 말리는 구조</div>""", col_=RF_YL),
-        p('re.feeel', 3, RF_YL, f"""<div><div style="{SUB};color:{RF_GR}">BATH SLIPPER</div><div style="{HL};color:{RF_GR}">벽지가<br>욕실화가<br>됐습니다.</div></div>
-            <div style="display:flex;flex-direction:column;gap:20mm">{photo("slipper-quilt.jpg",740,420)}{photo("slipper-low.jpg",740,420)}</div>
-            <div style="{BODY};color:{RF_GR}">실크벽지에서 분리한<br>PVC를 다시 원료로.</div>
-            <div style="background:{RF_GR};border-radius:30mm;padding:40mm 44mm;display:flex;align-items:center;gap:36mm">
-              <div style="flex:none;width:300mm;height:300mm;background:#fff;border:4mm dashed {RF_MID};display:flex;align-items:center;justify-content:center;text-align:center;font-size:40pt;color:{RF_MID}">OEM 상담<br>QR 자리</div>
-              <div><div style="{SUB};color:{RF_YL}">OEM · ODM</div><div style="{SM};color:{RF_IV}">전국 생활용품 매장 납품 중<br>귀사 브랜드로 · 수량 맞춤</div></div></div>""", col_=RF_GR),
+            <div style="{SM}"><b style="color:{RF_GR}">칫솔 · 칫솔형 치실 · 양치컵</b><br>간벌재(임업부산물) 기반 CXP 소재<br>양치컵은 40° 기울여 세워 말리는 구조</div>"""),
+        p('re.feeel', 3, RF_GR, f"""<div><div style="{SUB};color:{RF_GR}">BATH SLIPPER</div><div style="{HL}">벽지가<br>욕실화가<br><span style="color:{RF_GR}">됐습니다.</span></div></div>
+            <div style="display:flex;flex-direction:column;gap:20mm">{photo("slipper-quilt.jpg",740,380)}{photo("slipper-low.jpg",740,380)}</div>
+            <div style="{BODY}">실크벽지에서 분리한<br>PVC를 다시 원료로.</div>
+            <div style="background:{RF_GR};border-radius:30mm;padding:36mm 40mm;display:flex;align-items:center;gap:34mm">
+              <div style="flex:none;width:280mm;height:280mm;background:#fff;border-radius:10mm;display:flex;align-items:center;justify-content:center;text-align:center;font-size:36pt;color:{RF_GR}">인스타<br>QR 자리</div>
+              <div><div style="font-size:44pt;font-weight:900;color:{CREAM};letter-spacing:.06em">INSTAGRAM EVENT</div>
+                <div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.25;margin-top:6mm">팔로우하면<br>CXP 볼펜 선물</div>
+                <div style="font-size:36pt;color:{CREAM};margin-top:8mm">@[계정] · 팔로우 화면 보여 주세요 · 소진 시 종료</div></div></div>"""),
     ]
     write('08_banner_900x2200_x6', (W, H), rs + rf, '백월 족자 900×2200 ×6 (라라슈 3 + re.feeel 3)')
 
@@ -425,8 +429,8 @@ def xbanner_doctor():
       <div><div style="font-size:96pt;font-weight:900">이문홍 원장</div>
         <div style="font-size:46pt;font-weight:700;color:{OLIVE};margin-top:4mm">정형외과 전문의 · 이문홍정형외과</div></div>
       <div style="border-left:6mm solid {LIME};padding-left:18mm;font-size:52pt;line-height:1.5">“[원장님 확정 인용 문구]<br><span style="color:{MUTE};font-size:38pt">예) 발이 바닥에 닿는 순서를 기준으로 패드 위치를 함께 검토했습니다.</span>”</div>
-      <div style="background:{INK};border-radius:20mm;padding:24mm 28mm">
-        <div style="font-size:40pt;font-weight:900;color:{LIME}">자문 범위 — 형태와 착용 방식</div>
+      <div style="background:{OLIVE};border-radius:20mm;padding:24mm 28mm">
+        <div style="font-size:40pt;font-weight:900;color:{CREAM}">자문 범위 — 형태와 착용 방식</div>
         <div class="w" style="font-size:44pt;line-height:1.55;margin-top:8mm">① 쿼드그립 4점 패드 배치<br>② 아치가득 인솔 형태 · 뒤꿈치 컵<br>③ 기존 깔창 밑에 겹쳐 쓰는 방식</div></div>
       <div style="font-size:28pt;color:{MUTE};line-height:1.5">이문홍 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.<br>본 제품은 의료기기가 아닙니다. 부스에서는 발 상담·진단을 하지 않습니다.</div>""", 80, 1730, 50, W)
     write('07b_xbanner_doctor_600x1800', (W, H), [(body, CREAM, gl)], 'X배너 600×1800 — 정형외과 전문의 설계 자문')
