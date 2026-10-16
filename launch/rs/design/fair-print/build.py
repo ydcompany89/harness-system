@@ -40,6 +40,12 @@ def dots(d, g, n=4, col=LIME):
 def logo(h, col='lime'):
     return f'<img src="{A}rs-logo-{col}.png" style="height:{h}mm">'
 
+WM_R = (lambda im: im.height / im.width)(Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets/rs-wordmark-lime.png')))   # 워드마크 높이/폭
+
+def lockup(h, col='lime'):
+    """RS 로고 + 패키지 워드마크(RHARA SHOE 라라슈) 세로 락업 — h = 로고 높이 (make_lockup.py 로 생성)"""
+    return f'<img src="{A}rs-lockup-{col}.png" style="height:{h * 1.25:.1f}mm">'
+
 def qr(name, s):
     return f'<img src="{A}qr-{name}.svg" style="width:{s}mm;height:{s}mm;background:#fff;padding:{s*0.04}mm">'
 
@@ -628,7 +634,7 @@ def banners_v4():
     def pg(bg, inner, tag, acc, fg='#fff'):
         num = f'<div class="abs" style="right:80mm;top:{PK+60}mm;font-size:40pt;font-weight:900;color:{acc}">{tag}</div>'
         return (num + col(inner, PK + 60, H - PK - 60, 80, W), bg, gl)
-    rs1 = pg(INK, f"""<div>{logo(230)}</div>
+    rs1 = pg(INK, f"""<div>{lockup(230)}</div>
         <div><div style="font-size:300pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
           <div style="font-size:120pt;font-weight:900;color:#fff;line-height:1.2;margin-top:30mm">하루 10시간,<br>서서 일하는 사람의 신발.</div></div>
         {shot('RS-01', 790, 1000, 'walking-cut.png', '히어로 — 뒤꿈치 드는 순간, 밑창 라임 4점', '주방 바닥 로우앵글 · 블랙 바지 + 워킹화 · 뒤꿈치가 막 떨어지는 순간 밑창 4점이 보이게 · 광택 바닥 반사 (물기 연출 ✗)', fs=F)}
@@ -680,7 +686,7 @@ def xbanners_v4():
           <div><div style="font-size:60pt;font-weight:900;line-height:1.2;color:{fg}">{name}</div>
           <div style="font-size:34pt;color:#9a9a9a;margin-top:3mm">정상가 {price}</div>
           <div style="font-size:42pt;font-weight:900;color:{acc};margin-top:2mm">현장가 ______원</div></div></div>"""
-    x1 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{logo(90)}<div style="font-size:30pt;font-weight:900;color:{LIME}">RhaRa Shoe</div></div>
+    x1 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{lockup(90)}{dots(22, 14)}</div>
       <div style="font-size:190pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
       <div style="display:flex;align-items:center;gap:14mm">{foot_map(150, labels=False)}<div style="font-size:58pt;font-weight:900;color:#fff;line-height:1.3">바닥에 닿는<br>길을 따라<br><span style="color:{LIME}">그립 패드 4곳</span></div></div>
       {prod('X1-A', 'walking-cut.png', '쿼드그립<br>종일편한 워킹화', '42,500원', LIME, '#fff', '워킹화 3/4 측면', '차콜 1족 · 밑창 살짝 보이게')}
@@ -834,10 +840,10 @@ def signs_foamex():
     # S1 RS 로고 컷팅 (블랙 포맥스 실루엣 + 라임 로고)
     W, H, lw, lh, path = contour_from_png('rs-logo-lime.png', 260, 14, 0)
     H2 = H + 60
-    body = f'''<svg class="abs" style="left:0;top:0" width="{W}mm" height="{H2}mm" viewBox="0 0 {W} {H2}"><path d="{path}" fill="{INK}"/><rect x="{W/2-70}" y="{H-30}" width="140" height="90" rx="10" fill="{INK}"/></svg>
+    body = f'''<svg class="abs" style="left:0;top:0" width="{W}mm" height="{H2}mm" viewBox="0 0 {W} {H2}"><path d="{path}" fill="{INK}"/><rect x="{14}" y="{H-30}" width="{W-28}" height="90" rx="10" fill="{INK}"/></svg>
       <img class="abs" src="{A}rs-logo-lime.png" style="left:14mm;top:14mm;width:{lw}mm;height:{lh}mm">
-      <div class="abs" style="left:{W/2-60}mm;top:{H-2}mm;width:120mm;text-align:center;font-size:20pt;font-weight:900;color:{LIME}">RhaRa Shoe</div>'''
-    cut = f'<path class="cut" d="{path}"/><rect class="cut" x="{W/2-70}" y="{H-30}" width="140" height="90" rx="10"/>'
+      <img class="abs" src="{A}rs-wordmark-lime.png" style="left:{14 + lw * 9 / 478:.1f}mm;top:{H - 30 + 45 - lw * 459 / 478 * WM_R / 2:.1f}mm;width:{lw * 459 / 478:.1f}mm">'''
+    cut = f'<path class="cut" d="{path}"/><rect class="cut" x="14" y="{H-30}" width="{W-28}" height="90" rx="10"/>'
     sign('10a_foamex_RS_logo', 'S1 RS 로고 컷팅', W, H2, body, None, cut, 1, 'KD-03 3단진열대 상단 중앙 (높이 1,000 위 → 눈높이)', '블랙 포맥스 5T + 라임·화이트 UV')
     # S2 re.feeel 씰 원형
     D = 320
@@ -849,7 +855,7 @@ def signs_foamex():
     # S3 제품명 사인 ×2 (포디움 위)
     for key, en, ko, sub in [('walking', 'QUAD GRIP', '종일편한 워킹화', '바닥에 닿는 길을 따라 그립 패드 4곳'), ('insole', 'QUAD GRIP', '아치가득 인솔', '쓰던 깔창 밑에 한 장 더 — 반굽')]:
         W, H = 300, 160
-        body = panel(W, H, 12, INK, f'''<div class="abs" style="left:18mm;top:16mm">{logo(26)}</div>
+        body = panel(W, H, 12, INK, f'''<div class="abs" style="left:18mm;top:14mm">{lockup(26)}</div>
           <div class="abs" style="left:18mm;top:52mm;font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.04em">{en}</div>
           <div class="abs" style="left:18mm;top:70mm;font-size:46pt;font-weight:900;color:#fff">{ko}</div>
           <div class="abs" style="left:18mm;top:100mm;font-size:17pt;color:#cfcfcf">{sub}</div>
@@ -899,7 +905,7 @@ def signs_foamex():
 def card_v5():
     B, W, H = 2, 94, 54
     tr = trim_rect(W, H, B)
-    front = f'''<div class="abs" style="left:8mm;top:8mm">{logo(13)}</div>
+    front = f'''<div class="abs" style="left:8mm;top:7mm">{lockup(13)}</div>
       <img class="abs" src="{A}refeeel-seal.png" style="right:8mm;top:7mm;width:15mm;background:{CREAM};border-radius:50%;padding:.6mm">
       <div class="abs" style="left:8mm;top:27mm;font-size:12pt;font-weight:900;line-height:1.15;color:#fff">남은 것의<br><span style="color:{LIME}">다음 모양.</span></div>
       <div class="abs" style="left:8mm;top:43mm;font-size:5.6pt;color:#bdbdbd">㈜알앤디메이커스 · RhaRa Shoe 라라슈 · re.feeel</div>'''
@@ -949,7 +955,7 @@ def table_sign_3face():
         f'<text class="lbl" x="{xs[3]+2}" y="{H/2}">풀칠</text>' + ''.join(f'<rect class="guide" x="{x+6}" y="{B+6}" width="{FW-12}" height="{FH-12}"/>' for x in xs[:3])
     def face(i, bg, inner):
         return f'<div class="abs" style="left:{xs[i]}mm;top:{B}mm;width:{FW}mm;height:{FH}mm;background:{bg}">{inner}</div>'
-    f1 = face(0, INK, f'''<div class="abs" style="left:12mm;top:12mm">{logo(16)}</div>
+    f1 = face(0, INK, f'''<div class="abs" style="left:12mm;top:12mm">{lockup(16)}</div>
         <div class="abs" style="left:12mm;top:40mm;font-size:27pt;font-weight:900;line-height:1.05;color:{LIME}">Made<br>for<br>Standing.</div>
         <div class="abs" style="left:12mm;top:104mm;width:126mm;display:flex;gap:6mm;align-items:center">{foot_map(26, labels=False)}<div style="font-size:11.5pt;font-weight:900;color:#fff;line-height:1.35">직접 신어 보세요<br><span style="color:{LIME}">230~280 시착 가능</span><br><span style="font-size:8pt;font-weight:400;color:#bdbdbd">쿼드그립 워킹화 · 아치가득 인솔</span></div></div>
         <div class="abs" style="left:12mm;bottom:12mm;font-size:7pt;color:#8a8a8a">RhaRa Shoe 라라슈 · 2026.11.11 OPEN</div>''')
@@ -982,7 +988,7 @@ def bag_v5():
     body += f'<div class="abs" style="left:{x[1]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{LIME}"></div><div class="abs" style="left:{x[3]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{RF_YL}"></div>'
     for sx, t in ((x[1], 'Made for Standing.'), (x[3], 'REFILL YOUR DAY · @re.feeel')):
         body += f'<div class="abs" style="left:{sx+Dp/2}mm;top:{yT+Hp/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:20pt;font-weight:900;white-space:nowrap;color:{INK if t.startswith("Made") else RF_GR}">{t}</div>'
-    body += f'''<div class="abs" style="left:{x[0]+26}mm;top:{yT+38}mm">{logo(42)}</div>
+    body += f'''<div class="abs" style="left:{x[0]+26}mm;top:{yT+38}mm">{lockup(42)}</div>
       <div class="abs" style="left:{x[0]+26}mm;top:{yT+110}mm;font-size:46pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
       <div class="abs" style="left:{x[0]+26}mm;top:{yT+235}mm">{foot_map(30, labels=False)}</div>
       <div class="abs" style="left:{x[0]+70}mm;top:{yT+250}mm;font-size:12pt;font-weight:700;color:#fff;line-height:1.5">서서 일하는 사람의 신발<br><span style="color:{LIME}">RhaRa Shoe 라라슈</span></div>
