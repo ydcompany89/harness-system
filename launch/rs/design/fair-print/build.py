@@ -893,6 +893,105 @@ def signs_foamex():
     write('10h_foamex_stand_leg', (W, H), [(body, 'transparent', cut)], '포맥스 받침 다리 160×70 (공용)')
     SIGNS.append(dict(name='10h_foamex_stand_leg', title='받침 다리 (공용)', W=W, H=H, qty=9, where='사인 9개에 1개씩', mat='블랙 포맥스 5T'))
 
-cards(); table_sign(); pops_v4(); shopping_bag(); leaflet_v4(); xbanners_v4(); banners_v4(); standee(); shot_list(); signs_foamex()
+# ═════════════════════════ v5 (10/16) 스터닝 견적 "박람회 전체 디자인" 항목 맞춤 ═════════════════════════
+# 견적 항목: 명함 1종 · 제품 네임택 1종 · 웰컴 쇼핑백 1종 · 테이블 사인 3면 · X배너 3 · 백월 2면(각 3면=족자 6) · 리플렛
+# ───────── 명함 1종 (90×50, 도련 2, 양면) ─────────
+def card_v5():
+    B, W, H = 2, 94, 54
+    tr = trim_rect(W, H, B)
+    front = f'''<div class="abs" style="left:8mm;top:8mm">{logo(13)}</div>
+      <img class="abs" src="{A}refeeel-seal.png" style="right:8mm;top:7mm;width:15mm;background:{CREAM};border-radius:50%;padding:.6mm">
+      <div class="abs" style="left:8mm;top:27mm;font-size:12pt;font-weight:900;line-height:1.15;color:#fff">남은 것의<br><span style="color:{LIME}">다음 모양.</span></div>
+      <div class="abs" style="left:8mm;top:43mm;font-size:5.6pt;color:#bdbdbd">㈜알앤디메이커스 · RhaRa Shoe 라라슈 · re.feeel</div>'''
+    back = f'''<div class="abs" style="left:0;top:0;width:3mm;height:{H}mm;background:{LIME}"></div>
+      <div class="abs" style="left:9mm;top:8mm;font-size:12.5pt;font-weight:900">{CO["name"]}</div>
+      <div class="abs" style="left:9mm;top:15mm;font-size:6.2pt;font-weight:700;color:{OLIVE}">{CO["title"]} · {CO["co"]}</div>
+      <div class="abs" style="left:9mm;top:24mm;font-size:5.9pt;line-height:1.6"><b>M</b> {CO["tel"]}<br><b>T</b> {CO["cs"]}<br><b>E</b> {CO["mail"]}<br><b>A</b> {CO["addr"]}</div>
+      <div class="abs" style="right:7mm;top:8mm;text-align:center">{qr("flyer",15)}</div>
+      <div class="abs" style="right:7mm;bottom:7mm;text-align:right;font-size:5.4pt;line-height:1.5;color:#555">IG {CO["ig"]}<br>IG @re.feeel</div>'''
+    write('01_namecard_v5', (W, H), [(front, INK, tr), (back, WHITE, tr)], '명함 1종 v5 (90×50 · 엑스트라 린넨 250g 양면)')
+
+# ───────── 제품 네임택 1종 (100×70 · 아크릴 L자 꽂이 · 품목별 내용 교체) ─────────
+NAMETAGS = [
+ ('rs', '쿼드그립 종일편한 워킹화', 'QUAD GRIP All-Day Walking Shoes', '바닥에 닿는 길을 따라 그립 패드 4곳 · 깔창 없는 일체형', '230~280 · 차콜/그레이/민트화이트', '42,500원'),
+ ('rs', '쿼드그립 아치가득 인솔', 'QUAD GRIP Arch Insole', '쓰던 깔창 밑에 한 장 더 · 반굽 M 15cm / L 17cm', '그레이 / 모카무스 · 의료기기 아님', '21,500원'),
+ ('rf', "나이스샷 '왕모' 칫솔", 'CXP Toothbrush', '간벌재 기반 CXP 핸들 · 이중미세모 / 스파이럴모', '6개입', '____원'),
+ ('rf', '어금니까지 쏙쏙 칫솔형 치실', 'Toothbrush-style Floss', 'ㄱ자 헤드 · 칫솔처럼 쥐는 손잡이 · 리필 교체형', '핸들 + 리필 20개입', '4,900원'),
+ ('rf', '40° 기울여 말리는 양치컵', 'CXP Rinse Cup', '기울여 세워 말리는 구조 · CXP 소재', '110g · 국내 제조', '____원'),
+ ('rf', '퀼트패턴 스마일 욕실화', 'Quilt Smile Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로', '275mm · 차콜/네이비', '3,900원'),
+ ('rf', '발등낮은 스마일 욕실화', 'Low-top Smile Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로', '컬러는 매대에서 확인', '____원'),
+]
+def nametags_v5():
+    B, W, H = 2, 104, 74
+    tr = trim_rect(W, H, B) + f'<line class="fold" x1="{B}" y1="{H-B-12}" x2="{W-B}" y2="{H-B-12}"/><text class="lbl" x="{B+2}" y="{H-B-13}">아크릴 꽂이에 가려지는 하단 12mm — 문구 ✗</text>'
+    pages = []
+    for brand, ko, en, pt, opt, price in NAMETAGS:
+        dark = brand == 'rs'
+        bg, fg, acc, sub = (INK, '#fff', LIME, '#bdbdbd') if dark else (CREAM, INK, RF_GR, '#555')
+        mark = logo(7, 'lime') if dark else f'<img src="{A}refeeel-seal.png" style="height:10mm;background:#fff;border-radius:50%">'
+        body = f'''<div class="abs" style="left:0;top:0;width:{W}mm;height:3.5mm;background:{acc}"></div>
+          <div class="abs" style="left:8mm;top:8mm">{mark}</div>
+          <div class="abs" style="right:8mm;top:9mm;font-size:6pt;font-weight:900;letter-spacing:.1em;color:{acc}">{'RhaRa Shoe' if dark else 're.feeel'}</div>
+          <div class="abs" style="left:8mm;top:21mm;width:88mm;font-size:13pt;font-weight:900;line-height:1.2;color:{fg}">{ko}</div>
+          <div class="abs" style="left:8mm;top:29.5mm;font-size:6.3pt;font-weight:700;color:{acc}">{en}</div>
+          <div class="abs" style="left:8mm;top:35mm;width:88mm;font-size:6.6pt;line-height:1.45;color:{fg}">{pt}<br><span style="color:{sub}">{opt}</span></div>
+          <div class="abs" style="right:8mm;top:45.5mm;font-size:14pt;font-weight:900;color:{fg if not dark else LIME}">{price}</div>'''
+        pages.append((body, bg, tr))
+    write('11_nametag_100x70', (W, H), pages, f'제품 네임택 1종 100×70 (내용 {len(pages)}종) — 아크릴 L자 꽂이')
+
+# ───────── 테이블 사인 3면 (삼각기둥 · 면 150×210 · 접어서 세움) ─────────
+def table_sign_3face():
+    B, FW, FH, GL = 3, 150, 210, 15
+    W, H = 3 * FW + GL + 2 * B, FH + 2 * B
+    xs = [B + FW * i for i in range(4)]
+    lines = f'<path class="cut" d="M{B},{B} H{xs[3]} L{xs[3]+GL},{B+8} V{H-B-8} L{xs[3]},{H-B} H{B} Z"/>' + \
+        ''.join(f'<line class="fold" x1="{x}" y1="{B}" x2="{x}" y2="{H-B}"/>' for x in xs[1:4]) + \
+        f'<text class="lbl" x="{xs[3]+2}" y="{H/2}">풀칠</text>' + ''.join(f'<rect class="guide" x="{x+6}" y="{B+6}" width="{FW-12}" height="{FH-12}"/>' for x in xs[:3])
+    def face(i, bg, inner):
+        return f'<div class="abs" style="left:{xs[i]}mm;top:{B}mm;width:{FW}mm;height:{FH}mm;background:{bg}">{inner}</div>'
+    f1 = face(0, INK, f'''<div class="abs" style="left:12mm;top:12mm">{logo(16)}</div>
+        <div class="abs" style="left:12mm;top:40mm;font-size:27pt;font-weight:900;line-height:1.05;color:{LIME}">Made<br>for<br>Standing.</div>
+        <div class="abs" style="left:12mm;top:104mm;width:126mm;display:flex;gap:6mm;align-items:center">{foot_map(26, labels=False)}<div style="font-size:11.5pt;font-weight:900;color:#fff;line-height:1.35">직접 신어 보세요<br><span style="color:{LIME}">230~280 시착 가능</span><br><span style="font-size:8pt;font-weight:400;color:#bdbdbd">쿼드그립 워킹화 · 아치가득 인솔</span></div></div>
+        <div class="abs" style="left:12mm;bottom:12mm;font-size:7pt;color:#8a8a8a">RhaRa Shoe 라라슈 · 2026.11.11 OPEN</div>''')
+    f2 = face(1, RF_GR, f'''<img class="abs" src="{A}refeeel-seal.png" style="left:12mm;top:12mm;width:40mm;background:{CREAM};border-radius:50%;padding:1.5mm">
+        <div class="abs" style="left:12mm;top:62mm;font-size:22pt;font-weight:900;line-height:1.15;color:{CREAM}">생활을<br><span style="color:{RF_YL}">다시 채우다.</span></div>
+        <div class="abs" style="left:12mm;top:108mm;width:126mm;font-size:9.5pt;line-height:1.6;color:{CREAM}"><b style="color:{RF_YL}">ORAL CARE</b> 나무(간벌재)에서 온 CXP 칫솔·치실·양치컵<br><b style="color:{RF_YL}">BATH SLIPPER</b> 실크벽지 PVC로 만든 욕실화</div>
+        <div class="abs" style="left:12mm;bottom:12mm;font-size:7pt;color:#9fb5a5">re.feeel · ㈜알앤디메이커스 · 국내 제조</div>''')
+    f3 = face(2, RF_YL, f'''<div class="abs" style="left:12mm;top:12mm;font-size:9pt;font-weight:900;letter-spacing:.1em;color:{RF_GR}">INSTAGRAM EVENT</div>
+        <div class="abs" style="left:12mm;top:22mm;font-size:21pt;font-weight:900;line-height:1.15;color:{INK}">팔로우하면<br><span style="color:{RF_GR}">CXP 볼펜</span>,<br>스토리 태그엔<br><span style="color:{RF_GR}">칫솔</span>까지!</div>
+        <div class="abs" style="left:12mm;top:104mm;display:flex;gap:6mm;align-items:center"><div style="width:52mm;height:52mm;background:#fff;border-radius:3mm;padding:2mm"><img src="{A}qr-refeeel-ig.svg" style="width:48mm;height:48mm"></div>
+          <div style="font-size:9pt;font-weight:700;line-height:1.7;color:{INK}">① QR로 @re.feeel 팔로우<br>② 화면 보여 주면 볼펜<br>③ 스토리 태그 +<br>　 #이벤트참여 → 칫솔</div></div>
+        <div class="abs" style="left:12mm;bottom:12mm;font-size:7pt;color:{RF_DK}">1인 1회 · 준비 수량 소진 시 종료</div>''')
+    write('03_table_sign_3face', (W, H), [(f1 + f2 + f3, WHITE, lines)], '테이블 사인 3면 삼각기둥 (면 150×210, 펼침 465×216)')
+
+# ───────── 웰컴 쇼핑백 1종 (W250×H330×D100 · 앞 라라슈 / 뒤 re.feeel) ─────────
+def bag_v5():
+    M, Wp, Dp, Hp, TOP, BOT, GL = 15, 250, 100, 330, 40, 65, 20
+    W = 2 * M + 2 * Wp + 2 * Dp + GL; H = 2 * M + TOP + Hp + BOT
+    x = [M, M + Wp, M + Wp + Dp, M + 2 * Wp + Dp, M + 2 * Wp + 2 * Dp, M + 2 * Wp + 2 * Dp + GL]
+    yT, yB, yE = M + TOP, M + TOP + Hp, M + TOP + Hp + BOT
+    cut = f'<path class="cut" d="M{x[0]},{M} H{x[4]} L{x[5]},{M+8} V{yE-8} L{x[4]},{yE} H{x[0]} Z"/>' + ''.join(f'<line class="cut" x1="{xx}" y1="{yB}" x2="{xx}" y2="{yE}"/>' for xx in x[1:5])
+    fold = ''.join(f'<line class="fold" x1="{xx}" y1="{M}" x2="{xx}" y2="{yB}"/>' for xx in x[1:5]) + f'<line class="fold" x1="{x[0]}" y1="{yT}" x2="{x[4]}" y2="{yT}"/><line class="fold" x1="{x[0]}" y1="{yB}" x2="{x[4]}" y2="{yB}"/>'
+    for gc in (x[1] + Dp / 2, x[3] + Dp / 2):
+        fold += f'<line class="fold" x1="{gc}" y1="{yT}" x2="{gc}" y2="{yB-Dp/2}"/><line class="fold" x1="{gc-Dp/2}" y1="{yB}" x2="{gc}" y2="{yB-Dp/2}"/><line class="fold" x1="{gc+Dp/2}" y1="{yB}" x2="{gc}" y2="{yB-Dp/2}"/>'
+    holes = ''.join(f'<circle class="cut" cx="{cx}" cy="{cy}" r="2.5"/>' for cx in (x[0] + 85, x[0] + 165, x[2] + 85, x[2] + 165) for cy in (yT + 25, yT - 25))
+    lines = cut + fold + holes + f'<text class="lbl" x="{x[0]+3}" y="{M+8}">윗면 접어넣기 40mm</text><text class="lbl" x="{x[0]+3}" y="{yB+10}">바닥 날개 {BOT}mm</text>'
+    b = 3
+    body = f'<div class="abs" style="left:{x[0]-b}mm;top:{M-b}mm;width:{x[2]-x[0]}mm;height:{yE-M+2*b}mm;background:{INK}"></div>'
+    body += f'<div class="abs" style="left:{x[2]}mm;top:{M-b}mm;width:{x[5]-x[2]+b}mm;height:{yE-M+2*b}mm;background:{RF_GR}"></div>'
+    body += f'<div class="abs" style="left:{x[1]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{LIME}"></div><div class="abs" style="left:{x[3]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{RF_YL}"></div>'
+    for sx, t in ((x[1], 'Made for Standing.'), (x[3], 'REFILL YOUR DAY · @re.feeel')):
+        body += f'<div class="abs" style="left:{sx+Dp/2}mm;top:{yT+Hp/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:20pt;font-weight:900;white-space:nowrap;color:{INK if t.startswith("Made") else RF_GR}">{t}</div>'
+    body += f'''<div class="abs" style="left:{x[0]+26}mm;top:{yT+38}mm">{logo(42)}</div>
+      <div class="abs" style="left:{x[0]+26}mm;top:{yT+110}mm;font-size:46pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
+      <div class="abs" style="left:{x[0]+26}mm;top:{yT+235}mm">{foot_map(30, labels=False)}</div>
+      <div class="abs" style="left:{x[0]+70}mm;top:{yT+250}mm;font-size:12pt;font-weight:700;color:#fff;line-height:1.5">서서 일하는 사람의 신발<br><span style="color:{LIME}">RhaRa Shoe 라라슈</span></div>
+      <img class="abs" src="{A}refeeel-seal.png" style="left:{x[2]+26}mm;top:{yT+34}mm;width:80mm;background:{CREAM};border-radius:50%;padding:3mm">
+      <div class="abs" style="left:{x[2]+26}mm;top:{yT+135}mm;font-size:36pt;font-weight:900;line-height:1.1;color:{CREAM}">남은 것의<br><span style="color:{RF_YL}">다음 모양.</span></div>
+      <div class="abs" style="left:{x[2]+26}mm;top:{yT+232}mm;font-size:11pt;line-height:1.6;color:{CREAM}">나무에서 온 구강케어 · 벽지가 된 욕실화<br><b style="color:{RF_YL}">@re.feeel</b>  ·  {CO["co"]}</div>
+      <div class="abs" style="left:{x[2]+26}mm;top:{yT+290}mm;font-size:8pt;color:#9fb5a5">이 쇼핑백은 다시 쓰라고 튼튼하게 만들었습니다.</div>'''
+    write('05_welcome_bag_v5', (W, H), [(body, WHITE, lines)], '웰컴 쇼핑백 v5 W250×H330×D100 (앞 라라슈 / 뒤 re.feeel)')
+
+card_v5(); table_sign_3face(); nametags_v5(); pops_v4(); bag_v5(); leaflet_v4(); xbanners_v4(); banners_v4(); standee(); shot_list(); signs_foamex()
 json.dump(MANIFEST, open(os.path.join(HERE, 'manifest.json'), 'w'), ensure_ascii=False, indent=1)
 for m in MANIFEST: print(m['name'], m['w'], 'x', m['h'], 'mm', m['pages'], 'p')

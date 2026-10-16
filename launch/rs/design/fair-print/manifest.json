@@ -1,24 +1,24 @@
 [
  {
-  "name": "01_namecard_A_ceo",
+  "name": "01_namecard_v5",
   "w": 94,
   "h": 54,
   "pages": 2,
-  "title": "명함 A 대표 (90x50)"
+  "title": "명함 1종 v5 (90×50 · 엑스트라 린넨 250g 양면)"
  },
  {
-  "name": "02_namecard_B_brand",
-  "w": 94,
-  "h": 54,
-  "pages": 2,
-  "title": "명함 B 브랜드 공용 (90x50)"
- },
- {
-  "name": "03_table_sign_tent",
-  "w": 216,
-  "h": 303,
+  "name": "03_table_sign_3face",
+  "w": 471,
+  "h": 216,
   "pages": 1,
-  "title": "테이블 사인 텐트형 (A4, 접어서 삼각)"
+  "title": "테이블 사인 3면 삼각기둥 (면 150×210, 펼침 465×216)"
+ },
+ {
+  "name": "11_nametag_100x70",
+  "w": 104,
+  "h": 74,
+  "pages": 7,
+  "title": "제품 네임택 1종 100×70 (내용 7종) — 아크릴 L자 꽂이"
  },
  {
   "name": "04_pop_A4_x3",
@@ -28,11 +28,11 @@
   "title": "POP A4 세로 ×3 v4 (워킹화 / 인솔 / 인스타 이벤트)"
  },
  {
-  "name": "05_welcome_bag",
+  "name": "05_welcome_bag_v5",
   "w": 750,
   "h": 465,
   "pages": 1,
-  "title": "웰컴 쇼핑백 W250×H330×D100 전개도"
+  "title": "웰컴 쇼핑백 v5 W250×H330×D100 (앞 라라슈 / 뒤 re.feeel)"
  },
  {
   "name": "06_leaflet_A4_3fold",
