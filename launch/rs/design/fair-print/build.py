@@ -599,8 +599,8 @@ def foot_map(wmm, acc=LIME, ink='#fff', labels=True, fs=1.0):
             lx = 290 if x > 150 else -150
             anc = 'start' if x > 150 else 'start'
             lab += f'<line x1="{x+(28 if x>150 else -28)}" y1="{y}" x2="{lx-8 if x>150 else lx+130}" y2="{y}" stroke="{acc}" stroke-width="2"/><text x="{lx}" y="{y+8}" font-size="30" font-weight="700" fill="{ink}" text-anchor="{anc}">{t}</text>'
-    vb = '-160 0 620 730' if labels else '40 0 240 730'
-    hmm = wmm * 730 / (620 if labels else 240)
+    vb = '-160 0 710 730' if labels else '40 0 240 730'
+    hmm = wmm * 730 / (710 if labels else 240)
     return f"""<svg viewBox="{vb}" style="width:{wmm}mm;height:{hmm}mm;flex:none;font-family:N"><path d="{sole}" fill="none" stroke="{ink}" stroke-width="5" opacity=".9"/>
       <path d="M{path}" fill="none" stroke="{acc}" stroke-width="4" stroke-dasharray="10 9" opacity=".9"/>{dots}{lab}</svg>"""
 
@@ -640,15 +640,13 @@ def banners_v4():
         {shot('RS-01', 790, 1000, 'walking-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 신발 측면', '모델이 워킹화를 신고 선 모습 · 신발 측면(발목~밑창 라인)이 잘 보이게 · 블랙 바지 · 주방/매장 바닥 톤 (물기 연출 ✗)', fs=F)}
         <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>워킹화 · 아치가득 인솔</div><div style="font-size:50pt;font-weight:900;color:{LIME};text-align:right">인솔 11.11<br>워킹화 11.20 OPEN</div></div>""", 'RS 1/3', LIME)
     rs2 = pg(INK, f"""<div><div style="font-size:90pt;font-weight:900;color:{LIME};letter-spacing:.04em">QUAD GRIP</div>
-          <div style="font-size:220pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>길을 따라,<br><span style="color:{LIME}">4곳.</span></div></div>
-        <div style="display:flex;align-items:center;gap:30mm">{foot_map(560, fs=F)}
+          <div style="font-size:200pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>포인트를 따라<br><span style="color:{LIME}">쿼드 그립</span></div></div>
+        <div style="display:flex;align-items:center;gap:22mm">{foot_map(540, fs=F)}
           <div style="flex:1"><div style="font-size:330pt;font-weight:900;line-height:.9;color:{LIME}">60<span style="font-size:150pt">%</span></div>
           <div style="font-size:56pt;font-weight:700;color:#fff;line-height:1.35;margin-top:8mm">서 있을 때<br>체중의 약 60%가<br>뒤꿈치에 실린다는<br>연구가 있습니다.</div>
           <div style="font-size:28pt;color:#9a9a9a;margin-top:8mm;line-height:1.4">{CAV_NOTE}</div></div></div>
-        <div><div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.2;margin-bottom:12mm">패드 무늬 하나도,<br><span style="color:{LIME}">연구를 보고 그렸습니다.</span></div>
-          <div style="display:flex;flex-direction:column;gap:10mm">{paper_cards(F, LIME)}</div>
-          <div style="font-size:24pt;color:#8a8a8a;margin-top:8mm;line-height:1.4">{PAPER_NOTE}</div></div>
-        {shot('RS-02', 790, 300, 'outsole-studio.jpg', '패드 매크로 — 사각 블록 + 배수 홈', '라임 패드 1개 정면 매크로 · 3×3 블록 홈 결 · 블랙 배경 · 측광 (물 연출 ✗)', fs=F)}""", 'RS 2/3', LIME)
+        <div style="display:flex;flex-direction:column;gap:16mm"><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:84pt;font-weight:900;color:#fff">디자인 등록 완료</div></div><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:84pt;font-weight:900;color:#fff">특허 2건 출원 완료</div></div><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:84pt;font-weight:900;color:#fff">미끄럼 저항 테스트 완료</div></div><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:84pt;font-weight:900;color:#fff">족저압력 테스트 완료</div></div></div>
+        {shot('RS-02', 790, 340, 'outsole-lime.jpg', '스튜디오 촬영분 — 신발 바닥(밑창)', '밑창 전체가 보이게 · 라임 그립 패드 4점 선명하게 · 블랙 배경 · 측광 (물 연출 ✗)', fs=F)}""", 'RS 2/3', LIME)
     rs3 = pg(LIME, f"""<div><div style="font-size:90pt;font-weight:900;color:{INK};letter-spacing:.04em">ARCH INSOLE</div>
           <div style="font-size:230pt;font-weight:900;line-height:1.05;color:{INK}">오후 4시,<br>발이 먼저<br>퇴근하고<br>싶을 때.</div>
           <div style="font-size:70pt;font-weight:700;color:{INK};margin-top:16mm">신던 신발 속 바닥만 바꿔 보세요.</div></div>
