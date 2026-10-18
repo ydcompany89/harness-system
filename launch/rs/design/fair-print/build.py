@@ -629,7 +629,7 @@ def banners_v4():
     gl = trim_rect(W, H, 0) + f'<line class="fold" x1="0" y1="{PK}" x2="{W}" y2="{PK}"/><line class="fold" x1="0" y1="{H-PK}" x2="{W}" y2="{H-PK}"/>' + \
         f'<rect class="guide" x="50" y="{PK+50}" width="{W-100}" height="{H-2*PK-100}"/>' + \
         f'<rect class="guide" x="0" y="1050" width="{W}" height="900" style="stroke:#F0A000"/><text class="lbl" x="55" y="{PK-12}" style="font-size:16px">봉 결합부 50mm (상·하) — 스터닝 확인</text>' + \
-        f'<text class="lbl" x="55" y="1045" style="font-size:16px;fill:#C08000">핵심 시선 띠 1,050~1,950</text>'
+        f'<text class="lbl" x="{W-55}" y="1045" text-anchor="end" style="font-size:16px;fill:#C08000">핵심 시선 띠 1,050~1,950</text>'
     F = 3.4   # 배율
     def pg(bg, inner, tag, acc, fg='#fff'):
         num = f'<div class="abs" style="right:80mm;top:{PK+60}mm;font-size:40pt;font-weight:900;color:{acc}">{tag}</div>'
