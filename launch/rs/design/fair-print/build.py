@@ -636,9 +636,9 @@ def banners_v4():
         return (num + col(inner, PK + 60, H - PK - 60, 80, W), bg, gl)
     rs1 = pg(INK, f"""<div>{lockup(230)}</div>
         <div><div style="font-size:300pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
-          <div style="font-size:120pt;font-weight:900;color:#fff;line-height:1.2;margin-top:30mm">하루 10시간,<br>서서 일하는 사람의 신발.</div></div>
-        {shot('RS-01', 790, 1000, 'walking-cut.png', '히어로 — 뒤꿈치 드는 순간, 밑창 라임 4점', '주방 바닥 로우앵글 · 블랙 바지 + 워킹화 · 뒤꿈치가 막 떨어지는 순간 밑창 4점이 보이게 · 광택 바닥 반사 (물기 연출 ✗)', fs=F)}
-        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>종일편한 워킹화</div><div style="font-size:50pt;font-weight:900;color:{LIME}">2026.11.11<br>OPEN</div></div>""", 'RS 1/3', LIME)
+          <div style="font-size:120pt;font-weight:900;color:#fff;line-height:1.2;margin-top:30mm">서서 일하는 하루를<br>위한 워킹화와 아치 인솔</div></div>
+        {shot('RS-01', 790, 1000, 'walking-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 신발 측면', '모델이 워킹화를 신고 선 모습 · 신발 측면(발목~밑창 라인)이 잘 보이게 · 블랙 바지 · 주방/매장 바닥 톤 (물기 연출 ✗)', fs=F)}
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>워킹화 · 아치가득 인솔</div><div style="font-size:50pt;font-weight:900;color:{LIME};text-align:right">인솔 11.11<br>워킹화 11.20 OPEN</div></div>""", 'RS 1/3', LIME)
     rs2 = pg(INK, f"""<div><div style="font-size:90pt;font-weight:900;color:{LIME};letter-spacing:.04em">QUAD GRIP</div>
           <div style="font-size:220pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>길을 따라,<br><span style="color:{LIME}">4곳.</span></div></div>
         <div style="display:flex;align-items:center;gap:30mm">{foot_map(560, fs=F)}
