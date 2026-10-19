@@ -39,7 +39,7 @@ pres.author = "RhaRa Shoe";
 const PROJECT = "라라슈 쿼드그립 종일편한 워킹화 · 스마트스토어/자사몰";
 const TOTAL = 30;
 const PROJ_I = "라라슈 쿼드그립 아치가득 인솔 · 스마트스토어/와디즈";
-const TOTAL_I = 16;
+const TOTAL_I = 18;
 const TAGS = {
   후킹: { fill: H.orange, color: H.white },
   공감: { fill: H.orange, color: H.white },
@@ -861,6 +861,21 @@ const CUTS_I = [
       { t: "circ", x: 0.5, y: 2.4, d: 0.62, fill: H.lime, text: "뒤꿈치\n컵", size: 7 },
     ] },
     copy: { head: "네 가지(quadgrip)\n포인트를 잡았습니다", body: "1. 아치 라인을 따라 쿠션 가득\n2. 뒤꿈치 링 컵\n3. 논슬립 패턴 윗면/아랫면 적용\n4. 통기 구멍", flag: "쿼드그립 quadgrip" } }),
+  I({ n: "03+", section: "인솔", tag: "공감", title: "발 고민별 솔루션 — 평발 · 오다리 · 체형 균형 (신규)",
+    ref: { caption: "대표 지시 10/19 — 바르너식 고민 해결형",
+      cards: [{ brand: "바르너 (벤치마킹)", block: "발 고민별 카드", what: "평발 · O다리 · 체형 불균형을 족적/뒷모습 그림으로 나눠 보여줌", take: "우리는 ICUT 03의 4구조와 1:1로 짝지어 해결" }] },
+    lay: { caption: "고민 3카드 (그림 | 고민 | 해결 구조) + 하단 한 줄", els: [
+      { t: "txt", x: 0.1, y: 0.1, w: 2.6, h: 0.35, text: "이런 발이라면, 아치가득", size: 9, bold: true },
+      { t: "box", x: 0.15, y: 0.55, w: 0.7, h: 0.8, fill: H.tan, text: "족적\n(아치 없음)", size: 6 },
+      { t: "box", x: 0.9, y: 0.55, w: 1.75, h: 0.8, fill: H.white, lineColor: H.line, text: "평발 — 발바닥이 통째로 닿아 금방 지침\n→ 아치 서포터가 빈 아치를 가득", size: 6, align: "left" },
+      { t: "box", x: 0.15, y: 1.45, w: 0.7, h: 0.8, fill: H.tan, text: "뒷모습\nO자 다리", size: 6 },
+      { t: "box", x: 0.9, y: 1.45, w: 1.75, h: 0.8, fill: H.white, lineColor: H.line, text: "오다리 — 체중이 바깥으로 쏠려 바깥만 닳음\n→ 뒤꿈치 링 컵이 뒤꿈치를 감싸 고정", size: 6, align: "left" },
+      { t: "box", x: 0.15, y: 2.35, w: 0.7, h: 0.8, fill: H.tan, text: "서 있는\n전신 실루엣", size: 6 },
+      { t: "box", x: 0.9, y: 2.35, w: 1.75, h: 0.8, fill: H.white, lineColor: H.line, text: "체형 불균형 — 짝다리 · 한쪽만 닳는 신발\n→ 아치+링 컵으로 좌우 바닥을 고르게", size: 6, align: "left" },
+      { t: "box", x: 0.15, y: 3.25, w: 2.5, h: 0.45, fill: H.lime, text: "발이 바로 서야, 몸이 바로 섭니다", size: 7, bold: true },
+    ] },
+    copy: { head: "평발 · 오다리 · 체형 불균형,\n발바닥부터 바로잡습니다", body: "평발 — 무너진 아치를 가득 받쳐\n오다리 — 바깥으로 쏠리는 뒤꿈치를 잡아\n체형 불균형 — 좌우 바닥을 고르게\n\n발이 바로 서야, 몸이 바로 섭니다.\n체형교정의 시작은 발바닥부터.", flag: "⚖️ 대표 표기 수정 예정(10/19) — 교정·평발·오다리 효능 표현은 의료기기 오인 광고 소지" },
+    notes: "대표 지시(10/19): 바르너식 '발 고민 해결' 내용 필수. 기획 원안은 이 장 그대로, 광고 표기는 대표가 최종 수정.\n수정 시 바꿔 쓸 수 있는 순화안(참고):\n· 평발 → '아치가 낮은 발' / '무너진 아치를 받쳐' → '아치 아래 빈 공간을 채워'\n· 오다리 → '체중이 바깥으로 쏠리는 발' / '잡아' → '뒤꿈치를 감싸는 링 컵'\n· 체형교정 → '바르게 딛는 습관' / '바로잡습니다' → '고르게 딛도록 설계'\n그림: 족적·뒷모습 다리·전신 실루엣은 일러스트(실제 환자·X-ray ✗). 각 카드 오른쪽에 ICUT 03 아이콘(라임 원) 재사용해 구조와 연결." }),
   I({ n: 4, section: "인솔", tag: "편안", title: "POINT 01 · 아치 아래 빈 공간, 가득",
     ref: { caption: "아치쿠션 기획안 측면 단면",
       cards: [{ brand: "기존 기획안", block: "측면 곡선", what: "아치 높이를 선으로", take: "측면 실루엣 + 곡선 하이라이트" }] },
@@ -960,6 +975,22 @@ const CUTS_I = [
     ] },
     copy: { head: "말이 아니라\n기록으로", body: "디자인 등록 · 특허 출원\n족저압 분포 시험 (착용 전/후)\n\n※ 시험 조건과 기관을 함께 표기합니다.", flag: "🔒 성적서·번호 수령 후에만 게시 · '통증·피로·교정' 해석 ✗ · 특허명('자세교정') 노출 ✗" },
     notes: "v2 신규. 족자 RS2와 같은 '체크' 톤.\n게시 조건: ① 디자인 등록번호 ② 특허 출원번호 ③ 족저압 분포 성적서(KIMCO 의뢰안 research/kimco-test-plan-2026-10-19.md). 미수령 항목은 줄 삭제.\n족저압 결과는 '아치 부위 접촉면적 ○% 증가'처럼 구조 수치로만. '압력 분산으로 피로 감소' 같은 효능 해석 금지.\n인솔 특허 명칭에 '자세교정'이 있으므로 명칭은 쓰지 않고 '특허 출원 제○호'만." }),
+  I({ n: "11+", section: "인솔", tag: "신뢰", title: "먼저 써본 사람들 — 실착 체험단 후기 (신규)",
+    ref: { caption: "checklist M03 · 실착 체험단(조리 종사자) 10/28 회수",
+      cards: [{ brand: "체험단 M03", block: "후기·사진", what: "직업 · 근무시간 · 발 고민 + 실착 사진", take: "같은 처지 사람 목소리가 가장 센 증거" },
+              { brand: "스마트스토어/와디즈", block: "포토리뷰", what: "별점 요약 + 포토 카드", take: "직업 칩으로 '나 같은 사람' 찾게" }] },
+    lay: { caption: "별점 요약 + 후기 카드 6 (직업·고민 칩 + 실착 사진)", els: [
+      { t: "box", x: 0.15, y: 0.12, w: 2.5, h: 0.42, fill: H.ink, text: "★ [평균 별점] · 체험단 [N]명 실착", color: H.lime, size: 8, bold: true },
+      { t: "box", x: 0.15, y: 0.65, w: 1.22, h: 0.9, fill: H.white, lineColor: H.line, text: "[조리사 · 10시간]\n\"마감 때 발바닥이\n덜 뻐근해요\"", size: 6 },
+      { t: "box", x: 1.43, y: 0.65, w: 1.22, h: 0.9, fill: H.white, lineColor: H.line, text: "[매장 판매직]\n\"아치가 꽉 차는\n느낌이 좋아요\"", size: 6 },
+      { t: "box", x: 0.15, y: 1.63, w: 1.22, h: 0.9, fill: H.white, lineColor: H.line, text: "[평발]\n\"아치를 딱\n받쳐줘요\"", size: 6 },
+      { t: "box", x: 1.43, y: 1.63, w: 1.22, h: 0.9, fill: H.white, lineColor: H.line, text: "[오다리]\n\"뒤꿈치가\n덜 쏠려요\"", size: 6 },
+      { t: "box", x: 0.15, y: 2.61, w: 1.22, h: 0.9, fill: H.white, lineColor: H.line, text: "[간호사]\n\"운동화에 겹쳐도\n안 껴요\"", size: 6 },
+      { t: "box", x: 1.43, y: 2.61, w: 1.22, h: 0.9, fill: H.white, lineColor: H.line, text: "[물류 · 택배]\n\"신발 속에서\n안 밀려요\"", size: 6 },
+      { t: "txt", x: 0.1, y: 3.55, w: 2.6, h: 0.25, text: "체험단 후기 — 제품 무상 제공 · 개인차 있음", size: 6, color: H.mute },
+    ] },
+    copy: { head: "먼저 신어 본\n사람들의 이야기", body: "\"마감 때쯤 발바닥이 덜 뻐근했어요.\"\n— 주방 조리사 · 하루 10시간\n\n\"평발이라 깔창 여럿 써봤는데,\n아치를 딱 받쳐줘요.\"\n— 매장 판매직 · 평발", flag: "🔒 문구는 가안 — 10/28 체험단 실제 후기로 교체 · 무상 제공 고지 함께" },
+    notes: "체험단(checklist M03): 10/12 모집 → 10/28 후기 회수, 후기·사진 사용동의서 + 개인정보 동의 필수.\n화면의 인용은 '이런 결로 받으면 좋다'는 가안 — 실제 후기만 게시, 문구 임의 편집·창작 ✗(받은 원문에서 발췌만).\n카드 구성: 직업·근무시간 칩 / 발 고민 칩(평발·오다리 등) / 실착 사진(신발 속 인솔 or 발) / 한 줄 + 본문 2~3줄.\n질문지에 꼭 넣을 것: 직업·하루 서 있는 시간 · 발 고민 · 쓰던 신발 · 1주 착용 후 달라진 점 · 불편했던 점.\n하단 '체험단 후기 — 제품 무상 제공' 고지는 카드 근처 9pt 이상." }),
   I({ n: 12, section: "인솔", tag: "제품", title: "이렇게 쓰세요 — 깔창 밑에",
     ref: { caption: "사용 3스텝",
       cards: [{ brand: "반굽 인솔", block: "겹쳐 쓰기", what: "쓰던 깔창 들기 → 밑에 깔기 → 다시 덮기", take: "재단 불필요" }] },
@@ -988,11 +1019,11 @@ const CUTS_I = [
     lay: { caption: "체크 4줄 + 하단 워킹화 배너", els: [
       { t: "box", x: 0.15, y: 0.2, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 오래 서 있거나 걷는 일이 많다", align: "left" },
       { t: "box", x: 0.15, y: 0.7, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 신을 때 신발이 헐겁게 빠진다", align: "left" },
-      { t: "box", x: 0.15, y: 1.2, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 쓰던 깔창은 그대로 두고 싶다", align: "left" },
+      { t: "box", x: 0.15, y: 1.2, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 평발 · 오다리라 신발이 한쪽만 닳는다", align: "left" },
       { t: "box", x: 0.15, y: 1.7, w: 2.5, h: 0.42, fill: H.white, lineColor: H.line, text: "✓ 새 신발 대신 바닥만 바꾸고 싶다", align: "left" },
       { t: "box", x: 0.15, y: 2.3, w: 2.5, h: 0.95, fill: H.ink, text: "라라슈 워킹화엔 필요 없어요\n— 깔창 없는 일체형이니까\n워킹화 보러 가기 →", color: H.lime, size: 7 },
     ] },
-    copy: { head: "하나라도 해당되면", body: "✓ 오래 서 있거나 걷는 일이 많다\n✓ 신을 때 신발이 헐겁게 빠진다\n✓ 쓰던 깔창은 그대로 두고 싶다\n✓ 새 신발 대신 바닥만 바꾸고 싶다\n\n라라슈 워킹화엔 필요 없어요." } }),
+    copy: { head: "하나라도 해당되면", body: "✓ 오래 서 있거나 걷는 일이 많다\n✓ 신을 때 신발이 헐겁게 빠진다\n✓ 평발 · 오다리라 신발이 한쪽만 닳는다\n✓ 새 신발 대신 바닥만 바꾸고 싶다\n\n라라슈 워킹화엔 필요 없어요." } }),
   I({ n: 15, section: "인솔", tag: "구매", title: "스펙 · 주의 · 상품정보고시",
     ref: { caption: "content/insole-product-info-notice.md",
       cards: [{ brand: "고시", block: "구두/신발 + 패션잡화", what: "두 유형 모두 채움", take: "박스·행택 표기와 1:1" }] },
@@ -1102,9 +1133,11 @@ function insoleChanges() {
     ["6", "촬영", "모델이 인솔을 신은 모습 · 인솔 측면(링 컵·아치 라인)이 보이게 — 족자 RS3과 같은 컷", "대표 10/18"],
     ["7", "AI 이미지", "AI 연출 이미지 사용 시 'AI 연출 이미지' 고지 · 실물 컷 나오면 교체", "표시광고 가드"],
     ["8", "오픈일", "인솔 11/11 (워킹화 11/20 별도) · 키비주얼 하단 '2026.11.11 OPEN'은 오픈 후 삭제본으로 교체", "대표 10/18·19"],
+    ["9", "신규 ICUT 03+", "발 고민별 솔루션 — 평발 · 오다리 · 체형 불균형 (광고 표기는 대표 최종 수정)", "대표 10/19"],
+    ["10", "신규 ICUT 11+", "먼저 써본 사람들 — 체험단 후기 (가안 → 10/28 실제 후기 교체)", "대표 10/19 · M03"],
   ]
   s.addTable(rows.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: i === 0 || j === 1, color: i === 0 ? H.white : H.ink, fill: { color: i === 0 ? H.ink : (j === 0 ? H.panel : H.white) }, fontSize: 11 } }))),
-    { x: 0.7, y: 1.1, w: 11.9, colW: [0.5, 1.9, 7.3, 2.2], rowH: 0.5, border: { type: "solid", color: H.line, pt: 0.5 }, valign: "middle", fontFace: THEME.bodyFontFace, margin: 0.07 });
+    { x: 0.7, y: 1.1, w: 11.9, colW: [0.5, 1.9, 7.3, 2.2], rowH: 0.45, border: { type: "solid", color: H.line, pt: 0.5 }, valign: "middle", fontFace: THEME.bodyFontFace, margin: 0.07 });
   s.addNotes("v2 = 10/15 v1 이후 대표 확정 사항 반영본. 금칙어·전문의 가드는 v1과 동일(다음 장).");
 }
 
