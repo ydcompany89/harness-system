@@ -99,7 +99,7 @@ function refCol(s, ref) {
     ], { x: X + 0.15, y: y + 0.08, w: W - 0.3, h: ch - 0.16, valign: "middle", paraSpaceAfter: 2 });
     y += ch + 0.12;
   });
-  T(s, "REF · " + ref.caption, { x: 0.66, y: 6.22, w: 3.6, h: 0.5, fontSize: 10, color: H.mute, align: "center", valign: "top" });
+  if (ref.caption) T(s, "REF · " + ref.caption, { x: 0.66, y: 6.22, w: 3.6, h: 0.5, fontSize: 10, color: H.mute, align: "center", valign: "top" });
 }
 
 // layout column: wireframe frame + elements (coords relative to frame)
@@ -849,17 +849,18 @@ const CUTS_I = [
     ] },
     copy: { head: "오후만 되면,\n발바닥이 먼저 말해요", body: "7시간 서 있는 주방,\n하루 종일 계산대 앞,\n퇴근길 지하철 계단.\n\n발바닥이 화끈, 뻐근.\n오늘도 발이 먼저 퇴근하고 싶은 날." },
     notes: "공감 축 = '발이 힘든 하루'(신발 아까움 ✗, 대표 지적 10/19). 발 불편은 고객 1인칭 상황 묘사로만 — '통증·평발·족저근막' 등 의학 단어 ✗, 다음 컷에서 '편해집니다/완화' 같은 효능 연결 ✗. 사진은 발·종아리 클로즈업 + 서 있는 현장(얼굴 연출 자유). 다음 CUT 03 제품 등장은 '그래서 신발 속 바닥부터' 톤으로 연결." }),
-  I({ n: 3, section: "인솔", tag: "제품", title: "제품 등장 — 5가지 구조",
-    ref: { caption: "행택 앞표지 아이콘 + 반굽",
-      cards: [{ brand: "행택 §4", block: "아이콘", what: "아치 · 4점 · 뒤꿈치 컵 · 통기 도트", take: "+ 반굽 길이 추가" }] },
-    lay: { caption: "반굽 인솔 탑뷰 + 아이콘 5", els: [
+  I({ n: 3, section: "인솔", tag: "제품", title: "제품 등장 — 쿼드그립의 구조",
+    ref: { caption: "",
+      cards: [{ brand: "타사 레퍼런스는 없음", block: "", what: "", take: "" }] },
+    lay: { caption: "반굽 인솔 탑뷰 + 아이콘 4", els: [
       { t: "txt", x: 0.1, y: 0.15, w: 2.6, h: 0.35, text: "쿼드그립 아치가득 인솔", size: 9, bold: true },
       { t: "box", x: 0.95, y: 1.15, w: 0.9, h: 1.5, fill: H.tan, r: 0.3, text: "반굽\n인솔" },
-      { t: "circ", x: 0.1, y: 0.6, d: 0.6, text: "아치\n가득", size: 7 }, { t: "circ", x: 2.1, y: 0.6, d: 0.6, text: "반굽", size: 7 },
-      { t: "circ", x: 0.1, y: 1.5, d: 0.6, text: "뒤꿈치\n컵", size: 7 }, { t: "circ", x: 2.1, y: 1.5, d: 0.6, text: "4점", size: 7 },
-      { t: "circ", x: 1.1, y: 2.75, d: 0.6, text: "통기\n도트", size: 7 },
+      { t: "circ", x: 1.05, y: 0.8, d: 0.62, fill: H.lime, text: "논슬립패턴\n윗면/아랫면", size: 6 },
+      { t: "circ", x: 1.7, y: 1.35, d: 0.62, fill: H.lime, text: "아치\n서포터", size: 7 },
+      { t: "circ", x: 1.08, y: 2.2, d: 0.62, fill: H.lime, text: "통기\n구멍", size: 7 },
+      { t: "circ", x: 0.5, y: 2.4, d: 0.62, fill: H.lime, text: "뒤꿈치\n컵", size: 7 },
     ] },
-    copy: { head: "다섯 가지를\n한 장에 담았습니다", body: "아치 라인을 따라 가득\n반굽 길이 — 쓰던 깔창 밑에도\n뒤꿈치 링 컵\n쿼드그립 4점\n통기 도트", flag: "🔒 '4점'·'통기 도트'는 실물 확인 후 — 미확인 시 3가지로 축소" } }),
+    copy: { head: "네 가지(quadgrip)\n포인트를 잡았습니다", body: "1. 아치 라인을 따라 쿠션 가득\n2. 뒤꿈치 링 컵\n3. 논슬립 패턴 윗면/아랫면 적용\n4. 통기 구멍", flag: "쿼드그립 quadgrip" } }),
   I({ n: 4, section: "인솔", tag: "편안", title: "POINT 01 · 아치 아래 빈 공간, 가득",
     ref: { caption: "아치쿠션 기획안 측면 단면",
       cards: [{ brand: "기존 기획안", block: "측면 곡선", what: "아치 높이를 선으로", take: "측면 실루엣 + 곡선 하이라이트" }] },
