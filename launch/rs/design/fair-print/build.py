@@ -638,7 +638,7 @@ def banners_v4():
         <div><div style="font-size:300pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
           <div style="font-size:120pt;font-weight:900;color:#fff;line-height:1.2;margin-top:30mm">서서 일하는 하루를<br>위한 워킹화와 아치 인솔</div></div>
         {shot('RS-01', 790, 1000, 'walking-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 신발 측면', '모델이 워킹화를 신고 선 모습 · 신발 측면(발목~밑창 라인)이 잘 보이게 · 블랙 바지 · 주방/매장 바닥 톤 (물기 연출 ✗)', fs=F)}
-        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>워킹화 · 아치가득 인솔</div><div style="font-size:50pt;font-weight:900;color:{LIME};text-align:right">인솔 11.11<br>워킹화 11.20 OPEN</div></div>""", 'RS 1/3', LIME)
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>워킹화 · 아치가득 인솔</div></div>""", 'RS 1/3', LIME)
     rs2 = pg(INK, f"""<div><div style="font-size:90pt;font-weight:900;color:{LIME};letter-spacing:.04em">QUAD GRIP</div>
           <div style="font-size:200pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>포인트를 따라<br><span style="color:{LIME}">쿼드 그립</span></div></div>
         <div style="display:flex;align-items:center;gap:22mm">{foot_map(540, fs=F)}
@@ -956,7 +956,7 @@ def table_sign_3face():
     f1 = face(0, INK, f'''<div class="abs" style="left:12mm;top:12mm">{lockup(16)}</div>
         <div class="abs" style="left:12mm;top:40mm;font-size:27pt;font-weight:900;line-height:1.05;color:{LIME}">Made<br>for<br>Standing.</div>
         <div class="abs" style="left:12mm;top:104mm;width:126mm;display:flex;gap:6mm;align-items:center">{foot_map(26, labels=False)}<div style="font-size:11.5pt;font-weight:900;color:#fff;line-height:1.35">직접 신어 보세요<br><span style="color:{LIME}">230~280 시착 가능</span><br><span style="font-size:8pt;font-weight:400;color:#bdbdbd">쿼드그립 워킹화 · 아치가득 인솔</span></div></div>
-        <div class="abs" style="left:12mm;bottom:12mm;font-size:7pt;color:#8a8a8a">RhaRa Shoe 라라슈 · 2026.11.11 OPEN</div>''')
+        <div class="abs" style="left:12mm;bottom:12mm;font-size:7pt;color:#8a8a8a">RhaRa Shoe 라라슈 · Made for Standing.</div>''')
     f2 = face(1, RF_GR, f'''<img class="abs" src="{A}refeeel-seal.png" style="left:12mm;top:12mm;width:40mm;background:{CREAM};border-radius:50%;padding:1.5mm">
         <div class="abs" style="left:12mm;top:62mm;font-size:22pt;font-weight:900;line-height:1.15;color:{CREAM}">생활을<br><span style="color:{RF_YL}">다시 채우다.</span></div>
         <div class="abs" style="left:12mm;top:108mm;width:126mm;font-size:9.5pt;line-height:1.6;color:{CREAM}"><b style="color:{RF_YL}">ORAL CARE</b> 나무(간벌재)에서 온 CXP 칫솔·치실·양치컵<br><b style="color:{RF_YL}">BATH SLIPPER</b> 실크벽지 PVC로 만든 욕실화</div>
