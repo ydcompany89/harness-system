@@ -950,7 +950,9 @@ NAMETAGS = [   # 10/20 갱신: 확정 컬러·구조·제품명 반영
  ('rf', '발등 낮은 와이드 욕실화', 'Low-instep Wide Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로 · 물빠짐 구멍', '그레이 / 딥그린 / 크림', '5,000원'),
  ('rf', '여성 욕실화', "Women's Bath Slipper", '실크벽지에서 분리한 PVC를 다시 원료로 · 물빠짐 구멍', '여성용 사이즈 · 국내 제조', '5,000원'),
 ]
+NAMETAG_IMG = {'쿼드그립 종일편한 워킹화': 'walking-hero.jpg', '쿼드그립 아치가득 인솔': 'insole-hero.jpg', 'DAY2NIGHT 칫솔': 'd2n-pair.jpg', '어금니까지 쏙쏙 칫솔형 치실': 'floss-hand.jpg', '40° 기울여 말리는 양치컵': 'cup-tilt.jpg', '발등 낮은 와이드 욕실화': 'slipper-wide.jpg', '여성 욕실화': ''}
 def nametags_v5():
+    """네임택 100×70 — 왼쪽 글, 오른쪽 사진 + 가격 (대표 10/20: 가격 위에 사진)"""
     B, W, H = 2, 104, 74
     tr = trim_rect(W, H, B) + f'<line class="fold" x1="{B}" y1="{H-B-12}" x2="{W-B}" y2="{H-B-12}"/><text class="lbl" x="{B+2}" y="{H-B-13}">아크릴 꽂이에 가려지는 하단 12mm — 문구 ✗</text>'
     pages = []
@@ -958,13 +960,17 @@ def nametags_v5():
         dark = brand == 'rs'
         bg, fg, acc, sub = (INK, '#fff', LIME, '#bdbdbd') if dark else (CREAM, INK, RF_GR, '#555')
         mark = logo(7, 'lime') if dark else f'<img src="{A}refeeel-seal.png" style="height:10mm;background:#fff;border-radius:50%">'
+        im = NAMETAG_IMG.get(ko, '')
+        photo = (f'<div style="width:34mm;height:27mm;border-radius:2.5mm;background:url({A}{im}) center/{"contain" if im == "d2n-pair.jpg" else "cover"} no-repeat #F4F4F6"></div>' if im else
+                 f'<div style="width:34mm;height:27mm;border-radius:2.5mm;border:.4mm dashed {acc};display:grid;place-items:center;font-size:6pt;color:{acc}">사진 (대표 제공)</div>')
         body = f'''<div class="abs" style="left:0;top:0;width:{W}mm;height:3.5mm;background:{acc}"></div>
           <div class="abs" style="left:8mm;top:8mm">{mark}</div>
-          <div class="abs" style="right:8mm;top:9mm;font-size:6pt;font-weight:900;letter-spacing:.1em;color:{acc}">{'RhaRa Shoe' if dark else 're.feeel'}</div>
-          <div class="abs" style="left:8mm;top:21mm;width:88mm;font-size:13pt;font-weight:900;line-height:1.2;color:{fg}">{ko}</div>
-          <div class="abs" style="left:8mm;top:29.5mm;font-size:6.3pt;font-weight:700;color:{acc}">{en}</div>
-          <div class="abs" style="left:8mm;top:34mm;width:88mm;font-size:6.4pt;line-height:1.45;color:{fg}">{pt}<br><span style="color:{sub}">{opt}</span></div>
-          <div class="abs" style="right:8mm;top:45.5mm;font-size:14pt;font-weight:900;color:{fg if not dark else LIME}">{price}</div>'''
+          <div class="abs" style="left:8mm;top:20mm;width:52mm;display:flex;flex-direction:column;gap:1.2mm">
+            <div style="font-size:11.5pt;font-weight:900;line-height:1.2;color:{fg}">{ko}</div>
+            <div style="font-size:5.8pt;font-weight:700;color:{acc}">{en}</div>
+            <div style="font-size:5.9pt;line-height:1.45;color:{fg}">{pt}<br><span style="color:{sub}">{opt}</span></div></div>
+          <div class="abs" style="right:8mm;top:7mm">{photo}</div>
+          <div class="abs" style="right:8mm;top:46mm;font-size:13pt;font-weight:900;color:{fg if not dark else LIME}">{price}</div>'''
         pages.append((body, bg, tr))
     write('11_nametag_100x70', (W, H), pages, f'제품 네임택 1종 100×70 (내용 {len(pages)}종) — 아크릴 L자 꽂이')
 
