@@ -1,4 +1,4 @@
-"""RS 로고(PNG 트레이스) + RharaShoe 라라슈(글자 윤곽선) 벡터 SVG → design/brand/rs-logo-rharashoe-{ink,lime,white}.svg
+"""RS 로고(PNG 트레이스) + RhaRa Shoe 라라슈(글자 윤곽선) 벡터 SVG → design/brand/rs-logo-rharashoe-{ink,lime,white}.svg
 실행: launch/rs 에서 python3 design/brand/make_logo_svg.py (pip: potracer, brotli)"""
 import numpy as np, potrace
 from PIL import Image, ImageFilter
@@ -29,7 +29,7 @@ def text_d(fontpath, text, size, x0, base):
     return out, x-x0
 EN='design/fair-print/assets/poppins-600.woff2'; KO='design/fair-print/fonts/NotoSansKR-700.ttf'
 sz=40
-en_d,wen=text_d(EN,'RharaShoe',sz,0,0)
+en_d,wen=text_d(EN,'RhaRa Shoe',sz,0,0)
 gap=sz*0.28
 ko_d,wko=text_d(KO,'라라슈',sz*0.95,wen+gap,0)
 TW=wen+gap+wko
@@ -39,7 +39,7 @@ gapY=LH*0.16; ty=LH+gapY+capH
 H=ty+sz*0.25*k
 def svg(color):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {LW:.2f} {H:.2f}" width="{LW*4:.0f}" height="{H*4:.0f}">
-<title>RS RharaShoe 라라슈</title>
+<title>RS RhaRa Shoe 라라슈</title>
 <g fill="{color}"><path fill-rule="evenodd" d="{logo_d}"/>
 <g transform="translate(0,{ty:.2f}) scale({k:.5f})"><path d="{en_d}"/><path d="{ko_d}"/></g></g></svg>
 '''

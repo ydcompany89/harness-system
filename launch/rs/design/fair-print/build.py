@@ -12,7 +12,7 @@ INK, CHAR, LIME, OLIVE, CREAM, MUTE, WHITE = '#0D0D0D', '#232323', '#C6F432', '#
 CO = dict(
     name='신동규', title='대표이사', co='㈜알앤디메이커스', brand='RS · RhaRa Shoe · 라라슈',
     tel='010-6880-2516', cs='0507-1317-2516', mail='rndceo@rndmakers.kr', web='www.rndmakers.kr',
-    ig='@rharashoe', land='rharashoe.netlify.app', addr='대전광역시 유성구 국제과학7로 8')
+    ig='@rharashoe', land='rharashoe.netlify.app', addr='경기도 고양시 일산서구 중앙로 1542')
 
 CSS = f"""
 @font-face{{font-family:N;font-weight:400;src:url(fonts/NotoSansKR-400.ttf)}}
@@ -43,7 +43,7 @@ def logo(h, col='lime'):
 WM_R = (lambda im: im.height / im.width)(Image.open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets/rs-wordmark-lime.png')))   # 워드마크 높이/폭
 
 def lockup(h, col='lime'):
-    """RS 로고 + 패키지 워드마크(RHARA SHOE 라라슈) 세로 락업 — h = 로고 높이 (make_lockup.py 로 생성)"""
+    """RS 로고 + 패키지 워드마크(RhaRa Shoe 라라슈) 세로 락업 — h = 로고 높이 (make_lockup.py 로 생성)"""
     return f'<img src="{A}rs-lockup-{col}.png" style="height:{h * 1.25:.1f}mm">'
 
 def qr(name, s):

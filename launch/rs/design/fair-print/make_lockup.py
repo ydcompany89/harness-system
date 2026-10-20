@@ -1,4 +1,4 @@
-"""RS 로고 + 패키지 워드마크(RHARA SHOE 라라슈) 세로 락업 → assets/rs-lockup-{lime,ink,white}.png (+ 워드마크 단독 rs-wordmark-*.png)
+"""RS 로고 + 패키지 워드마크(RhaRa Shoe 라라슈) 세로 락업 → assets/rs-lockup-{lime,ink,white}.png (+ 워드마크 단독 rs-wordmark-*.png)
 패키지 시안(package-draft-2026-10)과 동일: 로고 아래, 로고 폭에 맞춘 한 줄 워드마크 (영문 Poppins SemiBold + 국문 Noto Sans KR Bold)"""
 import os
 from PIL import Image, ImageDraw, ImageFont
@@ -7,7 +7,7 @@ EN = ImageFont.truetype(A('poppins-600.woff2'), 400)
 KO = ImageFont.truetype(os.path.join(HERE, 'fonts/NotoSansKR-700.ttf'), 380)
 
 def wordmark(rgb):
-    en, ko, gap = 'RHARA SHOE', '라라슈', 110
+    en, ko, gap = 'RhaRa Shoe', '라라슈', 110
     we = int(EN.getlength(en)); wk = int(KO.getlength(ko))
     im = Image.new('RGBA', (we + gap + wk + 40, 640), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.text((20, 320), en, font=EN, fill=rgb, anchor='lm')
