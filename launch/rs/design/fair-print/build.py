@@ -995,7 +995,9 @@ def table_sign_3face():
 
 # ───────── 웰컴 쇼핑백 1종 (W250×H330×D100 · 앞 라라슈 / 뒤 re.feeel) ─────────
 def bag_v5():
-    M, Wp, Dp, Hp, TOP, BOT, GL = 15, 250, 100, 330, 40, 65, 20
+    """쇼핑백 v6 (대표 10/20): 라라슈 전용 · 신발박스(접은 상태 340×230×130) 들어가는 크기
+    박스를 세워 넣는 기준 — 내폭 360 (박스 340+20) · 옆폭 150 (130+20) · 높이 280 (230+50, 손잡이 여유)"""
+    M, Wp, Dp, Hp, TOP, BOT, GL = 15, 360, 150, 280, 40, 80, 20
     W = 2 * M + 2 * Wp + 2 * Dp + GL; H = 2 * M + TOP + Hp + BOT
     x = [M, M + Wp, M + Wp + Dp, M + 2 * Wp + Dp, M + 2 * Wp + 2 * Dp, M + 2 * Wp + 2 * Dp + GL]
     yT, yB, yE = M + TOP, M + TOP + Hp, M + TOP + Hp + BOT
@@ -1003,27 +1005,28 @@ def bag_v5():
     fold = ''.join(f'<line class="fold" x1="{xx}" y1="{M}" x2="{xx}" y2="{yB}"/>' for xx in x[1:5]) + f'<line class="fold" x1="{x[0]}" y1="{yT}" x2="{x[4]}" y2="{yT}"/><line class="fold" x1="{x[0]}" y1="{yB}" x2="{x[4]}" y2="{yB}"/>'
     for gc in (x[1] + Dp / 2, x[3] + Dp / 2):
         fold += f'<line class="fold" x1="{gc}" y1="{yT}" x2="{gc}" y2="{yB-Dp/2}"/><line class="fold" x1="{gc-Dp/2}" y1="{yB}" x2="{gc}" y2="{yB-Dp/2}"/><line class="fold" x1="{gc+Dp/2}" y1="{yB}" x2="{gc}" y2="{yB-Dp/2}"/>'
-    holes = ''.join(f'<circle class="cut" cx="{cx}" cy="{cy}" r="2.5"/>' for cx in (x[0] + 85, x[0] + 165, x[2] + 85, x[2] + 165) for cy in (yT + 25, yT - 25))
-    lines = cut + fold + holes + f'<text class="lbl" x="{x[0]+3}" y="{M+8}">윗면 접어넣기 40mm</text><text class="lbl" x="{x[0]+3}" y="{yB+10}">바닥 날개 {BOT}mm</text>'
+    holes = ''.join(f'<circle class="cut" cx="{cx}" cy="{cy}" r="2.5"/>' for cx in (x[0] + Wp / 2 - 50, x[0] + Wp / 2 + 50, x[2] + Wp / 2 - 50, x[2] + Wp / 2 + 50) for cy in (yT + 25, yT - 25))
+    lines = cut + fold + holes + f'<text class="lbl" x="{x[0]+3}" y="{M+8}">윗면 접어넣기 {TOP}mm · 손잡이 구멍 간격 100mm</text><text class="lbl" x="{x[0]+3}" y="{yB+10}">바닥 날개 {BOT}mm · 내용물: 신발박스 340×230×130</text>'
     b = 3
-    body = f'<div class="abs" style="left:{x[0]-b}mm;top:{M-b}mm;width:{x[2]-x[0]}mm;height:{yE-M+2*b}mm;background:{INK}"></div>'
-    body += f'<div class="abs" style="left:{x[2]}mm;top:{M-b}mm;width:{x[5]-x[2]+b}mm;height:{yE-M+2*b}mm;background:{RF_GR}"></div>'
-    body += f'<div class="abs" style="left:{x[1]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{LIME}"></div><div class="abs" style="left:{x[3]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{RF_YL}"></div>'
-    for sx, t in ((x[1], 'Made for Standing.'), (x[3], 'REFILL YOUR DAY · @re.feeel')):
-        body += f'<div class="abs" style="left:{sx+Dp/2}mm;top:{yT+Hp/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:20pt;font-weight:900;white-space:nowrap;color:{INK if t.startswith("Made") else RF_GR}">{t}</div>'
-    # 앞면 = 쿼드그립 주인공 (대표 10/20): 오른쪽 큰 밑창 4점 + 왼쪽 QUAD GRIP
-    body += f'''<div class="abs" style="left:{x[0]+22}mm;top:{yT+26}mm">{lockup(34)}</div>
-      <div class="abs" style="left:{x[0]+22}mm;top:{yT+100}mm;font-size:64pt;font-weight:900;line-height:.95;color:{LIME};letter-spacing:.01em">QUAD<br>GRIP</div>
-      <div class="abs" style="left:{x[0]+22}mm;top:{yT+168}mm;font-size:15pt;font-weight:900;line-height:1.45;color:#fff">바닥에 닿는 길을 따라<br><span style="color:{LIME}">그립 패드 4곳</span></div>
-      <div class="abs" style="left:{x[0]+22}mm;top:{yT+212}mm;display:flex;flex-direction:column;gap:2.5mm;font-size:10pt;font-weight:700;color:#cfcfcf;line-height:1.3">{''.join(f'<div><b style="color:{LIME}">{n}</b> {t}</div>' for n, t in [('①','뒤꿈치 중앙'),('②','뒤꿈치 앞 바깥쪽'),('③','발볼 바깥쪽'),('④','엄지 발볼')])}</div>
-      <div class="abs" style="left:{x[0]+22}mm;top:{yT+286}mm;font-size:20pt;font-weight:900;color:#fff">Made for Standing.</div>
-      <div class="abs" style="left:{x[0]+142}mm;top:{yT+40}mm">{foot_map(92, labels=False)}</div>'''
-    body += f'''
-      <img class="abs" src="{A}refeeel-seal.png" style="left:{x[2]+26}mm;top:{yT+34}mm;width:80mm;background:{CREAM};border-radius:50%;padding:3mm">
-      <div class="abs" style="left:{x[2]+26}mm;top:{yT+135}mm;font-size:36pt;font-weight:900;line-height:1.1;color:{CREAM}">남은 것의<br><span style="color:{RF_YL}">다음 모양.</span></div>
-      <div class="abs" style="left:{x[2]+26}mm;top:{yT+232}mm;font-size:11pt;line-height:1.6;color:{CREAM}">나무에서 온 구강케어 · 벽지가 된 욕실화<br><b style="color:{RF_YL}">@re.feeel</b>  ·  {CO["co"]}</div>
-      <div class="abs" style="left:{x[2]+26}mm;top:{yT+290}mm;font-size:8pt;color:#9fb5a5">이 쇼핑백은 다시 쓰라고 튼튼하게 만들었습니다.</div>'''
-    write('05_welcome_bag_v5', (W, H), [(body, WHITE, lines)], '웰컴 쇼핑백 v5 W250×H330×D100 (앞 라라슈 / 뒤 re.feeel)')
+    body = f'<div class="abs" style="left:{x[0]-b}mm;top:{M-b}mm;width:{x[5]-x[0]+2*b}mm;height:{yE-M+2*b}mm;background:{INK}"></div>'
+    for sx in (x[1], x[3]):
+        body += f'<div class="abs" style="left:{sx}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{LIME}"></div>'
+    body += f'<div class="abs" style="left:{x[1]+Dp/2}mm;top:{yT+(Hp-Dp/2)/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:30pt;font-weight:900;white-space:nowrap;color:{INK}">Made for Standing.</div>'
+    body += f'<div class="abs" style="left:{x[3]+Dp/2}mm;top:{yT+(Hp-Dp/2)/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:30pt;font-weight:900;white-space:nowrap;color:{INK}">RhaRa Shoe 라라슈</div>'
+    # 앞면 — 쿼드그립 (밑창을 가로로 눕혀 4점이 면 전체를 가로지름)
+    X0 = x[0]
+    body += f'''<div class="abs" style="left:{X0+24}mm;top:{yT+40}mm">{lockup(30)}</div>
+      <div class="abs" style="left:{X0+120}mm;top:{yT+40}mm;font-size:66pt;font-weight:900;line-height:.95;color:{LIME}">QUAD GRIP</div>
+      <div class="abs" style="left:{X0+122}mm;top:{yT+70}mm;font-size:15pt;font-weight:900;color:#fff">바닥에 닿는 길을 따라 <span style="color:{LIME}">그립 패드 4곳</span></div>
+      <div class="abs" style="left:{X0+Wp/2}mm;top:{yT+175}mm;transform:translate(-50%,-50%) rotate(-90deg)">{foot_map(92, labels=False)}</div>
+      <div class="abs" style="left:{X0+24}mm;top:{yT+Hp-40}mm;width:{Wp-48}mm;display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:22pt;font-weight:900;color:#fff">Made for Standing.</div><div style="font-size:10pt;font-weight:700;color:#bdbdbd">쿼드그립 종일편한 워킹화 · 아치가득 인솔</div></div>'''
+    # 뒷면 — 브랜드
+    X2 = x[2]
+    body += f'''<div class="abs" style="left:{X2+24}mm;top:{yT+40}mm">{lockup(56)}</div>
+      <div class="abs" style="left:{X2+24}mm;top:{yT+150}mm;font-size:62pt;font-weight:900;line-height:1;color:{LIME}">Made for<br>Standing.</div>
+      <div class="abs" style="left:{X2+24}mm;top:{yT+Hp-40}mm;width:{Wp-48}mm;display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13pt;font-weight:700;color:#fff">서서 일하는 사람의 신발 · RhaRa Shoe 라라슈</div><div style="font-size:9pt;color:#9a9a9a">이 쇼핑백은 다시 쓰라고 튼튼하게 만들었습니다.</div></div>
+      <div class="abs" style="left:{X2+Wp-24-110}mm;top:{yT+50}mm;opacity:.9">{foot_map(42, labels=False)}</div>'''
+    write('05_welcome_bag_v5', (W, H), [(body, WHITE, lines)], f'쇼핑백 v6 라라슈 전용 W{Wp}×H{Hp}×D{Dp} (신발박스 340×230×130 수납)')
 
 # ───────── 부스 카운터(KD-01) 3면 폼보드 — 앞판 980/1480 × 750, 옆판 600 × 750 (대표 10/20) ─────────
 # 2종: RS 라라슈 / re.feeel. 수량: 앞판 980 ×2(RS1·RF1), 1480 ×2(RS1·RF1), 옆판 600 ×4 + ×4 (RS·RF 각 4)
