@@ -1017,6 +1017,43 @@ def bag_v5():
       <div class="abs" style="left:{x[2]+26}mm;top:{yT+290}mm;font-size:8pt;color:#9fb5a5">이 쇼핑백은 다시 쓰라고 튼튼하게 만들었습니다.</div>'''
     write('05_welcome_bag_v5', (W, H), [(body, WHITE, lines)], '웰컴 쇼핑백 v5 W250×H330×D100 (앞 라라슈 / 뒤 re.feeel)')
 
-card_v5(); table_sign_3face(); nametags_v5(); pops_v4(); bag_v5(); leaflet_v4(); xbanners_v4(); banners_v4(); standee(); shot_list(); signs_foamex()
+# ───────── 부스 카운터(KD-01) 3면 폼보드 — 앞판 980/1480 × 750, 옆판 600 × 750 (대표 10/20) ─────────
+# 2종: RS 라라슈 / re.feeel. 수량: 앞판 980 ×2(RS1·RF1), 1480 ×2(RS1·RF1), 옆판 600 ×4 + ×4 (RS·RF 각 4)
+def counter_signs():
+    H = 750
+    gl = lambda W: trim_rect(W, H, 0) + f'<rect class="guide" x="40" y="40" width="{W-80}" height="{H-80}"/>' + \
+        f'<text class="lbl" x="45" y="34" style="font-size:12px">폼보드 {W}×{H} · 안전영역 40mm · KD-01 카운터</text>'
+    ab = lambda x, y, inner, extra='': f'<div class="abs" style="left:{x}mm;top:{y}mm;{extra}">{inner}</div>'
+    img = lambda f, w, h, pos='center': f'<div style="width:{w}mm;height:{h}mm;border-radius:14mm;background:url({A}{f}) {pos}/cover"></div>'
+    def rs_front(W):
+        b = ab(60, 60, lockup(120))
+        b += ab(60, 300, f'<div style="font-size:230pt;font-weight:900;line-height:.98;color:{LIME}">Made for<br>Standing.</div>')
+        b += ab(60, 580, f'<div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.25">서서 일하는 하루를 위한<br>워킹화와 아치 인솔</div>')
+        if W < 1200:
+            b += ab(W - 60 - 250, 60, f'<div style="display:flex;flex-direction:column;gap:12mm;align-items:center">{img("walking-hero.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:#fff">쿼드그립 워킹화</div>{img("insole-hero.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:#fff">아치가득 인솔</div></div>')
+        if W > 1200:
+            b += ab(W - 60 - 620, 60, f'<div style="display:flex;gap:20mm">{img("walking-hero.jpg", 300, 420)}{img("insole-hero.jpg", 300, 420)}</div>')
+            b += ab(W - 60 - 620, 500, f'<div style="display:flex;gap:20mm;font-size:56pt;font-weight:900;color:#fff;text-align:center"><div style="width:300mm">쿼드그립 워킹화</div><div style="width:300mm">아치가득 인솔</div></div>')
+        return b
+    def rf_front(W):
+        b = ab(60, 60, f'<img src="{A}refeeel-seal.png" style="width:190mm;background:{CREAM};border-radius:50%;padding:6mm">')
+        b += ab(60, 300, f'<div style="font-size:200pt;font-weight:900;line-height:1.05;color:{INK}">남은 것의<br><span style="display:inline-block;margin-top:8mm;background:{INK};color:{LIME};padding:2mm 10mm 6mm;line-height:1.1">다음 모양.</span></div>')
+        b += ab(60, 600, f'<div style="font-size:70pt;font-weight:900;color:{INK};line-height:1.3">숲의 간벌재 → 칫솔·치실·양치컵<br>실크벽지 → 욕실화</div>')
+        if W < 1200:
+            b += ab(W - 60 - 250, 60, f'<div style="display:flex;flex-direction:column;gap:12mm;align-items:center">{img("cup-life.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:{INK}">구강케어</div>{img("slipper-wide.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:{INK}">욕실화</div></div>')
+        if W > 1200:
+            b += ab(W - 60 - 620, 60, f'<div style="display:flex;gap:20mm">{img("cup-life.jpg", 300, 420)}{img("slipper-wide.jpg", 300, 420)}</div>')
+            b += ab(W - 60 - 620, 500, f'<div style="display:flex;gap:20mm;font-size:56pt;font-weight:900;color:{INK};text-align:center"><div style="width:300mm">구강케어</div><div style="width:300mm">욕실화</div></div>')
+        return b
+    W2 = 600
+    rs_side = ab(0, 0, f"""<div style="width:{W2}mm;height:{H}mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40mm">{lockup(170)}
+        <div style="font-size:120pt;font-weight:900;line-height:1.02;color:{LIME};text-align:center">Made for<br>Standing.</div></div>""")
+    rf_side = ab(0, 0, f"""<div style="width:{W2}mm;height:{H}mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36mm"><img src="{A}refeeel-seal.png" style="width:300mm;background:{CREAM};border-radius:50%;padding:8mm">
+        <div style="font-size:110pt;font-weight:900;color:{INK};text-align:center;line-height:1.1">생활을<br>다시 채우다.</div></div>""")
+    write('12_counter_front_980x750', (980, H), [(rs_front(980), INK, gl(980)), (rf_front(980), LIME, gl(980))], '카운터 앞판 980×750 ①RS ②re.feeel (각 1장)')
+    write('12_counter_front_1480x750', (1480, H), [(rs_front(1480), INK, gl(1480)), (rf_front(1480), LIME, gl(1480))], '카운터 앞판 1480×750 ①RS ②re.feeel (각 1장)')
+    write('12_counter_side_600x750', (W2, H), [(rs_side, INK, gl(W2)), (rf_side, LIME, gl(W2))], '카운터 옆판 600×750 ①RS ②re.feeel (각 4장)')
+
+card_v5(); counter_signs(); table_sign_3face(); nametags_v5(); pops_v4(); bag_v5(); leaflet_v4(); xbanners_v4(); banners_v4(); standee(); shot_list(); signs_foamex()
 json.dump(MANIFEST, open(os.path.join(HERE, 'manifest.json'), 'w'), ensure_ascii=False, indent=1)
 for m in MANIFEST: print(m['name'], m['w'], 'x', m['h'], 'mm', m['pages'], 'p')

@@ -7,6 +7,27 @@
   "title": "명함 1종 v5 (90×50 · 엑스트라 린넨 250g 양면)"
  },
  {
+  "name": "12_counter_front_980x750",
+  "w": 980,
+  "h": 750,
+  "pages": 2,
+  "title": "카운터 앞판 980×750 ①RS ②re.feeel (각 1장)"
+ },
+ {
+  "name": "12_counter_front_1480x750",
+  "w": 1480,
+  "h": 750,
+  "pages": 2,
+  "title": "카운터 앞판 1480×750 ①RS ②re.feeel (각 1장)"
+ },
+ {
+  "name": "12_counter_side_600x750",
+  "w": 600,
+  "h": 750,
+  "pages": 2,
+  "title": "카운터 옆판 600×750 ①RS ②re.feeel (각 4장)"
+ },
+ {
   "name": "03_table_sign_3face",
   "w": 471,
   "h": 216,
