@@ -585,7 +585,7 @@ def shot(sid, w, h, ref, title, direction, acc=LIME, r=16, fs=1.0, dark=True):
     img = f'<img src="{A}{ref}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55;filter:grayscale(.15)">' if ref else ''
     return f"""<div style="position:relative;flex:none;width:{w}mm;height:{h}mm;border-radius:{r}mm;overflow:hidden;background:{bg};outline:{1.6*fs:.1f}mm dashed {acc};outline-offset:-{3*fs:.1f}mm">{img}
       <div style="position:absolute;left:{6*fs:.1f}mm;top:{6*fs:.1f}mm;background:{acc};color:{LIME if acc==INK else INK};font-size:{26*fs:.1f}pt;font-weight:900;padding:{1.5*fs:.1f}mm {4*fs:.1f}mm;border-radius:{3*fs:.1f}mm">◉ STUDIO {sid}</div>
-      <div style="position:absolute;left:{6*fs:.1f}mm;right:{6*fs:.1f}mm;bottom:{6*fs:.1f}mm;background:rgba(13,13,13,.78);color:#fff;padding:{4*fs:.1f}mm {5*fs:.1f}mm;border-radius:{3*fs:.1f}mm;font-size:{22*fs:.1f}pt;line-height:1.45"><b style="color:{LIME if acc==INK else acc}">{title}</b><br>{direction}</div></div>"""
+      <div style="position:absolute;left:{6*fs:.1f}mm;right:{6*fs:.1f}mm;bottom:{6*fs:.1f}mm;background:rgba(13,13,13,.78);color:#fff;padding:{4*fs:.1f}mm {5*fs:.1f}mm;border-radius:{3*fs:.1f}mm;font-size:{22*fs:.1f}pt;line-height:1.45"><b style="color:{LIME if acc==INK else (RF_YL if acc==RF_GR else acc)}">{title}</b><br>{direction}</div></div>"""
 
 def foot_map(wmm, acc=LIME, ink='#fff', labels=True, fs=1.0):
     """쿼드그립 4점 배치도 (특허 청구항 순서: ①뒤꿈치 중앙 ②후족부 전방 외측 ③전족부 외측 ④전족부 내측)"""
@@ -656,7 +656,7 @@ def banners_v4():
         <div><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립 아치가득 인솔</div><div style="font-size:30pt;color:#9a9a9a;line-height:1.45">신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div></div>""", 'RS 3/3', LIME)
     flow = lambda steps, acc, fg: '<div style="display:flex;align-items:center;justify-content:space-between">' + \
         f'<div style="font-size:90pt;font-weight:900;color:{acc}">→</div>'.join(f'<div style="text-align:center;width:230mm"><div style="width:180mm;height:180mm;margin:0 auto;border-radius:50%;background:{acc};color:{CREAM if acc==RF_GR else RF_GR};display:flex;align-items:center;justify-content:center;font-size:100pt;font-weight:900">{i+1}</div><div style="font-size:72pt;font-weight:900;color:{fg};margin-top:10mm;line-height:1.2">{s}</div></div>' for i, s in enumerate(steps)) + '</div>'
-    rf1 = pg(RF_GR, f"""<div style="display:flex;justify-content:space-between;align-items:flex-start"><img src="{A}refeeel-seal.png" style="width:330mm;background:{CREAM};border-radius:50%;padding:10mm"><div style="font-size:60pt;font-weight:900;color:{RF_YL};text-align:right">REFILL<br>YOUR DAY</div></div>
+    rf1 = pg(RF_GR, f"""<div style="display:flex;justify-content:space-between;align-items:flex-start"><img src="{A}refeeel-seal.png" style="width:330mm;background:{CREAM};border-radius:50%;padding:10mm"></div>
         <div><div style="font-size:270pt;font-weight:900;line-height:1.05;color:{CREAM}">남은 것의<br><span style="color:{RF_YL}">다음 모양.</span></div>
           <div style="font-size:90pt;font-weight:900;color:{CREAM};margin-top:20mm">생활을 다시 채우다.</div></div>
         {shot('RF-01', 790, 900, 'cup-life.jpg', '라이프 — 욕실 선반 한 컷에 브랜드 전체', '화이트 타일 욕실 선반 · 양치컵(40° 기울여 세움) + 칫솔 + 치실 + 바닥에 스마일 욕실화 · 아침 햇빛', acc=RF_YL, fs=F)}
