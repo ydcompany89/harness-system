@@ -628,32 +628,32 @@ def banners_v4():
     W, H, PK = 950, 2380, 50
     gl = trim_rect(W, H, 0) + f'<line class="fold" x1="0" y1="{PK}" x2="{W}" y2="{PK}"/><line class="fold" x1="0" y1="{H-PK}" x2="{W}" y2="{H-PK}"/>' + \
         f'<rect class="guide" x="50" y="{PK+50}" width="{W-100}" height="{H-2*PK-100}"/>' + \
-        f'<rect class="guide" x="0" y="1050" width="{W}" height="900" style="stroke:#F0A000"/><text class="lbl" x="55" y="{PK-12}" style="font-size:16px">봉 결합부 50mm (상·하) — 스터닝 확인</text>' + \
-        f'<text class="lbl" x="{W-55}" y="1045" text-anchor="end" style="font-size:16px;fill:#C08000">핵심 시선 띠 1,050~1,950</text>'
+        f'<rect class="guide" x="0" y="{H-1900}" width="{W}" height="800" style="stroke:#F0A000"/><text class="lbl" x="55" y="{PK-12}" style="font-size:16px">봉 결합부 50mm (상·하) — 스터닝 확인</text>' + \
+        f'<text class="lbl" x="{W-55}" y="{H-1900-5}" text-anchor="end" style="font-size:16px;fill:#C08000">눈높이 띠 — 바닥에서 1.1~1.9m</text>'
     F = 3.4   # 배율
-    def pg(bg, inner, tag, acc, fg='#fff'):
+    HIDE = 700   # 바닥에서 70cm = 부스 집기·제품에 가려지는 구역 (대표 10/20)
+    gl_rs = gl + f'<rect class="guide" x="0" y="{H-HIDE}" width="{W}" height="{HIDE}" style="stroke:#E03030;stroke-dasharray:12 8"/>' + \
+        f'<text class="lbl" x="55" y="{H-HIDE+30}" style="font-size:18px;fill:#E03030">하단 700mm — 앞에 놓인 물건에 가려지는 구역 (글자·사진 배치 ✗)</text>'
+    def pg(bg, inner, tag, acc, fg='#fff', bottom=None, lines=None):
         num = f'<div class="abs" style="right:80mm;top:{PK+60}mm;font-size:40pt;font-weight:900;color:{acc}">{tag}</div>'
-        return (num + col(inner, PK + 60, H - PK - 60, 80, W), bg, gl)
-    rs1 = pg(INK, f"""<div>{lockup(230)}</div>
-        <div><div style="font-size:300pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
-          <div style="font-size:120pt;font-weight:900;color:#fff;line-height:1.2;margin-top:30mm">서서 일하는 하루를<br>위한 워킹화와 아치 인솔</div></div>
-        {shot('RS-01', 790, 1000, 'walking-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 신발 측면', '모델이 워킹화를 신고 선 모습 · 신발 측면(발목~밑창 라인)이 잘 보이게 · 블랙 바지 · 주방/매장 바닥 톤 (물기 연출 ✗)', fs=F)}
-        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립<br>워킹화 · 아치가득 인솔</div></div>""", 'RS 1/3', LIME)
-    rs2 = pg(INK, f"""<div><div style="font-size:90pt;font-weight:900;color:{LIME};letter-spacing:.04em">QUAD GRIP</div>
-          <div style="font-size:200pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>포인트를 따라<br><span style="color:{LIME}">쿼드 그립</span></div></div>
-        <div style="display:flex;align-items:center;gap:22mm">{foot_map(540, fs=F)}
-          <div style="flex:1"><div style="font-size:330pt;font-weight:900;line-height:.9;color:{LIME}">60<span style="font-size:150pt">%</span></div>
-          <div style="font-size:56pt;font-weight:700;color:#fff;line-height:1.35;margin-top:8mm">서 있을 때<br>체중의 약 60%가<br>뒤꿈치에 실린다는<br>연구가 있습니다.</div>
-          <div style="font-size:28pt;color:#9a9a9a;margin-top:8mm;line-height:1.4">{CAV_NOTE}</div></div></div>
-        <div style="display:flex;align-items:center;gap:24mm"><div style="flex:1;display:flex;flex-direction:column;gap:22mm"><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:72pt;font-weight:900;color:#fff;white-space:nowrap">디자인 등록 완료</div></div><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:72pt;font-weight:900;color:#fff;white-space:nowrap">특허 2건 출원 완료</div></div><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:72pt;font-weight:900;color:#fff;white-space:nowrap">미끄럼 저항 테스트 완료</div></div><div style="display:flex;align-items:center;gap:22mm"><div style="width:76mm;height:76mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:64pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:72pt;font-weight:900;color:#fff;white-space:nowrap">족저압력 테스트 완료</div></div></div>
-          {shot('RS-02', 380, 860, 'outsole-lime.jpg', '스튜디오 촬영분 — 신발 바닥 (세로)', '밑창 전체 세로 구도 · 라임 패드 4점 선명 · 블랙 배경 · 측광 (물 연출 ✗)', fs=F*0.7)}</div>""", 'RS 2/3', LIME)
-    rs3 = pg(INK, f"""<div><div style="font-size:90pt;font-weight:900;color:{LIME};letter-spacing:.04em">ARCH INSOLE</div>
-          <div style="font-size:230pt;font-weight:900;line-height:1.05;color:#fff">오후 4시,<br>발이 먼저<br><span style="color:{LIME}">퇴근하고<br>싶을 때.</span></div>
-          <div style="font-size:70pt;font-weight:700;color:#d6d6d0;margin-top:16mm">신던 신발 속 바닥만 바꿔 보세요.</div></div>
-        {shot('RS-03', 790, 760, 'insole-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 인솔 측면', '모델이 인솔을 신은(밟은) 모습 · 인솔 측면(뒤꿈치 컵·아치 라인)이 보이게 · 맨발 또는 양말 · 그레이/모카무스 (물기 연출 ✗)', fs=F)}
-        <div style="background:#1b1b1b;border-radius:30mm;padding:44mm 50mm;display:flex;flex-direction:column;gap:22mm">
-          {''.join(f'<div style="display:flex;gap:30mm;align-items:baseline"><div style="font-size:80pt;font-weight:900;color:{LIME}">{n}</div><div style="font-size:74pt;font-weight:900;color:#fff">{t}</div></div>' for n, t in [('01','아치 아래 빈 공간, 가득'),('02','쓰던 깔창 밑에 한 장 더'),('03','반굽 M 15cm · L 17cm')])}</div>
-        <div><div style="font-size:70pt;font-weight:900;color:#fff">쿼드그립 아치가득 인솔</div><div style="font-size:30pt;color:#9a9a9a;line-height:1.45">신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div></div>""", 'RS 3/3', LIME)
+        return (num + col(inner, PK + 60, bottom or (H - PK - 60), 80, W), bg, lines or gl)
+    TOP_B = H - HIDE   # 1~3번 콘텐츠 하한 (바닥 70cm 위)
+    rs1 = pg(INK, f"""<div>{lockup(200)}</div>
+        <div><div style="font-size:330pt;font-weight:900;line-height:1.0;color:{LIME}">Made<br>for<br>Standing.</div>
+          <div style="font-size:150pt;font-weight:900;color:#fff;line-height:1.2;margin-top:24mm">서서 일하는 하루를<br>위한 워킹화와 아치 인솔</div></div>
+        {shot('RS-01', 790, 560, 'walking-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 신발 측면', '모델이 워킹화를 신고 선 모습 · 신발 측면(발목~밑창 라인)이 잘 보이게 · 블랙 바지 (물기 연출 ✗)', fs=F)}
+        <div style="font-size:110pt;font-weight:900;color:{LIME};line-height:1.2">쿼드그립 워킹화<br><span style="color:#fff">· 아치가득 인솔</span></div>""", 'RS 1/3', LIME, bottom=TOP_B, lines=gl_rs)
+    rs2 = pg(INK, f"""<div><div style="font-size:110pt;font-weight:900;color:{LIME};letter-spacing:.04em">QUAD GRIP</div>
+          <div style="font-size:250pt;font-weight:900;line-height:1.05;color:#fff">바닥에 닿는<br>포인트를 따라<br><span style="color:{LIME}">쿼드 그립</span></div></div>
+        <div style="display:flex;flex-direction:column;gap:26mm"><div style="display:flex;align-items:center;gap:24mm"><div style="width:100mm;height:100mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:80pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:110pt;font-weight:900;color:#fff;white-space:nowrap">디자인 등록 완료</div></div><div style="display:flex;align-items:center;gap:24mm"><div style="width:100mm;height:100mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:80pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:110pt;font-weight:900;color:#fff;white-space:nowrap">특허 2건 출원 완료</div></div><div style="display:flex;align-items:center;gap:24mm"><div style="width:100mm;height:100mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:80pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:110pt;font-weight:900;color:#fff;white-space:nowrap">미끄럼 저항 테스트 완료</div></div><div style="display:flex;align-items:center;gap:24mm"><div style="width:100mm;height:100mm;border-radius:50%;background:{LIME};display:grid;place-items:center;font-size:80pt;font-weight:900;color:{INK};flex:none">✔</div><div style="font-size:110pt;font-weight:900;color:#fff;white-space:nowrap">족저압력 테스트 완료</div></div></div>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between">{foot_map(400, fs=F)}
+          {shot('RS-02', 360, 520, 'outsole-lime.jpg', '스튜디오 촬영분 — 신발 바닥 (세로)', '밑창 전체 세로 구도 · 라임 패드 4점 선명 · 블랙 배경 · 측광 (물 연출 ✗)', fs=F*0.7)}</div>""", 'RS 2/3', LIME, bottom=TOP_B, lines=gl_rs)
+    rs3 = pg(INK, f"""<div><div style="font-size:110pt;font-weight:900;color:{LIME};letter-spacing:.04em">ARCH INSOLE</div>
+          <div style="font-size:250pt;font-weight:900;line-height:1.03;color:#fff">오후 4시,<br>발이 먼저<br><span style="color:{LIME}">퇴근하고<br>싶을 때.</span></div>
+          <div style="font-size:100pt;font-weight:900;color:#d6d6d0;margin-top:14mm;line-height:1.25">신던 신발 속<br>바닥만 바꿔 보세요.</div></div>
+        <div style="display:flex;gap:30mm;align-items:center">{shot('RS-03', 400, 520, 'insole-side-ref.jpg', '스튜디오 촬영분 — 모델 착용 · 인솔 측면', '모델이 인솔을 신은 모습 · 인솔 측면(뒤꿈치 컵·아치 라인) · 그레이/모카무스 (물기 연출 ✗)', fs=F*0.7)}
+          <div style="display:flex;flex-direction:column;gap:22mm">{''.join(f'<div><div style="font-size:70pt;font-weight:900;color:{LIME}">{n}</div><div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.2">{t}</div></div>' for n, t in [('01','아치 아래<br>빈 공간, 가득'),('02','쓰던 깔창 밑에<br>한 장 더'),('03','반굽 M · L')])}</div></div>
+        <div><div style="font-size:110pt;font-weight:900;color:{LIME}">쿼드그립 아치가득 인솔</div><div style="font-size:40pt;color:#bdbdbd;line-height:1.45;margin-top:6mm">본 제품은 의료기기가 아닙니다. 신발 형태·재질에 따라 착용감이 다를 수 있습니다.</div></div>""", 'RS 3/3', LIME, bottom=TOP_B, lines=gl_rs)
     flow = lambda steps, acc, fg: '<div style="display:flex;align-items:center;justify-content:space-between">' + \
         f'<div style="font-size:90pt;font-weight:900;color:{acc}">→</div>'.join(f'<div style="text-align:center;width:230mm"><div style="width:180mm;height:180mm;margin:0 auto;border-radius:50%;background:{acc};color:{CREAM if acc==RF_GR else RF_GR};display:flex;align-items:center;justify-content:center;font-size:100pt;font-weight:900">{i+1}</div><div style="font-size:72pt;font-weight:900;color:{fg};margin-top:10mm;line-height:1.2">{s}</div></div>' for i, s in enumerate(steps)) + '</div>'
     rf1 = pg(RF_GR, f"""<div style="display:flex;justify-content:space-between;align-items:flex-start"><img src="{A}refeeel-seal.png" style="width:330mm;background:{CREAM};border-radius:50%;padding:10mm"></div>
