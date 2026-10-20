@@ -259,3 +259,4 @@
 - 2026-10-20 대표 지시: 인스타 이벤트는 족자에서 빼고 X배너로. 족자 6번 이벤트 박스 → '발등 낮은 와이드 욕실화' + 컬러 3종(그레이·딥그린·크림, 명칭 확인 필요)으로 교체. 신규 07c_xbanner_event_600x1800(라임, STEP 1 팔로우→CXP 볼펜 / STEP 2 스토리 태그→칫솔, 인스타 QR).
 - 2026-10-20 스튜디오 촬영 리스트(1020) 크로스체크: 워킹화 8 · 인솔 11 추가 요청 + GIF 주의 + 납품 조건 → content/studio-shotlist-crosscheck-2026-10-20.md
 - 2026-10-20 RS 로고 + 'RharaShoe 라라슈' 벡터 SVG 제작 (로고 트레이스 + 글자 윤곽선, 폰트 없이 어디서나 동일) → design/brand/rs-logo-rharashoe-{ink,lime,white}.svg
+- 2026-10-20 워킹화 안창 인쇄 원고(진짜 RS 로고 벡터 + RharaShoe 라임 / MADE IN KOREA · 270mm 흰색, 뒤꿈치 끝에서 40mm·좌우 중앙, 블록 37×48mm) → design/brand/insole-print/ 원고·가이드 SVG. 대표 컨펌 대기.
