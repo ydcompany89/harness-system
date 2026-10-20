@@ -281,8 +281,9 @@ const badge = (s, num, x, y, d, name) => {
     txt(s, h, { x, y: 2.65, w: colW - 0.15, h: 0.55, fontSize: 13, bold: true, color: C.background1 });
     txt(s, sub, { x, y: 3.3, w: colW - 0.15, h: 0.5, fontSize: 11, color: C.accent3 });
   });
-  card(s, M, 4.05, 9, 0.7, "expo-bar", C.text2);
-  txt(s, "박람회 현장에서 실물을 보고 상담하세요  ·  메가쇼(킨텍스) · 서울디자인페스티벌(코엑스)", { x: M + 0.3, y: 4.05, w: 8.4, h: 0.7, fontSize: 13, color: C.background1, valign: "middle" });
+  card(s, M, 3.95, 9, 0.6, "expo-bar", C.text2);
+  txt(s, "2026.11  ㈜라라슈 법인 설립 예정", { x: M, y: 4.72, w: 9, h: 0.25, fontSize: 11, color: C.accent3 });
+  txt(s, "박람회 현장에서 실물을 보고 상담하세요  ·  메가쇼(킨텍스) · 서울디자인페스티벌(코엑스)", { x: M + 0.3, y: 3.95, w: 8.4, h: 0.6, fontSize: 13, color: C.background1, valign: "middle" });
 }
 
 // ============ 10. 연락처 ============
