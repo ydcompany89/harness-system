@@ -671,11 +671,12 @@ def banners_v4():
           {d2n_card('d2n-night.jpg', 'NIGHT', '저녁', '구석구석<br>꼼꼼하게', 'BLACK ULTRA FINE', '초미세모', INK, '#fff', LIME, INK, '#F4F4F6')}</div>
         <div><div style="font-size:120pt;font-weight:900;color:{INK};line-height:1.15">하루 두 번, 다른 모로.</div>
           <div style="font-size:56pt;font-weight:700;color:{INK};margin-top:6mm">re.feeel DAY2NIGHT 칫솔 2종 · 나무에서 온 CXP 손잡이</div></div>""", 're.feeel 1/3', INK, bottom=TOP_B, lines=gl_rs)
-    rf2 = pg(CREAM, f"""<div><div style="font-size:90pt;font-weight:900;color:{RF_GR};letter-spacing:.04em">ORAL CARE</div>
-          <div style="font-size:250pt;font-weight:900;line-height:1.05;color:{INK}">나무에서 온<br><span style="color:{RF_GR}">구강케어.</span></div></div>
-        {flow(['숲 가꾸기<br>간벌재', 'CXP<br>소재', '칫솔·치실<br>양치컵'], RF_GR, INK)}
-        {shot('RF-02', 790, 700, 'cup-tilt.jpg', '양치컵 40° — 기울여 세워 말리는 장면', '흰 배경 · 양치컵이 40°로 기대 서 있는 측면 · 컵 안 물방울이 흘러내리는 순간 · 칫솔 2개 꽂은 버전 1컷 추가', acc=RF_GR, fs=F, dark=False)}
-        <div style="display:flex;gap:20mm">{shot('RF-03', 385, 300, 'toothbrush.jpg', '칫솔 헤드 매크로', '이중미세모/스파이럴모 2종 나란히', acc=RF_GR, fs=F*0.8, dark=False)}{shot('RF-04', 385, 300, 'floss.jpg', '칫솔형 치실', 'ㄱ자 헤드 + 리필 20개입', acc=RF_GR, fs=F*0.8, dark=False)}</div>""", 're.feeel 2/3', RF_GR)
+    feat = lambda n, t: f'<div style="display:flex;align-items:center;gap:22mm"><div style="width:100mm;height:100mm;border-radius:50%;background:{INK};color:{LIME};display:grid;place-items:center;font-size:80pt;font-weight:900;flex:none">{n}</div><div style="font-size:96pt;font-weight:900;color:{INK};line-height:1.15">{t}</div></div>'
+    rf2 = pg(LIME, f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:190mm;background:{CREAM};border-radius:50%;padding:6mm"><div style="font-size:64pt;font-weight:900;letter-spacing:.3em;color:{INK}">FLOSS</div></div>
+        <div><div style="font-size:250pt;font-weight:900;line-height:1.05;color:{INK}">어금니까지<br><span style="display:inline-block;margin-top:10mm;background:{INK};color:{LIME};padding:2mm 12mm 8mm;line-height:1.1">쏙쏙.</span></div>
+          <div style="font-size:100pt;font-weight:900;color:{INK};margin-top:18mm">칫솔형 치실 · 딥그린</div></div>
+        <div style="height:560mm;border-radius:28mm;background:url({A}floss-hand.jpg) center/cover"></div>
+        <div style="display:flex;flex-direction:column;gap:20mm">{feat('1','ㄱ자 헤드로 안쪽까지')}{feat('2','칫솔처럼 잡는 손잡이')}</div>""", 're.feeel 2/3', INK, bottom=TOP_B, lines=gl_rs)
     rf3 = pg(RF_GR, f"""<div><div style="font-size:90pt;font-weight:900;color:{RF_YL};letter-spacing:.04em">BATH SLIPPER</div>
           <div style="font-size:240pt;font-weight:900;line-height:1.05;color:{CREAM}">벽지가<br>욕실화가<br><span style="color:{RF_YL}">됐습니다.</span></div></div>
         {flow(['실크벽지', 'PVC<br>분리', '욕실화'], RF_YL, CREAM)}
