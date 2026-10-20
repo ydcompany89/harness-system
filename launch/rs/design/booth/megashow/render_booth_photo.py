@@ -1,10 +1,11 @@
-"""메가쇼 부스 실사형 시안 v3 — 통로에서 본 1점 투시.
+"""메가쇼 부스 실사형 시안 v4 (10/20) — 통로에서 본 1점 투시. 유리 쇼케이스·선반 제거, TV 측벽, 카운터 4대(KD-01) + X배너 4.
+인쇄물 이미지는 ART 폴더(최신 _art.html 캡처, 환경변수 BOOTH_ART)에서 읽음.
 불투명 집기(의자·TV)는 KDRS 카탈로그 실사진, 유리 쇼케이스·진열대·선반은 카탈로그 규격대로 직접 모델링 → 메가쇼_부스_실사시안.png"""
 import os
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 HERE = os.path.dirname(os.path.abspath(__file__)); KD = os.path.join(HERE, 'kd'); FP = os.path.join(HERE, '../../fair-print')
-A = lambda f: os.path.join(FP, 'assets', f); O = lambda f: os.path.join(FP, 'out', f)
+A = lambda f: os.path.join(FP, 'assets', f); ART = os.environ.get('BOOTH_ART', os.path.join(FP, 'out')); R = lambda f: os.path.join(ART, f)
 FONT = lambda w, s: ImageFont.truetype(os.path.join(FP, f'fonts/NotoSansKR-{w}.ttf'), s)
 INK, LIME, CREAM, GR, YL = (13, 13, 13), (198, 244, 50), (245, 242, 236), (31, 71, 44), (251, 216, 39)
 W, H = 2600, 1500
@@ -49,7 +50,7 @@ for X, col in ((-3000, (238, 238, 235)), (3000, (232, 233, 231))):
 poly([P(-3000, 0, 0), P(3000, 0, 0), P(3000, 0, 2500), P(-3000, 0, 2500)], (242, 242, 240))
 s0 = sc(0)
 for i in range(6):
-    ban = Image.open(O(f'08_banner_950x2380_x6_preview-{i+1}.png')).convert('RGBA')
+    ban = Image.open(R(f'banner-{i}.png')).convert('RGBA')
     x0, y0 = P(-3000 + i * 1000 + 25, 0, 2440)
     img.paste(ban.resize((int(950 * s0), int(2380 * s0)), Image.LANCZOS), (int(x0), int(y0)))
     dr.line([P(-3000 + i * 1000, 0, 0), P(-3000 + i * 1000, 0, 2500)], fill=(178, 180, 184), width=3)
@@ -57,14 +58,11 @@ for i in range(6):
     dr.rectangle([a, b - 3, c2, b + 1], fill=(35, 35, 35))
 dr.line([P(-3000, 0, 2500), P(3000, 0, 2500)], fill=(150, 152, 156), width=6)
 # 측벽 그래픽: 포맥스 사인 S1(RS 로고) / S2(re.feeel 씰) 와이어 걸이
-s1 = Image.open(O('10a_foamex_RS_logo_preview-1.png')).convert('RGBA')
-s1a = np.array(s1); bg = (np.abs(s1a[..., :3].astype(int) - np.array([119, 119, 119])).sum(2) < 30); s1a[bg, 3] = 0
-quad_paste(Image.fromarray(s1a), wall_quad(-2995, 1150, 2250, 1500, 2400))
-s2 = Image.open(O('10b_foamex_refeeel_seal_preview-1.png')).convert('RGBA')
-s2a = np.array(s2); bg = (np.abs(s2a[..., :3].astype(int) - np.array([119, 119, 119])).sum(2) < 30); s2a[bg, 3] = 0
-q = wall_quad(2995, 1250, 2200, 1500, 2400); quad_paste(Image.fromarray(s2a), [q[1], q[0], q[3], q[2]])
-for X, y0, y1 in ((-2995, 1150, 2250), (2995, 1250, 2200)):
-    for yy in (y0 + 120, y1 - 120): dr.line([P(X, yy, 2500), P(X, yy, 2400)], fill=(120, 120, 120), width=2)
+s1 = Image.open(R('s1.png')).convert('RGBA'); s2 = Image.open(R('s2.png')).convert('RGBA')
+q1 = wall_quad(-2995, 250, 1050, 1750, 2420); quad_paste(s1, [q1[1], q1[0], q1[3], q1[2]])
+q2 = wall_quad(2995, 250, 1000, 1750, 2420); quad_paste(s2, q2)
+for X, y0, y1 in ((-2995, 250, 1050), (2995, 250, 1000)):
+    for yy in (y0 + 120, y1 - 120): dr.line([P(X, yy, 2500), P(X, yy, 2420)], fill=(120, 120, 120), width=2)
 # 하이라이트 조명
 glow = Image.new('L', (W, H), 0); gd = ImageDraw.Draw(glow)
 for i in range(6):
@@ -163,82 +161,50 @@ def photo(name, X, y, h_mm, flip=False):
 
 WALK, INS = A('walking-cut.png'), A('insole-cut.png')
 SLP = [(60, 74, 90), (107, 90, 74), (125, 138, 125), (201, 193, 176)]
-# ── 배치 (뒤 → 앞) ──
-# 좌측벽: 신발 벽 선반 2
-wall_shelf(-3000, 1700, 1300, [lambda X, y, z: on_floor(WALK, X, y, z, 280, 230)] * 3)
-wall_shelf(-3000, 1700, 950, [lambda X, y, z: on_floor(INS, X, y, z, 280, 190)] * 3)
-# 우측벽: 욕실화 선반 3
+# ── 배치 v4 (뒤 → 앞) — 집기 겹침 최소화 ──
+SLP = [(160, 165, 170), (47, 90, 58), (237, 230, 211), (60, 74, 90)]
 def slipper(X, y, z, c=0):
     s = sc(y); a, b = P(X, y, z + 5); dr.ellipse([a - 110 * s, b - 38 * s, a + 110 * s, b + 6 * s], fill=SLP[c % 4] + (255,))
-for k, (yy, zz) in enumerate(((800, 1250), (1700, 1050), (2500, 1250))):
-    wall_shelf(3000, yy, zz, [lambda X, y, z, k=k, j=j: slipper(X, y, z, k + j) for j in range(3)])
-# 뒷벽 쪽
-showcase(-2450, 900, 900, 450, 2000, 380, [700, 1100, 1500], [(700, shoes_row([WALK], 2)), (1100, shoes_row([INS, INS], 2)), (1500, shoes_row([WALK], 2))])
-# 50" TV 스탠드 (카탈로그 규격 직접 모델링 — 화면: 밑창 그립 영상 스틸)
-def tv(Xc, y):
-    s = sc(y); bx, by = P(Xc, y, 0)
-    dr.ellipse([bx - 300 * s, by - 30 * s, bx + 300 * s, by + 30 * s], fill=(0, 0, 0, 70))
-    dr.rectangle([bx - 260 * s, by - 18 * s, bx + 260 * s, by], fill=(40, 40, 42))
-    dr.rectangle([bx - 30 * s, by - 1150 * s, bx + 30 * s, by - 18 * s], fill=(55, 55, 58))
-    tl = P(Xc - 560, y, 1820); br = P(Xc + 560, y, 1180)
-    dr.rectangle([tl[0], tl[1], br[0], br[1]], fill=(12, 12, 12))
-    scr = Image.open(A('outsole-lime.jpg')).convert('RGBA'); iw, ih = int(br[0] - tl[0] - 14 * s * 2), int(br[1] - tl[1] - 14 * s * 2)
-    r = max(iw / scr.width, ih / scr.height); scr = scr.resize((int(scr.width * r) + 1, int(scr.height * r) + 1), Image.LANCZOS)
-    scr = scr.crop(((scr.width - iw) // 2, (scr.height - ih) // 2, (scr.width - iw) // 2 + iw, (scr.height - ih) // 2 + ih))
-    img.alpha_composite(scr, (int(tl[0] + 14 * s), int(tl[1] + 14 * s)))
-    dr.polygon([(tl[0] + 20 * s, tl[1] + 20 * s), (tl[0] + 260 * s, tl[1] + 20 * s), (tl[0] + 80 * s, br[1] - 20 * s), (tl[0] + 20 * s, br[1] - 20 * s)], fill=(255, 255, 255, 30))
-tv(-1150, 420)
-showcase(1050, 900, 900, 450, 2000, 380, [700, 1100, 1500], [(700, boxes_row([(232, 224, 205), GR + (255,), (232, 224, 205)])), (1100, boxes_row([YL + (255,), (232, 224, 205), GR + (255,)])), (1500, boxes_row([(232, 224, 205), (60, 120, 200), (232, 224, 205)], 180))])
-showcase(2150, 950, 900, 450, 900, 380, [], [(380, boxes_row([(232, 224, 205), (60, 120, 200), GR + (255,), (232, 224, 205)], 120))])
-# 원장 코너: 1단 쇼케이스 + X배너 ③
-showcase(-350, 1650, 900, 450, 900, 520, [], [(520, shoes_row([INS, WALK], 2))])
+# TV — 좌측벽 걸이 (뒤쪽, 포맥스 사인 아래)
+tq = wall_quad(-2990, 250, 1150, 950, 1600); poly([tq[1], tq[0], tq[3], tq[2]], (14, 14, 14))
+sq = wall_quad(-2985, 290, 1110, 985, 1565)
+scr = Image.open(A('outsole-lime.jpg')).convert('RGBA'); quad_paste(scr, [sq[1], sq[0], sq[3], sq[2]])
+def counter_art(Xc, yf, w, d, front_png, side_png):
+    """KD-01 카운터 + 3면 폼보드(앞판 + 안쪽 옆판)"""
+    h = 750; x0, x1, yb = Xc - w / 2, Xc + w / 2, yf - d
+    shadow(x0, x1, yb, yf)
+    box(x0, x1, yb, yf, 0, h, INK, (36, 60, 160), (20, 20, 20))
+    poly([P(x0, yb, h), P(x1, yb, h), P(x1, yf, h), P(x0, yf, h)], (34, 70, 170))           # KD-01 블루 상판
+    if Xc < 0: quad_paste(Image.open(R(side_png)).convert('RGBA'), [P(x1, yf, h), P(x1, yb, h), P(x1, yb, 0), P(x1, yf, 0)])
+    else: quad_paste(Image.open(R(side_png)).convert('RGBA'), [P(x0, yb, h), P(x0, yf, h), P(x0, yf, 0), P(x0, yb, 0)])
+    a, b = P(x0, yf, h); c2, d2 = P(x1, yf, 0)
+    img.alpha_composite(Image.open(R(front_png)).convert('RGBA').resize((int(c2 - a), int(d2 - b)), Image.LANCZOS), (int(a), int(b)))
 def xban(path, X, y):
     s = sc(y); w, h = int(600 * s), int(1800 * s); bx, by = P(X, y, 0)
     dr.line([(bx - w * .45, by), (bx, by - h * .35)], fill=(90, 90, 90), width=3); dr.line([(bx + w * .45, by), (bx, by - h * .35)], fill=(90, 90, 90), width=3)
-    img.paste(Image.open(path).convert('RGBA').resize((w, h), Image.LANCZOS), (int(bx - w / 2), int(by - h - 30 * s)))
-xban(O('07b_xbanner_doctor_600x1800_preview-1.png'), 450, 1700)
-# 시착: 땅콩의자 3 + 전신거울(좌측벽 앞쪽)
-for xx in (-2450, -1950, -1450): photo('chair', xx, 1950, 820)
-mq = wall_quad(-2990, 2350, 2800, 300, 1900)
-poly(mq, (30, 30, 30)); m2 = wall_quad(-2985, 2380, 2770, 340, 1860); poly(m2, (205, 214, 220))
-dr.polygon([m2[0], (m2[0][0] + (m2[1][0] - m2[0][0]) * .4, m2[0][1] + (m2[1][1] - m2[0][1]) * .4), (m2[3][0] + (m2[2][0] - m2[3][0]) * .2, m2[3][1] + (m2[2][1] - m2[3][1]) * .2), m2[3]], fill=(255, 255, 255, 70))
-# 통로 쪽 X배너 2 (카운터 뒤)
-xban(O('07_xbanner_600x1800_preview-1.png'), -2650, 2750)
-xban(O('07_xbanner_600x1800_preview-2.png'), 2650, 2750)
-# 앞선 카운터 3
-def front_rs(b):
-    x, y, w, h = b; put(A('rs-lockup-lime.png'), (x + w * .07, y + h * .12, w * .2, h * .58))
-    dr.text((x + w * .33, y + h * .2), 'QUAD GRIP', font=FONT(900, int(h * .2)), fill=LIME)
-    dr.text((x + w * .33, y + h * .46), '종일편한 워킹화 · 아치가득 인솔', font=FONT(700, int(h * .1)), fill=(255, 255, 255))
-    dr.text((x + w * .33, y + h * .66), '직접 신어 보세요  230~280', font=FONT(400, int(h * .085)), fill=(190, 190, 190))
-def front_ev(b):
-    x, y, w, h = b
-    dr.text((x + w * .5, y + h * .3), '@re.feeel', font=FONT(900, int(h * .2)), fill=LIME, anchor='mm')
-    dr.text((x + w * .5, y + h * .55), '팔로우 → CXP 볼펜', font=FONT(700, int(h * .11)), fill=(255, 255, 255), anchor='mm')
-    dr.text((x + w * .5, y + h * .72), '스토리 태그 → 칫솔', font=FONT(700, int(h * .11)), fill=YL, anchor='mm')
-def front_rf(b):
-    x, y, w, h = b; put(A('refeeel-seal.png'), (x + w * .06, y + h * .1, w * .22, h * .62))
-    dr.text((x + w * .33, y + h * .2), '생활을 다시 채우다.', font=FONT(900, int(h * .14)), fill=CREAM)
-    dr.text((x + w * .33, y + h * .44), 'ORAL CARE · BATH SLIPPER', font=FONT(700, int(h * .09)), fill=YL)
-    dr.text((x + w * .33, y + h * .62), '나무에서 온 칫솔 · 벽지가 된 욕실화', font=FONT(400, int(h * .085)), fill=(220, 225, 215))
-counter(-1850, 2900, 1480, 600, 750, INK, front_rs)
-counter(0, 2900, 1100, 550, 750, INK, front_ev)
-counter(1850, 2900, 1480, 600, 750, GR, front_rf)
-# 카운터 위
-for X in (-2350, -1950): on_floor(WALK, X, 2600, 750, 300, 240)
-on_floor(INS, -1500, 2600, 750, 320, 200)
-box(-300, -100, 2550, 2700, 750, 840, (201, 163, 107), (220, 185, 130), (170, 135, 85))   # 볼펜 바구니
-box(80, 280, 2550, 2700, 750, 830, (233, 226, 208), (245, 240, 228), (205, 198, 182))     # 칫솔 바구니
-qa, qb = P(330, 2600, 750); s = sc(2600)
+    img.alpha_composite(Image.open(path).convert('RGBA').resize((w, h), Image.LANCZOS), (int(bx - w / 2), int(by - h - 30 * s)))
+# 안쪽 카운터 980 ×2 (뒤쪽 가운데 — 앞 카운터 사이 입구로 보임)
+counter_art(-520, 1000, 980, 600, 'cf980-rs.png', 'cs-rs.png')
+counter_art(520, 1000, 980, 600, 'cf980-rf.png', 'cs-rf.png')
+for X in (-800, -520, -240): on_floor(WALK, X, 750, 750, 230, 190)
+for k, X in enumerate((260, 520, 780)): box(X - 70, X + 70, 680, 820, 750, 860 + 40 * (k % 2), (232, 226, 210), (245, 240, 228), (205, 198, 182))
+# X배너 4 — 뒤 가운데 양옆: ③ 정형외과 자문 · ④ 이벤트 / 앞 모서리: ① 라라슈 · ② re.feeel
+xban(R('xb-dr.png'), -1500, 900); xban(R('xb-ev.png'), 1500, 900)
+# 앞선 카운터 1480 ×2 (가운데 입구 약 1.9m)
+counter_art(-1700, 2900, 1480, 600, 'cf1480-rs.png', 'cs-rs.png')
+counter_art(1700, 2900, 1480, 600, 'cf1480-rf.png', 'cs-rf.png')
+xban(R('xb-rs.png'), -2720, 2900); xban(R('xb-rf.png'), 2720, 2900)
+for X in (-2150, -1700, -1250): on_floor(WALK, X, 2600, 750, 300, 240)
+for k in range(3): slipper(1250 + k * 330, 2620, 750, k)
+qa, qb = P(2250, 2600, 750); s = sc(2600)
 dr.polygon([(qa, qb), (qa + 160 * s, qb), (qa + 140 * s, qb - 220 * s), (qa + 20 * s, qb - 220 * s)], fill=GR + (255,))
-for k in range(4): slipper(1250 + k * 330, 2620, 750, k)
 # 부스 간판 (기본부스 기둥형)
 sx, sy = P(3000, 3000, 2900); s = sc(3000)
 dr.rectangle([sx - 10, sy, sx + 260 * s, sy + 520 * s], fill=(28, 58, 140)); dr.rectangle([sx - 6, sy + 4, sx + 256 * s, sy + 120 * s], fill=(255, 255, 255))
 dr.text((sx + 125 * s, sy + 62 * s), '[부스번호]', font=FONT(900, int(48 * s)), fill=(28, 58, 140), anchor='mm')
 dr.text((sx + 125 * s, sy + 300 * s), '알앤디\n메이커스', font=FONT(900, int(56 * s)), fill=(255, 255, 255), anchor='mm', align='center')
 dr.rectangle([0, 0, W, 92], fill=(255, 255, 255, 240))
-dr.text((36, 18), '메가쇼 킨텍스 부스 실사 시안 v3 — 기본부스 2개 (6m × 3m)', font=FONT(900, 40), fill=INK)
-dr.text((W - 36, 30), 'KDRS 쇼케이스·진열대·선반 + 인쇄 스판 커버 · 벽: 족자봉 PET 6 + 포맥스 사인', font=FONT(700, 24), fill=(80, 80, 80), anchor='ra')
+dr.text((36, 18), '메가쇼 킨텍스 부스 시안 v4 — 기본부스 2개 (6m × 3m)', font=FONT(900, 40), fill=INK)
+dr.text((W - 36, 30), '카운터 KD-01 4대(3면 폼보드) · X배너 4 · 족자 6 · TV 측벽 · 유리 쇼케이스 없음', font=FONT(700, 24), fill=(80, 80, 80), anchor='ra')
 img = img.crop((0, 0, W, int(P(0, 3000, 0)[1] + 140))).convert('RGB')
-img.save(os.path.join(HERE, '메가쇼_부스_실사시안.png')); print('ok')
+img.save(os.environ.get('BOOTH_OUT', os.path.join(HERE, '메가쇼_부스_실사시안.png'))); print('ok')
