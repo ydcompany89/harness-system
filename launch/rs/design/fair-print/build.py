@@ -677,11 +677,13 @@ def banners_v4():
           <div style="font-size:100pt;font-weight:900;color:{INK};margin-top:18mm">칫솔형 치실 · 딥그린</div></div>
         <div style="height:560mm;border-radius:28mm;background:url({A}floss-hand.jpg) center/cover"></div>
         <div style="display:flex;flex-direction:column;gap:20mm">{feat('1','ㄱ자 헤드로 안쪽까지')}{feat('2','칫솔처럼 잡는 손잡이')}</div>""", 're.feeel 2/3', INK, bottom=TOP_B, lines=gl_rs)
-    rf3 = pg(RF_GR, f"""<div><div style="font-size:90pt;font-weight:900;color:{RF_YL};letter-spacing:.04em">BATH SLIPPER</div>
-          <div style="font-size:240pt;font-weight:900;line-height:1.05;color:{CREAM}">벽지가<br>욕실화가<br><span style="color:{RF_YL}">됐습니다.</span></div></div>
-        {flow(['실크벽지', 'PVC<br>분리', '욕실화'], RF_YL, CREAM)}
-        {shot('RF-05', 790, 760, 'slipper-quilt.jpg', '욕실화 — 젖은 타일 위 컬러 4종', '물기 있는 회색 타일 · 퀼트/발등낮은 스마일 욕실화 컬러별 대각선 배치 · 탑뷰', acc=RF_YL, fs=F)}
-        {ev_box4(F, RF_YL, INK, RF_DK)}""", 're.feeel 3/3', RF_YL)
+    flow_k = lambda steps: '<div style="display:flex;align-items:flex-start;justify-content:space-between">' + \
+        f'<div style="font-size:90pt;font-weight:900;color:{INK};margin-top:30mm">→</div>'.join(f'<div style="text-align:center;width:230mm"><div style="width:150mm;height:150mm;margin:0 auto;border-radius:50%;background:{INK};color:{LIME};display:flex;align-items:center;justify-content:center;font-size:90pt;font-weight:900">{i+1}</div><div style="font-size:76pt;font-weight:900;color:{INK};margin-top:8mm;line-height:1.15">{t}</div></div>' for i, t in enumerate(steps)) + '</div>'
+    rf3 = pg(LIME, f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:190mm;background:{CREAM};border-radius:50%;padding:6mm"><div style="font-size:64pt;font-weight:900;letter-spacing:.3em;color:{INK}">BATH SLIPPER</div></div>
+        <div style="font-size:220pt;font-weight:900;line-height:1.05;color:{INK}">벽지가<br>욕실화가<br><span style="display:inline-block;margin-top:10mm;background:{INK};color:{LIME};padding:2mm 12mm 8mm;line-height:1.1">됐습니다.</span></div>
+        {flow_k(['실크벽지', 'PVC 분리', '욕실화'])}
+        <div style="height:560mm;border-radius:28mm;background:url({A}slipper-wide.jpg) center/cover"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:96pt;font-weight:900;color:{INK};line-height:1.15">발등 낮은<br>와이드 욕실화</div>{ev_box4(F*0.75, INK, LIME, '#cfd9a8')}</div>""", 're.feeel 3/3', INK, bottom=TOP_B, lines=gl_rs)
     write('08_banner_950x2380_x6', (W, H), [rs1, rs2, rs3, rf1, rf2, rf3], '백월 족자 950×2380 ×6 v4 (라라슈 3 + re.feeel 3)')
 
 # ───────── X배너 600×1800 ×3 ─────────
