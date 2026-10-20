@@ -656,11 +656,21 @@ def banners_v4():
         <div><div style="font-size:110pt;font-weight:900;color:{LIME}">쿼드그립 아치가득 인솔</div><div style="font-size:40pt;color:#bdbdbd;line-height:1.45;margin-top:6mm">본 제품은 의료기기가 아닙니다. 신발 형태·재질에 따라 착용감이 다를 수 있습니다.</div></div>""", 'RS 3/3', LIME, bottom=TOP_B, lines=gl_rs)
     flow = lambda steps, acc, fg: '<div style="display:flex;align-items:center;justify-content:space-between">' + \
         f'<div style="font-size:90pt;font-weight:900;color:{acc}">→</div>'.join(f'<div style="text-align:center;width:230mm"><div style="width:180mm;height:180mm;margin:0 auto;border-radius:50%;background:{acc};color:{CREAM if acc==RF_GR else RF_GR};display:flex;align-items:center;justify-content:center;font-size:100pt;font-weight:900">{i+1}</div><div style="font-size:72pt;font-weight:900;color:{fg};margin-top:10mm;line-height:1.2">{s}</div></div>' for i, s in enumerate(steps)) + '</div>'
-    rf1 = pg(RF_GR, f"""<div style="display:flex;justify-content:space-between;align-items:flex-start"><img src="{A}refeeel-seal.png" style="width:330mm;background:{CREAM};border-radius:50%;padding:10mm"></div>
-        <div><div style="font-size:270pt;font-weight:900;line-height:1.05;color:{CREAM}">남은 것의<br><span style="color:{RF_YL}">다음 모양.</span></div>
-          <div style="font-size:90pt;font-weight:900;color:{CREAM};margin-top:20mm">생활을 다시 채우다.</div></div>
-        {shot('RF-01', 790, 900, 'cup-life.jpg', '라이프 — 욕실 선반 한 컷에 브랜드 전체', '화이트 타일 욕실 선반 · 양치컵(40° 기울여 세움) + 칫솔 + 치실 + 바닥에 스마일 욕실화 · 아침 햇빛', acc=RF_YL, fs=F)}
-        <div style="font-size:52pt;color:{CREAM};line-height:1.5">숲에서 솎아낸 나무, 벽에서 떼어 낸 벽지로<br>매일 쓰는 구강용품과 욕실화를 만듭니다.<br><b style="color:{RF_YL}">㈜알앤디메이커스 · 국내 제조</b></div>""", 're.feeel 1/3', RF_YL)
+    BLUE = '#1E5BD8'
+    def d2n_card(img, en, ko, line, chip_en, chip_ko, bg, fg, acc, chip_fg, photo_bg):
+        return f"""<div style="flex:1;background:{bg};border-radius:28mm;overflow:hidden;display:flex;flex-direction:column">
+          <div style="height:640mm;background:url({A}{img}) center/cover {photo_bg}"></div>
+          <div style="padding:22mm 24mm 28mm;display:flex;flex-direction:column;gap:10mm">
+            <div style="font-size:120pt;font-weight:900;line-height:1;color:{acc}">{en}<span style="font-size:70pt;color:{fg};margin-left:8mm">{ko}</span></div>
+            <div style="font-size:70pt;font-weight:900;line-height:1.2;color:{fg}">{line}</div>
+            <div style="align-self:flex-start;background:{acc};color:{chip_fg};border-radius:20mm;padding:5mm 12mm;font-size:44pt;font-weight:900">{chip_en} · {chip_ko}</div></div></div>"""
+    rf1 = pg(LIME, f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:190mm;background:{CREAM};border-radius:50%;padding:6mm"><div style="font-size:64pt;font-weight:900;letter-spacing:.3em;color:{INK}">DAY2NIGHT</div></div>
+        <div style="font-size:200pt;font-weight:900;line-height:1.08;color:{INK}">아침과 저녁,<br>양치의 목적은<br><span style="display:inline-block;margin-top:10mm;background:{INK};color:{LIME};padding:2mm 10mm 6mm;line-height:1.1">조금 다르니까.</span></div>
+        <div style="display:flex;gap:26mm">
+          {d2n_card('d2n-day.jpg', 'DAY', '아침', '산뜻하고<br>개운하게', 'BLUE SPIRAL', '스파이럴모', '#FFFFFF', INK, BLUE, '#fff', '#E9E4DC')}
+          {d2n_card('d2n-night.jpg', 'NIGHT', '저녁', '구석구석<br>꼼꼼하게', 'BLACK ULTRA FINE', '초미세모', INK, '#fff', LIME, INK, '#3A3026')}</div>
+        <div><div style="font-size:120pt;font-weight:900;color:{INK};line-height:1.15">하루 두 번, 다른 모로.</div>
+          <div style="font-size:56pt;font-weight:700;color:{INK};margin-top:6mm">re.feeel DAY2NIGHT 칫솔 2종 · 나무에서 온 CXP 손잡이 <span style="font-size:30pt;color:#4a5a12">· 이미지는 AI 연출</span></div></div>""", 're.feeel 1/3', INK, bottom=TOP_B, lines=gl_rs)
     rf2 = pg(CREAM, f"""<div><div style="font-size:90pt;font-weight:900;color:{RF_GR};letter-spacing:.04em">ORAL CARE</div>
           <div style="font-size:250pt;font-weight:900;line-height:1.05;color:{INK}">나무에서 온<br><span style="color:{RF_GR}">구강케어.</span></div></div>
         {flow(['숲 가꾸기<br>간벌재', 'CXP<br>소재', '칫솔·치실<br>양치컵'], RF_GR, INK)}
