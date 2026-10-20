@@ -698,12 +698,12 @@ def xbanners_v4():
           <div><div style="font-size:60pt;font-weight:900;line-height:1.2;color:{fg}">{name}</div>
           <div style="font-size:34pt;color:#9a9a9a;margin-top:3mm">정상가 {price}</div>
           <div style="font-size:42pt;font-weight:900;color:{acc};margin-top:2mm">현장가 ______원</div></div></div>"""
-    x1 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{lockup(90)}{dots(22, 14)}</div>
+    x1 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{lockup(90)}</div>
       <div style="font-size:190pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
-      <div style="display:flex;align-items:center;gap:14mm">{foot_map(150, labels=False)}<div style="font-size:58pt;font-weight:900;color:#fff;line-height:1.3">바닥에 닿는<br>길을 따라<br><span style="color:{LIME}">그립 패드 4곳</span></div></div>
+      <div style="display:flex;align-items:center;gap:20mm">{quadgrip_mark(190)}<div><div style="font-size:72pt;font-weight:900;color:{LIME};line-height:1">QUAD<br>GRIP</div><div style="font-size:50pt;font-weight:900;color:#fff;line-height:1.3;margin-top:8mm">바닥에 닿는<br>4곳</div></div></div>
       {prod('X1-A', 'walking-cut.png', '쿼드그립<br>종일편한 워킹화', '42,500원', LIME, '#fff', '워킹화 3/4 측면', '차콜 1족 · 밑창 살짝 보이게')}
       {prod('X1-B', 'insole-cut.png', '쿼드그립<br>아치가득 인솔', '21,500원', LIME, '#fff', '인솔 M·L', '그레이·모카무스 탑뷰')}
-      {ev_box4(F, LIME, INK, '#3d4a12')}""", 70, 1730, 50, W)
+      <div style="border:2mm solid {LIME};border-radius:12mm;padding:12mm 16mm;font-size:50pt;font-weight:900;color:#fff;line-height:1.35">정형외과 전문의<br><span style="color:{LIME}">이문홍 원장 설계 자문</span><div style="font-size:22pt;font-weight:400;color:#9a9a9a;margin-top:3mm">자문료를 받고 설계 자문에 참여했습니다 · 의료기기 아님</div></div>""", 70, 1730, 50, W)
     oc = lambda img, name, pos='center': f'<div style="flex:1;text-align:center"><div style="height:200mm;border-radius:12mm;background:url({A}{img}) {pos}/cover #f2f2f2"></div><div style="font-size:46pt;font-weight:900;color:{INK};margin-top:6mm;line-height:1.2">{name}</div></div>'
     x2 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:150mm"><div style="font-size:40pt;font-weight:900;color:{RF_GR};letter-spacing:.12em;text-align:right">ORAL<br>CARE</div></div>
       <div style="font-size:160pt;font-weight:900;line-height:1.1;color:{INK}">나무에서 온<br><span style="display:inline-block;margin-top:6mm;background:{RF_GR};color:#fff;padding:1mm 8mm 5mm;line-height:1.1">구강케어.</span></div>
