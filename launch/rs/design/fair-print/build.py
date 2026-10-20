@@ -667,10 +667,10 @@ def banners_v4():
     rf1 = pg(LIME, f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:190mm;background:{CREAM};border-radius:50%;padding:6mm"><div style="font-size:64pt;font-weight:900;letter-spacing:.3em;color:{INK}">DAY2NIGHT</div></div>
         <div style="font-size:200pt;font-weight:900;line-height:1.08;color:{INK}">아침과 저녁,<br>양치의 목적은<br><span style="display:inline-block;margin-top:10mm;background:{INK};color:{LIME};padding:2mm 10mm 6mm;line-height:1.1">조금 다르니까.</span></div>
         <div style="display:flex;gap:26mm">
-          {d2n_card('d2n-day.jpg', 'DAY', '아침', '산뜻하고<br>개운하게', 'BLUE SPIRAL', '스파이럴모', '#FFFFFF', INK, BLUE, '#fff', '#E9E4DC')}
-          {d2n_card('d2n-night.jpg', 'NIGHT', '저녁', '구석구석<br>꼼꼼하게', 'BLACK ULTRA FINE', '초미세모', INK, '#fff', LIME, INK, '#3A3026')}</div>
+          {d2n_card('d2n-day.jpg', 'DAY', '아침', '산뜻하고<br>개운하게', 'BLUE SPIRAL', '스파이럴모', '#FFFFFF', INK, BLUE, '#fff', '#F4F4F6')}
+          {d2n_card('d2n-night.jpg', 'NIGHT', '저녁', '구석구석<br>꼼꼼하게', 'BLACK ULTRA FINE', '초미세모', INK, '#fff', LIME, INK, '#F4F4F6')}</div>
         <div><div style="font-size:120pt;font-weight:900;color:{INK};line-height:1.15">하루 두 번, 다른 모로.</div>
-          <div style="font-size:56pt;font-weight:700;color:{INK};margin-top:6mm">re.feeel DAY2NIGHT 칫솔 2종 · 나무에서 온 CXP 손잡이 <span style="font-size:30pt;color:#4a5a12">· 이미지는 AI 연출</span></div></div>""", 're.feeel 1/3', INK, bottom=TOP_B, lines=gl_rs)
+          <div style="font-size:56pt;font-weight:700;color:{INK};margin-top:6mm">re.feeel DAY2NIGHT 칫솔 2종 · 나무에서 온 CXP 손잡이</div></div>""", 're.feeel 1/3', INK, bottom=TOP_B, lines=gl_rs)
     rf2 = pg(CREAM, f"""<div><div style="font-size:90pt;font-weight:900;color:{RF_GR};letter-spacing:.04em">ORAL CARE</div>
           <div style="font-size:250pt;font-weight:900;line-height:1.05;color:{INK}">나무에서 온<br><span style="color:{RF_GR}">구강케어.</span></div></div>
         {flow(['숲 가꾸기<br>간벌재', 'CXP<br>소재', '칫솔·치실<br>양치컵'], RF_GR, INK)}
