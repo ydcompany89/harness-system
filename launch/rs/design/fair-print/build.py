@@ -774,12 +774,16 @@ def leaflet_v4():
     EN = lambda c: f'font-size:6.6pt;line-height:1.45;color:{c}'
     o1, o2 = B + 97, B + 197
     i1, i2 = B + 100, B + 200
+    pic = lambda f, w, h, pos='center': f'<div style="width:{w}mm;height:{h}mm;border-radius:3mm;background:url({A}{f}) {pos}/cover;flex:none"></div>'
+    chip = lambda c, t, fg: f'<span style="display:inline-flex;align-items:center;gap:1.2mm;margin-right:2.5mm"><span style="width:3.2mm;height:3.2mm;border-radius:50%;background:{c};border:.3mm solid {fg}"></span>{t}</span>'
+    chk = lambda t, fg, acc: f'<div style="display:flex;align-items:center;gap:2mm;font-size:7.6pt;font-weight:900;color:{fg}"><span style="width:4mm;height:4mm;border-radius:50%;background:{acc};color:{INK};display:grid;place-items:center;font-size:5.5pt">✔</span>{t}</div>'
     flap = box(0, o1, RF_GR, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em;color:{RF_YL}">re.feeel · BATH SLIPPER</div>
         <div style="font-size:17pt;font-weight:900;line-height:1.15;color:{CREAM};margin-top:2mm">벽지가<br>욕실화가 <span style="color:{RF_YL}">됐습니다.</span></div>
         <div style="font-size:8pt;font-weight:700;color:{RF_YL};margin-top:1mm">Wallpaper became bath slippers.</div></div>
-      {shot('L-01', 78, 58, 'slipper-quilt.jpg', '욕실화 컬러 4종', '젖은 타일 탑뷰', acc=RF_YL, fs=0.28, r=3)}
-      <div style="font-size:7.8pt;line-height:1.6;color:{CREAM}">실크벽지에서 분리한 PVC를 다시 원료로.<br>물빠짐 구멍 · 바닥 패턴 · 국내 제조<br>전국 생활용품 매장 납품 중</div>
-      <div style="{EN('#b9c9bd')}">Made with PVC separated from silk wallpaper. Drain holes and a patterned sole. Made in Korea.</div>""")
+      {pic('slipper-wide.jpg', 78, 60)}
+      <div style="font-size:7.8pt;line-height:1.6;color:{CREAM}"><b style="color:{RF_YL};font-size:9pt">발등 낮은 와이드 욕실화</b><br>실크벽지에서 분리한 PVC를 다시 원료로.<br>물빠짐 구멍 · 국내 제조 · 전국 생활용품 매장 납품 중</div>
+      <div style="font-size:7.4pt;font-weight:700;color:{CREAM}">{chip('#B9BEC3','그레이',CREAM)}{chip('#2F5A3A','딥그린',CREAM)}{chip('#EDE6D3','크림',CREAM)}</div>
+      <div style="{EN('#b9c9bd')}">Low-instep wide bath slippers made with PVC separated from silk wallpaper. Made in Korea.</div>""")
     back = box(o1, 100, WHITE, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em">MAKER · 제조사</div>
         <div style="font-size:13pt;font-weight:900;margin-top:1mm">{CO["co"]}</div><div style="font-size:7.5pt;font-weight:700;color:{MUTE}">R&amp;D Makers Co., Ltd. · MADE IN KOREA</div>
         <div style="font-size:7.2pt;line-height:1.55;margin-top:2mm">버려지는 소재로 생활용품을 만드는 국내 제조사입니다.<br><span style="color:#555">A Korean maker turning discarded materials into everyday goods.</span></div></div>
@@ -787,35 +791,35 @@ def leaflet_v4():
       <div style="font-size:6.7pt;line-height:1.55;font-family:'Noto Sans JP',N"><b>日本語</b>　リサイクル素材で生活用品をつくる韓国のメーカーです。RhaRa Shoe は立ち仕事をする人のためのワーキングシューズとインソール。靴底のグリップパッドには廃タイヤゴムと壁紙由来の再生 PVC を使用。re.feeel は林業副産物を活用した CXP 素材のオーラルケア用品と再生 PVC のバススリッパ。すべて韓国製造。卸売・OEM/ODM のご相談を承ります。</div>
       <div style="display:flex;justify-content:space-between;align-items:center;border-top:.3mm solid {INK};padding-top:3mm"><div style="font-size:7.3pt;line-height:1.7">T  {CO["cs"]}<br>E  {CO["mail"]}<br>A  {CO["addr"]}<br>W  {CO["web"]} · IG {CO["ig"]}</div>{qr("flyer",22)}</div>
       <div style="background:{INK};color:#fff;border-radius:2mm;padding:2.5mm 3.5mm;font-size:7.2pt;font-weight:700;line-height:1.5">단체 구매 · 도매 · OEM/ODM 상담<br><span style="font-weight:400;color:{LIME}">Wholesale &amp; OEM/ODM inquiries welcome</span></div>""")
-    cover = box(o2, W - o2, INK, f"""<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:6.5pt;font-weight:700;letter-spacing:.2em;color:#9a9a9a">KR · EN · 中文 · 日本語</div><div style="font-size:6.5pt;font-weight:900;color:{LIME}">CATALOG 2026</div></div>
+    cover = box(o2, W - o2, INK, f"""<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:6.5pt;font-weight:700;letter-spacing:.2em;color:#9a9a9a">KR · EN · 中文 · 日本語</div><div style="font-size:6.5pt;font-weight:900;color:{LIME}">CATALOG</div></div>
       <div><div style="font-size:30pt;font-weight:900;line-height:1.05;color:#fff">남은 것의<br><span style="color:{LIME}">다음 모양.</span></div><div style="font-size:8.5pt;font-weight:700;color:#bdbdbd;margin-top:2mm">The next shape of what's left.</div></div>
-      {shot('L-02', 82, 62, 'walking-cut.png', '커버 — 워킹화 밑창 라임 4점 + 양치컵', '블랙 배경 · 두 브랜드 대표 제품 한 프레임', fs=0.3, r=3)}
-      <div style="display:flex;align-items:center;gap:6mm">{logo(17)}<img src="{A}refeeel-seal.png" style="height:22mm;background:{CREAM};border-radius:50%;padding:.8mm"></div>
+      <div style="display:flex;gap:3mm">{pic('walking-hero.jpg', 40, 62)}{pic('cup-life.jpg', 40, 62)}</div>
+      <div style="display:flex;align-items:center;gap:6mm">{lockup(15)}<img src="{A}refeeel-seal.png" style="height:22mm;background:{CREAM};border-radius:50%;padding:.8mm"></div>
       <div style="font-size:7.3pt;line-height:1.6;color:#fff"><b style="color:{LIME}">RhaRa Shoe 라라슈</b> 서서 일하는 사람의 워킹화·인솔<br><b style="color:{RF_YL}">re.feeel</b> 구강용품 · 욕실화<br><span style="color:#9a9a9a">{CO["co"]}</span></div>""")
     out = flap + back + cover
     walk = box(0, i1, INK, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em;color:{LIME}">RhaRa Shoe · 01 WALKING</div>
         <div style="font-size:16pt;font-weight:900;line-height:1.15;color:#fff;margin-top:1.5mm">쿼드그립<br><span style="color:{LIME}">종일편한 워킹화</span></div>
         <div style="font-size:7.5pt;font-weight:700;color:#bdbdbd">QUAD GRIP All-Day Walking Shoes · 42,500원</div></div>
-      <div style="display:flex;gap:4mm;align-items:center">{foot_map(30, labels=False)}<div><div style="font-size:30pt;font-weight:900;color:{LIME};line-height:1">60<span style="font-size:14pt">%</span></div>
-        <div style="font-size:7.3pt;color:#fff;line-height:1.45">서 있을 때 체중의 약 60%가<br>뒤꿈치에 실린다는 연구가 있습니다.</div><div style="font-size:5.5pt;color:#8a8a8a;margin-top:1mm">{CAV_NOTE}</div>
-        <div style="font-size:7.3pt;color:#fff;line-height:1.45;margin-top:2mm">→ 바닥에 닿는 길을 따라<br><b style="color:{LIME}">그립 패드 4곳</b></div></div></div>
-      <div style="display:flex;flex-direction:column;gap:1.8mm">{paper_cards(0.3, LIME)}</div>
-      <div style="font-size:5.5pt;color:#8a8a8a;line-height:1.4">{PAPER_NOTE}</div>
-      <div style="{EN('#bdbdbd')}">Grip pads at four points along the path your foot meets the floor. Pad pattern designed with reference to two Korean studies. One-piece footbed. 230–280mm · Charcoal / Gray / Mint White.</div>""")
+      <div style="display:flex;gap:4mm;align-items:center">{pic('walking-hero.jpg', 40, 52)}<div style="display:flex;flex-direction:column;gap:2mm">{foot_map(22, labels=False)}<div style="font-size:7.3pt;color:#fff;line-height:1.45">바닥에 닿는 길을 따라<br><b style="color:{LIME}">그립 패드 4곳</b></div></div></div>
+      <div style="display:flex;flex-direction:column;gap:1.8mm">{chk('디자인 등록 완료','#fff',LIME)}{chk('특허 2건 출원 완료','#fff',LIME)}{chk('미끄럼 저항 테스트 완료','#fff',LIME)}{chk('족저압력 테스트 완료','#fff',LIME)}</div>
+      <div style="border:.3mm solid {LIME};border-radius:2mm;padding:2mm 3mm;font-size:7.3pt;font-weight:700;color:#fff;line-height:1.5"><b style="color:{LIME}">정형외과 전문의 이문홍 원장 설계 자문</b><br><span style="font-size:5.5pt;color:#9a9a9a">자문료를 받고 설계 자문에 참여했습니다.</span></div>
+      <div style="font-size:7.4pt;font-weight:700;color:#fff">{chip('#3A3A3A','차콜','#fff')}{chip('#9A9EA2','그레이','#fff')}{chip('#EEF6F1','민트화이트','#fff')}<span style="color:#9a9a9a">230–280mm</span></div>
+      <div style="{EN('#bdbdbd')}">Grip pads at four points along the path your foot meets the floor. One-piece footbed. 230–280mm · Charcoal / Gray / Mint White.</div>""")
     ins = box(i1, 100, LIME, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em">RhaRa Shoe · 02 ARCH INSOLE</div>
         <div style="font-size:15pt;font-weight:900;line-height:1.15;margin-top:1.5mm">오후 4시, 발이 먼저<br>퇴근하고 싶을 때.</div>
         <div style="font-size:7.5pt;font-weight:700;color:#3d4a12">QUAD GRIP Arch Insole · 21,500원</div></div>
-      {shot('L-03', 82, 58, 'insole-cut.png', '인솔 M·L + 쓰던 깔창 겹침', '기존 깔창 밑에 반굽을 받친 단면 연출', acc=INK, fs=0.3, r=3)}
-      <div style="background:{INK};border-radius:2.5mm;padding:3.5mm 4mm;font-size:7.8pt;font-weight:700;line-height:1.75;color:#fff"><span style="color:{LIME}">01</span> 아치 아래 빈 공간, 가득<br><span style="color:{LIME}">02</span> 반굽 — 쓰던 깔창 밑에 한 장 더<br><span style="color:{LIME}">03</span> 우드칩 배합 소재 · M 15cm / L 17cm</div>
-      <div style="{EN('#2a3410')}">Fills the space under your arch. Half-length: slip it under the insole you already use. Not a medical device.</div>
-      <div style="font-size:5.8pt;color:#3d4a12;line-height:1.4">사출 특성상 ±5% · 신발 형태·재질에 따라 착용감이 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div>""")
+      {pic('insole-hero.jpg', 82, 50)}
+      <div style="background:{INK};border-radius:2.5mm;padding:3.5mm 4mm;font-size:7.6pt;font-weight:700;line-height:1.7;color:#fff"><span style="color:{LIME};font-weight:900">쿼드그립 4가지</span><br><span style="color:{LIME}">01</span> 아치 라인을 따라 쿠션 가득<br><span style="color:{LIME}">02</span> 뒤꿈치 링 컵<br><span style="color:{LIME}">03</span> 논슬립 패턴 윗면 · 아랫면<br><span style="color:{LIME}">04</span> 통기 구멍</div>
+      <div style="font-size:7.4pt;font-weight:700;line-height:1.6">반굽 — 쓰던 깔창 밑에 한 장 더<br>M 15cm · L 17cm · {chip('#9A9EA2','그레이',INK)}{chip('#B8977A','모카무스',INK)}</div>
+      <div style="font-size:5.8pt;color:#3d4a12;line-height:1.4">정형외과 전문의 이문홍 원장 설계 자문 · 사출 특성상 ±5% · 착용감은 신발에 따라 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div>""")
     oral = box(i2, W - i2, CREAM, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em;color:{RF_GR}">re.feeel · ORAL CARE</div>
         <div style="font-size:16pt;font-weight:900;line-height:1.15;margin-top:1.5mm">나무에서 온<br><span style="color:{RF_GR}">구강케어.</span></div>
         <div style="font-size:7.5pt;font-weight:700;color:{RF_GR}">Oral care from wood.</div></div>
-      {shot('L-04', 80, 58, 'cup-tilt.jpg', '양치컵 40° + 칫솔', '흰 배경 측면 · 물방울', acc=RF_GR, fs=0.3, r=3, dark=False)}
-      <div style="display:flex;justify-content:space-between;font-size:7pt;font-weight:900;color:{RF_GR};text-align:center">{'<span>→</span>'.join(f'<div><div style="width:15mm;height:15mm;border-radius:50%;background:{RF_GR};color:{CREAM};display:flex;align-items:center;justify-content:center;margin:0 auto 1mm;font-size:10pt">{i+1}</div>{t}</div>' for i, t in enumerate(['간벌재', 'CXP 소재', '칫솔·치실·컵']))}</div>
-      <div style="font-size:7.6pt;line-height:1.65"><b>칫솔</b> · <b>칫솔형 치실</b>(리필 20개입) · <b>양치컵</b><br>숲을 가꾸며 솎아낸 간벌재로 만든 CXP 소재<br>양치컵은 40° 기울여 세워 말리는 구조</div>
-      <div style="{EN('#555')}">Toothbrush, toothbrush-style floss and rinse cup made with CXP, a material using thinned wood from forest care.</div>""")
+      {pic('cup-life.jpg', 80, 48)}
+      <div style="display:flex;gap:2.5mm">{pic('d2n-pair.jpg', 25, 28)}{pic('floss-hand.jpg', 25, 28, '30% center')}{pic('cup-tilt.jpg', 25, 28)}</div>
+      <div style="font-size:7.4pt;line-height:1.6"><b>DAY2NIGHT 칫솔 2종</b> — 아침 블루 스파이럴모 · 저녁 블랙 초미세모<br><b>칫솔형 치실</b> — 어금니까지 쏙쏙 · 딥그린<br><b>양치컵</b> — 40° 기울여 세워 말리는 구조</div>
+      <div style="font-size:7pt;font-weight:900;color:{RF_GR}">숲 가꾸며 솎아낸 나무(간벌재) → CXP 소재</div>
+      <div style="{EN('#555')}">DAY2NIGHT toothbrushes, toothbrush-style floss and rinse cup made with CXP, a material using thinned wood from forest care.</div>""")
     write('06_leaflet_A4_3fold', (W, H), [(out, WHITE, lines(P)), (walk + ins + oral, WHITE, lines(Q))], '리플렛+다국어 카탈로그 A4 3단 C접지 v4')
 
 def shot_list():
