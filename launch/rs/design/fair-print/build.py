@@ -720,14 +720,14 @@ def xbanners_v4():
       <div style="display:flex;align-items:center;gap:12mm">{qr('refeeel-ig', 170)}<div style="font-size:30pt;color:#2f3a0c;line-height:1.5"><b style="font-size:46pt;color:{INK}">QR 찍고 바로 팔로우</b><br>직원에게 화면을 보여 주세요<br>1인 1회 · 꽝 있음 · 준비 수량 소진 시 종료</div></div>""", 70, 1730, 50, W)
     write('07c_xbanner_event_600x1800', (W, H), [(xe, LIME, gl)], 'X배너 600×1800 — 인스타 이벤트 전용 (re.feeel)')
     write('07_xbanner_600x1800', (W, H), [(x1, INK, gl), (x2, RF_GR, gl)], 'X배너 600×1800 v4 ①라라슈 ②re.feeel (③정형외과 = 07b)')
-    x3 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{logo(70)}<div style="font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.08em">DESIGN ADVISORY</div></div>
-      <div style="font-size:112pt;font-weight:900;line-height:1.15;color:#fff">서서 일하는 발,<br><span style="color:{LIME}">정형외과 전문의와</span><br>함께 살폈습니다.</div>
-      {shot('X3-A', 500, 560, '', '원장님 상반신 (10/28 촬영 D4)', '흰 가운 · 회색 배경 · 손에 워킹화 밑창을 들고 라임 4점을 가리키는 포즈 · 정면 미소', fs=1.6)}
-      <div><div style="font-size:90pt;font-weight:900;color:#fff">이문홍 원장</div><div style="font-size:42pt;font-weight:700;color:{LIME};margin-top:3mm">정형외과 전문의 · 이문홍정형외과</div></div>
-      <div style="border-left:5mm solid {LIME};padding-left:14mm;font-size:46pt;line-height:1.5;color:#fff">“[원장님 확정 인용 문구]”<br><span style="color:#8a8a8a;font-size:32pt">예) 발이 바닥에 닿는 순서를 기준으로 패드 위치를 함께 검토했습니다.</span></div>
-      <div style="display:flex;gap:16mm;align-items:center;background:#1b1b1b;border-radius:14mm;padding:18mm 20mm">{foot_map(110, labels=False)}
-        <div style="font-size:40pt;line-height:1.6;color:#fff"><b style="color:{LIME}">자문 범위 — 형태와 착용 방식</b><br>① 쿼드그립 4점 패드 배치<br>② 아치가득 인솔 형태 · 뒤꿈치 컵<br>③ 기존 깔창 밑에 겹쳐 쓰는 방식</div></div>
-      <div style="font-size:26pt;color:#8a8a8a;line-height:1.5">이문홍 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.<br>본 제품은 의료기기가 아닙니다. 부스에서는 발 상담·진단을 하지 않습니다.</div>""", 70, 1730, 50, W)
+    prodc = lambda img, name: f'<div style="flex:1;background:#1b1b1b;border-radius:14mm;padding:10mm 8mm 12mm;text-align:center"><div style="height:190mm;border-radius:8mm;background:url({A}{img}) center/cover"></div><div style="font-size:50pt;font-weight:900;color:#fff;line-height:1.2;margin-top:6mm">{name}</div></div>'
+    x3 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{lockup(64)}<div style="font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.08em;text-align:right">DESIGN<br>ADVISORY</div></div>
+      <div style="font-size:150pt;font-weight:900;line-height:1.1;color:#fff">정형외과<br>전문의 자문으로<br><span style="color:{LIME}">탄생했습니다.</span></div>
+      <div style="display:flex;gap:16mm;align-items:center">{shot('X3-A', 230, 300, '', '원장님 상반신', '흰 가운 · 회색 배경 · 워킹화 밑창 들고 정면 (10/28 촬영)', fs=1.0)}
+        <div><div style="font-size:96pt;font-weight:900;color:#fff;line-height:1.1">이문홍<br>원장</div><div style="font-size:40pt;font-weight:700;color:{LIME};margin-top:6mm;line-height:1.35">정형외과 전문의<br>이문홍정형외과</div></div></div>
+      <div style="display:flex;gap:10mm">{prodc('walking-hero.jpg', '쿼드그립<br>워킹화')}{prodc('insole-hero.jpg', '쿼드그립<br>아치가득 인솔')}</div>
+      <div style="font-size:54pt;font-weight:900;line-height:1.45;color:#fff"><span style="color:{LIME}">자문 범위</span><br>워킹화 그립 패드 4점 배치<br>인솔 아치 형태 · 뒤꿈치 컵</div>
+      <div style="font-size:26pt;color:#8a8a8a;line-height:1.5">이문홍 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.<br>본 제품은 의료기기가 아닙니다. 부스에서는 발 상담·진단을 하지 않습니다. 제품 이미지는 AI 연출.</div>""", 70, 1730, 50, W)
     write('07b_xbanner_doctor_600x1800', (W, H), [(x3, INK, gl)], 'X배너 600×1800 v4 — 정형외과 전문의 설계 자문')
 
 # ───────── POP A4 ×3 ─────────
