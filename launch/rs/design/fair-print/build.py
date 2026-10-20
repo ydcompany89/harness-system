@@ -704,13 +704,12 @@ def xbanners_v4():
       {prod('X1-A', 'walking-cut.png', '쿼드그립<br>종일편한 워킹화', '42,500원', LIME, '#fff', '워킹화 3/4 측면', '차콜 1족 · 밑창 살짝 보이게')}
       {prod('X1-B', 'insole-cut.png', '쿼드그립<br>아치가득 인솔', '21,500원', LIME, '#fff', '인솔 M·L', '그레이·모카무스 탑뷰')}
       {ev_box4(F, LIME, INK, '#3d4a12')}""", 70, 1730, 50, W)
-    x2 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:170mm;background:{CREAM};border-radius:50%;padding:5mm"><div style="font-size:30pt;font-weight:900;color:{RF_YL};text-align:right">REFILL<br>YOUR DAY</div></div>
-      <div style="font-size:150pt;font-weight:900;line-height:1.08;color:{CREAM}">생활을<br><span style="color:{RF_YL}">다시<br>채우다.</span></div>
-      {shot('X2-A', 500, 470, 'cup-life.jpg', '욕실 선반 라이프컷', '양치컵(40°) + 칫솔 + 치실 + 스마일 욕실화 한 프레임', acc=RF_YL, fs=1.6)}
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10mm;font-size:46pt;font-weight:900;color:{CREAM}">
-        <div><span style="color:{RF_YL}">ORAL CARE</span><br><span style="font-size:36pt;font-weight:400">나무(간벌재)에서 온<br>CXP 칫솔·치실·양치컵</span></div>
-        <div><span style="color:{RF_YL}">BATH SLIPPER</span><br><span style="font-size:36pt;font-weight:400">실크벽지 PVC를<br>다시 원료로</span></div></div>
-      {ev_box4(F, RF_YL, INK, RF_DK)}""", 70, 1730, 50, W)
+    oc = lambda img, name, pos='center': f'<div style="flex:1;text-align:center"><div style="height:200mm;border-radius:12mm;background:url({A}{img}) {pos}/cover #f2f2f2"></div><div style="font-size:46pt;font-weight:900;color:{INK};margin-top:6mm;line-height:1.2">{name}</div></div>'
+    x2 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:150mm"><div style="font-size:40pt;font-weight:900;color:{RF_GR};letter-spacing:.12em;text-align:right">ORAL<br>CARE</div></div>
+      <div style="font-size:160pt;font-weight:900;line-height:1.1;color:{INK}">나무에서 온<br><span style="display:inline-block;margin-top:6mm;background:{RF_GR};color:#fff;padding:1mm 8mm 5mm;line-height:1.1">구강케어.</span></div>
+      <div style="height:470mm;border-radius:16mm;background:url({A}cup-life.jpg) center/cover"></div>
+      <div style="display:flex;gap:8mm">{oc('d2n-pair.jpg', '칫솔 2종')}{oc('floss-hand.jpg', '칫솔형<br>치실', '30% center')}{oc('cup-tilt.jpg', '양치컵')}</div>
+      <div style="font-size:50pt;font-weight:900;color:{INK};line-height:1.4">숲 가꾸며 솎아낸 나무(간벌재)<br><span style="color:{RF_GR}">→ CXP 소재로 만들었습니다</span></div>""", 70, 1730, 50, W)
     # 인스타 이벤트 전용 X배너 (대표 10/20: 족자에서 이벤트 빼고 X배너로)
     xe = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:140mm;background:{CREAM};border-radius:50%;padding:5mm"><div style="font-size:40pt;font-weight:900;color:{INK};letter-spacing:.12em;text-align:right">INSTAGRAM<br>EVENT</div></div>
       <div style="font-size:165pt;font-weight:900;line-height:1.08;color:{INK}">룰렛 돌리고<br><span style="display:inline-block;margin-top:6mm;background:{INK};color:{LIME};padding:1mm 8mm 5mm;line-height:1.1">선물 받기!</span></div>
@@ -719,7 +718,7 @@ def xbanners_v4():
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm;text-align:center"><div style="background:#fff;border:2.5mm solid {INK};border-radius:10mm;padding:6mm 2mm"><div style="font-size:40pt;font-weight:900;color:{INK}">1등</div><div style="font-size:48pt;font-weight:900;color:{INK}">치실</div></div><div style="background:#fff;border:2.5mm solid {INK};border-radius:10mm;padding:6mm 2mm"><div style="font-size:40pt;font-weight:900;color:{INK}">2등</div><div style="font-size:48pt;font-weight:900;color:{INK}">칫솔</div></div><div style="background:#fff;border:2.5mm solid {INK};border-radius:10mm;padding:6mm 2mm"><div style="font-size:40pt;font-weight:900;color:{INK}">3등</div><div style="font-size:48pt;font-weight:900;color:{INK}">CXP 볼펜</div></div></div>
       <div style="display:flex;align-items:center;gap:12mm">{qr('refeeel-ig', 170)}<div style="font-size:30pt;color:#2f3a0c;line-height:1.5"><b style="font-size:46pt;color:{INK}">QR 찍고 바로 팔로우</b><br>직원에게 화면을 보여 주세요<br>1인 1회 · 꽝 있음 · 준비 수량 소진 시 종료</div></div>""", 70, 1730, 50, W)
     write('07c_xbanner_event_600x1800', (W, H), [(xe, LIME, gl)], 'X배너 600×1800 — 인스타 이벤트 전용 (re.feeel)')
-    write('07_xbanner_600x1800', (W, H), [(x1, INK, gl), (x2, RF_GR, gl)], 'X배너 600×1800 v4 ①라라슈 ②re.feeel (③정형외과 = 07b)')
+    write('07_xbanner_600x1800', (W, H), [(x1, INK, gl), (x2, '#FFFFFF', gl)], 'X배너 600×1800 v4 ①라라슈 ②re.feeel (③정형외과 = 07b)')
     prodc = lambda img, name: f'<div style="flex:1;background:#1b1b1b;border-radius:14mm;padding:10mm 8mm 12mm;text-align:center"><div style="height:190mm;border-radius:8mm;background:url({A}{img}) center/cover"></div><div style="font-size:50pt;font-weight:900;color:#fff;line-height:1.2;margin-top:6mm">{name}</div></div>'
     x3 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{lockup(64)}<div style="font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.08em;text-align:right">DESIGN<br>ADVISORY</div></div>
       <div style="font-size:150pt;font-weight:900;line-height:1.1;color:#fff">정형외과<br>전문의 자문으로<br><span style="color:{LIME}">탄생했습니다.</span></div>
