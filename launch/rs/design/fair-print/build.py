@@ -941,14 +941,14 @@ def card_v5():
     write('01_namecard_v5', (W, H), [(front, INK, tr), (back, WHITE, tr)], '명함 1종 v5 (90×50 · 엑스트라 린넨 250g 양면)')
 
 # ───────── 제품 네임택 1종 (100×70 · 아크릴 L자 꽂이 · 품목별 내용 교체) ─────────
-NAMETAGS = [
- ('rs', '쿼드그립 종일편한 워킹화', 'QUAD GRIP All-Day Walking Shoes', '바닥에 닿는 길을 따라 그립 패드 4곳 · 깔창 없는 일체형', '230~280 · 차콜/그레이/민트화이트', '42,500원'),
- ('rs', '쿼드그립 아치가득 인솔', 'QUAD GRIP Arch Insole', '쓰던 깔창 밑에 한 장 더 · 반굽 M 15cm / L 17cm', '그레이 / 모카무스 · 의료기기 아님', '21,500원'),
- ('rf', "나이스샷 '왕모' 칫솔", 'CXP Toothbrush', '간벌재 기반 CXP 핸들 · 이중미세모 / 스파이럴모', '6개입', '____원'),
- ('rf', '어금니까지 쏙쏙 칫솔형 치실', 'Toothbrush-style Floss', 'ㄱ자 헤드 · 칫솔처럼 쥐는 손잡이 · 리필 교체형', '핸들 + 리필 20개입', '4,900원'),
+NAMETAGS = [   # 10/20 갱신: 확정 컬러·구조·제품명 반영
+ ('rs', '쿼드그립 종일편한 워킹화', 'QUAD GRIP All-Day Walking Shoes', '바닥에 닿는 4곳 쿼드그립 · 깔창 없는 일체형<br>정형외과 전문의 설계 자문', '230~280 · 차콜 / 그레이 / 민트화이트', '42,500원'),
+ ('rs', '쿼드그립 아치가득 인솔', 'QUAD GRIP Arch Insole', '아치 쿠션 · 뒤꿈치 링 컵 · 논슬립 패턴 · 통기 구멍<br>쓰던 깔창 밑에 한 장 더 (반굽)', 'M 15cm / L 17cm · 그레이 / 모카무스 · 의료기기 아님', '21,500원'),
+ ('rf', 'DAY2NIGHT 칫솔', 'DAY2NIGHT Toothbrush', '아침 블루 스파이럴모 · 저녁 블랙 초미세모<br>나무에서 온 CXP 손잡이', '블루 · 블랙 2종', '____원'),
+ ('rf', '어금니까지 쏙쏙 칫솔형 치실', 'Toothbrush-style Floss', 'ㄱ자 헤드로 어금니까지 · 칫솔처럼 쥐는 손잡이', '딥그린 · CXP 소재', '4,900원'),
  ('rf', '40° 기울여 말리는 양치컵', 'CXP Rinse Cup', '기울여 세워 말리는 구조 · CXP 소재', '110g · 국내 제조', '____원'),
- ('rf', '퀼트패턴 스마일 욕실화', 'Quilt Smile Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로', '275mm · 차콜/네이비', '3,900원'),
- ('rf', '발등낮은 스마일 욕실화', 'Low-top Smile Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로', '컬러는 매대에서 확인', '____원'),
+ ('rf', '퀼트패턴 스마일 욕실화', 'Quilt Smile Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로', '275mm · 차콜 / 네이비', '3,900원'),
+ ('rf', '발등 낮은 와이드 욕실화', 'Low-instep Wide Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로 · 물빠짐 구멍', '그레이 / 딥그린 / 크림', '____원'),
 ]
 def nametags_v5():
     B, W, H = 2, 104, 74
@@ -963,7 +963,7 @@ def nametags_v5():
           <div class="abs" style="right:8mm;top:9mm;font-size:6pt;font-weight:900;letter-spacing:.1em;color:{acc}">{'RhaRa Shoe' if dark else 're.feeel'}</div>
           <div class="abs" style="left:8mm;top:21mm;width:88mm;font-size:13pt;font-weight:900;line-height:1.2;color:{fg}">{ko}</div>
           <div class="abs" style="left:8mm;top:29.5mm;font-size:6.3pt;font-weight:700;color:{acc}">{en}</div>
-          <div class="abs" style="left:8mm;top:35mm;width:88mm;font-size:6.6pt;line-height:1.45;color:{fg}">{pt}<br><span style="color:{sub}">{opt}</span></div>
+          <div class="abs" style="left:8mm;top:34mm;width:88mm;font-size:6.4pt;line-height:1.45;color:{fg}">{pt}<br><span style="color:{sub}">{opt}</span></div>
           <div class="abs" style="right:8mm;top:45.5mm;font-size:14pt;font-weight:900;color:{fg if not dark else LIME}">{price}</div>'''
         pages.append((body, bg, tr))
     write('11_nametag_100x70', (W, H), pages, f'제품 네임택 1종 100×70 (내용 {len(pages)}종) — 아크릴 L자 꽂이')
