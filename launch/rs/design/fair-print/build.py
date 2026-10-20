@@ -1011,10 +1011,14 @@ def bag_v5():
     body += f'<div class="abs" style="left:{x[1]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{LIME}"></div><div class="abs" style="left:{x[3]}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{RF_YL}"></div>'
     for sx, t in ((x[1], 'Made for Standing.'), (x[3], 'REFILL YOUR DAY · @re.feeel')):
         body += f'<div class="abs" style="left:{sx+Dp/2}mm;top:{yT+Hp/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:20pt;font-weight:900;white-space:nowrap;color:{INK if t.startswith("Made") else RF_GR}">{t}</div>'
-    body += f'''<div class="abs" style="left:{x[0]+26}mm;top:{yT+38}mm">{lockup(42)}</div>
-      <div class="abs" style="left:{x[0]+26}mm;top:{yT+110}mm;font-size:46pt;font-weight:900;line-height:1.02;color:{LIME}">Made<br>for<br>Standing.</div>
-      <div class="abs" style="left:{x[0]+26}mm;top:{yT+235}mm">{foot_map(30, labels=False)}</div>
-      <div class="abs" style="left:{x[0]+70}mm;top:{yT+250}mm;font-size:12pt;font-weight:700;color:#fff;line-height:1.5">서서 일하는 사람의 신발<br><span style="color:{LIME}">RhaRa Shoe 라라슈</span></div>
+    # 앞면 = 쿼드그립 주인공 (대표 10/20): 오른쪽 큰 밑창 4점 + 왼쪽 QUAD GRIP
+    body += f'''<div class="abs" style="left:{x[0]+22}mm;top:{yT+26}mm">{lockup(34)}</div>
+      <div class="abs" style="left:{x[0]+22}mm;top:{yT+100}mm;font-size:64pt;font-weight:900;line-height:.95;color:{LIME};letter-spacing:.01em">QUAD<br>GRIP</div>
+      <div class="abs" style="left:{x[0]+22}mm;top:{yT+168}mm;font-size:15pt;font-weight:900;line-height:1.45;color:#fff">바닥에 닿는 길을 따라<br><span style="color:{LIME}">그립 패드 4곳</span></div>
+      <div class="abs" style="left:{x[0]+22}mm;top:{yT+212}mm;display:flex;flex-direction:column;gap:2.5mm;font-size:10pt;font-weight:700;color:#cfcfcf;line-height:1.3">{''.join(f'<div><b style="color:{LIME}">{n}</b> {t}</div>' for n, t in [('①','뒤꿈치 중앙'),('②','뒤꿈치 앞 바깥쪽'),('③','발볼 바깥쪽'),('④','엄지 발볼')])}</div>
+      <div class="abs" style="left:{x[0]+22}mm;top:{yT+286}mm;font-size:20pt;font-weight:900;color:#fff">Made for Standing.</div>
+      <div class="abs" style="left:{x[0]+142}mm;top:{yT+40}mm">{foot_map(92, labels=False)}</div>'''
+    body += f'''
       <img class="abs" src="{A}refeeel-seal.png" style="left:{x[2]+26}mm;top:{yT+34}mm;width:80mm;background:{CREAM};border-radius:50%;padding:3mm">
       <div class="abs" style="left:{x[2]+26}mm;top:{yT+135}mm;font-size:36pt;font-weight:900;line-height:1.1;color:{CREAM}">남은 것의<br><span style="color:{RF_YL}">다음 모양.</span></div>
       <div class="abs" style="left:{x[2]+26}mm;top:{yT+232}mm;font-size:11pt;line-height:1.6;color:{CREAM}">나무에서 온 구강케어 · 벽지가 된 욕실화<br><b style="color:{RF_YL}">@re.feeel</b>  ·  {CO["co"]}</div>
