@@ -683,7 +683,8 @@ def banners_v4():
         <div style="font-size:220pt;font-weight:900;line-height:1.05;color:{INK}">벽지가<br>욕실화가<br><span style="display:inline-block;margin-top:10mm;background:{INK};color:{LIME};padding:2mm 12mm 8mm;line-height:1.1">됐습니다.</span></div>
         {flow_k(['실크벽지', 'PVC 분리', '욕실화'])}
         <div style="height:560mm;border-radius:28mm;background:url({A}slipper-wide.jpg) center/cover"></div>
-        <div style="display:flex;justify-content:space-between;align-items:flex-end"><div style="font-size:96pt;font-weight:900;color:{INK};line-height:1.15">발등 낮은<br>와이드 욕실화</div>{ev_box4(F*0.75, INK, LIME, '#cfd9a8')}</div>""", 're.feeel 3/3', INK, bottom=TOP_B, lines=gl_rs)
+        <div><div style="font-size:120pt;font-weight:900;color:{INK};line-height:1.15">발등 낮은 와이드 욕실화</div>
+          <div style="display:flex;gap:30mm;margin-top:16mm"><div style="display:flex;align-items:center;gap:8mm"><div style="width:60mm;height:60mm;border-radius:50%;background:#B9BEC3;border:3mm solid {INK}"></div><div style="font-size:64pt;font-weight:900;color:{INK}">그레이</div></div><div style="display:flex;align-items:center;gap:8mm"><div style="width:60mm;height:60mm;border-radius:50%;background:#2F5A3A;border:3mm solid {INK}"></div><div style="font-size:64pt;font-weight:900;color:{INK}">딥그린</div></div><div style="display:flex;align-items:center;gap:8mm"><div style="width:60mm;height:60mm;border-radius:50%;background:#EDE6D3;border:3mm solid {INK}"></div><div style="font-size:64pt;font-weight:900;color:{INK}">크림</div></div></div></div>""", 're.feeel 3/3', INK, bottom=TOP_B, lines=gl_rs)
     write('08_banner_950x2380_x6', (W, H), [rs1, rs2, rs3, rf1, rf2, rf3], '백월 족자 950×2380 ×6 v4 (라라슈 3 + re.feeel 3)')
 
 # ───────── X배너 600×1800 ×3 ─────────
@@ -710,6 +711,13 @@ def xbanners_v4():
         <div><span style="color:{RF_YL}">ORAL CARE</span><br><span style="font-size:36pt;font-weight:400">나무(간벌재)에서 온<br>CXP 칫솔·치실·양치컵</span></div>
         <div><span style="color:{RF_YL}">BATH SLIPPER</span><br><span style="font-size:36pt;font-weight:400">실크벽지 PVC를<br>다시 원료로</span></div></div>
       {ev_box4(F, RF_YL, INK, RF_DK)}""", 70, 1730, 50, W)
+    # 인스타 이벤트 전용 X배너 (대표 10/20: 족자에서 이벤트 빼고 X배너로)
+    xe = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><img src="{A}refeeel-seal.png" style="width:150mm;background:{CREAM};border-radius:50%;padding:5mm"><div style="font-size:40pt;font-weight:900;color:{INK};letter-spacing:.12em;text-align:right">INSTAGRAM<br>EVENT</div></div>
+      <div style="font-size:185pt;font-weight:900;line-height:1.08;color:{INK}">팔로우하면<br><span style="display:inline-block;margin-top:6mm;background:{INK};color:{LIME};padding:1mm 8mm 5mm;line-height:1.1">선물 드려요.</span></div>
+      <div style="display:flex;flex-direction:column;gap:10mm"><div style="background:{INK};border-radius:16mm;padding:18mm 20mm;display:flex;flex-direction:column;gap:8mm"><div style="font-size:44pt;font-weight:900;color:{LIME};letter-spacing:.1em">STEP 1</div><div style="font-size:80pt;font-weight:900;color:#fff;line-height:1.2">@re.feeel 팔로우</div><div style="font-size:90pt;font-weight:900;color:{LIME}">→ CXP 볼펜</div></div><div style="background:{INK};border-radius:16mm;padding:18mm 20mm;display:flex;flex-direction:column;gap:8mm"><div style="font-size:44pt;font-weight:900;color:{LIME};letter-spacing:.1em">STEP 2</div><div style="font-size:80pt;font-weight:900;color:#fff;line-height:1.2">부스 사진 스토리에<br>@re.feeel 태그</div><div style="font-size:90pt;font-weight:900;color:{LIME}">→ 칫솔</div></div></div>
+      <div style="display:flex;align-items:center;gap:14mm">{qr('refeeel-ig', 260)}<div style="font-size:70pt;font-weight:900;color:{INK};line-height:1.25">QR 찍고<br>바로 팔로우</div></div>
+      <div style="font-size:36pt;color:#2f3a0c;line-height:1.5">직원에게 화면을 보여 주세요 · 1인 1회 · 준비 수량 소진 시 종료<br>스토리엔 #이벤트참여 해시태그를 함께 달아 주세요</div>""", 70, 1730, 50, W)
+    write('07c_xbanner_event_600x1800', (W, H), [(xe, LIME, gl)], 'X배너 600×1800 — 인스타 이벤트 전용 (re.feeel)')
     write('07_xbanner_600x1800', (W, H), [(x1, INK, gl), (x2, RF_GR, gl)], 'X배너 600×1800 v4 ①라라슈 ②re.feeel (③정형외과 = 07b)')
     x3 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{logo(70)}<div style="font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.08em">DESIGN ADVISORY</div></div>
       <div style="font-size:112pt;font-weight:900;line-height:1.15;color:#fff">서서 일하는 발,<br><span style="color:{LIME}">정형외과 전문의와</span><br>함께 살폈습니다.</div>
