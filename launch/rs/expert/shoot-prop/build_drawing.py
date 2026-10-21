@@ -77,6 +77,6 @@ g.append(f'<text x="15" y="283" font-size="2.6" fill="#7a8599">배치 검토용 
 svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 297" width="420mm" height="297mm" font-family="Noto Sans KR, sans-serif">'
        f'<defs><marker id="a" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0,2 L8,5 L0,8 z" fill="{INK}"/></marker></defs>'
        f'<rect width="420" height="297" fill="#fdfdfb"/>' + ''.join(g) + '</svg>')
-open('drawing.html', 'w').write('<!doctype html><html><head><meta charset="utf-8"><style>@page{size:420mm 297mm;margin:0}html,body{margin:0}</style>'
+open('drawing.html', 'w').write('<!doctype html><html><head><meta charset="utf-8"><style>@page{size:420mm 297mm;margin:0}html,body{margin:0;overflow:hidden;height:297mm}svg{display:block}</style>'
     '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet"></head><body>' + svg + '</body></html>')
 print('ok')
