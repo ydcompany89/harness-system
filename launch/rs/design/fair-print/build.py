@@ -1023,25 +1023,24 @@ def bag_v5():
     holes = ''.join(f'<circle class="cut" cx="{cx}" cy="{cy}" r="2.5"/>' for cx in (x[0] + Wp / 2 - 50, x[0] + Wp / 2 + 50, x[2] + Wp / 2 - 50, x[2] + Wp / 2 + 50) for cy in (yT + 25, yT - 25))
     lines = cut + fold + holes + f'<text class="lbl" x="{x[0]+3}" y="{M+8}">윗면 접어넣기 {TOP}mm · 손잡이 구멍 간격 100mm</text><text class="lbl" x="{x[0]+3}" y="{yB+10}">바닥 날개 {BOT}mm · 내용물: 신발박스 340×230×130</text>'
     b = 3
-    body = f'<div class="abs" style="left:{x[0]-b}mm;top:{M-b}mm;width:{x[5]-x[0]+2*b}mm;height:{yE-M+2*b}mm;background:{INK}"></div>'
-    for sx in (x[1], x[3]):
-        body += f'<div class="abs" style="left:{sx}mm;top:{M-b}mm;width:{Dp}mm;height:{yB-M+b}mm;background:{LIME}"></div>'
-    body += f'<div class="abs" style="left:{x[1]+Dp/2}mm;top:{yT+(Hp-Dp/2)/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:30pt;font-weight:900;white-space:nowrap;color:{INK}">Made for Standing.</div>'
-    body += f'<div class="abs" style="left:{x[3]+Dp/2}mm;top:{yT+(Hp-Dp/2)/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:30pt;font-weight:900;white-space:nowrap;color:{INK}">RhaRa Shoe 라라슈</div>'
-    # 앞면 — 쿼드그립 마크(4점)가 주인공 (대표 10/20: 신발 모양 ✗, 박스와 같은 4점)
-    X0 = x[0]
-    body += f'''<div class="abs" style="left:{X0+24}mm;top:{yT+40}mm">{lockup(30)}</div>
-      <div class="abs" style="left:{X0+24}mm;top:{yT+112}mm;font-size:62pt;font-weight:900;line-height:.95;color:{LIME}">QUAD<br>GRIP</div>
-      <div class="abs" style="left:{X0+24}mm;top:{yT+170}mm;font-size:15pt;font-weight:900;line-height:1.45;color:#fff">바닥에 닿는 4곳,<br><span style="color:{LIME}">쿼드그립</span></div>
-      <div class="abs" style="left:{X0+Wp-24-170}mm;top:{yT+40}mm">{quadgrip_mark(170)}</div>
-      <div class="abs" style="left:{X0+24}mm;top:{yT+Hp-40}mm;width:{Wp-48}mm;display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:22pt;font-weight:900;color:#fff">Made for Standing.</div><div style="font-size:10pt;font-weight:700;color:#bdbdbd">쿼드그립 종일편한 워킹화 · 아치가득 인솔</div></div>'''
-    # 뒷면 — 브랜드
-    X2 = x[2]
-    body += f'''<div class="abs" style="left:{X2+24}mm;top:{yT+40}mm">{lockup(56)}</div>
-      <div class="abs" style="left:{X2+24}mm;top:{yT+150}mm;font-size:62pt;font-weight:900;line-height:1;color:{LIME}">Made for<br>Standing.</div>
-      <div class="abs" style="left:{X2+24}mm;top:{yT+Hp-40}mm;width:{Wp-48}mm;display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13pt;font-weight:700;color:#fff">서서 일하는 사람의 신발 · RhaRa Shoe 라라슈</div><div style="font-size:9pt;color:#9a9a9a">이 쇼핑백은 다시 쓰라고 튼튼하게 만들었습니다.</div></div>
-      <div class="abs" style="left:{X2+Wp-24-70}mm;top:{yT+40}mm">{quadgrip_mark(70)}</div>'''
-    write('05_welcome_bag_v5', (W, H), [(body, WHITE, lines)], f'쇼핑백 v6 라라슈 전용 W{Wp}×H{Hp}×D{Dp} (신발박스 340×230×130 수납)')
+    # 크라프트 원지 + 실크인쇄 1도(먹) — 대표 10/21: 크라프트에 맞게. 큰 면 먹칠·라임 ✗(갈색 위에 탁하게 뜸)
+    KRAFT, K = '#C49A6C', INK
+    body = f'<div class="abs" style="left:{x[0]-b}mm;top:{M-b}mm;width:{x[5]-x[0]+2*b}mm;height:{yE-M+2*b}mm;background:{KRAFT}"></div>'
+    body += f'<div class="abs" style="left:{x[1]+Dp/2}mm;top:{yT+(Hp-Dp/2)/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:26pt;font-weight:900;white-space:nowrap;color:{K}">Made for Standing.</div>'
+    body += f'<div class="abs" style="left:{x[3]+Dp/2}mm;top:{yT+(Hp-Dp/2)/2}mm;transform:translate(-50%,-50%) rotate(-90deg);font-size:26pt;font-weight:900;white-space:nowrap;color:{K}">RhaRa Shoe 라라슈</div>'
+    X0 = x[0]   # 앞면 — 쿼드그립 4점 마크 주인공
+    body += f'''<div class="abs" style="left:{X0+24}mm;top:{yT+40}mm">{lockup(30, 'ink')}</div>
+      <div class="abs" style="left:{X0+24}mm;top:{yT+112}mm;font-size:62pt;font-weight:900;line-height:.95;color:{K}">QUAD<br>GRIP</div>
+      <div class="abs" style="left:{X0+24}mm;top:{yT+170}mm;font-size:16pt;font-weight:900;line-height:1.45;color:{K}">바닥에 닿는 4곳,<br>쿼드그립</div>
+      <div class="abs" style="left:{X0+Wp-24-170}mm;top:{yT+40}mm">{quadgrip_mark(170, K)}</div>
+      <div class="abs" style="left:{X0+24}mm;top:{yT+Hp-42}mm;width:{Wp-48}mm;display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:22pt;font-weight:900;color:{K}">Made for Standing.</div><div style="font-size:11pt;font-weight:700;color:{K}">쿼드그립 종일편한 워킹화 · 아치가득 인솔</div></div>'''
+    X2 = x[2]   # 뒷면 — 브랜드
+    body += f'''<div class="abs" style="left:{X2+24}mm;top:{yT+40}mm">{lockup(56, 'ink')}</div>
+      <div class="abs" style="left:{X2+24}mm;top:{yT+150}mm;font-size:62pt;font-weight:900;line-height:1;color:{K}">Made for<br>Standing.</div>
+      <div class="abs" style="left:{X2+Wp-24-70}mm;top:{yT+40}mm">{quadgrip_mark(70, K)}</div>
+      <div class="abs" style="left:{X2+24}mm;top:{yT+Hp-42}mm;width:{Wp-48}mm;display:flex;justify-content:space-between;align-items:baseline"><div style="font-size:13pt;font-weight:700;color:{K}">서서 일하는 사람의 신발 · RhaRa Shoe 라라슈</div><div style="font-size:10pt;font-weight:700;color:{K}">다시 쓰라고 튼튼하게 만들었습니다.</div></div>'''
+    lines += f'<text class="lbl" x="{x[0]+3}" y="{yB+22}">원지 = 크라프트(인쇄 ✗) · 실크인쇄 1도 먹(K100) · 최소 글자 10pt · 최소 선 0.5mm · 전면 칠 ✗</text>'
+    write('05_welcome_bag_v5', (W, H), [(body, WHITE, lines)], f'쇼핑백 v7 크라프트 실크 1도 · 라라슈 전용 W{Wp}×H{Hp}×D{Dp} (신발박스 340×230×130 수납)')
 
 # ───────── 부스 카운터(KD-01) 3면 폼보드 — 앞판 980/1480 × 750, 옆판 600 × 750 (대표 10/20) ─────────
 # 2종: RS 라라슈 / re.feeel. 수량: 앞판 980 ×2(RS1·RF1), 1480 ×2(RS1·RF1), 옆판 600 ×4 + ×4 (RS·RF 각 4)
