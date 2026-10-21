@@ -949,8 +949,10 @@ NAMETAGS = [   # 10/20 갱신: 확정 컬러·구조·제품명 반영
  ('rf', '40° 기울여 말리는 양치컵', 'CXP Rinse Cup', '기울여 세워 말리는 구조 · CXP 소재', '110g · 국내 제조', '4,000원'),
  ('rf', '발등 낮은 와이드 욕실화', 'Low-instep Wide Bath Slipper', '실크벽지에서 분리한 PVC를 다시 원료로 · 물빠짐 구멍', '그레이 / 딥그린 / 크림', '5,000원'),
  ('rf', '여성 욕실화', "Women's Bath Slipper", '실크벽지에서 분리한 PVC를 다시 원료로 · 물빠짐 구멍', '여성용 사이즈 · 국내 제조', '5,000원'),
+ ('rf', 'DAY2NIGHT 양치 선물세트', 'DAY2NIGHT Gift Set', 'DAY2NIGHT 칫솔 6개 + 40° 양치컵 1개<br>나무에서 온 CXP 구강케어 한 세트', '칫솔 6 (블루 3 · 블랙 3) + 양치컵 1', '14,900원'),
 ]
-NAMETAG_IMG = {'쿼드그립 종일편한 워킹화': 'walking-hero.jpg', '쿼드그립 아치가득 인솔': 'insole-hero.jpg', 'DAY2NIGHT 칫솔': 'd2n-pair.jpg', '어금니까지 쏙쏙 칫솔형 치실': 'floss-hand.jpg', '40° 기울여 말리는 양치컵': 'cup-tilt.jpg', '발등 낮은 와이드 욕실화': 'slipper-wide.jpg', '여성 욕실화': ''}
+NAMETAG_WAS = {'DAY2NIGHT 양치 선물세트': '16,000원'}   # 낱개 합계: 칫솔 2개입 4,000×3 + 양치컵 4,000
+NAMETAG_IMG = {'쿼드그립 종일편한 워킹화': 'walking-hero.jpg', '쿼드그립 아치가득 인솔': 'insole-hero.jpg', 'DAY2NIGHT 칫솔': 'd2n-pair.jpg', '어금니까지 쏙쏙 칫솔형 치실': 'floss-hand.jpg', '40° 기울여 말리는 양치컵': 'cup-tilt.jpg', '발등 낮은 와이드 욕실화': 'slipper-wide.jpg', '여성 욕실화': '', 'DAY2NIGHT 양치 선물세트': ('d2n-pair.jpg', 'cup-tilt.jpg')}
 def nametags_v5():
     """네임택 100×70 — 왼쪽 글, 오른쪽 사진 + 가격 (대표 10/20: 가격 위에 사진)"""
     B, W, H = 2, 104, 74
@@ -961,8 +963,15 @@ def nametags_v5():
         bg, fg, acc, sub = (INK, '#fff', LIME, '#bdbdbd') if dark else (CREAM, INK, RF_GR, '#555')
         mark = logo(7, 'lime') if dark else f'<img src="{A}refeeel-seal.png" style="height:10mm;background:#fff;border-radius:50%">'
         im = NAMETAG_IMG.get(ko, '')
-        photo = (f'<div style="width:34mm;height:27mm;border-radius:2.5mm;background:url({A}{im}) center/{"contain" if im == "d2n-pair.jpg" else "cover"} no-repeat #F4F4F6"></div>' if im else
+        if isinstance(im, tuple):   # 세트: 사진 2장 나란히 + SET 배지
+            photo = (f'<div style="position:relative;width:34mm;height:27mm;display:flex;gap:1mm">'
+                     + ''.join(f'<div style="flex:1;border-radius:2.5mm;background:url({A}{x}) center/{"contain" if x == "d2n-pair.jpg" else "cover"} no-repeat #F4F4F6"></div>' for x in im)
+                     + f'<div style="position:absolute;left:-2mm;top:-2mm;background:{RF_YL};color:{INK};font-size:6pt;font-weight:900;padding:.6mm 1.6mm;border-radius:1mm">GIFT SET</div></div>')
+        else:
+          photo = (f'<div style="width:34mm;height:27mm;border-radius:2.5mm;background:url({A}{im}) center/{"contain" if im == "d2n-pair.jpg" else "cover"} no-repeat #F4F4F6"></div>' if im else
                  f'<div style="width:34mm;height:27mm;border-radius:2.5mm;border:.4mm dashed {acc};display:grid;place-items:center;font-size:6pt;color:{acc}">사진 (대표 제공)</div>')
+        w0 = NAMETAG_WAS.get(ko)
+        was = f'<span style="font-size:6.5pt;font-weight:500;color:{sub};text-decoration:line-through;margin-right:1.5mm">낱개 {w0}</span>' if w0 else ''
         body = f'''<div class="abs" style="left:0;top:0;width:{W}mm;height:3.5mm;background:{acc}"></div>
           <div class="abs" style="left:8mm;top:8mm">{mark}</div>
           <div class="abs" style="left:8mm;top:20mm;width:52mm;display:flex;flex-direction:column;gap:1.2mm">
@@ -970,7 +979,7 @@ def nametags_v5():
             <div style="font-size:5.8pt;font-weight:700;color:{acc}">{en}</div>
             <div style="font-size:5.9pt;line-height:1.45;color:{fg}">{pt}<br><span style="color:{sub}">{opt}</span></div></div>
           <div class="abs" style="right:8mm;top:7mm">{photo}</div>
-          <div class="abs" style="right:8mm;top:46mm;font-size:13pt;font-weight:900;color:{fg if not dark else LIME}">{price}</div>'''
+          <div class="abs" style="right:8mm;top:46mm;text-align:right;font-size:13pt;font-weight:900;color:{fg if not dark else LIME}">{was}{price}</div>'''
         pages.append((body, bg, tr))
     write('11_nametag_100x70', (W, H), pages, f'제품 네임택 1종 100×70 (내용 {len(pages)}종) — 아크릴 L자 꽂이')
 
