@@ -52,11 +52,11 @@ const THEME = { name: 'RhaRa Shoe', headFontFace: 'Malgun Gothic', bodyFontFace:
   // 2 — 브랜드
   pres.addSection({ title: '브랜드' });
   s = pres.addSlide({ masterName: 'CONTENT', sectionTitle: '브랜드' });
-  s.addText('서서 일하는 사람의 발에서 시작했습니다', { placeholder: 'title' });
-  tb(s, '하루 10시간 서서 일하는 식당 사장님들의 발 사진에서 출발한 브랜드. 바닥에 닿는 신발과, 지금 신는 신발에 더하는 인솔 두 가지로 시작합니다.', { x: 0.5, y: 1.1, w: 8.6, h: 0.6, fontSize: 14, color: C.accent6 });
-  [['01', '현장에서 출발', '식당·주방·매장처럼 오래 서서 일하는 사람이 기준입니다. 기능보다 먼저 하루의 동선을 봤습니다.'],
+  s.addText('퇴근하면 신발부터 벗게 되는 그 발을 위해', { placeholder: 'title' });
+  tb(s, '하루 7시간, 주방과 매장과 계산대 앞에 서 있는 사람들을 위한 브랜드. 출근길에도, 근무 중에도, 퇴근길에도 같은 신발로 — 사람의 발과 지구의 내일을 함께 생각합니다.', { x: 0.5, y: 1.1, w: 8.6, h: 0.6, fontSize: 14, color: C.accent6 });
+  [['01', '출퇴근 겸용 디자인', '작업화처럼 보이지 않게 — 출근길에 신고 나와 근무 중에도, 퇴근길에도 그대로 신을 수 있도록 디자인했습니다.'],
    ['02', '새활용 소재', '워킹화 그립 패드는 폐타이어 고무와 폐벽지 PVC를 배합한 리타이어렌(상표 출원). 인솔에는 목공소 우드칩을 배합했습니다.'],
-   ['03', '전문의 설계 자문', '정형외과 전문의가 패드 위치와 인솔 형태를 함께 검토했습니다. 패드 무늬는 국내 논문 2편을 참고해 설계했습니다.']]
+   ['03', '전문의 설계 자문', '정형외과 전문의 이문홍 원장의 설계 자문으로, 발이 바닥에 닿는 순서를 기준으로 4점 패드 위치를 정했습니다.']]
   .forEach(([n, h, b], i) => {
     const x = 0.5 + i * 3.05;
     s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x, y: 1.95, w: 2.85, h: 2.85, rectRadius: 0.1, fill: { color: '1A1A1A' }, line: { type: 'none' }, objectName: 'card' + n });
@@ -64,6 +64,7 @@ const THEME = { name: 'RhaRa Shoe', headFontFace: 'Malgun Gothic', bodyFontFace:
     tb(s, h, { x: x + 0.25, y: 2.8, w: 2.4, h: 0.4, fontSize: 18, bold: true });
     tb(s, b, { x: x + 0.25, y: 3.3, w: 2.4, h: 1.4, fontSize: 12, color: C.accent6, lineSpacingMultiple: 1.2 });
   });
+  tb(s, '이문홍 원장은 제품 설계 자문에 참여하고 자문료를 받았습니다.', { x: 0.5, y: 4.95, w: 8.6, h: 0.25, fontSize: 9, color: C.accent3 });
   s.addNotes('카드 02의 리타이어렌은 상표 출원 단계. 카드 03: 전문의는 설계 자문이며 추천·보증 표현 금지. 논문은 설계 참고 자료이지 성능 보증이 아님.');
 
   // 3 — 워킹화
