@@ -301,3 +301,4 @@
 - 2026-10-26 대표 확정: 영문 표기 **RHARA SHOE**(대문자) 통일 — RhaRa Shoe 사용 중단. 로고 가이드 PPT 10p → design/logo-guide/RHARA_SHOE_로고가이드.pptx (표기·로고 3형태·컬러·배경·여백/최소크기·서체·금지·매체별·파일). 신규 SVG: rs-symbol-*, rs-logo-horizontal-*. 🔴 기존 출력물(명함·쇼핑백·자사몰·박스·소개서·상세·브랜드스토리) 표기 교체 필요
 - 2026-10-26 대표 지시: RS를 AI 네이티브 회사(에이전트 팀)로 전환. 메인 세션 = COO. 신규 에이전트 6 (rs-product · rs-brand-designer · rs-compliance · rs-cs · rs-finance · rs-supply) + 운영체계 workflows/rs-company-os.md + 제품 마스터 launch/rs/company/product-master.md + COO 메모. 구글시트 「RHARA SHOE 경영 대시보드」(id 1lx_wPz78K82IqsTMvYx179iskqM-oHRzaN8gH88Ho5M) 8탭: 대시보드·업무보드(26)·결재함(8)·리스크(8)·제품마스터·손익·KPI주간·조직
 - 2026-10-27 대표: 11월 와디즈(알앤디 계정·인솔) · 12월 워킹화 런칭 마케팅 방향 → 매스미디어 통화 브리핑 mall/call-brief-massmedia-2026-10-27.md, 결재함 A09(자사몰 인솔 보류)·A10(워킹화 12월 이동) 추가
+- 2026-10-27 대표 지시: 결재선에 L3(공동대표 신동규·최재호 합의) 추가 — rs-company-os.md·CLAUDE.md·제품마스터·대시보드(결재함 I·J열, L3 대기 카운트) 반영. L3 대상: 가격·생산/소재·런칭일/채널·300만원↑·계약·브랜드·지분/수익배분
