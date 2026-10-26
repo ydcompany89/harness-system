@@ -48,3 +48,18 @@ for key,word,track,title in VARIANTS:
 <g transform="translate(0,{ty:.2f}) scale({k:.5f})"><path d="{en_d}"/><path d="{ko_d}"/></g></g></svg>
 ''')
 print(LW,LH,H,len(logo_d))
+# 3) 로고 가이드용(10/26): 심볼 단독 · 가로형(심볼 + RHARA SHOE 라라슈 한 줄)
+for n,c in (('ink','#0D0D0D'),('lime','#C6F432'),('white','#FFFFFF')):
+    open(f'design/brand/rs-symbol-{n}.svg','w').write(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {LW:.2f} {LH:.2f}" width="{LW*4:.0f}" height="{LH*4:.0f}">
+<title>RS 심볼</title><path fill="{c}" fill-rule="evenodd" d="{logo_d}"/></svg>
+''')
+en_d,wen=text_d(EN,'RHARA SHOE',sz,0,0,0.04); gap=sz*0.28
+ko_d,wko=text_d(KO,'라라슈',sz*0.95,wen+gap,0); TW=wen+gap+wko
+th=LH*0.34; k=th/(sz*0.72); gx=LW*0.22                # 글자 대문자 높이 = 심볼 높이 34%
+HW=LW+gx+TW*k; ty=LH/2+th/2
+for n,c in (('ink','#0D0D0D'),('lime','#C6F432'),('white','#FFFFFF')):
+    open(f'design/brand/rs-logo-horizontal-{n}.svg','w').write(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {HW:.2f} {LH:.2f}" width="{HW*4:.0f}" height="{LH*4:.0f}">
+<title>RS RHARA SHOE 라라슈 가로형</title>
+<g fill="{c}"><path fill-rule="evenodd" d="{logo_d}"/>
+<g transform="translate({LW+gx:.2f},{ty:.2f}) scale({k:.5f})"><path d="{en_d}"/><path d="{ko_d}"/></g></g></svg>
+''')

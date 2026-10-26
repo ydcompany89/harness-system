@@ -298,3 +298,4 @@
 - 2026-10-24 박람회 브로셔 검토 → design/brochure/review-fair-brochure-2026-10-24.md (오타 안창, 치실 가격·칫솔명 불일치, 물때 제로, 욕실화·의사자문·QR 누락)
 - 2026-10-25 매스미디어 카톡 요청문 작성 (유지보수·소유권·서버비·백업 + 네이버페이/토스페이 진행 절차 문의)
 - 2026-10-26 RS 로고 대문자판 'RHARA SHOE 라라슈' SVG 3색 → design/brand/rs-logo-rharashoe-caps-{ink,lime,white}.svg (make_logo_svg.py VARIANTS)
+- 2026-10-26 대표 확정: 영문 표기 **RHARA SHOE**(대문자) 통일 — RhaRa Shoe 사용 중단. 로고 가이드 PPT 10p → design/logo-guide/RHARA_SHOE_로고가이드.pptx (표기·로고 3형태·컬러·배경·여백/최소크기·서체·금지·매체별·파일). 신규 SVG: rs-symbol-*, rs-logo-horizontal-*. 🔴 기존 출력물(명함·쇼핑백·자사몰·박스·소개서·상세·브랜드스토리) 표기 교체 필요
