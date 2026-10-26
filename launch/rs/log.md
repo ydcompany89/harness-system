@@ -299,3 +299,4 @@
 - 2026-10-25 매스미디어 카톡 요청문 작성 (유지보수·소유권·서버비·백업 + 네이버페이/토스페이 진행 절차 문의)
 - 2026-10-26 RS 로고 대문자판 'RHARA SHOE 라라슈' SVG 3색 → design/brand/rs-logo-rharashoe-caps-{ink,lime,white}.svg (make_logo_svg.py VARIANTS)
 - 2026-10-26 대표 확정: 영문 표기 **RHARA SHOE**(대문자) 통일 — RhaRa Shoe 사용 중단. 로고 가이드 PPT 10p → design/logo-guide/RHARA_SHOE_로고가이드.pptx (표기·로고 3형태·컬러·배경·여백/최소크기·서체·금지·매체별·파일). 신규 SVG: rs-symbol-*, rs-logo-horizontal-*. 🔴 기존 출력물(명함·쇼핑백·자사몰·박스·소개서·상세·브랜드스토리) 표기 교체 필요
+- 2026-10-26 대표 지시: RS를 AI 네이티브 회사(에이전트 팀)로 전환. 메인 세션 = COO. 신규 에이전트 6 (rs-product · rs-brand-designer · rs-compliance · rs-cs · rs-finance · rs-supply) + 운영체계 workflows/rs-company-os.md + 제품 마스터 launch/rs/company/product-master.md + COO 메모. 구글시트 「RHARA SHOE 경영 대시보드」(id 1lx_wPz78K82IqsTMvYx179iskqM-oHRzaN8gH88Ho5M) 8탭: 대시보드·업무보드(26)·결재함(8)·리스크(8)·제품마스터·손익·KPI주간·조직
