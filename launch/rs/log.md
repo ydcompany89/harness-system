@@ -302,3 +302,4 @@
 - 2026-10-26 대표 지시: RS를 AI 네이티브 회사(에이전트 팀)로 전환. 메인 세션 = COO. 신규 에이전트 6 (rs-product · rs-brand-designer · rs-compliance · rs-cs · rs-finance · rs-supply) + 운영체계 workflows/rs-company-os.md + 제품 마스터 launch/rs/company/product-master.md + COO 메모. 구글시트 「RHARA SHOE 경영 대시보드」(id 1lx_wPz78K82IqsTMvYx179iskqM-oHRzaN8gH88Ho5M) 8탭: 대시보드·업무보드(26)·결재함(8)·리스크(8)·제품마스터·손익·KPI주간·조직
 - 2026-10-27 대표: 11월 와디즈(알앤디 계정·인솔) · 12월 워킹화 런칭 마케팅 방향 → 매스미디어 통화 브리핑 mall/call-brief-massmedia-2026-10-27.md, 결재함 A09(자사몰 인솔 보류)·A10(워킹화 12월 이동) 추가
 - 2026-10-27 대표 지시: 결재선에 L3(공동대표 신동규·최재호 합의) 추가 — rs-company-os.md·CLAUDE.md·제품마스터·대시보드(결재함 I·J열, L3 대기 카운트) 반영. L3 대상: 가격·생산/소재·런칭일/채널·300만원↑·계약·브랜드·지분/수익배분
+- 2026-10-27 대표 지시: re.feeel(메가쇼 칫솔·치실 등)은 라라슈와 무관 → 대시보드에서 삭제 (업무 T11·T12, 결재 A01·A02·A04). 브로셔 T09는 라라슈 면만. 범위 규칙 rs-company-os.md 추가
