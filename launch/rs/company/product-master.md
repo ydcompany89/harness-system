@@ -28,6 +28,8 @@
 | 핵심 구조 | 쿼드그립 4점 패드 · 깔창 없는 일체형 안창 · 도톰한 발목 테두리 | 아치 서포터 · 뒤꿈치 링 컵 · 논슬립 패턴 · 통기 구멍 |
 | 필수 고지 | 연출 이미지 안내 | **의료기기 아님** |
 | 원가 | [F04 미확정] | [F04 미확정] |
+| **대표사진** (10/27 대표 지정) | `design/fair-print/assets/walking-main.jpg` (윗면+밑창 4점) | `design/fair-print/assets/insole-main.jpg` (그레이 한 쌍 윗면) |
+| 참고 이미지 | — | `insole-structure-ref.jpg` (구조 설명 시안 — 문구 감수 전 사용 ✗) · 리뷰 QR `review-qr.png` (연결 주소 미확인) |
 
 ## 회사
 | 항목 | 값 |

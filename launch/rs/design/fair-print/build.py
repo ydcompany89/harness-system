@@ -34,6 +34,10 @@ body{{font-family:N,sans-serif;color:{INK};-webkit-print-color-adjust:exact;prin
 img{{display:block}}
 """
 
+# 대표사진(10/27 대표 지정 · 흰 배경)은 잘리지 않게 contain + 흰 바탕
+MAIN_IMGS = ('walking-main.jpg', 'insole-main.jpg')
+fit = lambda f: 'contain no-repeat #fff' if f in MAIN_IMGS else 'cover'
+
 def dots(d, g, n=4, col=LIME):
     return f'<div class="dots" style="--d:{d}mm;--g:{g}mm">' + ''.join(f'<i style="background:{col}"></i>' for _ in range(n)) + '</div>'
 
@@ -719,12 +723,12 @@ def xbanners_v4():
       <div style="display:flex;align-items:center;gap:12mm">{qr('refeeel-ig', 170)}<div style="font-size:30pt;color:#2f3a0c;line-height:1.5"><b style="font-size:46pt;color:{INK}">QR 찍고 바로 팔로우</b><br>직원에게 화면을 보여 주세요<br>1인 1회 · 꽝 있음 · 준비 수량 소진 시 종료</div></div>""", 70, 1730, 50, W)
     write('07c_xbanner_event_600x1800', (W, H), [(xe, LIME, gl)], 'X배너 600×1800 — 인스타 이벤트 전용 (re.feeel)')
     write('07_xbanner_600x1800', (W, H), [(x1, INK, gl), (x2, '#FFFFFF', gl)], 'X배너 600×1800 v4 ①라라슈 ②re.feeel (③정형외과 = 07b)')
-    prodc = lambda img, name: f'<div style="flex:1;background:#1b1b1b;border-radius:14mm;padding:10mm 8mm 12mm;text-align:center"><div style="height:190mm;border-radius:8mm;background:url({A}{img}) center/cover"></div><div style="font-size:50pt;font-weight:900;color:#fff;line-height:1.2;margin-top:6mm">{name}</div></div>'
+    prodc = lambda img, name: f'<div style="flex:1;background:#1b1b1b;border-radius:14mm;padding:10mm 8mm 12mm;text-align:center"><div style="height:190mm;border-radius:8mm;background:url({A}{img}) center/{fit(img)}"></div><div style="font-size:50pt;font-weight:900;color:#fff;line-height:1.2;margin-top:6mm">{name}</div></div>'
     x3 = col(f"""<div style="display:flex;justify-content:space-between;align-items:center">{lockup(64)}<div style="font-size:30pt;font-weight:900;color:{LIME};letter-spacing:.08em;text-align:right">DESIGN<br>ADVISORY</div></div>
       <div style="font-size:150pt;font-weight:900;line-height:1.1;color:#fff">정형외과<br>전문의 자문으로<br><span style="color:{LIME}">탄생했습니다.</span></div>
       <div style="display:flex;gap:16mm;align-items:center">{shot('X3-A', 230, 300, '', '원장님 상반신', '흰 가운 · 회색 배경 · 워킹화 밑창 들고 정면 (10/28 촬영)', fs=1.0)}
         <div><div style="font-size:96pt;font-weight:900;color:#fff;line-height:1.1">이문홍<br>원장</div><div style="font-size:40pt;font-weight:700;color:{LIME};margin-top:6mm;line-height:1.35">정형외과 전문의<br>이문홍정형외과</div></div></div>
-      <div style="display:flex;gap:10mm">{prodc('walking-hero.jpg', '쿼드그립<br>워킹화')}{prodc('insole-hero.jpg', '쿼드그립<br>아치가득 인솔')}</div>
+      <div style="display:flex;gap:10mm">{prodc('walking-main.jpg', '쿼드그립<br>워킹화')}{prodc('insole-main.jpg', '쿼드그립<br>아치가득 인솔')}</div>
       <div style="font-size:54pt;font-weight:900;line-height:1.45;color:#fff"><span style="color:{LIME}">자문 범위</span><br>워킹화 그립 패드 4점 배치<br>인솔 아치 형태 · 뒤꿈치 컵</div>
       <div style="font-size:26pt;color:#8a8a8a;line-height:1.5">이문홍 원장은 ㈜알앤디메이커스 제품 설계 자문에 참여하고 자문료를 받았습니다.<br>본 제품은 의료기기가 아닙니다. 부스에서는 발 상담·진단을 하지 않습니다. 제품 이미지는 AI 연출.</div>""", 70, 1730, 50, W)
     write('07b_xbanner_doctor_600x1800', (W, H), [(x3, INK, gl)], 'X배너 600×1800 v4 — 정형외과 전문의 설계 자문')
@@ -774,7 +778,7 @@ def leaflet_v4():
     EN = lambda c: f'font-size:6.6pt;line-height:1.45;color:{c}'
     o1, o2 = B + 97, B + 197
     i1, i2 = B + 100, B + 200
-    pic = lambda f, w, h, pos='center': f'<div style="width:{w}mm;height:{h}mm;border-radius:3mm;background:url({A}{f}) {pos}/cover;flex:none"></div>'
+    pic = lambda f, w, h, pos='center': f'<div style="width:{w}mm;height:{h}mm;border-radius:3mm;background:url({A}{f}) {pos}/{fit(f)};flex:none"></div>'
     chip = lambda c, t, fg: f'<span style="display:inline-flex;align-items:center;gap:1.2mm;margin-right:2.5mm"><span style="width:3.2mm;height:3.2mm;border-radius:50%;background:{c};border:.3mm solid {fg}"></span>{t}</span>'
     chk = lambda t, fg, acc: f'<div style="display:flex;align-items:center;gap:2mm;font-size:7.6pt;font-weight:900;color:{fg}"><span style="width:4mm;height:4mm;border-radius:50%;background:{acc};color:{INK};display:grid;place-items:center;font-size:5.5pt">✔</span>{t}</div>'
     flap = box(0, o1, RF_GR, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em;color:{RF_YL}">re.feeel · BATH SLIPPER</div>
@@ -793,14 +797,14 @@ def leaflet_v4():
       <div style="background:{INK};color:#fff;border-radius:2mm;padding:2.5mm 3.5mm;font-size:7.2pt;font-weight:700;line-height:1.5">단체 구매 · 도매 · OEM/ODM 상담<br><span style="font-weight:400;color:{LIME}">Wholesale &amp; OEM/ODM inquiries welcome</span></div>""")
     cover = box(o2, W - o2, INK, f"""<div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:6.5pt;font-weight:700;letter-spacing:.2em;color:#9a9a9a">KR · EN · 中文 · 日本語</div><div style="font-size:6.5pt;font-weight:900;color:{LIME}">CATALOG</div></div>
       <div><div style="font-size:30pt;font-weight:900;line-height:1.05;color:#fff">남은 것의<br><span style="color:{LIME}">다음 모양.</span></div><div style="font-size:8.5pt;font-weight:700;color:#bdbdbd;margin-top:2mm">The next shape of what's left.</div></div>
-      <div style="display:flex;gap:3mm">{pic('walking-hero.jpg', 40, 62)}{pic('cup-life.jpg', 40, 62)}</div>
+      <div style="display:flex;gap:3mm">{pic('walking-main.jpg', 40, 62)}{pic('cup-life.jpg', 40, 62)}</div>
       <div style="display:flex;align-items:center;gap:6mm">{lockup(15)}<img src="{A}refeeel-seal.png" style="height:22mm;background:{CREAM};border-radius:50%;padding:.8mm"></div>
       <div style="font-size:7.3pt;line-height:1.6;color:#fff"><b style="color:{LIME}">RhaRa Shoe 라라슈</b> 서서 일하는 사람의 워킹화·인솔<br><b style="color:{RF_YL}">re.feeel</b> 구강용품 · 욕실화<br><span style="color:#9a9a9a">{CO["co"]}</span></div>""")
     out = flap + back + cover
     walk = box(0, i1, INK, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em;color:{LIME}">RhaRa Shoe · 01 WALKING</div>
         <div style="font-size:16pt;font-weight:900;line-height:1.15;color:#fff;margin-top:1.5mm">쿼드그립<br><span style="color:{LIME}">종일편한 워킹화</span></div>
         <div style="font-size:7.5pt;font-weight:700;color:#bdbdbd">QUAD GRIP All-Day Walking Shoes · 42,500원</div></div>
-      <div style="display:flex;gap:4mm;align-items:center">{pic('walking-hero.jpg', 40, 52)}<div style="display:flex;flex-direction:column;gap:2mm">{foot_map(22, labels=False)}<div style="font-size:7.3pt;color:#fff;line-height:1.45">바닥에 닿는 길을 따라<br><b style="color:{LIME}">그립 패드 4곳</b></div></div></div>
+      <div style="display:flex;gap:4mm;align-items:center">{pic('walking-main.jpg', 40, 52)}<div style="display:flex;flex-direction:column;gap:2mm">{foot_map(22, labels=False)}<div style="font-size:7.3pt;color:#fff;line-height:1.45">바닥에 닿는 길을 따라<br><b style="color:{LIME}">그립 패드 4곳</b></div></div></div>
       <div style="display:flex;flex-direction:column;gap:1.8mm">{chk('디자인 등록 완료','#fff',LIME)}{chk('특허 2건 출원 완료','#fff',LIME)}{chk('미끄럼 저항 테스트 완료','#fff',LIME)}{chk('족저압력 테스트 완료','#fff',LIME)}</div>
       <div style="border:.3mm solid {LIME};border-radius:2mm;padding:2mm 3mm;font-size:7.3pt;font-weight:700;color:#fff;line-height:1.5"><b style="color:{LIME}">정형외과 전문의 이문홍 원장 설계 자문</b><br><span style="font-size:5.5pt;color:#9a9a9a">자문료를 받고 설계 자문에 참여했습니다.</span></div>
       <div style="font-size:7.4pt;font-weight:700;color:#fff">{chip('#3A3A3A','차콜','#fff')}{chip('#9A9EA2','그레이','#fff')}{chip('#EEF6F1','민트화이트','#fff')}<span style="color:#9a9a9a">230–280mm</span></div>
@@ -808,7 +812,7 @@ def leaflet_v4():
     ins = box(i1, 100, LIME, f"""<div><div style="font-size:7pt;font-weight:900;letter-spacing:.15em">RhaRa Shoe · 02 ARCH INSOLE</div>
         <div style="font-size:15pt;font-weight:900;line-height:1.15;margin-top:1.5mm">오후 4시, 발이 먼저<br>퇴근하고 싶을 때.</div>
         <div style="font-size:7.5pt;font-weight:700;color:#3d4a12">QUAD GRIP Arch Insole · 21,500원</div></div>
-      {pic('insole-hero.jpg', 82, 50)}
+      {pic('insole-main.jpg', 82, 50)}
       <div style="background:{INK};border-radius:2.5mm;padding:3.5mm 4mm;font-size:7.6pt;font-weight:700;line-height:1.7;color:#fff"><span style="color:{LIME};font-weight:900">쿼드그립 4가지</span><br><span style="color:{LIME}">01</span> 아치 라인을 따라 쿠션 가득<br><span style="color:{LIME}">02</span> 뒤꿈치 링 컵<br><span style="color:{LIME}">03</span> 논슬립 패턴 윗면 · 아랫면<br><span style="color:{LIME}">04</span> 통기 구멍</div>
       <div style="font-size:7.4pt;font-weight:700;line-height:1.6">반굽 — 쓰던 깔창 밑에 한 장 더<br>M 15cm · L 17cm · {chip('#9A9EA2','그레이',INK)}{chip('#B8977A','모카무스',INK)}</div>
       <div style="font-size:5.8pt;color:#3d4a12;line-height:1.4">정형외과 전문의 이문홍 원장 설계 자문 · 사출 특성상 ±5% · 착용감은 신발에 따라 다를 수 있습니다. 본 제품은 의료기기가 아닙니다.</div>""")
@@ -952,7 +956,7 @@ NAMETAGS = [   # 10/20 갱신: 확정 컬러·구조·제품명 반영
  ('rf', 'DAY2NIGHT 양치 선물세트', 'DAY2NIGHT Gift Set', 'DAY2NIGHT 칫솔 6개 + 40° 양치컵 1개<br>나무에서 온 CXP 구강케어 한 세트', '칫솔 6 (블루 3 · 블랙 3) + 양치컵 1', '14,900원'),
 ]
 NAMETAG_WAS = {'DAY2NIGHT 양치 선물세트': '16,000원'}   # 낱개 합계: 칫솔 2개입 4,000×3 + 양치컵 4,000
-NAMETAG_IMG = {'쿼드그립 종일편한 워킹화': 'walking-hero.jpg', '쿼드그립 아치가득 인솔': 'insole-hero.jpg', 'DAY2NIGHT 칫솔': 'd2n-pair.jpg', '어금니까지 쏙쏙 칫솔형 치실': 'floss-hand.jpg', '40° 기울여 말리는 양치컵': 'cup-tilt.jpg', '발등 낮은 와이드 욕실화': 'slipper-wide.jpg', '여성 욕실화': '', 'DAY2NIGHT 양치 선물세트': ('d2n-pair.jpg', 'cup-tilt.jpg')}
+NAMETAG_IMG = {'쿼드그립 종일편한 워킹화': 'walking-main.jpg', '쿼드그립 아치가득 인솔': 'insole-main.jpg', 'DAY2NIGHT 칫솔': 'd2n-pair.jpg', '어금니까지 쏙쏙 칫솔형 치실': 'floss-hand.jpg', '40° 기울여 말리는 양치컵': 'cup-tilt.jpg', '발등 낮은 와이드 욕실화': 'slipper-wide.jpg', '여성 욕실화': '', 'DAY2NIGHT 양치 선물세트': ('d2n-pair.jpg', 'cup-tilt.jpg')}
 def nametags_v5():
     """네임택 100×70 — 왼쪽 글, 오른쪽 사진 + 가격 (대표 10/20: 가격 위에 사진)"""
     B, W, H = 2, 104, 74
@@ -968,7 +972,7 @@ def nametags_v5():
                      + ''.join(f'<div style="flex:1;border-radius:2.5mm;background:url({A}{x}) center/{"contain" if x == "d2n-pair.jpg" else "cover"} no-repeat #F4F4F6"></div>' for x in im)
                      + f'<div style="position:absolute;left:-2mm;top:-2mm;background:{RF_YL};color:{INK};font-size:6pt;font-weight:900;padding:.6mm 1.6mm;border-radius:1mm">GIFT SET</div></div>')
         else:
-          photo = (f'<div style="width:34mm;height:27mm;border-radius:2.5mm;background:url({A}{im}) center/{"contain" if im == "d2n-pair.jpg" else "cover"} no-repeat #F4F4F6"></div>' if im else
+          photo = (f'<div style="width:34mm;height:27mm;border-radius:2.5mm;background:url({A}{im}) center/{"contain" if im in ("d2n-pair.jpg", "walking-main.jpg", "insole-main.jpg") else "cover"} no-repeat {"#fff" if im in MAIN_IMGS else "#F4F4F6"}"></div>' if im else
                  f'<div style="width:34mm;height:27mm;border-radius:2.5mm;border:.4mm dashed {acc};display:grid;place-items:center;font-size:6pt;color:{acc}">사진 (대표 제공)</div>')
         w0 = NAMETAG_WAS.get(ko)
         was = f'<span style="font-size:6.5pt;font-weight:500;color:{sub};text-decoration:line-through;margin-right:1.5mm">낱개 {w0}</span>' if w0 else ''
@@ -1058,15 +1062,15 @@ def counter_signs():
     gl = lambda W: trim_rect(W, H, 0) + f'<rect class="guide" x="40" y="40" width="{W-80}" height="{H-80}"/>' + \
         f'<text class="lbl" x="45" y="34" style="font-size:12px">폼보드 {W}×{H} · 안전영역 40mm · KD-01 카운터</text>'
     ab = lambda x, y, inner, extra='': f'<div class="abs" style="left:{x}mm;top:{y}mm;{extra}">{inner}</div>'
-    img = lambda f, w, h, pos='center': f'<div style="width:{w}mm;height:{h}mm;border-radius:14mm;background:url({A}{f}) {pos}/cover"></div>'
+    img = lambda f, w, h, pos='center': f'<div style="width:{w}mm;height:{h}mm;border-radius:14mm;background:url({A}{f}) {pos}/{fit(f)}"></div>'
     def rs_front(W):
         b = ab(60, 60, lockup(120))
         b += ab(60, 300, f'<div style="font-size:230pt;font-weight:900;line-height:.98;color:{LIME}">Made for<br>Standing.</div>')
         b += ab(60, 580, f'<div style="font-size:84pt;font-weight:900;color:#fff;line-height:1.25">서서 일하는 하루를 위한<br>워킹화와 아치 인솔</div>')
         if W < 1200:
-            b += ab(W - 60 - 250, 60, f'<div style="display:flex;flex-direction:column;gap:12mm;align-items:center">{img("walking-hero.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:#fff">쿼드그립 워킹화</div>{img("insole-hero.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:#fff">아치가득 인솔</div></div>')
+            b += ab(W - 60 - 250, 60, f'<div style="display:flex;flex-direction:column;gap:12mm;align-items:center">{img("walking-main.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:#fff">쿼드그립 워킹화</div>{img("insole-main.jpg", 250, 250)}<div style="font-size:40pt;font-weight:900;color:#fff">아치가득 인솔</div></div>')
         if W > 1200:
-            b += ab(W - 60 - 620, 60, f'<div style="display:flex;gap:20mm">{img("walking-hero.jpg", 300, 420)}{img("insole-hero.jpg", 300, 420)}</div>')
+            b += ab(W - 60 - 620, 60, f'<div style="display:flex;gap:20mm">{img("walking-main.jpg", 300, 420)}{img("insole-main.jpg", 300, 420)}</div>')
             b += ab(W - 60 - 620, 500, f'<div style="display:flex;gap:20mm;font-size:56pt;font-weight:900;color:#fff;text-align:center"><div style="width:300mm">쿼드그립 워킹화</div><div style="width:300mm">아치가득 인솔</div></div>')
         return b
     def rf_front(W):
