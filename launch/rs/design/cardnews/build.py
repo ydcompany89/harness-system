@@ -17,7 +17,7 @@ n = len(s['items']) + 2; pages = []
 c = s['cover']
 pages.append(f'''<div style="position:absolute;left:90px;top:330px;font-size:34px;font-weight:700;color:#0D0D0D;background:#C6F432;padding:10px 22px;border-radius:8px">{c["kicker"]}</div>
 <div style="position:absolute;left:90px;top:440px;font-size:112px;font-weight:900;line-height:1.18;color:#fff">{nl(c["title"])}</div>
-<div style="position:absolute;left:90px;top:780px;font-size:40px;color:#C9C9C4">{c["sub"]}</div>
+<div style="position:absolute;left:90px;top:{440 + 132 * (c["title"].count(chr(10)) + 1) + 60}px;font-size:40px;color:#C9C9C4">{c["sub"]}</div>
 <div style="position:absolute;left:90px;right:90px;bottom:200px;display:flex;gap:22px">{"".join(f'<div style="flex:1;height:14px;border-radius:7px;background:{"#C6F432" if k==0 else "#2A2A2A"}"></div>' for k in range(5))}</div>''')
 for k, it in enumerate(s['items']):
     pages.append(f'''<div style="position:absolute;left:90px;top:250px;font-size:220px;font-weight:900;color:#C6F432;line-height:1">{it["no"]}</div>
