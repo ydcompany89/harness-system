@@ -19,13 +19,22 @@ def curve_d(c, s):
     return d+'Z'
 s=1/K; LW,LH=a.width*s,a.height*s
 logo_d=''.join(curve_d(c,s) for c in path)
-# 2) 글자 윤곽선
+# 2) 글자 윤곽선 — 일러스트레이터 호환(10/28): 명령어 생략·2차곡선 없이 M/L/C/Z 절대좌표만 기록
+from fontTools.pens.basePen import BasePen
+class AbsPen(BasePen):
+    def __init__(s, gs): super().__init__(gs); s.d=[]; s.p=(0,0)
+    def _moveTo(s,p): s.d.append(f'M{p[0]:.2f},{p[1]:.2f}'); s.p=p
+    def _lineTo(s,p): s.d.append(f'L{p[0]:.2f},{p[1]:.2f}'); s.p=p
+    def _curveToOne(s,a,b,c): s.d.append(f'C{a[0]:.2f},{a[1]:.2f} {b[0]:.2f},{b[1]:.2f} {c[0]:.2f},{c[1]:.2f}'); s.p=c
+    def _qCurveToOne(s,q,e):
+        p=s.p; a=(p[0]+2/3*(q[0]-p[0]),p[1]+2/3*(q[1]-p[1])); b=(e[0]+2/3*(q[0]-e[0]),e[1]+2/3*(q[1]-e[1])); s._curveToOne(a,b,e)
+    def _closePath(s): s.d.append('Z')
 def text_d(fontpath, text, size, x0, base, track=0):
     f=TTFont(fontpath); gs=f.getGlyphSet(); cmap=f.getBestCmap(); upm=f['head'].unitsPerEm; sc=size/upm
     hm=f['hmtx']; x=x0; out=''
     for ch in text:
-        g=cmap[ord(ch)]; pen=SVGPathPen(gs)
-        gs[g].draw(TransformPen(pen,(sc,0,0,-sc,x,base))); out+=pen.getCommands(); x+=hm[g][0]*sc+track*size
+        g=cmap[ord(ch)]; pen=AbsPen(gs)
+        gs[g].draw(TransformPen(pen,(sc,0,0,-sc,x,base))); out+=''.join(pen.d); x+=hm[g][0]*sc+track*size
     return out, x-x0
 EN='design/fair-print/assets/poppins-600.woff2'; KO='design/fair-print/fonts/NotoSansKR-700.ttf'
 sz=40
