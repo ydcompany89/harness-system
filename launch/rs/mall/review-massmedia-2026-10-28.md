@@ -37,6 +37,6 @@
 - 표기 "정형외과 전문의 이문홍 원장 — 설계 자문"(감수 X), 숏폼 사전 감수, 초상 사용 범위·기간·종료 시 삭제 조항 확인
 
 ## 추가 확인 (2026-10-29, COO)
-- 🔴 **Vercel 소유 미확인 → 사실상 매스미디어 계정**: 대표 Vercel 팀(ydcompany89-1710's projects)에는 자사몰 프로젝트가 없음(`ai-6a-ssam` 1개뿐). 자사몰 코드·배포가 매스미디어 계정에 있음 → 인계 전 **우리 Vercel 팀으로 프로젝트 이전(Transfer)** + GitHub 저장소 소유권 이전을 계약 부속서에 명시.
+- 🔴 **[대기: 법인 해외카드 준비 후, 다음 주] Vercel 소유 미확인 → 사실상 매스미디어 계정**: 대표 Vercel 팀(ydcompany89-1710's projects)에는 자사몰 프로젝트가 없음(`ai-6a-ssam` 1개뿐). 자사몰 코드·배포가 매스미디어 계정에 있음 → 인계 전 **우리 Vercel 팀으로 프로젝트 이전(Transfer)** + GitHub 저장소 소유권 이전을 계약 부속서에 명시.
 - 🟡 **rharashoe.com 아직 미연결**: DNS는 카페24(ns1.cafe24.com), A/CNAME 레코드 없음 → Vercel 기준 misconfigured. 연결 시 카페24 DNS에 `@ A 76.76.21.21`, `www CNAME cname.vercel-dns.com` (프로젝트 이전 후 우리 팀에서 도메인 추가).
 - 🟡 랜딩은 `go.rharashoe.com`(넷리파이)로 분리 — 카페24 DNS `go CNAME rharashoe.netlify.app`. 자사몰과 **같은 메타 픽셀(1122007340240070)** 설치 요청.
