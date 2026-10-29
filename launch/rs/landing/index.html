@@ -64,6 +64,9 @@ h2{font-size:30px;line-height:36px;margin:12px 0 16px}
 .steps b{display:block;font-size:18px;line-height:28px}
 .steps span{font-size:14px;line-height:20px;color:#CFCFC8}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.step-h{font-size:14px;line-height:20px;font-weight:700;color:var(--lime);margin:24px 0 0}
+.step-h:first-child{margin-top:0}
+.js-copy{margin-top:12px}
 .tags code{font-family:inherit;font-size:14px;line-height:20px;background:var(--s2);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
 .reward{background:var(--s2);border-radius:8px;padding:16px;margin-bottom:16px}
 .reward table{width:100%;border-collapse:collapse;font-size:14px;line-height:20px;margin-top:8px}
@@ -138,23 +141,29 @@ footer a{color:#CFCFC8}
   <!-- ② 킨텍스 현장 이벤트 -->
   <section id="kintex" class="rv">
     <p class="eyebrow"><b>KINTEX 메가쇼</b> · 11.12(목)~15(일) · 부스 <span class="js-booth"></span></p>
-    <h2>부스에서 미션 3개,<br>선물 받고 룰렛까지</h2>
+    <h2>하나만 해도 선물,<br>피드 올리면 룰렛까지</h2>
     <div class="card">
+      <p class="step-h">STEP 1 · 둘 중 하나만 하면 <span class="js-gift"></span></p>
       <ol class="steps">
-        <li><div><b>와디즈 오픈 알림 신청</b><span>부스 QR이나 이 페이지 맨 위 버튼으로 신청하고 완료 화면을 보여 주세요.</span></div></li>
+        <li><div><b>와디즈 오픈 알림 신청</b><span>아래 버튼으로 신청하고 완료 화면을 보여 주세요.</span></div></li>
         <li><div><b>인스타그램 @rharashoe 팔로우</b><span>팔로우한 화면을 보여 주세요.</span></div></li>
-        <li><div><b>부스 사진 피드 올리기</b><span>부스에서 찍은 사진을 피드에 올리고 아래 해시태그를 모두 넣어 주세요.</span>
-          <div class="tags"><code>#라라슈</code><code>#RHARASHOE</code><code>#킨텍스메가쇼</code><code>#협찬</code></div></div></li>
       </ol>
-      <div class="reward">
-        <strong>3개 완료하면</strong> 웰컴 선물 <span class="js-gift"></span> + 룰렛 1회
-        <table class="js-prizes"></table>
-      </div>
       <div class="row">
         <a class="btn js-wadiz" href="#">알림 신청</a>
         <a class="btn ghost js-insta" href="#">인스타 팔로우</a>
       </div>
-      <p class="note">1인 1회 · 경품은 수량이 소진되면 종료됩니다 · 게시물은 공개 상태로 올려 주세요.<br>경품을 받는 이벤트 게시물이라 공정거래위원회 지침에 따라 <b>#협찬</b> 표기가 꼭 필요합니다.</p>
+      <p class="step-h">STEP 2 · 선물 하나 더! 룰렛 1회</p>
+      <ol class="steps">
+        <li><div><b>부스 사진 피드 올리기</b><span>공개 계정으로 올리고, 사진에 @rharashoe를 태그한 뒤 본문에 아래 3가지를 꼭 넣어 주세요.</span>
+          <div class="tags"><code>@rharashoe</code><code>#라라슈</code><code>#협찬</code></div>
+          <button type="button" class="btn ghost sm js-copy" data-copy="@rharashoe 킨텍스 메가쇼에서 만난 라라슈 #라라슈 #협찬">본문 문구 복사하기</button></div></li>
+        <li><div><b>와디즈 오픈 알림 신청</b><span>STEP 1에서 이미 하셨다면 그대로 통과입니다.</span></div></li>
+      </ol>
+      <div class="reward">
+        <strong>룰렛 경품</strong> (꽝 없음)
+        <table class="js-prizes"></table>
+      </div>
+      <p class="note">STEP 1 선물과 룰렛은 1인 1회 · 하루 준비 수량이 소진되면 그날 이벤트는 마감됩니다 · 비공개 계정 게시물은 인정되지 않습니다.<br>경품을 받고 올리는 게시물이라 공정거래위원회 지침에 따라 <b>#협찬</b> 표기가 꼭 필요합니다.</p>
     </div>
   </section>
 
@@ -234,7 +243,7 @@ footer a{color:#CFCFC8}
     <details><summary>어떤 신발에 쓸 수 있나요?</summary><p>가지고 계신 운동화나 출근화에 쓰던 깔창 아래 깔아 씁니다. 라라슈 워킹화는 일체형 안창이라 따로 넣지 않습니다.</p></details>
     <details><summary>사이즈는 어떻게 고르나요?</summary><p>M 15cm, L 17cm 두 가지입니다. 신발 사이즈별 추천표는 와디즈 페이지에서 안내합니다.</p></details>
     <details><summary>의료용 제품인가요?</summary><p>아닙니다. 의료기기가 아니며 질환의 치료나 교정을 위한 제품이 아닙니다.</p></details>
-    <details><summary>박람회 이벤트는 어떻게 참여하나요?</summary><p>킨텍스 메가쇼 부스에서 알림 신청, 인스타그램 팔로우, 부스 사진 피드 게시 세 가지를 마치고 화면을 보여 주시면 웰컴 선물과 룰렛 1회를 드립니다.</p></details>
+    <details><summary>박람회 이벤트는 어떻게 참여하나요?</summary><p>와디즈 알림 신청이나 인스타그램 팔로우 중 하나만 하고 화면을 보여 주시면 새활용 칫솔을 드립니다. 여기에 부스 사진을 피드에 올리고(@rharashoe 태그, #라라슈 #협찬) 와디즈 알림까지 신청하시면 룰렛을 1회 돌릴 수 있어요. 하루 준비 수량이 소진되면 그날은 마감됩니다.</p></details>
     <details><summary>피드에 #협찬을 왜 넣어야 하나요?</summary><p>경품을 받고 올리는 게시물은 공정거래위원회 추천·보증 심사지침에 따라 경제적 대가를 받았다는 표시가 필요합니다.</p></details>
     <details><summary>워킹화는 언제 나오나요?</summary><p>출시일이 정해지면 워킹화 출시 알림을 신청하신 분께 가장 먼저 알려 드립니다.</p></details>
   </section>
@@ -262,8 +271,8 @@ const CFG = {
   WADIZ_URL: 'https://www.wadiz.io/web/wcomingsoon/rwd/406531',                            // 와디즈 오픈예정 페이지 주소 (11.11 공개 후)
   FUND_START: '',                                 // 펀딩 시작일 예: '11월 26일'
   BOOTH: '',                                      // 킨텍스 부스 번호
-  GIFT: '',                                       // 미션 3개 완료 웰컴 선물
-  PRIZES: [['1등', '', ''], ['2등', '', ''], ['3등', '', '']],  // [등수, 경품, 수량]
+  GIFT: '새활용 칫솔',                              // STEP 1 선물 (알림 또는 팔로우)
+  PRIZES: [['1등', '', ''], ['2등', '볼펜', ''], ['3등', '어금니 치실', '']],  // [등수, 경품, 수량] 1등은 인솔/교환권 결정 전
   WALK_DATE: '',                                  // 워킹화 공개 시기 (L3 확정 전 빈칸 = COMING SOON)
   INSTA_URL: 'https://instagram.com/rharashoe',
   WALK_FORM: 'https://forms.gle/BFvrsJiKGpZBQLm38',
@@ -295,7 +304,11 @@ if (CFG.META_PIXEL_ID) {
 }
 set('.js-fund', CFG.FUND_START || tbd('날짜'));
 set('.js-booth', CFG.BOOTH || tbd('번호'));
-set('.js-gift', CFG.GIFT ? `(${CFG.GIFT})` : tbd('선물'));
+set('.js-gift', CFG.GIFT ? CFG.GIFT : tbd('선물'));
+document.querySelectorAll('.js-copy').forEach(el => el.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(el.dataset.copy); el.textContent = '복사됐어요! 인스타에 붙여넣기'; }
+  catch (e) { el.textContent = el.dataset.copy; }
+}));
 set('.js-walkdate', CFG.WALK_DATE || 'COMING SOON');
 set('.js-prizes', CFG.PRIZES.map(([r, n, q]) => `<tr><td>${r} ${n || tbd('경품')}</td><td>${q ? q + '개' : ''}</td></tr>`).join(''));
 
