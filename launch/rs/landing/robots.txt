@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /index-v1-2026-10-04.html
 
 Sitemap: https://go.rharashoe.com/sitemap.xml
