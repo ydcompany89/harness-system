@@ -374,3 +374,4 @@
 - 감수(rs-compliance) 조건부 통과 반영: STAND YOUR GROUND→MADE FOR STANDING. / RECYCLED PADS→WASTE-TIRE RUBBER IN THE GRIP PADS(배합) / 257g "샘플 자체 실측" / AI 연출 표기 문구는 실사 합성이라 "실제 제품 사진 합성 이미지"로 대체
 - 상태: 미리보기 1장 전달, 대표 확인(L2) 대기 · 박람회 인쇄본은 날짜(11.25) 제외 여부 결정 필요
 - (추가) 대표 API 월 한도 상향 → 제미나이로 모델 컷 4장 생성, 실물 대조 후 2장 채택(키캡 탑뷰 / 로우앵글 패드 4점). 감수 확정 AI 연출 표기 삽입. 미리보기 전달, L2 대기
+- (추가) 스토리 9:16 고화질 최종본 2장 제작(2160×3840 PNG): design/sns/walking-story-2026-10-31/ · 제미나이 생성 도구에 비율·해상도 옵션(--aspect, --size) 추가 · 게시 전 L2 승인 필요
