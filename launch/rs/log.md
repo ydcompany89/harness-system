@@ -380,3 +380,4 @@
 - (추가) 대표 MZ 인솔 전략 메모 저장: content/insole-mz-strategy.md (감수 필터 부착) · CLAUDE.md에 인솔 기획 시 반영 규칙 추가
 - (추가) 대표 5장 캐러셀 원안 → 감수 기준 라라슈 적용안으로 변환해 insole-mz-strategy.md에 저장 (사용법 위치·특가/환불은 확인 필요)
 - (추가) 인솔 사용법 확정: 기존 깔창 밑 (product-master 반영)
+- (추가) 인솔 자를 필요 없음 확정
