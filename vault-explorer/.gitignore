@@ -1,0 +1,5 @@
+# 볼트 내용이 들어있는 생성물 — 커밋 금지 (개인/사업 정보 포함)
+vault-index.json
+vault-index.js
+vault-content.js
+*.tmp
