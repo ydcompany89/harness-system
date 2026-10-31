@@ -18,122 +18,123 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* 2026-10-28 수정안 v2 — landing-page-design 스킬 기준 (글자 12/14/16/18/20/24/30/36/48 · 여백 4/8/12/16/24/32/40/48/64/80/96) */
-:root{--ink:#0D0D0D;--s1:#181818;--s2:#1F1F1F;--line:#313131;--paper:#EDEDE8;--mute:#9B9B9B;--lime:#C6F432;
-  --ease:cubic-bezier(.22,1,.36,1)}
+/* 2026-10-31 v4 — 화이트 + 포레스트(강조 1색) + 라임 포인트 3% · 토스 구조 참고(use-design-md) · 해요체 */
+:root{--forest:#073D30;--forest-weak:#E8EFEC;--lime:#C6F432;--bg:#FFFFFF;--s1:#F9FAFB;--s2:#F2F4F6;--line:#E5E8EB;
+  --t1:#191F28;--t2:#4E5968;--t3:#8B95A1;--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--paper);font-family:'Noto Sans KR',sans-serif;font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased}
-h1,h2,h3{text-wrap:balance;font-weight:700}
+body{background:var(--bg);color:var(--t1);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:88px}
+h1,h2,h3{text-wrap:balance;font-weight:700;letter-spacing:-.02em}
 p,li,dd{text-wrap:pretty}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--lime);outline-offset:4px;border-radius:4px}
-.skip{position:absolute;left:16px;top:-48px;background:var(--lime);color:var(--ink);padding:8px 12px;border-radius:6px;z-index:20}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-48px;background:var(--forest);color:#fff;padding:8px 12px;border-radius:8px;z-index:20}
 .skip:focus{top:16px}
-.wrap{max-width:480px;margin:0 auto;padding:0 24px}
-.eyebrow{font-size:12px;line-height:16px;letter-spacing:.12em;color:var(--mute);font-weight:500}
-.eyebrow b{color:var(--lime);font-weight:700}
-.tbd{color:var(--lime);border:1px dashed var(--lime);border-radius:4px;padding:0 4px;font-size:12px;line-height:16px;white-space:nowrap}
-/* 떠 있는 상단 바 */
-nav.bar{position:sticky;top:12px;z-index:10;margin:12px auto 0;width:max-content;max-width:calc(100% - 32px);display:flex;align-items:center;gap:16px;
-  padding:8px 8px 8px 16px;border:1px solid var(--line);border-radius:9999px;background:rgba(24,24,24,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-nav.bar img{height:24px;display:block}
-nav.bar span{font-size:12px;line-height:16px;letter-spacing:.12em;font-weight:700}
-/* 버튼 */
-.btn{display:block;text-align:center;text-decoration:none;font-size:16px;line-height:24px;font-weight:700;padding:16px 24px;border-radius:8px;
-  background:var(--lime);color:var(--ink);transition:transform .5s var(--ease),opacity .3s var(--ease)}
-.btn:hover{transform:translateY(-2px)}
+.wrap{max-width:480px;margin:0 auto;padding:0 20px}
+.eyebrow{font-size:13px;line-height:20px;color:var(--t3);font-weight:500}
+.eyebrow b{color:var(--forest);font-weight:700}
+.tbd{color:#B3261E;border:1px dashed #B3261E;border-radius:4px;padding:0 4px;font-size:12px;line-height:16px;white-space:nowrap}
+/* 상단 바 */
+nav.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.bar img{height:26px;display:block}
+nav.bar span{display:none}
+/* 버튼: 강조 1색(포레스트), 보조는 회색 */
+.btn{display:block;text-align:center;text-decoration:none;font-size:16px;line-height:24px;font-weight:700;padding:14px 20px;border-radius:14px;
+  background:var(--forest);color:#fff;min-height:48px;transition:transform .3s var(--ease),opacity .2s}
 .btn:active{transform:scale(.98)}
-.btn.sm{display:inline-block;font-size:14px;line-height:20px;padding:8px 12px;border-radius:9999px}
-.btn.ghost{background:transparent;color:var(--paper);border:1px solid var(--line)}
-.btn[aria-disabled=true]{background:var(--s2);color:var(--mute);pointer-events:none}
+.btn.sm{display:inline-block;font-size:14px;line-height:20px;padding:8px 14px;border-radius:10px;min-height:36px}
+.btn.ghost{background:var(--s2);color:var(--t1);border:0}
+.btn[aria-disabled=true]{background:var(--s2);color:var(--t3);pointer-events:none}
+/* 하단 고정 행동 버튼 */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:15;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(rgba(255,255,255,0),#fff 35%)}
+.dock .btn{max-width:440px;margin:0 auto;font-size:17px;padding:16px;border-radius:16px}
 /* 섹션 공통 */
-section{padding:64px 0}
-section+section{border-top:1px solid var(--line)}
-h2{font-size:30px;line-height:36px;margin:12px 0 16px}
-.lead{color:#CFCFC8;font-size:16px;line-height:24px}
-.note{font-size:12px;line-height:16px;color:var(--mute);margin-top:12px}
-.media{width:100%;display:block;border-radius:12px;background:var(--s1)}
+section{padding:48px 0}
+section+section{border-top:8px solid var(--s2)}
+h2{font-size:22px;line-height:30px;margin:8px 0 12px}
+.lead{color:var(--t2);font-size:15px;line-height:1.6}
+.note{font-size:12px;line-height:18px;color:var(--t3);margin-top:12px}
+.media{width:100%;display:block;border-radius:16px;background:var(--s1)}
 /* 히어로 */
-.hero{padding:48px 0 64px;border-top:0}
-.hero h1{font-size:36px;line-height:40px;margin:16px 0;max-width:680px}
-.hero .lead{max-width:680px;margin-bottom:24px}
-.hero .proof{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:14px;line-height:20px;color:var(--mute)}
-.dots{display:inline-flex;gap:4px}.dots i{width:8px;height:8px;border-radius:9999px;background:var(--lime)}
-.hero .media{margin-top:32px}
+.hero{padding:28px 0 40px;border-top:0}
+.hero h1{font-size:28px;line-height:38px;margin:8px 0 12px}
+.hero .lead{margin-bottom:20px}
+.hero .proof{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:13px;line-height:20px;color:var(--t3)}
+.dots{display:inline-grid;grid-template-columns:repeat(2,7px);gap:3px}.dots i{width:7px;height:7px;border-radius:9999px;background:var(--lime);display:block}
+.hero .media{margin-top:24px}
 /* 박람회 미션 */
-.card{background:var(--s1);border:1px solid var(--line);border-radius:16px;padding:24px}
-.steps{list-style:none;counter-reset:s;margin:24px 0}
-.steps li{counter-increment:s;display:grid;grid-template-columns:32px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--line)}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.steps{list-style:none;counter-reset:s;margin:16px 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
 .steps li:first-child{border-top:0}
-.steps li::before{content:counter(s);width:32px;height:32px;border-radius:9999px;background:var(--lime);color:var(--ink);font-weight:700;display:grid;place-items:center}
-.steps b{display:block;font-size:18px;line-height:28px}
-.steps span{font-size:14px;line-height:20px;color:#CFCFC8}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.step-h{font-size:14px;line-height:20px;font-weight:700;color:var(--lime);margin:24px 0 0}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:9999px;background:var(--forest-weak);color:var(--forest);font-size:14px;font-weight:700;display:grid;place-items:center}
+.steps b{display:block;font-size:16px;line-height:24px;font-weight:700}
+.steps span{font-size:14px;line-height:20px;color:var(--t2)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.step-h{font-size:14px;line-height:20px;font-weight:700;color:var(--forest);margin:20px 0 0}
 .step-h:first-child{margin-top:0}
 .js-copy{margin-top:12px}
-.tags code{font-family:inherit;font-size:14px;line-height:20px;background:var(--s2);border:1px solid var(--line);border-radius:6px;padding:2px 8px}
-.reward{background:var(--s2);border-radius:8px;padding:16px;margin-bottom:16px}
-.reward table{width:100%;border-collapse:collapse;font-size:14px;line-height:20px;margin-top:8px}
-.reward td{padding:4px 0}.reward td:last-child{text-align:right;color:var(--mute)}
+.tags code{font-family:inherit;font-size:13px;line-height:20px;background:var(--s2);border-radius:8px;padding:2px 8px;color:var(--t1)}
+.reward{background:var(--s1);border-radius:12px;padding:16px;margin-bottom:16px}
+.reward table{width:100%;border-collapse:collapse;font-size:14px;line-height:22px;margin-top:8px}
+.reward td{padding:4px 0}.reward td:last-child{text-align:right;color:var(--t3)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.row .btn{font-size:14px;line-height:20px;padding:12px}
+.row .btn{font-size:15px;line-height:20px;padding:12px}
 /* 장점 · 방법 */
-.benefits{display:grid;gap:12px;margin-top:24px}
-.benefits div{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:16px}
-.benefits b{display:block;font-size:18px;line-height:28px;margin-bottom:4px}
-.benefits p{font-size:14px;line-height:20px;color:#CFCFC8}
-.spec{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;line-height:20px;margin-top:24px}
-.spec dt{color:var(--lime);font-weight:500}
-.how{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px}
-.how li{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14px;line-height:20px}
-.how li b{display:block;color:var(--lime);font-size:12px;line-height:16px;margin-bottom:4px}
-/* 태그라인 */
-.tagline{padding:96px 0}
-.tagline .js-tagline{font-size:36px;line-height:40px;font-weight:700;max-width:680px}
-.tagline .w{opacity:.3;transition:opacity .5s var(--ease)}
+.benefits{display:grid;gap:10px;margin-top:20px}
+.benefits div{background:var(--s1);border-radius:14px;padding:16px}
+.benefits b{display:block;font-size:16px;line-height:24px;margin-bottom:2px}
+.benefits p{font-size:14px;line-height:21px;color:var(--t2)}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;line-height:20px;margin-top:20px}
+.spec dt{color:var(--forest);font-weight:700}
+.how{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.how li{background:var(--s1);border-radius:12px;padding:12px;font-size:14px;line-height:20px}
+.how li b{display:block;color:var(--forest);font-size:12px;line-height:16px;margin-bottom:4px}
+/* 브랜드 */
+.tagline{padding:48px 0 16px}
+.tagline .js-tagline{font-size:28px;line-height:38px;font-weight:700;letter-spacing:-.02em}
+.tagline .w{opacity:.25;transition:opacity .5s var(--ease)}
 .tagline .w.on{opacity:1}
 /* 원장 자문 */
-.ph{aspect-ratio:4/3;border:1px dashed var(--line);border-radius:12px;display:grid;place-items:center;text-align:center;color:var(--mute);font-size:14px;line-height:20px;padding:24px;background:var(--s1)}
-.quote{margin:24px 0 0;padding:0;list-style:none;display:grid;gap:12px}
-.quote li{font-size:20px;line-height:28px;font-weight:700}
-.quote li::before{content:'“';color:var(--lime);margin-right:4px}
-.who{margin-top:16px;font-size:14px;line-height:20px;color:#CFCFC8}
-.disc{margin-top:12px;font-size:12px;line-height:16px;color:var(--mute);border:1px solid var(--line);border-radius:8px;padding:12px}
-/* 워킹화 티저 */
-.story p{color:#CFCFC8;margin-top:16px}
-.story p.eyebrow{color:inherit}
-#brand{padding-bottom:16px}
+.quote{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.quote li{font-size:18px;line-height:26px;font-weight:700}
+.who{margin-top:12px;font-size:14px;line-height:20px;color:var(--t2)}
+.disc{margin-top:12px;font-size:12px;line-height:18px;color:var(--t3);background:var(--s1);border-radius:12px;padding:12px}
+/* 브랜드 스토리 · 워킹화 · 인스타 */
+.story p{color:var(--t2);margin-top:14px}
+.story p.eyebrow{color:var(--forest);font-weight:700}
+#brand{padding-bottom:8px}
 #brand+.story{border-top:0;padding-top:0}
-.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:24px;border-radius:12px;overflow:hidden}
+.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:20px;border-radius:14px;overflow:hidden}
 .igrid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
-.teaser{position:relative;border-radius:16px;overflow:hidden;margin-top:24px}
-.teaser img{width:100%;display:block;filter:brightness(.45) grayscale(.3)}
-.teaser .over{position:absolute;inset:auto 0 0 0;padding:24px}
-.teaser .over .dots i{width:12px;height:12px}
-.teaser .over b{display:block;font-size:24px;line-height:32px;margin-top:12px}
+.teaser{position:relative;border-radius:16px;overflow:hidden;margin-top:20px;background:var(--s1)}
+.teaser img{width:100%;display:block}
+.teaser .over{position:absolute;left:12px;top:12px;padding:6px 12px;background:var(--forest);color:#fff;border-radius:9999px;display:flex;gap:8px;align-items:center}
+.teaser .over .dots i{width:6px;height:6px}.teaser .over .dots{grid-template-columns:repeat(2,6px);gap:2px}
+.teaser .over b{display:block;font-size:12px;line-height:16px;letter-spacing:.04em}
+
 /* FAQ */
 details{border-top:1px solid var(--line);padding:16px 0}
 details:last-of-type{border-bottom:1px solid var(--line)}
 summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
-summary::after{content:'+';color:var(--lime);transition:transform .3s var(--ease)}
+summary::after{content:'+';color:var(--t3);transition:transform .3s var(--ease)}
 details[open] summary::after{transform:rotate(45deg)}
-details p{margin-top:8px;font-size:14px;line-height:20px;color:#CFCFC8}
-footer{border-top:1px solid var(--line);padding:40px 0 96px;font-size:12px;line-height:16px;color:var(--mute)}
+details p{margin-top:8px;font-size:14px;line-height:21px;color:var(--t2)}
+footer{background:var(--s1);padding:32px 0 120px;font-size:12px;line-height:18px;color:var(--t3)}
 footer p+p{margin-top:8px}
-footer a{color:#CFCFC8}
+footer a{color:var(--t2)}
 /* 스크롤 등장 */
-.rv{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity .3s}.btn,.btn:hover{transition:none;transform:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity .3s}.btn{transition:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1122007340240070&ev=PageView&noscript=1"></noscript>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <nav class="bar" aria-label="상단">
-  <img src="img/rs-logo.png" alt="RS">
+  <img src="img/rs-logo-forest.png" alt="RS">
   <span>RHARA SHOE</span>
   <a class="btn sm js-wadiz" href="#">알림신청</a>
 </nav>
@@ -147,8 +148,8 @@ footer a{color:#CFCFC8}
     <p class="lead">새 신발 말고, 바닥만 바꾸세요.<br>가지고 계신 신발에 깔아 쓰는 아치가득 인솔을<br>와디즈에서 가장 먼저 공개합니다.</p>
     <a class="btn js-wadiz" href="#">와디즈 오픈 알림 받기</a>
     <p class="proof"><span class="dots"><i></i><i></i><i></i><i></i></span><span>알림신청은 무료, 결제 없음 · 펀딩 시작 <span class="js-fund"></span> 예정</span></p>
-    <img class="media" src="img/insole-ai-poster.jpg" alt="쿼드그립 아치가득 인솔을 든 모델과 인솔 확대 연출 이미지">
-    <p class="note">AI 연출 이미지로 색상·로고 등 세부가 실제 제품과 다릅니다 · 실제 제품 사진은 아래 상품 소개에 있습니다 · 의료기기 아님</p>
+    <img class="media" src="img/insole-main.jpg" alt="쿼드그립 아치가득 인솔 실제 제품 그레이 한 쌍">
+    <p class="note">실제 제품 사진 (그레이) · 의료기기가 아니에요</p>
   </section>
 
   <!-- ② 킨텍스 현장 이벤트 -->
@@ -209,8 +210,6 @@ footer a{color:#CFCFC8}
     <p class="eyebrow"><b>PRODUCT 01</b> · 와디즈 펀딩 <span class="js-fund"></span> 오픈 예정</p>
     <h2>신던 신발은 그대로,<br>바닥만 새로.</h2>
     <p class="lead">쿼드그립 아치가득 인솔 · 가지고 계신 신발에 넣어 쓰는 아치 인솔.</p>
-    <img class="media" src="img/insole-main.jpg" alt="쿼드그립 아치가득 인솔 실제 제품 그레이 한 쌍">
-    <p class="note">실제 제품 사진 (그레이)</p>
     <div class="benefits">
       <div><b>아치가득 구조</b><p>발 아치 라인을 따라 가득 채운 형태로 설계했습니다.</p></div>
       <div><b>뒤꿈치 컵 구조</b><p>뒤꿈치를 감싸는 컵 모양입니다.</p></div>
@@ -237,7 +236,7 @@ footer a{color:#CFCFC8}
     <p class="lead">쿼드그립 종일편한 워킹화 · 깔창 없는 일체형 안창, 밑창 4점 쿼드그립 패드, 도톰한 발목 테두리.</p>
     <div class="teaser">
       <img src="img/walking-main.jpg" alt="쿼드그립 종일편한 워킹화 윗면과 밑창 4곳 그립 패드">
-      <div class="over"><span class="dots"><i></i><i></i><i></i><i></i></span><b>QUAD GRIP<br>WORKING SHOE</b></div>
+      <div class="over"><span class="dots"><i></i><i></i><i></i><i></i></span><b>QUAD GRIP WORKING SHOE</b></div>
     </div>
     <div class="benefits">
       <div><b>쿼드그립 4점 패드</b><p>밑창 4곳에 그립 패드를 배치했습니다. 패드에는 폐타이어 고무를 새활용했습니다.</p></div>
@@ -287,6 +286,8 @@ footer a{color:#CFCFC8}
     <p class="note">알림신청은 무료이고 결제가 없습니다.</p>
   </section>
 </main>
+
+<div class="dock"><a class="btn js-wadiz" href="#">와디즈 알림 받기</a></div>
 
 <footer>
   <div class="wrap">
