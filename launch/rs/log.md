@@ -386,3 +386,4 @@
 - (11/01) 대표 실물 사진(패키지+인솔 측면) 보정: 배경 중립 화이트·밝기 소폭, 인솔 색 원본 유지. 금지 문구 영역 제외 4:5 크롭 → landing/img/insole-pack.jpg, 랜딩 히어로 교체(대표 승인 L2). 전체 4:3 보정본은 스크래치 보관.
 - (11/01) 대표 결정: 인솔 패키지 "ARCH SUPPORT" 문구 인쇄 완료 → 그대로 유지, 스티커 없음. 광고·SNS 카피에서는 '아치 서포트·받친다' 계속 쓰지 않음(패키지 실물 촬영 노출은 별도 감수).
 - (11/01) 대표 지시: 랜딩 히어로를 전체 보정본(4:3, 패키지 정면 포함)으로 교체 → landing/img/insole-pack-full.jpg (대표 승인 L2, 패키지 ARCH SUPPORT 문구 노출 인지 후 결정). 크롭본 insole-pack.jpg는 예비로 보관.
+- (11/01) 스레드 연재 EP05(AI 지출 한도) 원고 → content/threads/ep05-ai-spend-limit.md · rs-compliance 수정 반영 · L2 대기
