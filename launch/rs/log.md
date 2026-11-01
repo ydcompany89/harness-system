@@ -388,3 +388,4 @@
 - (11/01) 대표 지시: 랜딩 히어로를 전체 보정본(4:3, 패키지 정면 포함)으로 교체 → landing/img/insole-pack-full.jpg (대표 승인 L2, 패키지 ARCH SUPPORT 문구 노출 인지 후 결정). 크롭본 insole-pack.jpg는 예비로 보관.
 - (11/01) 스레드 연재 EP05(AI 지출 한도) 원고 → content/threads/ep05-ai-spend-limit.md · rs-compliance 수정 반영 · L2 대기
 - (11/01) 스레드 연재 EP04(효과 말하지 않기) 원고 → content/threads/ep04-no-effect-words.md · rs-compliance 수정 반영 · L2 대기 · 리스크: 패키지 ARCH SUPPORT vs 연재 메시지(평판 중간)
+- (11/01) 랜딩 v4 업로드 파일 deploy/라라슈_랜딩_업로드용_v4.zip(14개) 생성 · 검증: 압축본 로컬 서버 열기 — 이미지 6/6 정상·privacy 200·가로 스크롤 없음·스크립트 오류 0(메타 픽셀 외부 접속만 이 환경에서 차단) · 대표 넷리파이 업로드 대기
