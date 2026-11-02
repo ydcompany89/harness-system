@@ -58,13 +58,13 @@ body = col(f"""<div style="display:flex;justify-content:space-between;align-item
   <div style="margin:0 -50mm;background:{LIME};padding:12mm 50mm;display:flex;align-items:center;gap:14mm">
     <div style="background:#fff;padding:6mm;border-radius:6mm">{qr('kintex', 200)}</div>
     <div style="border-left:2mm solid {INK};padding-left:12mm;font-size:92pt;font-weight:900;line-height:1.1">지금<br>QR 스캔하고<br>참여하세요!</div></div>
-  {stepcard(1, '기본 선물', ICON[1], '라라슈 팔로우<br>또는 알림 신청', '→ 선물 증정')}
+  {stepcard(1, '기본 선물', ICON[1], '라라슈 팔로우<br>또는 알림 신청', '→ 미세모 칫솔')}
   <div style="display:flex;flex-direction:column;gap:8mm">
     {stepcard(2, '추가 선물 원하면', ICON[2], '부스 사진<br>피드에 올리기', '→ 룰렛 1회', '본문 맨 앞 [협찬] #라라슈 #쿼드그립워킹화 #아치가득인솔')}
     <div style="display:flex;gap:7mm;align-items:stretch">
       <div style="flex:none;width:116mm;background:{GR};color:#fff;border-radius:10mm;padding:10mm;display:flex;flex-direction:column;justify-content:center;font-weight:900;line-height:1.15"><div style="font-size:48pt">룰렛<br>경품</div><div style="font-size:110pt;margin-top:3mm">3종</div></div>
       {tile('1등', '젤 볼펜', f'<img src="{A}prize-pen-v.png" style="height:170mm">')}
-      {tile('2등', '초미세모<br>칫솔', f'<img src="{A}prize-brush-v.png" style="height:175mm">')}
+      {tile('2등', '데이투나잇<br>왕모칫솔', f'<div style="width:100%;height:100%;background:url({A}d2n-pair.jpg) center/contain no-repeat #fff"></div>')}
       {tile('3등', '칫솔형<br>치실', f'<div style="width:100%;height:100%;background:url({A}prize-floss-v.jpg) center/cover"></div>')}</div></div>
   <div style="text-align:center;font-size:32pt;font-weight:700;color:#333;line-height:1.5">· 1인 1회 · 당일 경품 소진 시 종료 · 비공개 계정은 참여가 제한돼요</div>""", 60, 1745, 50, W)
 
