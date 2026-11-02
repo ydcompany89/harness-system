@@ -64,8 +64,8 @@ body = col(f"""<div style="display:flex;justify-content:space-between;align-item
     <div style="display:flex;gap:7mm;align-items:stretch">
       <div style="flex:none;width:116mm;background:{GR};color:#fff;border-radius:10mm;padding:10mm;display:flex;flex-direction:column;justify-content:center;font-weight:900;line-height:1.15"><div style="font-size:48pt">룰렛<br>경품</div><div style="font-size:110pt;margin-top:3mm">3종</div></div>
       {tile('1등', '젤 볼펜', f'<img src="{A}prize-pen-v.png" style="height:170mm">')}
-      {tile('2등', '데이투나잇<br>왕모칫솔<div style="font-size:30pt;color:#555;margin-top:2mm">파랑·검정 택1</div>', f'<div style="width:100%;height:100%;background:url({A}d2n-pair.jpg) center/contain no-repeat #fff"></div>')}
-      {tile('3등', '칫솔형<br>치실', f'<div style="width:100%;height:100%;background:url({A}prize-floss-v.jpg) center/cover"></div>')}</div></div>
+      {tile('2등', '데이투나잇<br>왕모칫솔<div style="font-size:30pt;color:#555;margin-top:2mm">파랑·검정 택1</div>', f'<div style="width:100%;height:100%;background:url({A}d2n-pair.jpg) center/contain no-repeat #F4F4F6"></div>')}
+      {tile('3등', '칫솔형<br>치실', f'<div style="width:100%;height:100%;background:url({A}prize-floss-v.jpg) center/contain no-repeat #065156"></div>')}</div></div>
   <div style="text-align:center;font-size:32pt;font-weight:700;color:#333;line-height:1.5">· 1인 1회 · 당일 경품 소진 시 종료 · 비공개 계정은 참여가 제한돼요</div>""", 60, 1745, 50, W)
 
 write('07d_xbanner_event_v5_600x1800', (W, H), [(body, '#FFFFFF', gl)], 'X배너 600×1800 v5 — 부스 이벤트 (최종 룰렛 8칸)')
