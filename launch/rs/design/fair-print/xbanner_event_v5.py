@@ -29,29 +29,43 @@ def wheel(mm):
     s += f'<circle r="16" fill="{LIME}" stroke="{INK}" stroke-width="3"/><circle r="5" fill="{INK}"/><path d="M-10,-114 L10,-114 L0,-88 Z" fill="#E03030" stroke="{INK}" stroke-width="2"/>'
     return f'<svg viewBox="-118 -118 236 236" style="width:{mm}mm;height:{mm}mm;display:block;margin:0 auto">{s}</svg>'
 
-def step(no, action, reward, note):
-    return f"""<div style="background:{INK};border-radius:16mm;padding:12mm 14mm;display:flex;align-items:center;gap:12mm">
-      <div style="flex:none;width:100mm;height:100mm;border-radius:50%;background:{LIME};color:{INK};display:grid;place-items:center;font-size:110pt;font-weight:900;line-height:1">{no}</div>
-      <div style="display:flex;flex-direction:column;gap:3mm">
-        <div style="font-size:60pt;font-weight:900;color:#fff;line-height:1.15">{action}</div>
-        <div style="font-size:30pt;color:#bdbdbd;line-height:1.3">{note}</div>
-        <div style="font-size:96pt;font-weight:900;color:{LIME};line-height:1.05;margin-top:2mm">→ {reward}</div></div></div>"""
+GR = '#5BA51F'   # 레퍼런스의 진한 연두 라벨
+def band(txt, size, skew=-6):
+    return f'<div style="display:inline-block;background:{LIME};transform:skewX({skew}deg);padding:2mm 12mm 4mm;margin-left:-4mm"><div style="transform:skewX({-skew}deg);font-size:{size}pt;font-weight:900;line-height:1.1;color:{INK}">{txt}</div></div>'
 
-prize = lambda rank, item, pct, big=True: f"""<div style="display:flex;align-items:baseline;gap:10mm;padding:5mm 0;border-top:1.5mm solid {INK}">
-  <div style="flex:none;width:110mm;font-size:{86 if big else 56}pt;font-weight:900">{rank}</div>
-  <div style="flex:1;font-size:{86 if big else 56}pt;font-weight:900;line-height:1.1">{item}</div>
-  <div style="font-size:44pt;font-weight:700">{pct}</div></div>"""
+def tile(rank, name, inner):
+    return f"""<div style="flex:0 0 116mm;min-width:0;text-align:center"><div style="height:210mm;border-radius:10mm;background:#F3F3F1;display:grid;place-items:center;overflow:hidden">{inner}</div>
+      <div style="font-size:46pt;font-weight:900;color:{GR};margin-top:4mm">{rank}</div><div style="font-size:48pt;font-weight:900;line-height:1.1">{name}</div></div>"""
+cutimg = lambda f, w, rot: f'<img src="{A}{f}" style="width:{w}mm;transform:rotate({rot}deg)">'
 
-body = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:8mm">{logo(60, 'ink')}<div style="font-size:28pt;font-weight:900;color:{INK};line-height:1.15">RHARA SHOE<br>라라슈</div></div><div style="font-size:34pt;font-weight:900;color:{INK};letter-spacing:.12em;text-align:right">BOOTH<br>EVENT</div></div>
-  <div style="font-size:150pt;font-weight:900;line-height:1.05;color:{INK}">선물 받고<br><span style="display:inline-block;margin-top:5mm;background:{INK};color:{LIME};padding:1mm 8mm 5mm;line-height:1.1">룰렛 돌리기!</span></div>
-  <div style="display:flex;flex-direction:column;gap:8mm">
-    {step(1, '알림 신청 또는<br>팔로우 + 스토리', '칫솔 증정', '둘 중 하나 · 스토리 첫 줄 [협찬] 필수')}
-    {step(2, '상품 사진<br>피드 올리기', '룰렛 1회', '본문 맨 앞 [협찬] 필수')}</div>
-  {wheel(330)}
-  <div style="border-bottom:1.5mm solid {INK}">
-    {prize('1등', '젤 볼펜', '12.5%')}{prize('2등', '왕모칫솔', '25%')}{prize('3등', '치실', '37.5%')}{prize('꽝', '다음 기회에', '25%', False)}</div>
-  <div style="display:flex;align-items:center;gap:14mm">{qr('kintex', 210)}<div style="font-size:120pt;font-weight:900;line-height:1.08;color:{INK}">QR로<br>빠르게<br>참여</div></div>
-  <div style="font-size:30pt;font-weight:700;color:#2f3a0c;line-height:1.45">1인 1회 · 1등 소진 시 2등으로 대체 · 하루 수량 소진 시 마감<br>비공개 계정 불인정 · 경품 일부에 새활용 소재 사용(부위는 부스 안내)</div>""", 60, 1740, 50, W)
+ICON = {
+ 1: f'<div style="width:120mm;height:120mm;border:3mm solid {INK};border-radius:16mm;display:grid;place-items:center;position:relative">{logo(52, "ink")}<div style="position:absolute;right:-10mm;bottom:-10mm;width:46mm;height:46mm;border-radius:50%;background:{GR};border:2.5mm solid #fff;color:#fff;display:grid;place-items:center;font-size:56pt;font-weight:900;line-height:1">+</div></div>',
+ 2: f'<svg viewBox="0 0 120 120" style="width:120mm;height:120mm"><rect x="4" y="12" width="112" height="96" rx="14" fill="#fff" stroke="{INK}" stroke-width="6"/><circle cx="38" cy="42" r="10" fill="#F2C230"/><path d="M14 98 L48 58 L70 82 L84 66 L108 98 Z" fill="{GR}"/></svg>',
+ 3: '<svg viewBox="-60 -64 120 124" style="width:120mm;height:124mm">' + ''.join(
+     f'<path d="M0,0 L{50*math.cos(math.radians(-112.5+i*45)):.1f},{50*math.sin(math.radians(-112.5+i*45)):.1f} A50,50 0 0 1 {50*math.cos(math.radians(-67.5+i*45)):.1f},{50*math.sin(math.radians(-67.5+i*45)):.1f} Z" fill="{[INK,LIME,"#fff",LIME,"#E9E6DF","#fff",LIME,"#E9E6DF"][i]}" stroke="{INK}" stroke-width="2.5"/>' for i in range(8)) +
+     f'<circle r="8" fill="{LIME}" stroke="{INK}" stroke-width="3"/><path d="M-8,-62 L8,-62 L0,-44 Z" fill="#E03030" stroke="{INK}" stroke-width="2"/></svg>'}
+def step(no, text, sub=''):
+    return f"""<div style="display:flex;align-items:center;gap:12mm;padding:9mm 0;border-bottom:1mm solid #d9d9d9">
+      <div style="flex:none;width:70mm;height:70mm;border-radius:10mm;background:{LIME};display:grid;place-items:center;font-size:80pt;font-weight:900;line-height:1">{no}</div>
+      <div style="flex:none;width:130mm;display:grid;place-items:center">{ICON[no]}</div>
+      <div><div style="font-size:62pt;font-weight:900;line-height:1.2">{text}</div>{f'<div style="font-size:30pt;font-weight:700;color:#333;margin-top:3mm">{sub}</div>' if sub else ''}</div></div>"""
 
-write('07d_xbanner_event_v5_600x1800', (W, H), [(body, LIME, gl)], 'X배너 600×1800 v5 — 부스 이벤트 (최종 룰렛 8칸)')
+body = col(f"""<div style="display:flex;justify-content:space-between;align-items:center"><div style="display:flex;align-items:center;gap:8mm">{logo(62, 'ink')}<div style="font-size:30pt;font-weight:900;line-height:1.15">RHARA SHOE<br>라라슈</div></div><div style="border-left:1.5mm solid {INK};padding-left:10mm;font-size:38pt;font-weight:900;line-height:1.2">BOOTH<br>EVENT</div></div>
+  <div><div style="font-size:150pt;font-weight:900;line-height:1.1">사진 올리고</div>{band('룰렛 돌리고!', 150)}
+    <div style="font-size:52pt;font-weight:900;margin-top:8mm">라라슈 부스 이벤트에 참여하세요!</div></div>
+  <div style="margin:0 -50mm;background:{LIME};padding:14mm 50mm;display:flex;align-items:center;gap:14mm">
+    <div style="background:#fff;padding:6mm;border-radius:6mm">{qr('kintex', 210)}</div>
+    <div style="border-left:2mm solid {INK};padding-left:12mm;font-size:96pt;font-weight:900;line-height:1.1">지금<br>QR 스캔하고<br>참여하세요!</div></div>
+  <div style="display:flex;gap:7mm;align-items:stretch">
+    <div style="flex:none;width:116mm;background:{GR};color:#fff;border-radius:10mm;padding:12mm 10mm;display:flex;flex-direction:column;justify-content:center;font-weight:900;line-height:1.15"><div style="font-size:52pt">행운의<br>룰렛<br>경품</div><div style="font-size:110pt;margin-top:4mm">3종</div></div>
+    {tile('1등', '젤 볼펜', f'<img src="{A}prize-pen-v.png" style="height:190mm">')}
+    {tile('2등', '왕모칫솔', f'<img src="{A}prize-brush-v.png" style="height:195mm">')}
+    {tile('3등', '칫솔형 치실', f'<div style="width:100%;height:100%;background:url({A}prize-floss-v.jpg) center/cover"></div>')}</div>
+  <div><div style="text-align:center">{band('참여 방법 (3단계)', 80, -8)}</div>
+    {step(1, '라라슈 팔로우<br>또는 알림 신청')}
+    {step(2, '부스에서 찍은 사진<br>피드에 올리기', '본문 맨 앞 [협찬] #라라슈 #쿼드그립워킹화 #아치가득인솔')}
+    {step(3, '룰렛 돌리고<br>경품 받기!')}</div>
+  <div style="text-align:center;font-size:32pt;font-weight:700;color:#333;line-height:1.5">· 1인 1회 참여 · 당일 경품 소진 시 종료<br>· 비공개 계정은 참여가 제한돼요</div>""", 60, 1745, 50, W)
+
+write('07d_xbanner_event_v5_600x1800', (W, H), [(body, '#FFFFFF', gl)], 'X배너 600×1800 v5 — 부스 이벤트 (최종 룰렛 8칸)')
 print('ok')
