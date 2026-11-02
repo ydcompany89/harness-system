@@ -390,3 +390,4 @@
 - (11/01) 스레드 연재 EP04(효과 말하지 않기) 원고 → content/threads/ep04-no-effect-words.md · rs-compliance 수정 반영 · L2 대기 · 리스크: 패키지 ARCH SUPPORT vs 연재 메시지(평판 중간)
 - (11/01) 랜딩 v4 업로드 파일 deploy/라라슈_랜딩_업로드용_v4.zip(14개) 생성 · 검증: 압축본 로컬 서버 열기 — 이미지 6/6 정상·privacy 200·가로 스크롤 없음·스크립트 오류 0(메타 픽셀 외부 접속만 이 환경에서 차단) · 대표 넷리파이 업로드 대기
 - (11/02) 부스 이벤트 X배너 v5(600×1800) 시안: 최종 룰렛 8칸(1등 젤 볼펜1·2등 데이투나잇 왕모칫솔2·3등 치실3·꽝2, 확률표) + STEP1/2 + 킨텍스 QR → design/fair-print/xbanner_event_v5.py → 07d_xbanner_event_v5_600x1800_{art,dieline}.html. 문구는 감수 완료된 랜딩 문구 그대로, 로고 옆 표기 RHARA SHOE(구 RhaRa 락업 미사용), 날짜 없음(재사용). 구 07c(re.feeel 3등 CXP볼펜) 폐기 예정. 미리보기 전달, L2 대기.
+- (11/02) 대표 지시: X배너 v5 QR 제목 "QR → 와디즈 알림 신청" → "QR로 빠르게 이벤트 참여", 약 5배(200pt) 2줄로 확대.
