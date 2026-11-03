@@ -58,7 +58,7 @@ body = col(f"""<div style="display:flex;justify-content:space-between;align-item
   <div style="margin:0 -50mm;background:{LIME};padding:12mm 50mm;display:flex;align-items:center;gap:14mm">
     <div style="background:#fff;padding:6mm;border-radius:6mm">{qr('kintex', 200)}</div>
     <div style="border-left:2mm solid {INK};padding-left:12mm;font-size:92pt;font-weight:900;line-height:1.1">지금<br>QR 스캔하고<br>참여하세요!</div></div>
-  {stepcard(1, '기본 선물', ICON[1], '라라슈 팔로우<br>또는 알림 신청', '→ 미세모 칫솔')}
+  {stepcard(1, '기본 선물', f'<div style="width:125mm;height:125mm;border-radius:12mm;border:2.5mm solid {INK};background:url({A}gift-brush.jpg) center/cover"></div>', '라라슈 팔로우<br>또는 알림 신청', '→ 미세모 칫솔')}
   <div style="display:flex;flex-direction:column;gap:8mm">
     {stepcard(2, '추가 선물 원하면', ICON[2], '부스 사진<br>피드에 올리기', '→ 룰렛 1회', '본문 맨 앞 [협찬] #라라슈 #쿼드그립워킹화 #아치가득인솔')}
     <div style="display:flex;gap:7mm;align-items:stretch">
