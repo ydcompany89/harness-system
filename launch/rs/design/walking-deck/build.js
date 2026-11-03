@@ -46,7 +46,7 @@ const NOTICE = '이미지 색상은 실제와 다를 수 있으며, 출시 전 �
   s.addText('서서 일하는 사람의 신발', { placeholder: 'title' });
   s.addText('주방·매장·현장에서 오래 서는 분들을 위한 신발', { x: 0.7, y: 1.6, w: 6.4, h: 1.0, fontSize: 22, bold: true, color: C.text1, margin: 0, valign: 'top', isTextBox: true, objectName: '대상' });
   s.addText([
-    { text: '하루 7시간, 주방과 매장과 계산대 앞에 서 있는 사람들이 있습니다.', options: { breakLine: true, paraSpaceAfter: 10 } },
+    { text: '하루 대부분을 주방과 매장과 계산대 앞에 서 있는 사람들이 있습니다.', options: { breakLine: true, paraSpaceAfter: 10 } },
     { text: '퇴근하면 신발부터 벗게 되는 그 발을 위해 라라슈를 시작했습니다.', options: { breakLine: true, paraSpaceAfter: 10 } },
     { text: '작업화처럼 보이지 않게. 출근길에 신고 나와 근무 중에도, 퇴근길에도 그대로 신을 수 있도록 디자인했습니다.' } ],
     { x: 0.7, y: 2.7, w: 6.4, h: 2.7, fontSize: 16, color: C.accent4, margin: 0, valign: 'top', isTextBox: true, objectName: '브랜드 소개' });
@@ -61,7 +61,7 @@ const NOTICE = '이미지 색상은 실제와 다를 수 있으며, 출시 전 �
   // 3 핵심 구조
   s = pres.addSlide({ masterName: 'DARK', sectionTitle: '상품소개서' });
   s.addText('핵심 구조 3가지', { placeholder: 'title' });
-  const P3 = [['쿼드그립 4점 패드', '밑창 4곳에 그립 패드를 배치했습니다. 패드에는 폐타이어 고무를 새활용했습니다.'],
+  const P3 = [['쿼드그립 4점 패드', '밑창 4곳에 그립 패드를 배치했습니다. 패드에는 폐타이어 재생고무와 실크벽지 재생 PVC를 썼습니다.'],
     ['깔창 없는 일체형 안창', 'E-실리폴리렌으로 안창까지 한 몸. 따로 빠지는 깔창이 없습니다.'],
     ['도톰한 발목 테두리', '발이 들어가는 입구 테두리를 다른 부분보다 두껍게 둘렀습니다.']];
   P3.forEach(([t, d], i) => { const x = 0.7 + i * 4.05, w = 3.8;
@@ -75,20 +75,20 @@ const NOTICE = '이미지 색상은 실제와 다를 수 있으며, 출시 전 �
   s.addText('밑창 4점 그립 패드와 소재', { placeholder: 'title' });
   const iw = 6.6, ih = iw * 1080 / 1920;
   s.addImage({ path: A('outsole-studio.jpg'), x: 0.7, y: 1.9, w: iw, h: ih, objectName: '밑창 4점 그립 패드', altText: '워킹화 밑창과 그립 패드 4곳' });
-  s.addText('밑창 4곳의 그립 패드', { x: 0.7, y: 1.9 + ih + 0.15, w: iw, h: 0.35, fontSize: 12, color: C.accent3, margin: 0, isTextBox: true, objectName: '이미지 캡션' });
+  s.addText('라라슈는 발이 바닥에 닿는 순서를 기준으로 4점 그립 패드의 위치를 정했습니다.', { x: 0.7, y: 1.9 + ih + 0.15, w: iw, h: 0.6, valign: 'top', fontSize: 12, color: C.accent3, margin: 0, isTextBox: true, objectName: '이미지 캡션' });
   const R = [['본체 · 밑창', '합성수지 E-실리폴리렌 (EVA·실리콘 배합)'], ['그립 패드', '재생고무(폐타이어) · 재생 PVC(실크벽지)']];
   R.forEach(([t, d], i) => { const y = 1.9 + i * 2.2;
     s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 7.7, y, w: 4.9, h: 1.95, rectRadius: 0.1, fill: { color: C.accent2 }, line: { type: 'none' }, objectName: '소재 카드 ' + (i + 1) });
     s.addText(t, { x: 8.05, y: y + 0.25, w: 4.2, h: 0.4, fontSize: 16, bold: true, color: C.accent1, margin: 0, isTextBox: true, objectName: '소재 부위 ' + (i + 1) });
     s.addText(d, { x: 8.05, y: y + 0.75, w: 4.2, h: 1.0, fontSize: 18, color: C.background1, margin: 0, valign: 'top', isTextBox: true, objectName: '소재 설명 ' + (i + 1) }); });
-  s.addText('버려지던 자원이 매일 걷는 길이 되도록.', { x: 7.7, y: 6.2, w: 4.9, h: 0.4, fontSize: 14, color: C.accent5, margin: 0, isTextBox: true, objectName: '소재 메시지' });
+  s.addText('버려지던 타이어와 벽지가, 밑창 그립 패드가 되었습니다.', { x: 7.7, y: 6.2, w: 4.9, h: 0.4, fontSize: 14, color: C.accent5, margin: 0, isTextBox: true, objectName: '소재 메시지' });
   note(s, true);
 
   // 5 사양표
   s = pres.addSlide({ masterName: 'LIGHT', sectionTitle: '상품소개서' });
   s.addText('제품 사양', { placeholder: 'title' });
-  const rows = [['제품명', '쿼드그립 종일편한 워킹화'], ['판매가', '42,500원'], ['사이즈', '230~280mm'], ['컬러', '차콜 · 그레이 · 민트화이트'],
-    ['무게', '한쪽 257g (270mm 샘플 실측)'], ['소재', '본체·밑창 E-실리폴리렌 / 그립 패드 재생고무·재생 PVC'], ['오픈', '11.25 라라슈 자사몰'], ['제조', '라파']];
+  const rows = [['제품명', '쿼드그립 종일편한 워킹화'], ['권장 소비자가', '42,500원 (공급 조건은 별도 협의)'], ['사이즈', '230~280mm'], ['컬러', '차콜 · 그레이 · 민트화이트'],
+    ['무게', '한쪽 257g (270mm 샘플 실측)'], ['소재', '본체·밑창 E-실리폴리렌 / 그립 패드 재생고무·재생 PVC'], ['오픈', '11.25 라라슈 자사몰 오픈 예정 (발송 일정은 판매 페이지에서 안내)'], ['제조', '라파']];
   const cell = (t, o) => ({ text: t, options: { fontSize: 16, valign: 'middle', margin: [0, 0.15, 0, 0.15], ...o } });
   s.addTable(rows.map(([k, v], i) => [cell(k, { bold: true, color: C.text1, fill: { color: C.background2 } }), cell(v, { color: C.text1, fill: { color: C.background1 } })]),
     { x: 0.7, y: 1.7, w: 7.4, colW: [1.7, 5.7], rowH: 0.58, border: { type: 'solid', pt: 0.75, color: C.accent5 }, objectName: '제품 사양표' });
@@ -104,8 +104,8 @@ const NOTICE = '이미지 색상은 실제와 다를 수 있으며, 출시 전 �
   s.addText('정형외과 전문의', { x: 1.2, y: 2.25, w: 6, h: 0.45, fontSize: 18, color: C.accent3, margin: 0, isTextBox: true, objectName: '직함' });
   s.addText([{ text: '이문홍 원장', options: { bold: true, color: C.background1 } }, { text: '  설계 자문', options: { bold: true, color: C.accent1 } }],
     { x: 1.2, y: 2.75, w: 10.9, h: 0.9, fontSize: 36, margin: 0, valign: 'middle', isTextBox: true, objectName: '자문 이름' });
-  s.addText('발이 바닥에 닿는 순서를 기준으로 4점 그립 패드의 위치를 정했습니다.', { x: 1.2, y: 3.85, w: 10.9, h: 0.9, fontSize: 20, color: C.accent5, margin: 0, valign: 'top', isTextBox: true, objectName: '자문 내용' });
-  s.addText('이문홍 원장은 제품 설계 자문에 참여하고 자문료를 받았습니다.', { x: 0.7, y: 5.75, w: 11.9, h: 0.5, fontSize: 16, color: C.background1, margin: 0, valign: 'middle', isTextBox: true, objectName: '자문 고지문' });
+  s.addText('자문 기간 2026.10~', { x: 1.2, y: 3.85, w: 10.9, h: 0.9, fontSize: 20, color: C.accent5, margin: 0, valign: 'top', isTextBox: true, objectName: '자문 내용' });
+  s.addText('이문홍 원장은 ㈜알앤디메이커스의 제품 설계 자문에 참여하고 자문료를 받았습니다.', { x: 0.7, y: 5.75, w: 11.9, h: 0.5, fontSize: 16, color: C.background1, margin: 0, valign: 'middle', isTextBox: true, objectName: '자문 고지문' });
 
   // 7 회사·연락처
   s = pres.addSlide({ masterName: 'DARK', sectionTitle: '상품소개서' });
