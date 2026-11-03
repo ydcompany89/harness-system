@@ -1,4 +1,4 @@
-"""세로형 락업 v2 (대표 11/03): 라라슈(맨 위, 장평 넓게·자간 좁게) / 굵어진 RS 심볼 / RHARASHOE / MADE IN KOREA
+"""세로형 락업 v2 (대표 11/03): 굵어진 RS 심볼 / 라라슈(심볼 바로 밑, 장평 넓게·자간 좁게) / RHARASHOE / MADE IN KOREA
 실행: launch/rs 에서 python3 design/brand/make_lockup_stack.py → design/brand/rs-lockup-stack-{ink,lime,white}.svg
 장평 = 가로 배율(sx), 자간 = track(em 단위, 음수 = 좁힘)."""
 import numpy as np, potrace, cv2
@@ -50,13 +50,11 @@ for (t,fp,_,tr,sx),wr in zip(LINES,WIDTH_RATIO):
     d,w=text_d(fp,t,100,tr,sx); k=LW*wr/w; h=100*k*(CAP['ko'] if fp==KO else CAP['en'])
     rows.append((d,w,k,h))
 GAP=LH*0.10
-# 배치: 라라슈 → 심볼 → RHARASHOE → MADE IN KOREA (가운데 정렬)
-y=rows[0][3]; parts=[]
-d,w,k,h=rows[0]; parts.append(f'<g transform="translate({(LW-w*k)/2:.2f},{y:.2f}) scale({k:.5f})"><path d="{d}"/></g>')
-y+=GAP*1.1; sym_y=y
-logo_d=''.join(curve_d(c,s,0,sym_y) for c in path); y+=LH
-for d,w,k,h in rows[1:]:
-    y+=GAP+h; parts.append(f'<g transform="translate({(LW-w*k)/2:.2f},{y:.2f}) scale({k:.5f})"><path d="{d}"/></g>')
+# 배치(대표 11/03 정정): RS 심볼 → 라라슈 → RHARASHOE → MADE IN KOREA (가운데 정렬)
+y=0; parts=[]
+logo_d=''.join(curve_d(c,s,0,0) for c in path); y=LH
+for i,(d,w,k,h) in enumerate(rows):
+    y+=(GAP*1.3 if i==0 else GAP)+h; parts.append(f'<g transform="translate({(LW-w*k)/2:.2f},{y:.2f}) scale({k:.5f})"><path d="{d}"/></g>')
 H=y+LH*0.04
 for n,c in (('ink','#0D0D0D'),('lime','#C6F432'),('white','#FFFFFF')):
     open(f'design/brand/rs-lockup-stack-{n}.svg','w').write(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 {-LH*0.04:.2f} {LW:.2f} {H+LH*0.04:.2f}" width="{LW*4:.0f}" height="{(H+LH*0.08)*4:.0f}">
