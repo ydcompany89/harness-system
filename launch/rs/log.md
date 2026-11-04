@@ -402,3 +402,4 @@
 - (11/03) 대표 지시 세로형 락업 v2: 라라슈 맨 위(장평 130%·자간 -6%) / RS 심볼 굵게(+3px) / RHARASHOE 붙여쓰기(장평 110%·자간 -3%) / MADE IN KOREA(장평 112%·자간 -2%) → design/brand/make_lockup_stack.py → rs-lockup-stack-{ink,lime,white}.svg. 확인 필요: 영문 붙여쓰기는 제품 마스터 "RHARA SHOE"와 달라 브랜드 체계 L3, MADE IN KOREA 라파 서면 미확보.
 - (11/03) 대표 정정: 세로형 락업 순서 = RS 심볼 → 라라슈 → RHARASHOE → MADE IN KOREA.
 - (11/03) fire-your-seo-agency 스킬 설치(문서만: SKILL.md·references 한국어판·LICENSE, 테스트·도구·영문 미러 제외) → .claude/skills/fire-your-seo-agency/. www.rharashoe.com 점검 시도: 이 세션 네트워크 정책이 rharashoe.com 접속 차단(403) → 실측 불가. Vercel 도메인 설정 조회: www = 카페24 DNS에서 Vercel CNAME 연결됨(misconfigured 아님, A값은 Vercel 권장값과 다름). 네트워크 허용 후 5레인 점검 예정.
+- (11/04) 대표 지시: 랜딩 인솔 상품 섹션에 실촬영 모카무스 사진(패키지+인솔) 추가 → landing/img/insole-pack-mocha.jpg(배경 중립 보정), 캡션 "실제 제품 사진 (모카무스)", 섹션 고지에서 "연출 장면 포함" 문구 삭제(의료기기 아님만 유지). 업로드 파일 v4 재생성(15개).
