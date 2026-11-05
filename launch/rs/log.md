@@ -416,3 +416,4 @@
 - (11/05) 인스타 식당 사장님 공감 캐러셀 초안 → content/instagram/post-2026-11-05-restaurant-empathy.md · rs-compliance 수정 3건 반영(근거 없는 "많다고 들었어요"→질문형, 해시태그 5개, 댓글 활용 고지) · L2 대기. 참고: instagram-2month-plan.md에 RhaRa 표기 잔존 → 정리 필요.
 - (11/07) 메가쇼 D-5 체크리스트 → fair/megashow-d5-checklist.md (긴급: X배너 v5 출력 발주, 부스 번호, 판촉물 검수, 사업비 증빙).
 - (11/07) 메가쇼 부스 R106 확정 → 랜딩 BOOTH 반영, 업로드 v4 재생성. 초청 게시물(대표 스레드 3편 + 인스타 캐러셀 3장) → content/threads/ep-invite-megashow.md · rs-compliance 수정 반영(경품 조건·확률·꽝·대체, "라라슈 이름으로 첫", 첫 답글 링크) · L2 대기.
+- (11/07) 경품 재고 확정(볼펜 200·왕모칫솔 ~2,000·치실 ~300·미세모 ~800) → 하루 상한표 fair/prize-daily-caps.md. 병목=치실(룰렛 최대 ~800회), 메가쇼 480회·서디페 300회.
