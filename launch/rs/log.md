@@ -415,3 +415,4 @@
 - (11/05) alirezarezvani/claude-skills(478개) 중 런칭·마케팅에 맞는 9개만 선별 설치 → .claude/skills/{launch-strategy,paid-ads,ad-creative,social-content,referral-program,email-sequence,campaign-analytics,marketing-psychology,page-cro} (MIT). 스크립트 점검: 외부 접속은 page-cro 페이지 진단(URL 읽기)뿐. 전체 설치는 기존 에이전트와 이름 충돌(content-creator 등)·라우팅 혼선으로 보류.
 - (11/05) 인스타 식당 사장님 공감 캐러셀 초안 → content/instagram/post-2026-11-05-restaurant-empathy.md · rs-compliance 수정 3건 반영(근거 없는 "많다고 들었어요"→질문형, 해시태그 5개, 댓글 활용 고지) · L2 대기. 참고: instagram-2month-plan.md에 RhaRa 표기 잔존 → 정리 필요.
 - (11/07) 메가쇼 D-5 체크리스트 → fair/megashow-d5-checklist.md (긴급: X배너 v5 출력 발주, 부스 번호, 판촉물 검수, 사업비 증빙).
+- (11/07) 메가쇼 부스 R106 확정 → 랜딩 BOOTH 반영, 업로드 v4 재생성. 초청 게시물(대표 스레드 3편 + 인스타 캐러셀 3장) → content/threads/ep-invite-megashow.md · rs-compliance 수정 반영(경품 조건·확률·꽝·대체, "라라슈 이름으로 첫", 첫 답글 링크) · L2 대기.
