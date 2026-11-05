@@ -414,3 +414,4 @@
 - (11/05) 아치가득 인솔 체험단 사진 가이드(식당·일상편) 작성 → content/reviewer-photo-guide-insole-2026-11-05.md · rs-compliance 1차 수정 13건 반영 → 재감수 통과 · 체험단 발송은 L2 대기 · 받은 사진은 공개 전 별도 감수.
 - (11/05) alirezarezvani/claude-skills(478개) 중 런칭·마케팅에 맞는 9개만 선별 설치 → .claude/skills/{launch-strategy,paid-ads,ad-creative,social-content,referral-program,email-sequence,campaign-analytics,marketing-psychology,page-cro} (MIT). 스크립트 점검: 외부 접속은 page-cro 페이지 진단(URL 읽기)뿐. 전체 설치는 기존 에이전트와 이름 충돌(content-creator 등)·라우팅 혼선으로 보류.
 - (11/05) 인스타 식당 사장님 공감 캐러셀 초안 → content/instagram/post-2026-11-05-restaurant-empathy.md · rs-compliance 수정 3건 반영(근거 없는 "많다고 들었어요"→질문형, 해시태그 5개, 댓글 활용 고지) · L2 대기. 참고: instagram-2month-plan.md에 RhaRa 표기 잔존 → 정리 필요.
+- (11/07) 메가쇼 D-5 체크리스트 → fair/megashow-d5-checklist.md (긴급: X배너 v5 출력 발주, 부스 번호, 판촉물 검수, 사업비 증빙).
