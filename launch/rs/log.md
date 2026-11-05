@@ -413,3 +413,4 @@
 - (11/05) 매스미디어 계약·송금 완료(대표). 미디어 믹스 내 가구매 리뷰 대행(약 286만 원) 위법 소지 → 체험단·실구매 리뷰 이벤트·숏폼/광고비로 교체 요청안 작성: mall/massmedia-scope-change-request-2026-11-05.md (발송 대기). 원본 엑셀은 타사 데이터 포함으로 저장소 미보관.
 - (11/05) 아치가득 인솔 체험단 사진 가이드(식당·일상편) 작성 → content/reviewer-photo-guide-insole-2026-11-05.md · rs-compliance 1차 수정 13건 반영 → 재감수 통과 · 체험단 발송은 L2 대기 · 받은 사진은 공개 전 별도 감수.
 - (11/05) alirezarezvani/claude-skills(478개) 중 런칭·마케팅에 맞는 9개만 선별 설치 → .claude/skills/{launch-strategy,paid-ads,ad-creative,social-content,referral-program,email-sequence,campaign-analytics,marketing-psychology,page-cro} (MIT). 스크립트 점검: 외부 접속은 page-cro 페이지 진단(URL 읽기)뿐. 전체 설치는 기존 에이전트와 이름 충돌(content-creator 등)·라우팅 혼선으로 보류.
+- (11/05) 인스타 식당 사장님 공감 캐러셀 초안 → content/instagram/post-2026-11-05-restaurant-empathy.md · rs-compliance 수정 3건 반영(근거 없는 "많다고 들었어요"→질문형, 해시태그 5개, 댓글 활용 고지) · L2 대기. 참고: instagram-2month-plan.md에 RhaRa 표기 잔존 → 정리 필요.
