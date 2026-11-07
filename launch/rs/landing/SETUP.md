@@ -52,7 +52,7 @@ forms.google.com → 새 양식, 제목 `라라슈 RhaRa Shoe 신청`
 2. `landing` 폴더(index.html + img 폴더)를 **통째로 끌어다 놓기**
 3. Site settings → Change site name → **`rharashoe`** → 주소가 `https://rharashoe.netlify.app` 이 됨
    - ⚠️ 이 이름이 이미 사용 중이면 다른 이름으로 정하고 알려주세요 → QR을 다시 만들어야 합니다 (`qr/make_qr.py`의 BASE만 수정)
-4. 수정할 때: Deploys 탭에 폴더를 다시 끌어다 놓으면 같은 주소로 갱신
+4. 수정할 때: Deploys 탭에 폴더 또는 **업로드용 zip을 압축 풀지 않고 그대로** 끌어다 놓으면 같은 주소로 갱신 (10/16 대표 확인)
 
 ## 3-1단계 — 공개 확인 (필수, 1분)
 1. 휴대폰 **시크릿 창**에서 `https://rharashoe.netlify.app` 열기 → "This site is private"가 뜨면:

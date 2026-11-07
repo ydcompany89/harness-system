@@ -62,7 +62,7 @@ const W = 13.333, H = 7.5, M = 0.65, CW = W - 2 * M, NAVY = '181478', INK = '0B0
   pres.addSection({ title: '라라슈' });
   s = pres.addSlide({ masterName: 'INK', sectionTitle: '라라슈' });
   eb(s, 'RHARA SHOE  ·  라라슈  ·  2026.11.11 OPEN', LIME); s.addText('Made for Standing.', { placeholder: 'title' });
-  T(s, '친구 셋의 식당에서 매일 10~12시간 서서 일하는 모습을 보고 시작한, 서서 일하는 사람들을 위한 워킹화와 인솔.', { x: M, y: 1.6, w: CW, h: 0.35, fontSize: 13, color: 'C9C9C4' });
+  T(s, '퇴근하면 신발부터 벗게 되는 발을 위해 — 정형외과 전문의 설계 자문, 출퇴근·근무 겸용 디자인, 재생 원료 그립 패드.', { x: M, y: 1.6, w: CW, h: 0.35, fontSize: 13, color: 'C9C9C4' });
   const lw = (CW - 0.3) / 2;
   const P = [{ img: 'img/tile-shoes.png', r: 1.2, name: '쿼드그립 종일편한 워킹화', price: '42,500원', d: '쿼드그립 4점 패드 · 깔창 없는 일체형 안창 · 도톰한 발목 테두리' },
     { img: 'img/tile-insole.png', r: 1.6, name: '쿼드그립 아치가득 인솔', price: '21,500원', d: '아치가득 구조 · 뒤꿈치 컵 · 우드칩 배합 소재' }];
