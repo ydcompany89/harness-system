@@ -130,6 +130,46 @@ footer a{color:var(--t2)}
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity .3s}.btn{transition:none}html{scroll-behavior:auto}}
+/* 영상 히어로 (11/07 시험판 · MotionSites creative-studio 구조 참고) */
+.vh{position:relative;min-height:calc(100svh - 56px);display:flex;flex-direction:column;overflow:hidden;background:#F2F3F0;color:#000}
+.vh video,.vh .vposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vh::before,.vh::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
+.vh::before{top:0;height:30%;background:linear-gradient(#F2F3F0 10%,rgba(242,243,240,0))}
+.vh::after{bottom:0;height:42%;background:linear-gradient(rgba(242,243,240,0),rgba(242,243,240,.92) 62%)}
+.vh>*{position:relative;z-index:2}
+.vh .vtop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 20px 0}
+.vh .tag{font-size:11px;line-height:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.vh .tag b{color:var(--forest)}
+.q4{display:grid;grid-template-columns:repeat(2,9px);gap:4px;margin-top:2px}
+.q4 i{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 1px rgba(0,0,0,.08);transform:scale(0);animation:pop .45s var(--ease) forwards}
+.q4 i:nth-child(3){animation-delay:.35s}.q4 i:nth-child(4){animation-delay:.5s}.q4 i:nth-child(2){animation-delay:.65s}.q4 i:nth-child(1){animation-delay:.8s}
+@keyframes pop{60%{transform:scale(1.35)}to{transform:scale(1)}}
+.vstats{display:flex;justify-content:flex-end;gap:16px;padding:14px 20px 0;text-align:right}
+.vstats div{opacity:0;animation:up .6s var(--ease) forwards}
+.vstats div:nth-child(1){animation-delay:.24s}.vstats div:nth-child(2){animation-delay:.36s}.vstats div:nth-child(3){animation-delay:.48s}.vstats div:nth-child(4){animation-delay:.6s}
+.vstats b{display:block;font-size:clamp(1.4rem,6.4vw,3.2rem);line-height:1;font-weight:800;letter-spacing:-.03em}
+.vstats b small{font-size:.5em;color:var(--forest);margin-left:1px}
+.vstats span{display:block;margin-top:4px;font-size:10px;line-height:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:pre-line}
+.vbot{margin-top:auto;padding:0 20px 24px;display:flex;flex-direction:column;gap:14px}
+.vrow{display:flex;flex-direction:column-reverse;gap:12px}
+.vdesc{font-size:12px;line-height:17px;font-weight:600;opacity:0;animation:up .6s var(--ease) .84s forwards}
+.vh h1{margin:0;text-align:right;font-size:clamp(2.8rem,14.5vw,8.5rem);line-height:.88;font-weight:900;letter-spacing:-.04em;text-transform:uppercase}
+.vh h1 .w{display:block;overflow:hidden;padding-bottom:.04em}
+.vh h1 .w>span{display:block;transform:translateY(110%);animation:rise .7s var(--ease) forwards}
+.vh h1 .w:nth-child(2)>span{animation-delay:.54s}.vh h1 .w:nth-child(3)>span{animation-delay:.68s}.vh h1 .w:nth-child(1)>span{animation-delay:.4s}
+.vh h1 em{font-style:normal;color:var(--forest)}
+.vcta{display:flex;align-items:center;justify-content:space-between;gap:12px;opacity:0;animation:up .6s var(--ease) .95s forwards}
+.vcta p{font-size:12px;line-height:17px;font-weight:600;color:#222}
+.vcta p b{font-size:14px;color:#000}
+.vcta a{flex:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:var(--forest);color:#fff;font-size:16px;font-weight:800;padding:13px 16px;border-radius:9999px}
+.vcta a svg{width:18px;height:18px}
+.vh .vnote{font-size:10px;line-height:14px;color:#555}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@keyframes up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes rise{to{transform:none}}
+@media (min-width:768px){.vrow{flex-direction:row;justify-content:space-between;align-items:flex-end}.vdesc{flex:0 0 300px}.vh .vtop,.vstats,.vbot{padding-left:48px;padding-right:48px}.vstats{gap:40px;padding-top:24px}.vstats span{font-size:13px;line-height:17px}.vdesc{flex-basis:300px;font-size:14px;line-height:21px}.vcta p{font-size:14px}.vbot{padding-bottom:40px}}
+.dock{transition:transform .35s var(--ease)}.dock.off{transform:translateY(110%)}
+@media (prefers-reduced-motion:reduce){.vh *{animation:none!important;opacity:1!important;transform:none!important}}
 </style>
 </head>
 <body>
@@ -141,18 +181,36 @@ footer a{color:var(--t2)}
   <a class="btn sm js-walkform" href="#">사전예약</a>
 </nav>
 
-<main id="main" class="wrap">
+<header class="vh" aria-label="쿼드그립 종일편한 워킹화 사전예약">
+  <video class="js-hv" muted loop playsinline autoplay preload="auto" poster="img/hero-walk-m-poster.jpg" data-m="img/hero-walk-m.mp4" data-d="img/hero-walk-d.mp4" aria-hidden="true"></video>
+  <div class="vtop">
+    <p class="tag"><b>PRE-ORDER</b> · ~11.24<br>QUAD GRIP WORKING SHOE</p>
+    <span class="q4" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </div>
+  <div class="vstats">
+    <div><b>4<small>PT</small></b><span>GRIP
+PADS</span></div>
+    <div><b>257<small>g</small></b><span>한쪽
+270mm 실측</span></div>
+    <div><b>230<small>–280</small></b><span>SIZE
+MM</span></div>
+    <div><b>3</b><span>COLORS
+</span></div>
+  </div>
+  <div class="vbot">
+    <div class="vrow">
+      <p class="vdesc">밑창 4곳에 라임색 그립 패드.<br>발이 바닥에 닿는 순서를 기준으로 위치를 정했어요.</p>
+      <h1><span class="w"><span>Made</span></span><span class="w"><span>For</span></span><span class="w"><span>Stand<em>ing.</em></span></span><span class="sr">서서 일하는 사람의 신발, 쿼드그립 종일편한 워킹화 사전예약</span></h1>
+    </div>
+    <div class="vcta">
+      <p>11.24까지 사전예약하면<br><b>오픈 날 15% 쿠폰</b><br>판매가 42,500원 → 쿠폰 적용 시 36,125원</p>
+      <a class="js-walkform" href="#">사전예약 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+    <p class="vnote">실제 제품 사진으로 만든 영상이에요 · 빛 효과는 연출 · 색상은 화면과 다를 수 있어요</p>
+  </div>
+</header>
 
-  <!-- ① 히어로: 행동 1개 = 워킹화 사전 신청 -->
-  <section class="hero">
-    <p class="eyebrow"><b>PRE-ORDER · ~11.24</b> · 쿼드그립 종일편한 워킹화</p>
-    <h1>서서 일하는 사람의 신발,<br>오픈 날 15% 쿠폰으로.</h1>
-    <p class="lead">11.24까지 결제 없이 사전 신청하시면<br>11.25 자사몰 오픈 때 할인 쿠폰을 문자로 보내 드려요.</p>
-    <a class="btn js-walkform" href="#">워킹화 사전예약 신청 · 무료</a>
-    <p class="proof"><span class="dots"><i></i><i></i><i></i><i></i></span><span>판매가 42,500원 · 15% 쿠폰 적용 시 36,125원</span></p>
-    <img class="media" src="img/walking-pair-real.jpg" alt="쿼드그립 종일편한 워킹화 한 켤레, 밑창 4곳 라임색 그립 패드">
-    <p class="note">실제 제품 사진 · 색상은 화면과 다를 수 있어요</p>
-  </section>
+<main id="main" class="wrap">
 
   <!-- ⑤ 상품 소개 2: 쿼드그립 워킹화 (자사몰) — 카피 체계 §2 -->
   <section class="rv" id="walking">
@@ -301,6 +359,15 @@ const tl = document.querySelector('.js-tagline');
 tl.innerHTML = tl.innerHTML.split('<br>').map(line => line.split(' ').map(w => `<span class="w">${w}</span>`).join(' ')).join('<br>');
 const wio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); wio.unobserve(e.target); } }), { rootMargin: '0px 0px -45% 0px' });
 tl.querySelectorAll('.w').forEach(w => wio.observe(w));
+// 영상 히어로: 화면 비율에 맞는 영상 선택 · 히어로 보이는 동안 하단 버튼 숨김
+(() => {
+  const v = document.querySelector('.js-hv'); if (!v) return;
+  const wide = matchMedia('(min-aspect-ratio: 1/1)').matches;
+  if (wide) v.poster = '';
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { v.src = wide ? v.dataset.d : v.dataset.m; v.play && v.play().catch(()=>{}); }
+  const dock = document.querySelector('.dock'), hv = document.querySelector('.vh');
+  if (dock && hv) new IntersectionObserver(([e]) => dock.classList.toggle('off', e.isIntersecting), { threshold: .35 }).observe(hv);
+})();
 </script>
 </body>
 </html>
