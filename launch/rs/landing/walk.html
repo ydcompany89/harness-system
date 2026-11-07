@@ -131,24 +131,24 @@ footer a{color:var(--t2)}
 .rv.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity .3s}.btn{transition:none}html{scroll-behavior:auto}}
 /* 영상 히어로 (11/07 시험판 · MotionSites creative-studio 구조 참고) */
-.vh{position:relative;min-height:calc(100svh - 56px);display:flex;flex-direction:column;overflow:hidden;background:#F2F3F0;color:#000}
+.vh{position:relative;min-height:calc(100svh - 56px);display:flex;flex-direction:column;overflow:hidden;background:#0D1B14;color:#F2F4F2}
 .vh video,.vh .vposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .vh::before,.vh::after{content:"";position:absolute;left:0;right:0;z-index:1;pointer-events:none}
-.vh::before{top:0;height:30%;background:linear-gradient(#F2F3F0 10%,rgba(242,243,240,0))}
-.vh::after{bottom:0;height:42%;background:linear-gradient(rgba(242,243,240,0),rgba(242,243,240,.92) 62%)}
+.vh::before{top:0;height:26%;background:linear-gradient(rgba(13,27,20,.85),rgba(13,27,20,0))}
+.vh::after{bottom:0;height:46%;background:linear-gradient(rgba(13,27,20,0),rgba(13,27,20,.94) 60%)}
 .vh>*{position:relative;z-index:2}
 .vh .vtop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 20px 0}
 .vh .tag{font-size:11px;line-height:16px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-.vh .tag b{color:var(--forest)}
+.vh .tag b{color:var(--lime)}
 .q4{display:grid;grid-template-columns:repeat(2,9px);gap:4px;margin-top:2px}
-.q4 i{width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 1px rgba(0,0,0,.08);transform:scale(0);animation:pop .45s var(--ease) forwards}
+.q4 i{width:9px;height:9px;border-radius:50%;background:var(--lime);transform:scale(0);animation:pop .45s var(--ease) forwards}
 .q4 i:nth-child(3){animation-delay:.35s}.q4 i:nth-child(4){animation-delay:.5s}.q4 i:nth-child(2){animation-delay:.65s}.q4 i:nth-child(1){animation-delay:.8s}
 @keyframes pop{60%{transform:scale(1.35)}to{transform:scale(1)}}
 .vstats{display:flex;justify-content:flex-end;gap:16px;padding:14px 20px 0;text-align:right}
 .vstats div{opacity:0;animation:up .6s var(--ease) forwards}
 .vstats div:nth-child(1){animation-delay:.24s}.vstats div:nth-child(2){animation-delay:.36s}.vstats div:nth-child(3){animation-delay:.48s}.vstats div:nth-child(4){animation-delay:.6s}
 .vstats b{display:block;font-size:clamp(1.4rem,6.4vw,3.2rem);line-height:1;font-weight:800;letter-spacing:-.03em}
-.vstats b small{font-size:.5em;color:var(--forest);margin-left:1px}
+.vstats b small{font-size:.5em;color:var(--lime);margin-left:1px}
 .vstats span{display:block;margin-top:4px;font-size:10px;line-height:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:pre-line}
 .vbot{margin-top:auto;padding:0 20px 24px;display:flex;flex-direction:column;gap:14px}
 .vrow{display:flex;flex-direction:column-reverse;gap:12px}
@@ -157,13 +157,13 @@ footer a{color:var(--t2)}
 .vh h1 .w{display:block;overflow:hidden;padding-bottom:.04em}
 .vh h1 .w>span{display:block;transform:translateY(110%);animation:rise .7s var(--ease) forwards}
 .vh h1 .w:nth-child(2)>span{animation-delay:.54s}.vh h1 .w:nth-child(3)>span{animation-delay:.68s}.vh h1 .w:nth-child(1)>span{animation-delay:.4s}
-.vh h1 em{font-style:normal;color:var(--forest)}
+.vh h1 em{font-style:normal;color:var(--lime)}
 .vcta{display:flex;align-items:center;justify-content:space-between;gap:12px;opacity:0;animation:up .6s var(--ease) .95s forwards}
-.vcta p{font-size:12px;line-height:17px;font-weight:600;color:#222}
-.vcta p b{font-size:14px;color:#000}
-.vcta a{flex:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:var(--forest);color:#fff;font-size:16px;font-weight:800;padding:13px 16px;border-radius:9999px}
+.vcta p{font-size:12px;line-height:17px;font-weight:600;color:#9FB3A6}
+.vcta p b{font-size:14px;color:#F2F4F2}
+.vcta a{flex:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:var(--lime);color:#0D1B14;font-size:16px;font-weight:800;padding:13px 16px;border-radius:9999px}
 .vcta a svg{width:18px;height:18px}
-.vh .vnote{font-size:10px;line-height:14px;color:#555}
+.vh .vnote{font-size:10px;line-height:14px;color:#6F8578}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @keyframes up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
 @keyframes rise{to{transform:none}}
@@ -206,7 +206,7 @@ MM</span></div>
       <p>11.24까지 사전예약하면<br><b>오픈 날 15% 쿠폰</b><br>판매가 42,500원 → 쿠폰 적용 시 36,125원</p>
       <a class="js-walkform" href="#">사전예약 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
     </div>
-    <p class="vnote">실제 제품 사진으로 만든 영상이에요 · 빛 효과는 연출 · 색상은 화면과 다를 수 있어요</p>
+    <p class="vnote">배경 영상은 쿼드그립 4점을 표현한 3D 그래픽이에요</p>
   </div>
 </header>
 
@@ -363,7 +363,7 @@ tl.querySelectorAll('.w').forEach(w => wio.observe(w));
 (() => {
   const v = document.querySelector('.js-hv'); if (!v) return;
   const wide = matchMedia('(min-aspect-ratio: 1/1)').matches;
-  if (wide) v.poster = '';
+  if (wide) v.poster = 'img/hero-walk-d-poster.jpg';
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { v.src = wide ? v.dataset.d : v.dataset.m; v.play && v.play().catch(()=>{}); }
   const dock = document.querySelector('.dock'), hv = document.querySelector('.vh');
   if (dock && hv) new IntersectionObserver(([e]) => dock.classList.toggle('off', e.isIntersecting), { threshold: .35 }).observe(hv);
