@@ -170,13 +170,27 @@ footer a{color:var(--t2)}
 @media (min-width:768px){.vrow{flex-direction:row;justify-content:space-between;align-items:flex-end}.vdesc{flex:0 0 300px}.vh .vtop,.vstats,.vbot{padding-left:48px;padding-right:48px}.vstats{gap:40px;padding-top:24px}.vstats span{font-size:13px;line-height:17px}.vdesc{flex-basis:300px;font-size:14px;line-height:21px}.vcta p{font-size:14px}.vbot{padding-bottom:40px}}
 .dock{transition:transform .35s var(--ease)}.dock.off{transform:translateY(110%)}
 @media (prefers-reduced-motion:reduce){.vh *{animation:none!important;opacity:1!important;transform:none!important}}
+
+/* 11/08 브랜드 컬러 확정(L3 합의): 전체 배경 차콜그린 #0D1B14 · 카드 #14281D · 강조 라임 */
+:root{--bg:#0D1B14;--s1:#14281D;--s2:#162C20;--line:#23402F;--t1:#F2F4F2;--t2:#C9D4CD;--t3:#9FB3A6;--forest:#C6F432;--forest-weak:#1F3A2B;--mute:#9FB3A6}
+body{background:var(--bg);color:var(--t1)}
+nav.bar{background:rgba(13,27,20,.9);border-bottom-color:var(--line)}
+.btn{background:var(--lime);color:#0D1B14}
+.btn.ghost{background:var(--s2);color:var(--t1)}
+.btn[aria-disabled=true]{background:var(--s2);color:var(--t3)}
+.dock{background:linear-gradient(rgba(13,27,20,0),#0D1B14 35%)}
+.card,.pz{background:var(--s1);border-color:var(--line)}
+.teaser .over,.skip{color:#0D1B14}
+footer{background:#0A150F;color:var(--t3)}
+footer a{color:var(--t2)}
+details summary{color:var(--t1)}
 </style>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1122007340240070&ev=PageView&noscript=1"></noscript>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <nav class="bar" aria-label="상단">
-  <img src="img/rs-logo-forest.png" alt="RS">
+  <img src="img/rs-logo-light.png" alt="RS">
   <span>RHARA SHOE</span>
   <a class="btn sm js-walkform" href="#">사전예약</a>
 </nav>
