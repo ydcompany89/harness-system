@@ -90,7 +90,7 @@ caps=[('01  은유','링 4개가 천천히 회전'),('02  해석','링이 흩어
 d4=ImageDraw.Draw(panels[3])
 d4.text((40,70),'4 RINGS = 4 GRIP PADS',font=font(40),fill=(198,244,50))
 d4.text((40,128),'발이 바닥에 닿는 순서대로, 4곳.',font=font(30,False),fill=(242,244,242))
-d2=ImageDraw.Draw(panels[1]); d2.text((40,70),'4 RINGS',font=font(40),fill=(198,244,50))
+d2=ImageDraw.Draw(panels[1]); d2.text((40,70),'오래 서 있는 하루를 위한,',font=font(40),fill=(242,244,242)); d2.text((40,124),'약속.',font=font(40),fill=(242,244,242)); d2.text((40,192),'쿼드그립 그립 패드',font=font(30),fill=(198,244,50))
 for i,(a,b) in enumerate(caps):
     pn=panels[i]; dd=ImageDraw.Draw(pn); dd.rectangle((0,H-150,W,H),fill=(10,21,15)); dd.text((40,H-128),a,font=font(34),fill=(198,244,50)); dd.text((40,H-78),b,font=font(28,False),fill=(242,244,242))
 for i,pn in enumerate(panels): pn.save(SP+f'scratchpad/vid/story_{i+1}.png')
