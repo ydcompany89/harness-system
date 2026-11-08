@@ -184,6 +184,52 @@ nav.bar{background:rgba(13,27,20,.9);border-bottom-color:var(--line)}
 footer{background:#0A150F;color:var(--t3)}
 footer a{color:var(--t2)}
 details summary{color:var(--t1)}
+
+/* ── k-design 정비 시안: 한국 핀테크 디자인 시스템 구조 적용 (색은 라라슈 그대로) ── */
+@font-face{font-family:'Pretendard';src:url(img/pretendard-walk.woff2) format('woff2');font-weight:45 920;font-display:swap}
+:root{--r-s:10px;--r-m:12px;--r-l:14px;--r-xl:16px;--r-2xl:20px;--r-3xl:24px;--ease:cubic-bezier(.22,.61,.36,1)}
+body{font-family:'Pretendard',-apple-system,'Noto Sans KR',sans-serif;font-size:15px;line-height:1.5;letter-spacing:-.005em}
+.wrap{padding:0 24px}
+section{padding:40px 0}
+section+section{border-top:12px solid #0A150F}
+h1{font-size:28px;line-height:1.36;font-weight:700;letter-spacing:-.02em}
+.hero h1{font-size:30px;line-height:40px}
+h2{font-size:22px;line-height:1.4;font-weight:700;letter-spacing:-.015em;margin:6px 0 10px}
+.lead{font-size:15px;line-height:1.6;color:var(--t2)}
+.eyebrow{font-size:13px;line-height:20px;font-weight:600;color:var(--t3);letter-spacing:0}
+.eyebrow b{color:var(--t2);font-weight:600}
+.note{font-size:12px;line-height:18px;color:var(--t3)}
+/* 버튼: 사이즈 사다리 · 강조색 채움은 화면당 1개 */
+.btn{height:56px;min-height:56px;padding:0 20px;display:flex;align-items:center;justify-content:center;border-radius:var(--r-xl);font-size:17px;font-weight:700;background:var(--s2);color:var(--t1);transition:transform .12s var(--ease)}
+.btn:active{transform:none;box-shadow:inset 0 0 0 999px rgba(0,0,0,.26)}
+.hero .btn,.dock .btn{background:var(--lime);color:#0D1B14}
+.btn.sm{height:34px;min-height:34px;padding:0 14px;border-radius:999px;font-size:14px;font-weight:600;background:var(--s2);color:var(--t1);display:inline-flex}
+.row .btn{height:48px;min-height:48px;border-radius:var(--r-l);font-size:15px;font-weight:600}
+.dock .btn{height:56px;border-radius:var(--r-xl)}
+/* 카드·표면: 평면 + 1px 헤어라인, 장식 2px 보더 없음 */
+.card,.pz,.preorder,.reward,.benefits div,.how li,.gift,.disc{border-radius:var(--r-2xl);background:var(--s1);border:1px solid var(--line)}
+.preorder{padding:24px}
+.pre-h b{color:var(--lime)}
+.reward{padding:20px}
+.benefits{gap:8px}
+.benefits div{padding:18px 20px;display:grid;grid-template-columns:40px 1fr;column-gap:14px;align-items:start}
+.benefits div::before{content:"";grid-row:span 2;box-sizing:border-box;width:40px;height:40px;padding:8px;border-radius:14px;background-color:var(--s2);background-image:radial-gradient(circle,var(--lime) 3.2px,transparent 3.7px);background-size:12px 12px;background-origin:content-box;background-clip:content-box}
+.benefits b{font-size:16px;line-height:24px;font-weight:600}
+.benefits p{font-size:14px;line-height:21px}
+.how li{padding:14px;border-radius:var(--r-xl)}
+.how li b,.spec dt,.step-h,.story p.eyebrow{color:var(--t3)}
+/* 스펙: 키-값 리스트 행 */
+.spec{grid-template-columns:96px 1fr;gap:0;border-top:1px solid var(--line)}
+.spec dt,.spec dd{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+.spec dt{font-weight:500}
+.spec dd{font-weight:600;font-variant-numeric:tabular-nums}
+/* FAQ: 리스트 행 */
+details{padding:18px 0}
+details summary{font-size:16px;font-weight:600}
+.pre-price,.vcta p,.proof{font-variant-numeric:tabular-nums}
+.media,.teaser,.igrid{border-radius:var(--r-2xl)}
+.rv{transition:opacity .32s var(--ease),transform .32s var(--ease)}
+.teaser .over{border-radius:999px}
 </style>
 </head>
 <body>
@@ -228,7 +274,7 @@ MM</span></div>
 
   <!-- ⑤ 상품 소개 2: 쿼드그립 워킹화 (자사몰) — 카피 체계 §2 -->
   <section class="rv" id="walking">
-    <p class="eyebrow"><b>PRODUCT 02</b> · 자사몰 <span class="js-walkdate"></span></p>
+    <p class="eyebrow"><b>종일편한 워킹화</b> · 자사몰 <span class="js-walkdate"></span></p>
     <h2>서서 일하는 사람의 신발은,<br>바닥부터 달라야 한다.</h2>
     <p class="lead">쿼드그립 종일편한 워킹화 · 깔창 없는 일체형 안창, 밑창 4점 쿼드그립 패드, 도톰한 발목 테두리.</p>
     <div class="teaser">
@@ -236,9 +282,9 @@ MM</span></div>
       <div class="over"><span class="dots"><i></i><i></i><i></i><i></i></span><b>QUAD GRIP WORKING SHOE</b></div>
     </div>
     <div class="benefits">
-      <div><b>쿼드그립 4점 패드</b><p>밑창 4곳에 그립 패드를 배치했습니다. 패드에는 폐타이어 고무를 새활용했습니다.</p></div>
-      <div><b>깔창 없는 일체형 안창</b><p>E-실리폴리렌으로 안창까지 한 몸. 따로 빠지는 깔창이 없습니다.</p></div>
-      <div><b>도톰한 발목 테두리</b><p>발이 들어가는 입구 테두리를 다른 부분보다 두껍게 둘렀습니다.</p></div>
+      <div><b>쿼드그립 4점 패드</b><p>밑창 4곳에 그립 패드를 배치했어요. 패드에는 폐타이어 고무를 새활용했어요.</p></div>
+      <div><b>깔창 없는 일체형 안창</b><p>E-실리폴리렌으로 안창까지 한 몸. 따로 빠지는 깔창이 없어요.</p></div>
+      <div><b>도톰한 발목 테두리</b><p>발이 들어가는 입구 테두리를 다른 부분보다 두껍게 둘렀어요.</p></div>
     </div>
     <img class="media" src="img/walking-main.jpg" alt="쿼드그립 종일편한 워킹화 윗면 일체형 안창과 밑창" loading="lazy" style="margin-top:20px">
     <p class="note">윗면 일체형 안창 · 밑창 · 색상은 화면과 다를 수 있어요</p>
@@ -253,12 +299,12 @@ MM</span></div>
       <a class="btn js-walkform" href="#">워킹화 사전예약 신청 · 무료</a>
       <p class="note">결제 없이 신청만 받아요. 구매 예약이나 재고 확보가 아니며, 구매는 11.25부터 자사몰에서 해요.<br>쿠폰은 11.25 자사몰 오픈 때 신청하신 휴대폰 번호로 문자 발송 · 쿼드그립 워킹화 1켤레 적용 · 1인(휴대폰 번호 기준) 1회 · 11.25~12.7 사용 · 다른 쿠폰과 중복 불가 · 오픈일이 바뀌면 사용 기간도 같은 일수만큼 미뤄요 · 사이즈·컬러 재고가 떨어지면 구매가 어려울 수 있어요.</p>
     </div>
-    <p class="note">워킹화는 일체형 안창이라 아치가득 인솔을 따로 넣지 않습니다.<br>이미지에는 연출 장면이 포함될 수 있으며, 실제 색상은 화면과 다를 수 있습니다. 출시 전 샘플 기준으로 사양이 바뀔 수 있습니다.</p>
+    <p class="note">워킹화는 일체형 안창이라 아치가득 인솔을 따로 넣지 않아요.<br>이미지에는 연출 장면이 포함될 수 있으며, 실제 색상은 화면과 다를 수 있어요. 출시 전 샘플 기준으로 사양이 바뀔 수 있어요.</p>
   </section>
 
   <!-- ③ 브랜드 소개 (브랜드 스토리 v2, 10/24 확정) -->
   <section class="tagline" id="brand" aria-label="브랜드 소개">
-    <p class="eyebrow"><b>ABOUT RHARA SHOE</b></p>
+    <p class="eyebrow"><b>라라슈 이야기</b></p>
     <p class="js-tagline">퇴근하면<br>신발부터 벗게 되는<br>그 발을 위해.</p>
   </section>
   <section class="rv story">
@@ -273,15 +319,14 @@ MM</span></div>
 
   <!-- 설계 자문 (원장 계약 승인 확인 10/30 · 인용문은 원장 검수본을 받은 것만 사용) -->
   <section class="rv" id="advisory">
-    <p class="eyebrow"><b>DESIGN ADVISORY</b> · 왜 이렇게 만들었나</p>
-    <h2>형태와 신는 방식을<br>정형외과 전문의와 같이 봤습니다</h2>
+    <p class="eyebrow"><b>설계 자문</b> · 왜 이렇게 만들었나</p>
+    <h2>형태와 신는 방식을<br>정형외과 전문의와 같이 봤어요</h2>
     <img class="media" src="img/doctor-lee.jpg" alt="정형외과 전문의 이문홍 원장" loading="lazy" style="margin-top:20px">
     <p class="who">정형외과 전문의 이문홍 원장 · 설계 자문 (2026.10~)</p>
     <p class="disc">이문홍 원장은 ㈜알앤디메이커스의 제품 설계 자문에 참여하고 자문료를 받았습니다.</p>
   </section>
 
   <section class="rv" id="faq">
-    <p class="eyebrow"><b>FAQ</b></p>
     <h2>자주 묻는 질문</h2>
     <details><summary>사전예약하면 결제되나요?</summary><p>아니요. 결제 없이 신청만 받아요. 구매 예약이나 재고 확보가 아니며, 구매는 11.25부터 라라슈 자사몰에서 해요.</p></details>
     <details><summary>쿠폰은 언제, 어떻게 받나요?</summary><p>11.25 자사몰 오픈 때 신청하신 휴대폰 번호로 문자를 보내 드려요. 1인(휴대폰 번호 기준) 1회, 워킹화 1켤레, 11.25~12.7 사용, 다른 쿠폰과 중복 불가예요. 오픈일이 바뀌면 사용 기간도 같은 일수만큼 미뤄요.</p></details>
