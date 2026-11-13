@@ -49,10 +49,10 @@ s.addText("R&D Makers Co., Ltd.  ·  rndmakers.kr",{x:M,y:6.85,w:6,h:0.3,fontFac
 photo(s,L+"walking-main.jpg",7.0,0,6.33,7.5);
 
 // 02 Company
-s = base("About us","Recycled materials, made into everyday products.");
+s = base("About us","Everyday products that use recycled materials.");
 s.addText("R&D Makers processes recycled materials — end-of-life tire rubber, wallpaper PVC and forest-thinning wood — and manufactures footwear and daily goods in Korea.",
   {x:M,y:2.1,w:7.4,h:0.9,fontFace:F,fontSize:14,color:INK,margin:0});
-const cols=[["RHARA SHOE","Work footwear & insoles","Shoes and insoles for people who stand all day — kitchens, stores, warehouses."],
+const cols=[["RHARA SHOE","Work footwear & insoles","Shoes and insoles for people who stand all day — stores, warehouses, service counters."],
             ["re.feeel","Daily goods","Toothbrush, floss, cup, bath slippers and pens."],
             ["Track record","Retail supply","Bath slippers supplied through a Korean household goods retail channel."]];
 cols.forEach(([h,sub,b],i)=>{const x=M+i*3.95; s.addShape(p.ShapeType.line,{x,y:3.55,w:3.6,h:0,line:{color:INK,width:1.25}});
@@ -75,14 +75,14 @@ s = base("Test result · Staff shoe proposal","A work shoe for your store team."
 s.addText("Slip resistance test",{x:M,y:2.1,w:5.6,h:0.4,fontFace:F,fontSize:15,bold:true,color:INK,margin:0});
 s.addText("0.36",{x:M,y:2.55,w:2.6,h:1.1,fontFace:F,fontSize:60,bold:true,color:INK,margin:0});
 s.addText("Coefficient of friction\nsteel floor + detergent, heel",{x:M+2.6,y:2.75,w:3.2,h:0.8,fontFace:F,fontSize:12,color:SUB,margin:0});
-specs(s,[["Method","KS M ISO 13287:2019"],["Sample","Size 260 mm, left, 1 shoe · Nov 2026"],["Laboratory","Korea Institute of Materials Convergence Tech. (S-26-0313)"],["Glycerol floor","0.17 (steel, heel)"]],M,3.85,5.8,1.6,0.44,11);
+specs(s,[["Method","KS M ISO 13287:2019"],["Sample","Size 260 mm, left, 1 shoe · Nov 2026"],["Laboratory","Korea Institute of Materials Convergence Tech. (S-26-0313)"],["Glycerol","Steel floor + glycerol, heel: 0.17"]],M,3.85,5.8,1.6,0.44,11);
 s.addText("Test result only — not a safety-shoe certification. Not rated for oily floors. Test report available on request.",{x:M,y:5.75,w:5.8,h:0.6,fontFace:F,fontSize:9.5,color:SUB,margin:0});
 s.addShape(p.ShapeType.rect,{x:7.1,y:2.1,w:5.5,h:4.5,fill:{color:INK},line:{color:INK}});
 s.addText("Proposed for",{x:7.45,y:2.4,w:4.8,h:0.3,fontFace:F,fontSize:11,color:"9FB3A6",margin:0});
-s.addText("Deli · Kitchen · Checkout · Warehouse staff",{x:7.45,y:2.7,w:4.8,h:0.8,fontFace:F,fontSize:18,bold:true,color:"F2F4F2",margin:0});
+s.addText("Checkout · Stocking · Warehouse staff\n(non-oily floors)",{x:7.45,y:2.7,w:4.8,h:0.8,fontFace:F,fontSize:18,bold:true,color:"F2F4F2",margin:0});
 s.addText([
  {text:"Four-point grip pad outsole (Quad-Grip)",options:{bullet:true}},
- {text:"One-piece footbed — rinse and dry quickly",options:{bullet:true}},
+ {text:"One-piece footbed — easy to rinse",options:{bullet:true}},
  {text:"Sizes 230–280 mm; 3 colors to separate teams",options:{bullet:true}},
  {text:"Bulk size-run packing on request",options:{bullet:true}},
  {text:"Samples available for on-site wear trials",options:{bullet:true}}],
@@ -92,7 +92,7 @@ s.addText([
 s = base("Product 02 · Insole","Quad-Grip Arch-Full Insole");
 photo(s,L+"insole-pack-full.jpg",M,2.1,6.1,4.6);
 specs(s,[["Sizes","M 15 cm · L 17 cm (half-length)"],["Colors","Gray · Mocha Mousse"],["Material","E-Silipolyrene + wood-chip blend"],["Structure","Arch-full shape · heel cup · air holes"],["How to use","Place under the existing insole. No cutting needed."]],7.3,2.1,5.3);
-s.addText("Upgrade the shoes your team already wears — or sell it on the shelf as an add-on item.",{x:7.3,y:4.75,w:5.3,h:0.9,fontFace:F,fontSize:14,color:INK,margin:0});
+s.addText("Add it to the shoes your team already wears — or stock it as an add-on item.",{x:7.3,y:4.75,w:5.3,h:0.9,fontFace:F,fontSize:14,color:INK,margin:0});
 s.addText("Not a medical device.",{x:7.3,y:6.3,w:5.3,h:0.3,fontFace:F,fontSize:9.5,color:SUB,margin:0});
 
 // 06 re.feeel
@@ -102,7 +102,7 @@ const gw=(W-2*M-4*0.2)/5;
 items.forEach(([pth,t,sub],i)=>{const x=M+i*(gw+0.2); photo(s,pth,x,2.1,gw,3.3);
   s.addText(t,{x,y:5.55,w:gw,h:0.35,fontFace:F,fontSize:14,bold:true,color:INK,margin:0});
   if(sub) s.addText(sub,{x,y:5.9,w:gw,h:0.5,fontFace:F,fontSize:10,color:SUB,valign:"top",margin:0});});
-note(s,"Bath slippers: availability subject to our existing distribution agreement. Detailed spec sheets per item on request.",6.5);
+note(s,"Detailed spec sheets per item available on request.",6.5);
 
 // 07 MOQ & terms
 s = base("Supply terms","MOQ & terms");
@@ -113,6 +113,7 @@ s.addShape(p.ShapeType.rect,{x:7.6,y:2.1,w:5.0,h:1.6,fill:{color:LIME},line:{col
 s.addText("Custom packaging",{x:7.9,y:2.3,w:4.5,h:0.4,fontFace:F,fontSize:16,bold:true,color:INK,margin:0});
 s.addText("Available for orders at or above MOQ.",{x:7.9,y:2.75,w:4.5,h:0.7,fontFace:F,fontSize:12.5,color:INK,margin:0});
 specs(s,[["Pricing","Quotation by item and quantity"],["Lead time","Confirmed with production schedule"],["Samples","Available for evaluation"],["Documents","Export documents on request"]],7.6,4.0,5.0,1.4,0.47,12);
+s.addText([{text:"Oral care products (toothbrush, floss pick, rinse cup): ",options:{bold:true}},{text:"any U.S. FDA registration, testing or other regulatory steps involving significant cost or time are not included and will be agreed separately (scope, cost sharing, schedule)."}],{x:7.6,y:6.05,w:5.0,h:0.75,fontFace:F,fontSize:9.5,color:INK,valign:"top",margin:0});
 
 // 08 Contact
 s = base("","");
