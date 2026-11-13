@@ -71,5 +71,5 @@ s.addText("※ 욕실화는 기존 유통 계약 조건을 확인한 뒤 공급 
 // 7 terms
 s=slide("공급 조건 · 문의","SUPPLY TERMS · CONTACT");
 table(s,[["공급 단가","품목·수량 확인 후 별도 견적"],["최소 주문 수량","협의"],["납기","발주 확정 후 협의 (생산 일정 기준)"],["수출 서류","구매확인서 · 영세율 세금계산서 등 협의"],["샘플","품평용 샘플 제공 가능"]],0.6,1.5,7.4,[2.2,5.2]);
-card(s,8.4,1.5,4.3,5.0,"문의","알앤디메이커스 주식회사\n대표이사 신동규\n\n전화 0507-1317-2516\n이메일 [담당 이메일]\n홈페이지 rndmakers.kr\n\n사무실\n경기도 고양시 일산서구\n중앙로 1542");
+card(s,8.4,1.5,4.3,5.0,"문의","알앤디메이커스 주식회사\n대표이사 신동규\n\n전화 0507-1317-2516\n이메일 rndceo@rndmakers.kr\n홈페이지 rndmakers.kr\n\n사무실\n경기도 고양시 일산서구\n중앙로 1542");
 p.writeFile({fileName:"/home/user/harness-system/launch/rs/sales/RHARA_SHOE_제품소개서_Hmart.pptx"}).then(f=>console.log(f));
