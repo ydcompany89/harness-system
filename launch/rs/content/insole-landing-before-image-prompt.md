@@ -39,3 +39,19 @@ no brand logos. Aspect ratio about 900 x 840.
 |---|---|---|
 | 이미지 위 작은 글씨 | 깔창만 있을 때 | 깔창 밑에 한 장 |
 | 이미지 아래 한 줄 | 신발 속 아치 아래, 비어 있던 공간. | **깔기만 하면, 아치 라인에 맞춰 가득.** |
+
+## C. 비포 확정본 기준 애프터 다시 만들기 (2026-11-16)
+비포(`landing/img/insole-before.jpg`)가 애프터와 신발·각도가 달라서, **비포를 첨부해 애프터를 새로 생성**한다.
+
+```
+Edit this image. Keep everything identical — same transparent sneaker, same side angle,
+same lighting, same black background, same size and position, same red honeycomb insole.
+Add one new layer only:
+- A half-length insert (from the heel to the arch, ending before the toes) in bright lime
+  green (#C6F432) with a fine honeycomb texture, placed UNDER the red insole.
+- The insert lifts the red insole in the arch area so it follows the white dashed line;
+  the empty dark gap under the arch is now completely filled.
+- Remove the white dashed line.
+- No text, no labels, no logos.
+Photorealistic 3D render, cinematic, high detail, same color grading as the original.
+```
