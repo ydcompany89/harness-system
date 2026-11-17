@@ -64,7 +64,7 @@ function build(lang){
  s.addShape(p.ShapeType.rect,{x:M,y:5.35,w:0.28,h:0.06,fill:{color:LIME},line:{color:LIME}});
  tx(s,t.cover[2],{x:M,y:5.5,w:6.2,h:0.3,fontSize:10,bold:true,charSpacing:2});
  tx(s,t.cover[3],{x:M,y:6.85,w:6.2,h:0.3,fontSize:10,color:SUB});
- photo(s,L+"walking-main.jpg",7.0,0,3.17,3.75); photo(s,A+"d2n-pair.jpg".replace(A,S),10.17,0,3.16,3.75);
+ photo(s,L+"walking-main.jpg",7.0,0,3.17,3.75); photo(s,S+"refeeel-brush-cup.jpg",10.17,0,3.16,3.75);
  photo(s,L+"insole-pack-full.jpg",7.0,3.75,3.17,3.75); photo(s,A+"slipper-quilt.jpg",10.17,3.75,3.16,3.75);
  // 2 about
  s=base(t.about[0],t.about[1]); tx(s,t.about[2],{x:M,y:2.1,w:11.8,h:0.7,fontSize:14});
@@ -111,9 +111,9 @@ function build(lang){
  tx(s,t.rfIntro[1],{x:M,y:2.4,w:6.2,h:1.0,fontSize:38,bold:true});
  tx(s,t.rfIntro[2],{x:M,y:3.5,w:6.2,h:0.5,fontSize:14,color:SUB});
  tx(s,t.rfIntro[3],{x:M,y:4.3,w:6.0,h:1.8,fontSize:13,valign:"top"});
- photo(s,A+"cup-life.jpg",7.2,0.75,5.4,6.0);
+ photo(s,A+"slipper-quilt.jpg",7.2,0.75,5.4,6.0);
  // 10 oral
- s=base(t.oral[0],t.oral[1],RF); const ow=(W-2*M-2*0.3)/3; const oi=[S+"d2n-pair.jpg",A+"floss-hand.jpg",A+"cup-tilt.jpg"];
+ s=base(t.oral[0],t.oral[1],RF); const ow=(W-2*M-2*0.3)/3; const oi=[S+"refeeel-brush-cup.jpg",A+"floss-hand.jpg",A+"cup-tilt.jpg"];
  t.oral[2].forEach(([h,b],i)=>{const x=M+i*(ow+0.3);photo(s,oi[i],x,2.1,ow,3.3);tx(s,h,{x,y:5.55,w:ow,h:0.4,fontSize:15,bold:true});tx(s,b,{x,y:5.95,w:ow,h:0.5,fontSize:11.5,color:SUB,valign:"top"});});
  tx(s,t.oral[3],{x:M,y:6.55,w:6,h:0.3,fontSize:10,bold:true,color:RF});
  // 11 bath
