@@ -1,0 +1,98 @@
+{
+"walk_top": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/walk-top.jpg",
+"w": 1230,
+"h": 1278,
+"bg": "FFFFFF"
+},
+"walk_sole": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/walk-outsole-hand.jpg",
+"w": 1441,
+"h": 1600,
+"bg": "2C2626"
+},
+"walk_pair": {
+"p": "/home/user/harness-system/launch/rs/landing/img/walking-pair-real.jpg",
+"w": 1200,
+"h": 1600,
+"bg": "FDFDFD"
+},
+"walk_main": {
+"p": "/home/user/harness-system/launch/rs/landing/img/walking-main.jpg",
+"w": 1161,
+"h": 1354,
+"bg": "FEFEFE"
+},
+"ins_stand": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/insole-pair-stand.jpg",
+"w": 400,
+"h": 300,
+"bg": "FFFFFF"
+},
+"ins_pack": {
+"p": "/home/user/harness-system/launch/rs/landing/img/insole-pack-full.jpg",
+"w": 1600,
+"h": 1200,
+"bg": "ECEAED"
+},
+"ins_layer": {
+"p": "/home/user/harness-system/launch/rs/landing/img/insole-layer-after.jpg",
+"w": 860,
+"h": 580,
+"bg": "000000"
+},
+"rf_brush": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/refeeel-brush-cup.jpg",
+"w": 500,
+"h": 500,
+"bg": "8B7A60"
+},
+"cup_tilt": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/cup-tilt-hi.jpg",
+"w": 771,
+"h": 714,
+"bg": "CFCECC"
+},
+"cup_set": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/cup-set.jpg",
+"w": 873,
+"h": 1030,
+"bg": "6B788B"
+},
+"floss": {
+"p": "/home/user/harness-system/launch/rs/design/fair-print/assets/floss-hand.jpg",
+"w": 860,
+"h": 702,
+"bg": "F0F1F6"
+},
+"sl_trio": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/slipper-trio.jpg",
+"w": 860,
+"h": 760,
+"bg": "FFFFFF"
+},
+"sl_feet": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/slipper-feet.jpg",
+"w": 456,
+"h": 610,
+"bg": "E5D3C9"
+},
+"pen": {
+"p": "/home/user/harness-system/launch/rs/design/fair-print/assets/prize-pen-v.png",
+"w": 411,
+"h": 1057,
+"bg": "000000"
+},
+"booth": {
+"p": "/home/user/harness-system/launch/rs/sales/assets/kintex-booth.jpg",
+"w": 1600,
+"h": 1200,
+"bg": "9A9693"
+},
+"outsole_dark": {
+"p": "/home/user/harness-system/launch/rs/design/fair-print/assets/outsole-studio.jpg",
+"w": 1920,
+"h": 1080,
+"bg": "070707"
+}
+}
