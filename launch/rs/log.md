@@ -523,3 +523,4 @@
 - (11/19) 워킹화 상세 FAQ 10문항 초안 → content/detail-walking-faq-2026-11-19.md (빈칸: 발볼 안내·패드 고정 방식·A/S·교환 배송비·발송 기준). 게시 전 rs-compliance.
 - (11/19) 대표 선택: 워킹화 상세 히어로 '마감 1시간 전, 발이 먼저 퇴근하고 싶다고 합니다'('퇴근하면 신발부터 벗고 싶다면'은 후킹 약함 지적으로 폐기). 03 페인 포인트를 오픈→피크→마감 흐름으로 재작성 → content/detail-walking-hero-pain-2026-11-19.md.
 - (11/20) 워킹화 상세 수정 기획안(30초 인트로 5화면 + 9구역 본문) → content/detail-walking-replan-30s-2026-11-20.md. 참고 페이지 barc.co.kr은 작업 환경에서 접속 차단 → 대표 캡처 요청.
+- (11/20) 워킹화 일상 컷 8장 제미나이 생성 시도 → 프로젝트 지출 한도 초과(RESOURCE_EXHAUSTED)로 0장. 지시문은 design/ai-gen/prompts/walking-daily-8.json 저장(참조: walking-main·side-profile-3d·컬러 3종 컷). 대표가 한도 상향 또는 플로우/나노바나나에 직접 입력.
