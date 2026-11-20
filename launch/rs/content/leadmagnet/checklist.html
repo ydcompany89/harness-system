@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<title>서서 일하는 사람의 신발 고르는 체크리스트</title>
+<!-- 리드 마그넷 A (알림 신청 즉시 발송) · A4 1장 · node render.mjs → checklist.pdf / checklist-mobile.png
+     가드: 일반 정보만 · 효능/질환명 ❌ · 특정 제품 우월 비교 ❌ · 전문의 감수 확정 시 하단 감수 줄 추가 -->
+<style>
+@font-face{font-family:N;font-weight:400;src:url(../../design/fair-print/fonts/NotoSansKR-400.ttf)}
+@font-face{font-family:N;font-weight:700;src:url(../../design/fair-print/fonts/NotoSansKR-700.ttf)}
+@font-face{font-family:N;font-weight:900;src:url(../../design/fair-print/fonts/NotoSansKR-900.ttf)}
+@page{size:210mm 297mm;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:N,sans-serif;color:#0D0D0D;-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#777}
+.page{width:210mm;height:297mm;background:#fff;position:relative;overflow:hidden;margin:0 auto}
+@media print{body{background:#fff}}
+.top{background:#0D0D0D;color:#fff;padding:10mm 15mm 6mm;position:relative}
+.top .eb{font-size:8.5pt;font-weight:700;letter-spacing:.18em;color:#C6F432}
+.top h1{font-size:23pt;font-weight:900;line-height:1.22;margin-top:3mm;letter-spacing:-.02em}
+.top h1 em{font-style:normal;color:#C6F432}
+.top p{font-size:10pt;color:#cfcfcf;margin-top:3.5mm;line-height:1.55}
+.top .dots{position:absolute;right:15mm;top:14mm;display:flex;gap:2.2mm}
+.top .dots i{width:4mm;height:4mm;border-radius:50%;background:#C6F432;display:block}
+.how{display:flex;gap:3mm;padding:4mm 15mm 0;font-size:8.8pt;color:#555}
+.how b{color:#3D4A12}
+ol{list-style:none;padding:2mm 15mm 0}
+li{display:grid;grid-template-columns:9mm 1fr 52mm;gap:3.5mm;align-items:start;padding:1.9mm 0;border-bottom:.25mm solid #E3E0D9}
+.box{width:7mm;height:7mm;border:.6mm solid #0D0D0D;border-radius:1.2mm;margin-top:.6mm}
+.q{font-size:11.6pt;font-weight:900;line-height:1.35;letter-spacing:-.01em}
+.q span{display:inline-block;font-size:8pt;font-weight:700;color:#3D4A12;background:#EEF7CF;border-radius:1mm;padding:.3mm 1.6mm;margin-right:1.6mm;vertical-align:1.2pt}
+.why{font-size:8.7pt;color:#444;line-height:1.5;margin-top:1mm}
+.tip{font-size:8.1pt;line-height:1.45;background:#F5F2EC;border-radius:1.6mm;padding:2.2mm 2.6mm;color:#222}
+.tip b{display:block;font-size:7.6pt;color:#3D4A12;letter-spacing:.05em;margin-bottom:.6mm}
+.score{margin:3mm 15mm 0;display:grid;grid-template-columns:repeat(3,1fr);gap:2.5mm}
+.score div{border:.3mm solid #0D0D0D;border-radius:2mm;padding:2.4mm 3mm;font-size:8.6pt;line-height:1.45}
+.score div b{display:block;font-size:10.5pt;font-weight:900;margin-bottom:.6mm}
+.score .hi{background:#C6F432;border-color:#C6F432}
+.foot{position:absolute;left:0;right:0;bottom:0;background:#0D0D0D;color:#fff;padding:4.5mm 15mm;display:grid;grid-template-columns:1fr 24mm;gap:6mm;align-items:center}
+.foot .t{font-size:9.6pt;line-height:1.55}
+.foot .t b{color:#C6F432}
+.foot .t small{display:block;font-size:7pt;color:#9a9a9a;margin-top:1.6mm;line-height:1.45}
+.foot img.qr{width:24mm;height:24mm;background:#fff;padding:1mm;display:block}
+.foot img.logo{height:7mm;width:auto;display:block;margin-bottom:2mm}
+</style></head><body><div class="page">
+  <div class="top">
+    <div class="eb">CHECKLIST · 서서 일하는 사람을 위한</div>
+    <h1>하루를 서서 보낸다면,<br><em>신발은 바닥부터</em> 확인하세요</h1>
+    <p>급식실 · 주방 · 매장처럼 서서 일하는 곳에서 신발을 고를 때 보는 7가지.<br>지금 신고 있는 신발로 바로 체크해 보세요.</p>
+    <div class="dots"><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="how"><b>사용법</b> 지금 신발을 벗어서 옆에 두고, "예"인 항목에 체크하세요.</div>
+  <ol>
+    <li><div class="box"></div><div><div class="q"><span>바닥</span>밑창 홈이 살아 있나요?</div><div class="why">젖은 바닥에서는 밑창 홈으로 물이 빠져나가야 합니다. 홈이 닳아 매끈해진 곳이 있으면 바닥을 잡는 면이 줄어듭니다.</div></div><div class="tip"><b>이렇게 확인</b>신발을 뒤집어 <u>뒤꿈치 바깥 모서리</u>와 앞꿈치를 보세요. 닳기 쉬운 곳입니다.</div></li>
+    <li><div class="box"></div><div><div class="q"><span>바닥</span>미끄럼 시험 결과를 공개하나요?</div><div class="why">"논슬립"이라는 말보다 어떤 기준으로, 어떤 바닥(물·세제·기름)에서 시험했는지가 중요합니다.</div></div><div class="tip"><b>이렇게 확인</b>상세페이지에서 시험 규격(예: KS M ISO 13287)과 시험 조건이 적혀 있는지 보세요.</div></li>
+    <li><div class="box"></div><div><div class="q"><span>무게</span>사이즈 기준 무게를 알 수 있나요?</div><div class="why">하루 1만 보를 걸으면 신발 무게도 1만 번 들어 올립니다. 무게는 사이즈마다 달라서 기준 사이즈가 함께 적혀야 비교할 수 있습니다.</div></div><div class="tip"><b>이렇게 확인</b>"230mm 한쪽 ○○g"처럼 <u>사이즈와 함께</u> 표기했는지 확인하세요.</div></li>
+    <li><div class="box"></div><div><div class="q"><span>깔창</span>벗을 때 깔창이 따라 나오지 않나요?</div><div class="why">깔창이 밀리거나 접히면 매번 다시 맞춰야 하고, 젖은 날엔 따로 말려야 합니다.</div></div><div class="tip"><b>이렇게 확인</b>신발을 몇 번 신고 벗어 보세요. 깔창이 고정형인지, 안창과 한 몸인지 확인.</div></li>
+    <li><div class="box"></div><div><div class="q"><span>사이즈</span>오후에 신어 보고 골랐나요?</div><div class="why">발은 하루 중 늦은 시간에 조금 더 커질 수 있어 아침에 맞던 신발이 저녁엔 답답할 수 있습니다.</div></div><div class="tip"><b>이렇게 확인</b>오후에 신고, 엄지발가락 앞에 <u>손가락 한 마디</u> 정도 여유가 있는지 보세요. 발볼이 눌리지 않는지도.</div></li>
+    <li><div class="box"></div><div><div class="q"><span>뒤꿈치</span>걸을 때 뒤꿈치가 덜컥거리지 않나요?</div><div class="why">뒤꿈치가 헐거우면 발가락에 힘을 주며 걷게 됩니다. 클로그형이라면 입구 테두리가 발등을 누르지 않는지도 함께 보세요.</div></div><div class="tip"><b>이렇게 확인</b>신고 까치발을 들어 보세요. 뒤꿈치가 크게 빠지면 사이즈·형태를 다시 보세요.</div></li>
+    <li><div class="box"></div><div><div class="q"><span>관리</span>물로 헹구고 그늘에서 말릴 수 있나요?</div><div class="why">물청소·기름이 많은 곳에서는 매일 닦을 수 있어야 오래 깨끗하게 신습니다.</div></div><div class="tip"><b>이렇게 확인</b>세척 방법과 금지 사항(건조기·고열·표백제)이 안내돼 있는지 보세요.</div></li>
+  </ol>
+  <div class="score">
+    <div class="hi"><b>체크 6~7개</b>잘 고르셨어요. 밑창 홈만 주기적으로 확인하세요.</div>
+    <div><b>체크 4~5개</b>빈칸이 다음 신발에서 꼭 볼 기준입니다.</div>
+    <div><b>체크 3개 이하</b>바꿀 때가 됐을 수 있어요. 밑창부터 확인하세요.</div>
+  </div>
+  <div class="foot">
+    <div class="t"><img class="logo" src="../../design/fair-print/assets/rs-logo-lime.png" alt="RS">
+      <b>발이 편해야, 일이 편하다.</b>  라라슈는 이 7가지를 기준으로 신발을 만듭니다.<br>쿼드그립 종일편한 워킹화 · 2026.11.11 오픈 — 알림 신청은 QR로
+      <small>이 체크리스트는 신발 선택을 돕는 일반 정보이며 의학적 진단이나 치료를 대신하지 않습니다. 발에 불편이 계속되면 전문의와 상담하세요.<br>㈜알앤디메이커스 · @rharashoe · rharashoe.netlify.app</small></div>
+    <img class="qr" src="qr-checklist.svg" alt="QR">
+  </div>
+</div></body></html>
