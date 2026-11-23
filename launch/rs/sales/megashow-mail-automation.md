@@ -56,13 +56,13 @@ brand_rule: 메가쇼 건은 알앤디메이커스 명의 — RHARA SHOE·re.fee
 ### 현황표
 | id | 회사 | 받는 사람 | status | 비고 |
 |---|---|---|---|---|
-| M01 | 코레일유통 | 홍재형 대리 (참조 정민재 주임) | ready | 12월 초 재연락 약속 |
-| M02 | 온채널 | 박승현 본부장 | ready | |
-| M03 | 캔두코리아 | 박덕수 대표 | ready | 국문+영문 첨부 |
-| M04 | 바로픽 | 전봉규 대표 | **hold** | `[나눈 이야기]` 채운 뒤 ready |
-| M05 | 이제너두 | 허민희 차장 (참조 김은주) | ready | |
-| M06 | 엔와이케이(네이처스영) | 이돈혁 대표 | ready | |
-| M07 | 이십구커머스 | 대표 메일 (담당자님) | ready | 라이브커머스 입점 대화 |
+| M01 | 코레일유통 | 홍재형 대리 (참조 정민재 주임) | sent | 12월 초 재연락 약속 |
+| M02 | 온채널 | 박승현 본부장 | sent | |
+| M03 | 캔두코리아 | 박덕수 대표 | sent | 국문+영문 첨부 |
+| M04 | 바로픽 | 전봉규 대표 | sent | 대표 직접 내용 채워 발송 |
+| M05 | 이제너두 | 허민희 차장 (참조 김은주) | sent | |
+| M06 | 엔와이케이(네이처스영) | 이돈혁 대표 | sent | |
+| M07 | 이십구커머스 | 대표 메일 (담당자님) | sent | 라이브커머스 입점 대화 |
 | — | SOOP · 교보문고 · 텀블벅 | — | skip | 대표 지시로 제외 |
 
 ---
@@ -71,12 +71,12 @@ brand_rule: 메가쇼 건은 알앤디메이커스 명의 — RHARA SHOE·re.fee
 ```yaml
 id: M01
 company: 코레일유통
-status: ready
+status: sent                        # 11/23 대표 발송 완료
 to: krs2004@korailretail.com        # 홍재형 대리 · 유통사업본부 전문점사업처
 cc: alswo0921@korailretail.com      # 정민재 주임 · 서울본부 지원팀
 attachments: default
 followup: 2026-12-01                # 명함 메모 '12月初' — 12월 초 재연락
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 메가쇼 상담 감사 인사 — 회사·상품 소개서 보내드립니다"
 body: |
   홍재형 대리님, 안녕하세요. (참조: 정민재 주임님)
@@ -105,11 +105,11 @@ body: |
 ```yaml
 id: M02
 company: 온채널
-status: ready
+status: sent                        # 11/23 대표 발송 완료
 to: seunghyun.park@onch3.co.kr      # 박승현 본부장 · 신사업성장본부
 cc:
 attachments: default
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 메가쇼 상담 감사 인사 — 회사·상품 소개서 보내드립니다"
 body: |
   박승현 본부장님, 안녕하세요.
@@ -128,11 +128,11 @@ body: |
 ```yaml
 id: M03
 company: 캔두코리아
-status: ready
+status: sent                        # 11/23 대표 발송 완료
 to: ck01@candokorea.co.kr           # 박덕수 대표이사
 cc: park@livingtokyo.co.jp          # LIVING TOKYO
 attachments: default + en
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 메가쇼 인사 — 일본 수출 협의용 회사·상품 소개서 보내드립니다"
 body: |
   박덕수 대표님, 안녕하세요.
@@ -157,11 +157,11 @@ body: |
 ```yaml
 id: M04
 company: 바로픽
-status: hold                        # [나눈 이야기] 채우면 ready
+status: sent                        # 11/23 대표 발송 완료
 to: alex@baropick.kr                # 전봉규 대표
 cc:
 attachments: default
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 메가쇼 인사 — 회사·상품 소개서 보내드립니다"
 body: |
   전봉규 대표님, 안녕하세요.
@@ -180,11 +180,11 @@ body: |
 ```yaml
 id: M05
 company: 이제너두
-status: ready
+status: sent                        # 11/23 대표 발송 완료
 to: mhheo@etbs.co.kr                # 허민희 차장 · 온누리본부 온누리팀
 cc: ejkim661@etbs.co.kr             # 김은주 사원
 attachments: default
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 메가쇼 인사 — 복지몰 입점 협의용 회사·상품 소개서"
 body: |
   허민희 차장님, 안녕하세요. (참조: 김은주 님)
@@ -203,11 +203,11 @@ body: |
 ```yaml
 id: M06
 company: 엔와이케이
-status: ready
+status: sent                        # 11/23 대표 발송 완료
 to: py0420@naver.com                # 이돈혁 영업총괄대표(CSO)
 cc:
 attachments: default
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 메가쇼 인사 — 회사·상품 소개서 보내드립니다"
 body: |
   이돈혁 대표님, 안녕하세요.
@@ -227,11 +227,11 @@ body: |
 ```yaml
 id: M07
 company: 이십구커머스
-status: ready                       # 11/23 대표: 부스에서 라이브커머스 입점 관련 대화
+status: sent                        # 11/23 대표 발송 완료
 to: official@29commerce.com
 cc:
 attachments: default
-sent_at:
+sent_at: 2026-11-23
 subject: "[알앤디메이커스] 브랜드 검토 요청 — 라라슈 아치가득 인솔·워킹화 / re.feeel 생활용품"
 body: |
   담당자님, 안녕하세요.
@@ -271,3 +271,4 @@ body: |
 ## 4. 변경 기록
 - 2026-11-23 최초 작성 (명함 8명 + 29커머스, SOOP·교보·텀블벅 제외)
 - 2026-11-23 M07 이십구커머스: 라이브커머스 입점 대화 반영, ready로 변경
+- 2026-11-23 대표가 7건 모두 발송 완료 → 전체 sent 처리. 회신 체크: 11/26(3영업일), 코레일 12/1
