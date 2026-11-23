@@ -104,21 +104,27 @@ t(s, M, 2.9, 7, 2.0, "REFILL\nYOUR DAY", { fontSize: 60, bold: true, color: C.in
 t(s, M, 5.15, 6.4, 1.0, "남은 것의 다음 모양.\n아침에 쓰는 칫솔부터 욕실 바닥의 슬리퍼까지,\n생활을 다시 채우는 욕실 도구.", { fontSize: 14, color: C.mute, lineSpacingMultiple: 1.3 });
 foot(s, 7);
 
-// 08 re.feeel 상품 카드 (자사몰 흰 카드)
-s = p.addSlide(); bg(s, C.lime);
-rfMark(s, M, 0.35, 26);
-t(s, M + 2.3, 0.42, 9, 0.6, "남은 것의 다음 모양.", { fontSize: 26, bold: true, color: C.ink });
-const rfP = [["p_brush", "ORAL CARE · DAY 2 NIGHT", "아침과 저녁,\n양치의 목적은 조금 다르니까.", ["간벌재 CXP 손잡이", "블루 스파이럴모 · 블랙 이중미세모", "칫솔형 치실 1세트 = 손잡이 1 + 헤드 20 · 9,400원"]],
- ["p_cup", "RINSE CUP · CXP", "40° 기울여\n세워 말리는 양치컵.", ["간벌재 CXP 소재", "기울여 세워 물이 고이지 않게 말리는 구조", "칫솔과 세트 구성 가능"]],
- ["p_slipper", "BATH SLIPPER · RECYCLED PVC", "자투리 실크벽지가\n욕실화로 새로 태어났습니다.", ["원료의 50%를 벽지 공장 재단 자투리로", "바닥 물빠짐 구멍 · 남녀공용 · 14,900원", "리뷰 105개 · 평점 4.9 (2026.10 기준)"]]];
-rfP.forEach((q, i) => { const x = M + i * 4.05, y = 1.35, w = 3.85;
-  s.addShape(p.ShapeType.roundRect, { x, y, w, h: 5.55, rectRadius: 0.3, fill: { color: C.white }, line: { width: 0, color: C.white } });
-  s.addImage({ path: CARD + q[0] + ".png", x, y, w, h: 2.7 });
-  t(s, x + 0.3, y + 2.95, w - 0.6, 0.25, q[1], { fontSize: 8.5, bold: true, color: C.gray, charSpacing: 1.5 });
-  t(s, x + 0.3, y + 3.3, w - 0.6, 0.85, q[2], { fontSize: 15, bold: true, color: C.ink });
-  bullets(s, x + 0.3, y + 4.3, w - 0.6, q[3], C.mute, C.ink); });
-foot(s, 8);
-
+// 08·09 re.feeel 상품 카드 (자사몰 흰 카드) — 한 장에 3품목
+function rfCards(title, items, n) {
+  const s = p.addSlide(); bg(s, C.lime);
+  rfMark(s, M, 0.35, 26);
+  t(s, M + 2.3, 0.42, 9, 0.6, title, { fontSize: 26, bold: true, color: C.ink });
+  items.forEach((q, i) => { const x = M + i * 4.05, y = 1.35, w = 3.85;
+    s.addShape(p.ShapeType.roundRect, { x, y, w, h: 5.55, rectRadius: 0.3, fill: { color: C.white }, line: { width: 0, color: C.white } });
+    s.addImage({ path: CARD + q[0] + ".png", x, y, w, h: 2.7 });
+    t(s, x + 0.3, y + 2.95, w - 0.6, 0.25, q[1], { fontSize: 8.5, bold: true, color: C.gray, charSpacing: 1.5 });
+    t(s, x + 0.3, y + 3.3, w - 0.6, 0.85, q[2], { fontSize: 15, bold: true, color: C.ink });
+    bullets(s, x + 0.3, y + 4.3, w - 0.6, q[3], C.mute, C.ink); });
+  foot(s, n);
+}
+rfCards("구강케어 — 매일 두 번 손이 가는 것부터.", [
+  ["p_floss", "TOOTHBRUSH STYLE FLOSS", "어금니까지\n쏙쏙.", ["칫솔처럼 잡는 긴 손잡이", "1세트 = 손잡이 1 + 치실 헤드 20", "다 쓰면 헤드만 리필 · 9,400원"]],
+  ["p_d2n", "ORAL CARE · DAY 2 NIGHT", "아침과 저녁,\n양치의 목적은 조금 다르니까.", ["아침 블루 스파이럴모 · 저녁 블랙 이중미세모", "헤드 4.5cm · 69홀 고밀도", "간벌재 CXP 손잡이"]],
+  ["p_cup", "RINSE CUP · CXP", "40° 기울여\n세워 말리는 양치컵.", ["간벌재 CXP 소재", "기울여 세워 물이 고이지 않게", "칫솔과 세트 구성 가능"]]], 8);
+rfCards("스마일 욕실화 — 욕실 바닥의 하루.", [
+  ["p_slip_wide", "WIDE SMILE", "와이드 스마일\n욕실화", ["낮은 전체 높이 — 욕실 문에 덜 걸리게", "촘촘한 배수 홈으로 빠른 물빠짐", "그레이 · 베이지 · 그린"]],
+  ["p_slip_quilt", "QUILT SMILE", "퀼트 스마일\n욕실화", ["누빈 듯한 격자 바닥", "격자 사이로 물이 빠지는 구조", "블랙 · 네이비"]],
+  ["p_slip_nonslip", "NON-SLIP SMILE", "스마일 논슬립\n욕실화", ["바닥 곳곳 물빠짐 구멍", "논슬립 바닥 패턴", "블루 · 그레이 · 그린"]]], 9);
 // 09 채널별 제안
 s = p.addSlide(); bg(s, C.paper);
 eyebrow(s, M, 0.6, "WHERE IT SELLS", C.gray);
@@ -133,7 +139,7 @@ ch.forEach((q, i) => { const x = M + i * 3.04, y = 2.35, w = 2.88;
   t(s, x + 0.25, y + 0.3, w - 0.5, 0.45, q[0], { fontSize: 16, bold: true, color: C.ink }); t(s, x + 0.25, y + 0.8, w - 0.5, 0.6, q[1], { fontSize: 11, color: C.gray });
   q[2].forEach((b, j) => t(s, x + 0.25, y + 1.6 + j * 0.75, w - 0.5, 0.65, b, { fontSize: 12, bold: true, color: C.mute }));
   pill(s, x + 0.25, y + 3.7, 1.05, "RHARA SHOE", C.forest, C.lime); pill(s, x + 1.4, y + 3.7, 0.9, "re.feeel", C.lime, C.ink); });
-foot(s, 9);
+foot(s, 10);
 
 // 10 공급 조건
 s = p.addSlide(); bg(s, C.forest);
@@ -145,7 +151,7 @@ moq.forEach((m, i) => { const x = M + i * 4.05; s.addShape(p.ShapeType.roundRect
 t(s, M, 1.65, 6, 0.3, "최소 주문 수량 (MOQ)", { fontSize: 12, bold: true, color: C.sub });
 const terms = [["패키지", "MOQ 이상이면 채널 전용 · 현지어 패키지 협의"], ["단가", "품목·수량·채널별 견적서"], ["납기", "생산 일정 확인 후 협의"], ["해외 인증", "구강용품 FDA 등 비용·시간이 큰 절차는 별도 협의"]];
 terms.forEach((r, i) => { const y = 4.45 + i * 0.6; t(s, M, y, 1.8, 0.4, r[0], { fontSize: 13, bold: true, color: C.lime }); t(s, M + 1.8, y, 10, 0.4, r[1], { fontSize: 13 }); });
-foot(s, 10, true);
+foot(s, 11, true);
 
 // 11 연락처 — 분할 마무리
 s = p.addSlide(); bg(s, C.forest);
