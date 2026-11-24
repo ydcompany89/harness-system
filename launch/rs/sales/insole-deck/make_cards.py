@@ -2,6 +2,7 @@
 from PIL import Image, ImageDraw, ImageFilter
 R = "/home/user/harness-system/launch/rs/"; OUT = R + "sales/insole-deck/cards/"
 L = R + "landing/img/"; A = R + "design/fair-print/assets/"; PM = R + "content/insole-pressure-map/"
+SCALE = 0.5
 def card(src, name, w, h, rot=0, radius=60, crop_focus=0.5, box=None, shadow=110):
     im = Image.open(src).convert("RGB")
     if box: im = im.crop(box)
@@ -20,7 +21,8 @@ def card(src, name, w, h, rot=0, radius=60, crop_focus=0.5, box=None, shadow=110
         canvas = Image.alpha_composite(canvas, sh.filter(ImageFilter.GaussianBlur(36)))
     tile = im.convert("RGBA"); tile.putalpha(mask); canvas.paste(tile, (pad, pad), tile)
     if rot: canvas = canvas.rotate(rot, resample=Image.BICUBIC, expand=True)
-    canvas.save(OUT + name + ".png"); print(name, canvas.size)
+    canvas = canvas.resize((int(canvas.width * SCALE), int(canvas.height * SCALE)), Image.LANCZOS)
+    canvas.save(OUT + name + ".png", optimize=True); print(name, canvas.size)
 card(L + "insole-model-hold.jpg", "cover", 1000, 1150, rot=3, crop_focus=0.42)
 card(L + "insole-main.jpg", "main", 1000, 1150)
 card(A + "insole-cut.png", "cut", 1200, 1000)
