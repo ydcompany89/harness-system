@@ -52,7 +52,7 @@ p{text-wrap:pretty}
 .numbers{padding:96px 0;background:#fff}
 .numbers h2{font-size:36px;line-height:40px;text-align:center;margin-top:16px}
 .numbers .eyebrow{text-align:center}
-.nums{display:grid;grid-template-columns:repeat(4,1fr);margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .nums div{padding:40px 24px;text-align:center}
 .nums div+div{border-left:1px solid var(--line)}
 .nums strong{display:block;font-size:60px;line-height:1;font-weight:700;letter-spacing:-0.03em;font-family:"Poppins","Pretendard",sans-serif}
@@ -153,8 +153,9 @@ footer .legal a{text-decoration:underline}
   .hero .shoe{width:220px}
   .hero .ring{width:320px}
   .hero .meta{display:none}
-  .nums{grid-template-columns:1fr 1fr}.nums div:nth-child(3){border-left:0}.nums div:nth-child(n+3){border-top:1px solid var(--line)}
-  .nums strong{font-size:48px}
+  .nums div{padding:24px 8px}
+  .nums strong{font-size:30px}.nums strong small{font-size:14px}
+  .nums span{font-size:12px;line-height:16px}
   .tagline p{font-size:24px;line-height:32px}
   .pgrid,.jobs .cols,.b2b .cols{grid-template-columns:1fr;gap:32px}
   .sec-head{flex-direction:column;align-items:start}
