@@ -188,3 +188,9 @@ footer .legal a{text-decoration:underline}
 .cardnote{margin-top:12px;font-size:12px;line-height:16px;color:var(--gray)}
 .agree{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;color:var(--ink)}
 .agree input{width:16px;height:16px;padding:0;border:1px solid var(--ink)}
+
+form label input:not([type=checkbox]){width:100%;min-width:0}
+.submit{grid-column:1/-1;justify-self:start}
+.pcard .ph.contain{background:#fff}.pcard .ph.contain img{object-fit:contain}
+.nw{white-space:nowrap}
+@media (max-width:820px){.joblist .n{grid-column:1;grid-row:1}.joblist b{grid-column:2;grid-row:1}}
