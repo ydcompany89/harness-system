@@ -184,3 +184,7 @@ footer .legal a{text-decoration:underline}
 .qlist em{font-style:normal;font-size:12px;line-height:16px;color:#9FB3A6}
 .static .pin{animation:none}
 @media (max-width:820px){.qcols{grid-template-columns:1fr;gap:32px}.quad h2{font-size:36px}.qlist{grid-template-columns:1fr}.pin{width:32px;height:32px;font-size:12px}}
+
+.cardnote{margin-top:12px;font-size:12px;line-height:16px;color:var(--gray)}
+.agree{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:14px;line-height:20px;color:var(--ink)}
+.agree input{width:16px;height:16px;padding:0;border:1px solid var(--ink)}
