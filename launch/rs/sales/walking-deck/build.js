@@ -106,12 +106,11 @@ foot(s, n, true);
 // 09 공급 조건
 s = p.addSlide(); bg(s, C.paper); n++;
 eyebrow(s, M, 0.6, "SUPPLY TERMS · 공급 조건", C.gray);
-t(s, M, 0.95, 12, 0.8, "공급 조건", { fontSize: 30, bold: true, color: C.ink });
-[["권장 소비자가", "42,500원", "부가세 포함 · 1켤레", C.white, C.ink, C.gray], ["공급가", "견적", "수량 · 채널 · 출고 방식별", C.forest, C.lime, C.sub], ["최소 주문", "600켤레", "사이즈 · 컬러 조합 가능", C.lime, C.ink, C.mute]].forEach((q, i) => { const x = M + i * 4.05; box(s, x, 2.0, 3.85, 2.0, q[3], q[3] == C.white ? "DADFD9" : q[3]);
-  t(s, x + 0.35, 2.25, 3.2, 0.35, q[0], { fontSize: 13, bold: true, color: q[5] }); t(s, x + 0.35, 2.7, 3.3, 0.8, q[1], { fontSize: 34, bold: true, color: q[4] }); t(s, x + 0.35, 3.5, 3.3, 0.35, q[2], { fontSize: 10.5, color: q[5] }); });
-[["출고", "판매처 선입고 기준 · 위탁배송(직출고)은 배송비 별도 협의"], ["패키지", "단품 박스 · MOQ 이상 채널 전용 구성 협의"], ["채널", "근무화(단체 구매) · 복지몰·특판 · 매장 · 라이브커머스 · 수출"], ["납기", "발주 확정 후 생산 일정 협의"]].forEach((r, i) => { const y = 4.4 + i * 0.47; t(s, M, y, 1.6, 0.4, r[0], { fontSize: 13, bold: true, color: C.forest }); t(s, M + 1.6, y, 10.5, 0.4, r[1], { fontSize: 13, color: C.mute }); });
+[["권장 소비자가", "42,500원", "부가세 포함 · 1켤레", C.white, C.ink, C.gray]].forEach((q, i) => { const x = M + i * 4.05; box(s, x, 1.3, 3.85, 2.0, q[3], q[3] == C.white ? "DADFD9" : q[3]);
+  t(s, x + 0.35, 1.55, 3.2, 0.35, q[0], { fontSize: 13, bold: true, color: q[5] }); t(s, x + 0.35, 2.0, 3.3, 0.8, q[1], { fontSize: 34, bold: true, color: q[4] }); t(s, x + 0.35, 2.8, 3.3, 0.35, q[2], { fontSize: 10.5, color: q[5] }); });
+[["출고", "판매처 선입고 기준 · 위탁배송(직출고)은 배송비 별도 협의"], ["패키지", "단품 박스 · 채널 전용 구성 협의"], ["채널", "근무화(단체 구매) · 복지몰·특판 · 매장 · 라이브커머스 · 수출"], ["납기", "발주 확정 후 생산 일정 협의"]].forEach((r, i) => { const y = 3.8 + i * 0.55; t(s, M, y, 1.6, 0.4, r[0], { fontSize: 13, bold: true, color: C.forest }); t(s, M + 1.6, y, 10.5, 0.4, r[1], { fontSize: 13, color: C.mute }); });
 box(s, M, 6.55, 11.93, 0.42, C.forest);
-t(s, M + 0.3, 6.64, 11.4, 0.3, "알앤디메이커스 주식회사 · 신동규 대표이사 · rndceo@rndmakers.kr · 0507-1317-2516 · rndmakers.kr", { fontSize: 11.5, bold: true, color: C.lime });
+t(s, M + 0.3, 6.64, 11.4, 0.3, "알앤디메이커스 주식회사 · 신동규 대표이사 · rndceo@rndmakers.kr · rndmakers.kr", { fontSize: 11.5, bold: true, color: C.lime });
 foot(s, n);
 
 p.writeFile({ fileName: D + "RHARA_SHOE_종일편한워킹화_상품소개서.pptx" }).then(f => console.log("saved", f));

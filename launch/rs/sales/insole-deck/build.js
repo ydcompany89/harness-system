@@ -111,7 +111,7 @@ t(s, M, 0.95, 7, 0.8, "현장에서 먼저 팔렸습니다.", { fontSize: 30, bo
   box(s, M, y, 6.3, 1.38, C.card, C.line);
   t(s, M + 0.35, y + 0.28, 2.3, 0.8, q[0], { fontSize: 32, bold: true, color: C.lime }); t(s, M + 2.75, y + 0.3, 3.4, 0.4, q[1], { fontSize: 14.5, bold: true }); t(s, M + 2.75, y + 0.75, 3.4, 0.4, q[2], { fontSize: 10.5, color: C.sub }); });
 img(s, "pack", 7.15, 1.0, 5.7, 4.57);
-t(s, 7.6, 5.75, 5.0, 0.8, "단품 박스 패키지 · 매장 진열 가능\nMOQ 이상이면 채널 전용 패키지 협의", { fontSize: 12.5, color: C.sub, lineSpacingMultiple: 1.35 });
+t(s, 7.6, 5.75, 5.0, 0.8, "단품 박스 패키지 · 매장 진열 가능\n채널 전용 패키지 협의 가능", { fontSize: 12.5, color: C.sub, lineSpacingMultiple: 1.35 });
 foot(s, n, true);
 
 // 09 공급 조건
@@ -121,7 +121,7 @@ const pr = [["권장 소비자가", "21,500원", "부가세 포함 · 1켤레", 
 pr.forEach((q, i) => { const x = M + i * 4.05; box(s, x, 1.3, 3.85, 2.0, q[3], q[3] == C.white ? "DADFD9" : q[3]);
   t(s, x + 0.35, 1.55, 3.2, 0.35, q[0], { fontSize: 13, bold: true, color: q[5] }); t(s, x + 0.35, 2.0, 3.3, 0.8, q[1], { fontSize: 34, bold: true, color: q[4] }); t(s, x + 0.35, 2.8, 3.3, 0.35, q[2], { fontSize: 10.5, color: q[5] }); });
 t(s, M, 3.4, 12, 0.3, "공급가액 9,773원 + 부가세 977원 = 10,750원 (세금계산서 발행)", { fontSize: 10.5, color: C.gray });
-const terms = [["출고", "판매처 선입고 기준 · 위탁배송(직출고)은 배송비 별도 협의"], ["패키지", "단품 박스 · MOQ 이상 채널 전용 구성(2켤레 세트 등) 협의"], ["채널", "편의점·역사 매장 · 복지몰·특판 · 라이브커머스 · 수출"]];
+const terms = [["출고", "판매처 선입고 기준 · 위탁배송(직출고)은 배송비 별도 협의"], ["패키지", "단품 박스 · 채널 전용 구성(2켤레 세트 등) 협의"], ["채널", "편의점·역사 매장 · 복지몰·특판 · 라이브커머스 · 수출"]];
 terms.forEach((r, i) => { const y = 4.1 + i * 0.55; t(s, M, y, 1.6, 0.4, r[0], { fontSize: 13, bold: true, color: C.forest }); t(s, M + 1.6, y, 10.5, 0.4, r[1], { fontSize: 13, color: C.mute }); });
 box(s, M, 6.55, 11.93, 0.42, C.forest);
 t(s, M + 0.3, 6.64, 11.4, 0.3, "알앤디메이커스 주식회사 · 신동규 대표이사 · rndceo@rndmakers.kr · rndmakers.kr", { fontSize: 11.5, bold: true, color: C.lime });
