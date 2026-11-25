@@ -150,6 +150,10 @@ details summary{color:var(--t1)}
 
 /* v15 (11/25) — 광고 소재와 같은 첫 화면 · 공감 → 원인 → 해결 → 증거 → 오퍼 */
 .evbar{display:block;margin:0 -20px;padding:10px 20px;background:var(--lime);color:#0D1B14;font-size:14px;font-weight:700;text-align:center;text-decoration:none}
+.evgift{margin:14px 0 4px;padding:12px 16px;border-radius:12px;background:var(--s2);font-size:15px;color:var(--t2)}.evgift b{color:var(--t1)}
+.evbtn{gap:10px;margin-top:12px}.evbtn .btn{font-size:22px!important;line-height:30px!important;padding:0 12px!important;min-height:132px;border-radius:20px;display:flex;align-items:center;justify-content:center;word-break:keep-all;text-align:center}
+.evbtn .btn.ghost{background:var(--t1);color:#0D1B14}
+.evprize{list-style:none;margin-top:10px;display:grid;gap:8px;font-size:15px;line-height:22px}.evprize b{color:var(--lime);margin-right:6px}.evprize small{color:var(--t3);margin-left:4px}
 .hero2{margin:0 -20px;background:#000;padding:28px 20px 36px;border-top:0;text-align:center}
 .hero2 .eyebrow{color:#9FB3A6}.hero2 .eyebrow b{color:var(--lime)}
 .hero2 img{width:78%;max-width:360px;height:auto;display:block;margin:8px auto 4px}
@@ -320,10 +324,10 @@ details summary{color:var(--t1)}
         <li><div><b>A · 와디즈 펀딩 '좋아요'</b><span>아래 버튼으로 와디즈 펀딩 페이지에서 좋아요를 누르고 화면을 보여 주세요.</span></div></li>
         <li><div><b>B · 인스타 팔로우</b><span>@rharashoe.official을 팔로우하고 팔로우 화면을 보여 주세요.</span></div></li>
       </ol>
-      <div class="gift"><img src="img/gift-brush.jpg" alt="STEP 1 선물 미세모 칫솔" loading="lazy"><p><b>STEP 1 선물</b><span class="js-gift"></span></p></div>
-      <div class="row">
-        <a class="btn js-wadiz" href="#">와디즈 좋아요</a>
-        <a class="btn ghost js-insta" href="#">인스타 팔로우</a>
+      <p class="evgift">STEP 1 선물 · <b>미세모 칫솔</b></p>
+      <div class="row evbtn">
+        <a class="btn js-wadiz" href="#">♡ 와디즈<br>좋아요</a>
+        <a class="btn ghost js-insta" href="#">인스타<br>팔로우</a>
       </div>
       <p class="step-h">STEP 2 · 부스 사진 올리고 태그하면 룰렛 1회</p>
       <ol class="steps">
@@ -332,12 +336,12 @@ details summary{color:var(--t1)}
       <button type="button" class="btn ghost js-copy" data-copy="@rharashoe.official #라라슈 #RHARASHOE #서울디자인페스티벌 #이벤트참여" style="width:100%;border:0;font-family:inherit;cursor:pointer">태그 문구 복사하기</button>
       <div class="reward" style="margin-top:16px">
         <strong>룰렛 경품</strong>
-        <div class="plist">
-          <article class="pz"><img src="img/prize-1-pen.jpg" alt="1등 경품 젤 볼펜" loading="lazy"><div><p class="rk">1등 <small>원판 1칸</small></p><h3>젤 볼펜</h3><ul><li>나무결 바디에 re.feeel 로고</li><li>윗부분을 눌러 쓰는 노크식</li></ul></div></article>
-          <article class="pz"><img src="img/prize-2-d2n.jpg" alt="2등 경품 데이투나잇 왕모칫솔 1개" loading="lazy"><div><p class="rk">2등 <small>원판 2칸</small></p><h3>데이투나잇 왕모칫솔 <small>1개</small></h3><ul><li>칫솔모가 넓은 왕모 칫솔</li><li>파랑(Day)·검정(Night) 중 <b>1개</b>를 골라 가세요</li></ul></div></article>
-          <article class="pz"><img src="img/prize-3-floss.jpg" alt="3등 경품 칫솔형 치실" loading="lazy"><div><p class="rk">3등 <small>원판 3칸</small></p><h3>칫솔형 치실</h3><ul><li>칫솔처럼 손잡이를 쥐고 쓰는 치실</li><li>re.feeel 로고</li></ul></div></article>
-        </div>
-        <p class="note">원판 8칸: 1등 1칸 · 2등 2칸 · 3등 3칸 · 꽝 2칸 (확률 1등 12.5% · 2등 25% · 3등 37.5% · 꽝 25%). 그날 1등 수량이 떨어지면 2등 상품으로 대신 드립니다.<br>경품의 손잡이·케이스 등 일부에 버려진 목재를 가공한 새활용 소재를 썼어요. (적용 부위는 부스에서 안내)</p>
+        <ul class="evprize">
+          <li><b>1등</b> 젤 볼펜 <small>원판 1칸</small></li>
+          <li><b>2등</b> 데이투나잇 왕모칫솔 1개 (파랑·검정 중 택1) <small>원판 2칸</small></li>
+          <li><b>3등</b> 칫솔형 치실 <small>원판 3칸</small></li>
+        </ul>
+        <p class="note">원판 8칸: 1등 1칸 · 2등 2칸 · 3등 3칸 · 꽝 2칸 (확률 1등 12.5% · 2등 25% · 3등 37.5% · 꽝 25%). 그날 1등 수량이 떨어지면 2등 상품으로 대신 드립니다.</p>
       </div>
       <p class="note">STEP 1 선물과 룰렛은 1인 1회 · 하루 준비 수량이 소진되면 그날 이벤트는 마감됩니다.</p>
     </div>
