@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<!-- 메타 릴스·스토리용 9:16 모션 광고 (9초) · 쿼드그립 종일편한 워킹화 — 540x960, 2배 캡처 1080x1920 -->
+<style>
+:root{--lime:#C6F432;--forest:#0D1B14}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:540px;height:960px;background:var(--forest);overflow:hidden;font-family:'Noto Sans CJK KR',sans-serif;letter-spacing:-.02em;color:#F2F4F2;-webkit-font-smoothing:antialiased}
+.stage{position:relative;width:540px;height:960px;overflow:hidden;background:radial-gradient(circle at 50% 42%,#1F3A2B 0%,var(--forest) 62%)}
+.a{position:absolute}
+.stage .a{animation-fill-mode:both;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+/* 1. 오프닝 문구 */
+.eb{left:0;right:0;text-align:center;top:330px;font-size:20px;font-weight:700;letter-spacing:.14em;color:var(--lime);animation:up .5s .1s, out .4s 2.2s}
+.t1{left:0;right:0;text-align:center;top:380px;font-size:56px;font-weight:900;animation:up .6s .4s, out .4s 2.2s}
+.t2{left:0;right:0;text-align:center;top:452px;font-size:60px;font-weight:900;color:var(--lime);animation:up .6s .8s, out .4s 2.2s}
+.t3{left:0;right:0;text-align:center;top:528px;font-size:56px;font-weight:900;animation:up .6s 1.2s, out .4s 2.2s}
+.bar{left:120px;top:620px;height:6px;width:300px;background:var(--lime);border-radius:3px;transform-origin:left;animation:grow .8s 1.4s, out .4s 2.2s}
+/* 2. 밑창 카드 */
+.card{left:80px;top:170px;width:380px;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 30px 60px rgba(0,0,0,.45);animation:cardin .8s 2.5s}
+.card img{width:100%;display:block}
+.pin{width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:4px solid var(--lime);background:rgba(13,27,20,.9);color:var(--lime);font-size:15px;font-weight:900;display:grid;place-items:center}
+.ring{width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:3px solid var(--lime)}
+.p1,.r1{left:67.2%;top:82.6%}.p2,.r2{left:76.8%;top:64.4%}.p3,.r3{left:81.9%;top:43.6%}.p4,.r4{left:61.5%;top:30.5%}
+.p1{animation:pop .45s 3.3s}.r1{animation:ripple .9s 3.3s}
+.p2{animation:pop .45s 3.9s}.r2{animation:ripple .9s 3.9s}
+.p3{animation:pop .45s 4.5s}.r3{animation:ripple .9s 4.5s}
+.p4{animation:pop .45s 5.1s}.r4{animation:ripple .9s 5.1s}
+.list{left:60px;right:60px;top:640px;display:grid;grid-template-columns:1fr 1fr;gap:12px 18px;font-size:22px}
+.list span{animation:up .45s both}
+.list b{color:var(--lime);margin-right:8px}
+.list span:nth-child(1){animation-delay:3.35s}.list span:nth-child(2){animation-delay:3.95s}.list span:nth-child(3){animation-delay:4.55s}.list span:nth-child(4){animation-delay:5.15s}
+.chip{left:50%;top:760px;transform:translateX(-50%);background:var(--lime);color:var(--forest);font-size:28px;font-weight:900;padding:12px 28px;border-radius:99px;white-space:nowrap;animation:chipin .6s 5.8s}
+.w{left:0;right:0;text-align:center;top:832px;font-size:20px;opacity:.8;animation:up .5s 6.1s}
+/* 3. 엔딩 */
+.end{left:0;top:0;width:540px;height:960px;background:#F6F7F4;animation:wipe .7s 7.0s}
+.logo{left:50%;top:320px;width:100px;margin-left:-50px;animation:pop .6s 7.4s}
+.c1{left:0;right:0;text-align:center;top:440px;font-size:34px;font-weight:900;line-height:1.35;color:#191F28;animation:up .6s 7.6s}
+.c1 em{font-style:normal;color:#073D30;background:linear-gradient(transparent 60%,var(--lime) 60%)}
+.c2{left:0;right:0;text-align:center;top:540px;font-size:18px;color:#4E5968;animation:up .5s 7.9s}
+.cta{left:50%;top:590px;transform:translateX(-50%);background:var(--forest);color:var(--lime);font-weight:900;font-size:26px;padding:16px 30px;border-radius:16px;white-space:nowrap;animation:chipin .6s 8.1s}
+@keyframes up{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes out{from{opacity:1}to{opacity:0;transform:translateY(-30px)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes cardin{from{opacity:0;transform:translateY(160px) scale(.85) rotate(6deg)}to{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:scale(.2)}70%{opacity:1;transform:scale(1.25)}100%{opacity:1;transform:scale(1)}}
+@keyframes ripple{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(2.6)}}
+@keyframes chipin{from{opacity:0;transform:translate(-50%,24px) scale(.9)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes wipe{from{clip-path:circle(0% at 50% 85%)}to{clip-path:circle(120% at 50% 85%)}}
+</style></head><body>
+<div class="stage">
+  <p class="a eb">QUAD GRIP</p>
+  <p class="a t1">하루 종일</p>
+  <p class="a t2">흔들리지 않는</p>
+  <p class="a t3">편안함</p>
+  <div class="a bar"></div>
+
+  <div class="a card">
+    <img src="../../mall/concept-2026-11-racos/img/quadgrip-sole.jpg" alt="">
+    <span class="a ring r1"></span><span class="a pin p1">01</span>
+    <span class="a ring r2"></span><span class="a pin p2">02</span>
+    <span class="a ring r3"></span><span class="a pin p3">03</span>
+    <span class="a ring r4"></span><span class="a pin p4">04</span>
+  </div>
+  <div class="a list">
+    <span><b>01</b>뒤꿈치 중앙</span><span><b>02</b>후족부 바깥</span>
+    <span><b>03</b>앞꿈치 바깥</span><span><b>04</b>엄지 볼</span>
+  </div>
+  <p class="a chip">4곳의 그립 포인트</p>
+  <p class="a w">한쪽 257g · 차콜 · 그레이 · 민트화이트</p>
+
+  <div class="a end"></div>
+  <img class="a logo" src="../../landing/img/rs-logo-forest.png">
+  <p class="a c1">당신의 <em>서 있는 하루</em>를<br>응원합니다</p>
+  <p class="a c2">서 있는 하루의 반려도구, 라라슈</p>
+  <p class="a cta">rharashoe.com →</p>
+</div>
+</body></html>
