@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:#fff}
+svg{width:40mm;height:40mm;display:block}
+.t{font-family:'Noto Sans KR';font-weight:700;font-size:2.15px;letter-spacing:.12px;fill:url(#g)}
+</style></head><body>
+<!-- 지름 40mm · 1 SVG 단위 = 1mm -->
+<svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#8C6A1C"/><stop offset=".3" stop-color="#F4DC92"/>
+  <stop offset=".55" stop-color="#B98F2E"/><stop offset=".8" stop-color="#F0D483"/><stop offset="1" stop-color="#8C6A1C"/>
+ </linearGradient>
+ <clipPath id="c"><circle cx="20" cy="20" r="12.6"/></clipPath>
+ <path id="top" d="M 4.6 20 A 15.4 15.4 0 0 1 35.4 20"/>
+ <path id="bot" d="M 3.85 20 A 16.15 16.15 0 0 0 36.15 20"/>
+</defs>
+<circle cx="20" cy="20" r="20" fill="url(#g)"/>
+<circle cx="20" cy="20" r="18.9" fill="#0D0D0D"/>
+<circle cx="20" cy="20" r="13.25" fill="url(#g)"/>
+<image href="photo-crop.jpg" x="7.4" y="7.4" width="25.2" height="25.2" clip-path="url(#c)" preserveAspectRatio="xMidYMid slice"/>
+<text class="t"><textPath href="#top" startOffset="50%" text-anchor="middle">정형외과 전문의 설계 자문</textPath></text>
+<text class="t"><textPath href="#bot" startOffset="50%" text-anchor="middle">이문홍 원장 · RHARA SHOE</textPath></text>
+<circle cx="4.05" cy="20" r=".45" fill="#C6F432"/><circle cx="35.95" cy="20" r=".45" fill="#C6F432"/>
+<rect x="16.7" y="30.05" width="6.6" height="1.6" rx=".8" fill="#0D0D0D" opacity=".75"/><text x="20" y="31.2" text-anchor="middle" style="font-family:'Noto Sans KR';font-size:1.1px;fill:#fff">AI 연출 이미지</text>
+</svg></body></html>

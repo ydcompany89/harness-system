@@ -3,139 +3,448 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>라라슈 RhaRa Shoe — Made for Standing.</title>
-<meta name="description" content="서서 일하는 하루를 위한 신발과 인솔. 라라슈 쿼드그립 종일편한 워킹화 · 아치가득 인솔 2026.11.11 OPEN">
-<meta property="og:title" content="라라슈 RhaRa Shoe — Made for Standing.">
-<meta property="og:description" content="서서 일하는 하루를 위한 신발과 인솔. 11.11 OPEN">
-<meta property="og:image" content="img/brand-film-poster.jpg">
+<title>아치가득 인솔 | 서서 일하는 날을 위한 아치 깔창 · RHARA SHOE 라라슈</title>
+<meta name="description" content="신발은 그대로, 아치 밑만 꽉 채우는 반굽 인솔. RHARA SHOE 쿼드그립 아치가득 인솔 와디즈 펀딩 진행 중. 12월 5일부터 차례로 보내 드려요.">
+<link rel="canonical" href="https://go.rharashoe.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RHARA SHOE 라라슈">
+<meta property="og:url" content="https://go.rharashoe.com/">
+<meta property="og:title" content="오후 4시, 발이 먼저 퇴근하고 싶을 때 · 아치가득 인솔 와디즈 펀딩">
+<meta property="og:description" content="신발은 그대로, 아치 밑만 꽉 채우는 반굽 인솔. 와디즈 펀딩 진행 중">
+<meta property="og:image" content="https://go.rharashoe.com/img/insole-layer-after.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Organization", "name": "알앤디메이커스 주식회사", "alternateName": "R&D Makers", "url": "https://go.rharashoe.com/", "logo": "https://go.rharashoe.com/img/rs-logo.png", "brand": {"@type": "Brand", "name": "RHARA SHOE", "alternateName": ["라라슈"]}, "sameAs": ["https://www.instagram.com/rharashoe.official/"], "telephone": "+82-507-1317-2516", "address": {"@type": "PostalAddress", "streetAddress": "국제과학7로 8", "addressLocality": "유성구", "addressRegion": "대전광역시", "addressCountry": "KR"}}]</script>
 <link rel="icon" href="img/rs-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0B0B0B;--paper:#EDEDE8;--lime:#C6F432;--grey:#8C8C86;--line:#2A2A2A}
+/* 2026-10-31 v4 — 화이트 + 포레스트(강조 1색) + 라임 포인트 3% · 토스 구조 참고(use-design-md) · 해요체 */
+:root{--forest:#073D30;--forest-weak:#E8EFEC;--lime:#C6F432;--bg:#FFFFFF;--s1:#F9FAFB;--s2:#F2F4F6;--line:#E5E8EB;
+  --t1:#191F28;--t2:#4E5968;--t3:#8B95A1;--ease:cubic-bezier(.22,1,.36,1)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--ink);color:var(--paper);font-family:'Noto Sans KR',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t1);font-family:'Noto Sans KR',-apple-system,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:88px}
+h1,h2,h3{text-wrap:balance;font-weight:700;letter-spacing:-.02em}
+p,li,dd{text-wrap:pretty}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--forest);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-48px;background:var(--forest);color:#fff;padding:8px 12px;border-radius:8px;z-index:20}
+.skip:focus{top:16px}
 .wrap{max-width:480px;margin:0 auto;padding:0 20px}
-.mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:var(--grey);text-transform:uppercase}
-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-header img{height:34px}
-header .mono{color:var(--paper)}
-.hero{padding:28px 0 36px}
-.hero h1{font-size:44px;font-weight:900;line-height:1.08;letter-spacing:-.02em;margin:10px 0 14px}
-.hero p{color:#CFCFC8;font-size:16px}
-.dots{display:flex;gap:10px;margin-top:22px}.dots i{width:12px;height:12px;border-radius:50%;background:var(--lime)}
-.event{border:1px solid var(--line);border-radius:4px;padding:22px 20px;margin:8px 0 28px}
-.event .tag{display:inline-block;background:var(--lime);color:var(--ink);font-weight:900;font-size:13px;padding:4px 10px;margin-bottom:12px}
-.event h2{font-size:24px;font-weight:900;line-height:1.3;margin-bottom:10px}
-.event ul{list-style:none;margin:12px 0 18px}.event li{padding:6px 0;border-top:1px solid var(--line);font-size:15px}
-.event li b{color:var(--lime);font-weight:700;margin-right:6px}
-.btn{display:block;width:100%;text-align:center;background:var(--lime);color:var(--ink);font-weight:900;font-size:18px;padding:17px;border-radius:4px;text-decoration:none}
-.btn.off{background:#333;color:#888;pointer-events:none}
-.note{font-size:12px;color:var(--grey);margin-top:10px}
-.prod{margin:34px 0}
-.prod img,.prod video{width:100%;display:block;border-radius:4px;background:#1a1a1a}
-.prod video{aspect-ratio:16/9}
-.vnote{margin:6px 0 0;font-size:12px;color:#8a8a85}
-.prod h3{font-size:22px;font-weight:900;margin:14px 0 4px}
-.prod .sub{color:var(--grey);font-size:14px;margin-bottom:10px}
-.prod dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:14px}
-.prod dt{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lime);padding-top:3px}
-.prod dd{color:#D8D8D2}
-.reo{display:flex;gap:16px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;margin:34px 0}
-.reo img{width:84px;height:84px;border-radius:50%;flex:none}
-.reo q{display:block;font-size:19px;font-weight:900;quotes:none}
-.reo span{font-size:12px;color:var(--grey)}
-.story{padding:8px 0 30px}
-.story h4{font-size:20px;font-weight:900;margin:8px 0}
-.story p{color:#CFCFC8;font-size:15px}
-footer{border-top:1px solid var(--line);padding:24px 0 48px;font-size:12px;color:var(--grey)}
-footer details{margin:10px 0}footer summary{cursor:pointer;color:#BBB}
-footer p{margin-top:6px}
+.eyebrow{font-size:13px;line-height:20px;color:var(--t3);font-weight:500}
+.eyebrow b{color:var(--forest);font-weight:700}
+.tbd{color:#B3261E;border:1px dashed #B3261E;border-radius:4px;padding:0 4px;font-size:12px;line-height:16px;white-space:nowrap}
+/* 상단 바 */
+nav.bar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.bar img{height:26px;display:block}
+nav.bar span{display:none}
+/* 버튼: 강조 1색(포레스트), 보조는 회색 */
+.btn{display:block;text-align:center;text-decoration:none;font-size:16px;line-height:24px;font-weight:700;padding:14px 20px;border-radius:14px;
+  background:var(--forest);color:#fff;min-height:48px;transition:transform .3s var(--ease),opacity .2s}
+.btn:active{transform:scale(.98)}
+.btn.sm{display:inline-block;font-size:14px;line-height:20px;padding:8px 14px;border-radius:10px;min-height:36px}
+.btn.ghost{background:var(--s2);color:var(--t1);border:0}
+.btn[aria-disabled=true]{background:var(--s2);color:var(--t3);pointer-events:none}
+/* 하단 고정 행동 버튼 */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:15;padding:12px 20px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(rgba(255,255,255,0),#fff 35%)}
+.dock .btn{max-width:440px;margin:0 auto;font-size:17px;padding:16px;border-radius:16px}
+/* 섹션 공통 */
+section{padding:48px 0}
+section+section{border-top:8px solid var(--s2)}
+h2{font-size:22px;line-height:30px;margin:8px 0 12px}
+.lead{color:var(--t2);font-size:15px;line-height:1.6}
+.note{font-size:12px;line-height:18px;color:var(--t3);margin-top:12px}
+.media{width:100%;display:block;border-radius:16px;background:var(--s1)}
+/* 히어로 */
+.hero{padding:28px 0 40px;border-top:0}
+.hero h1{font-size:28px;line-height:38px;margin:8px 0 12px}
+.hero .lead{margin-bottom:20px}
+.hero .proof{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:13px;line-height:20px;color:var(--t3)}
+.dots{display:inline-grid;grid-template-columns:repeat(2,7px);gap:3px}.dots i{width:7px;height:7px;border-radius:9999px;background:var(--lime);display:block}
+.hero .media{margin-top:24px}
+@media (min-width:900px){.hero .hero-v{max-height:58vh;width:auto;max-width:100%;margin-left:auto!important;margin-right:auto!important}}
+/* 박람회 미션 */
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+.steps{list-style:none;counter-reset:s;margin:16px 0}
+.steps li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:0}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:9999px;background:var(--forest-weak);color:var(--forest);font-size:14px;font-weight:700;display:grid;place-items:center}
+.steps b{display:block;font-size:16px;line-height:24px;font-weight:700}
+.steps span{font-size:14px;line-height:20px;color:var(--t2)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.step-h{font-size:14px;line-height:20px;font-weight:700;color:var(--forest);margin:20px 0 0}
+.step-h:first-child{margin-top:0}
+.js-copy{margin-top:12px}
+.preorder{margin-top:24px;padding:20px;border-radius:18px;background:var(--s1);border:2px solid var(--forest)}.pre-tag{display:inline-block;font-size:12px;font-weight:800;padding:4px 10px;border-radius:99px;background:#C6F432;color:#0d0d0d;margin:0}.pre-h{font-size:22px;line-height:30px;font-weight:800;margin:10px 0 6px}.pre-h b{color:var(--forest)}.pre-price{margin:0 0 14px;font-size:15px}.pre-price s{color:#999}.pre-price b{font-size:20px}.pre-price span{font-size:12px;color:#777}
+.gift{display:flex;gap:14px;align-items:center;margin:14px 0 4px;padding:12px;border-radius:14px;background:var(--s1)}.gift img{width:84px;height:84px;object-fit:cover;border-radius:10px;flex:none}.gift p{margin:0;display:flex;flex-direction:column;font-size:17px;font-weight:800}.gift p b{font-size:13px;color:var(--mute,#666);font-weight:700}
+.plist{display:flex;flex-direction:column;gap:12px;margin:12px 0}.pz{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line)}.pz img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#F3F3F1}.pz>div{padding:14px 16px 16px}.pz .rk{font-size:14px;font-weight:800;color:var(--forest)}.pz .rk small{font-weight:500;color:var(--t3);font-size:12px;margin-left:4px}.pz h3{font-size:19px;line-height:26px;margin:2px 0 6px}.pz h3 small{font-size:13px;color:var(--t3)}.pz ul{list-style:none;font-size:14px;line-height:21px;color:var(--t2)}.pz li::before{content:"· "}
+.prizes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.prizes figure{margin:0;text-align:center}.prizes img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;background:#f3f3f1}.prizes figcaption{font-size:14px;font-weight:700;line-height:1.3;margin-top:6px;display:flex;flex-direction:column}.prizes figcaption b{font-size:13px}.prizes small{font-weight:500;color:#666;font-size:12px}
+.tags code{font-family:inherit;font-size:13px;line-height:20px;background:var(--s2);border-radius:8px;padding:2px 8px;color:var(--t1)}
+.reward{background:var(--s1);border-radius:12px;padding:16px;margin-bottom:16px}
+.reward table{width:100%;border-collapse:collapse;font-size:14px;line-height:22px;margin-top:8px}
+.reward td{padding:4px 0}.reward td:last-child{text-align:right;color:var(--t3)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.row .btn{font-size:15px;line-height:20px;padding:12px}
+/* 장점 · 방법 */
+.benefits{display:grid;gap:10px;margin-top:20px}
+.benefits div{background:var(--s1);border-radius:14px;padding:16px}
+.benefits b{display:block;font-size:16px;line-height:24px;margin-bottom:2px}
+.benefits p{font-size:14px;line-height:21px;color:var(--t2)}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;line-height:20px;margin-top:20px}
+.spec dt{color:var(--forest);font-weight:700}
+.how{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.how li{background:var(--s1);border-radius:12px;padding:12px;font-size:14px;line-height:20px}
+.how li b{display:block;color:var(--forest);font-size:12px;line-height:16px;margin-bottom:4px}
+/* 브랜드 */
+.tagline{padding:48px 0 16px}
+.tagline .js-tagline{font-size:28px;line-height:38px;font-weight:700;letter-spacing:-.02em}
+.tagline .w{opacity:.25;transition:opacity .5s var(--ease)}
+.tagline .w.on{opacity:1}
+/* 원장 자문 */
+.quote{margin:20px 0 0;padding:0;list-style:none;display:grid;gap:12px}
+.quote li{font-size:18px;line-height:26px;font-weight:700}
+.who{margin-top:12px;font-size:14px;line-height:20px;color:var(--t2)}
+.disc{margin-top:12px;font-size:12px;line-height:18px;color:var(--t3);background:var(--s1);border-radius:12px;padding:12px}
+/* 브랜드 스토리 · 워킹화 · 인스타 */
+.story p{color:var(--t2);margin-top:14px}
+.story p.eyebrow{color:var(--forest);font-weight:700}
+#brand{padding-bottom:8px}
+#brand+.story{border-top:0;padding-top:0}
+.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:20px;border-radius:14px;overflow:hidden}
+.igrid img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.teaser{position:relative;border-radius:16px;overflow:hidden;margin-top:20px;background:var(--s1)}
+.teaser img{width:100%;display:block}
+.teaser .over{position:absolute;left:12px;top:12px;padding:6px 12px;background:var(--forest);color:#fff;border-radius:9999px;display:flex;gap:8px;align-items:center}
+.teaser .over .dots i{width:6px;height:6px}.teaser .over .dots{grid-template-columns:repeat(2,6px);gap:2px}
+.teaser .over b{display:block;font-size:12px;line-height:16px;letter-spacing:.04em}
+
+/* FAQ */
+details{border-top:1px solid var(--line);padding:16px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:'+';color:var(--t3);transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:8px;font-size:14px;line-height:21px;color:var(--t2)}
+footer{background:var(--s1);padding:32px 0 120px;font-size:12px;line-height:18px;color:var(--t3)}
+footer p+p{margin-top:8px}
+footer a{color:var(--t2)}
+/* 스크롤 등장 */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{transform:none;transition:opacity .3s}.btn{transition:none}html{scroll-behavior:auto}}
+
+/* 11/08 브랜드 컬러 확정(L3 합의): 전체 배경 차콜그린 #0D1B14 · 카드 #14281D · 강조 라임 */
+:root{--bg:#0D1B14;--s1:#14281D;--s2:#162C20;--line:#23402F;--t1:#F2F4F2;--t2:#C9D4CD;--t3:#9FB3A6;--forest:#C6F432;--forest-weak:#1F3A2B;--mute:#9FB3A6}
+body{background:var(--bg);color:var(--t1)}
+nav.bar{background:rgba(13,27,20,.9);border-bottom-color:var(--line)}
+.btn{background:var(--lime);color:#0D1B14}
+.btn.ghost{background:var(--s2);color:var(--t1)}
+.btn[aria-disabled=true]{background:var(--s2);color:var(--t3)}
+.dock{background:linear-gradient(rgba(13,27,20,0),#0D1B14 35%)}
+.card,.pz{background:var(--s1);border-color:var(--line)}
+.teaser .over,.skip{color:#0D1B14}
+footer{background:#0A150F;color:var(--t3)}
+footer a{color:var(--t2)}
+details summary{color:var(--t1)}
+
+/* v15 (11/25) — 광고 소재와 같은 첫 화면 · 공감 → 원인 → 해결 → 증거 → 오퍼 */
+.evbar{display:block;margin:0 -20px;padding:10px 20px;background:var(--lime);color:#0D1B14;font-size:14px;font-weight:700;text-align:center;text-decoration:none}
+.evgift{margin:14px 0 4px;padding:12px 16px;border-radius:12px;background:var(--s2);font-size:15px;color:var(--t2)}.evgift b{color:var(--t1)}
+.evbtn{gap:10px;margin-top:12px}.evbtn .btn{font-size:22px!important;line-height:30px!important;padding:0 12px!important;min-height:132px;border-radius:20px;display:flex;align-items:center;justify-content:center;word-break:keep-all;text-align:center}
+.evbtn .btn.ghost{background:var(--t1);color:#0D1B14}
+.evprize{list-style:none;margin-top:10px;display:grid;gap:8px;font-size:15px;line-height:22px}.evprize b{color:var(--lime);margin-right:6px}.evprize small{color:var(--t3);margin-left:4px}
+.igbar{margin:0 -20px;padding:12px 20px;background:#000}.igbar .btn{background:#F2F4F2;color:#0D1B14;display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px}.igbar .btn small{font-size:12px;line-height:16px;font-weight:500;color:#4E5968}
+.hero2{margin:0 -20px;background:#000;padding:28px 20px 36px;border-top:0;text-align:center}
+.hero2 .eyebrow{color:#9FB3A6}.hero2 .eyebrow b{color:var(--lime)}
+.hero2 img{width:78%;max-width:360px;height:auto;display:block;margin:8px auto 4px}
+.hero2 h1{font-size:30px;line-height:40px;margin:8px 0 10px;color:#F2F4F2}
+.hero2 h1 em{font-style:normal;color:var(--lime)}
+.hero2 .lead{color:#C9D4CD;margin-bottom:18px}
+.chip{display:inline-flex;gap:8px;align-items:center;border:1px solid #2E4A38;border-radius:9999px;padding:6px 14px;font-size:14px;margin-bottom:16px;color:#F2F4F2}
+.chip b{color:var(--lime)}
+.hero2 .proof{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;font-size:13px;line-height:20px;color:var(--t3)}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:20px 0;border-top:0}
+.trust div{background:var(--s1);border-radius:12px;padding:12px 8px;text-align:center}
+.trust b{display:block;font-size:18px;line-height:24px;color:var(--lime)}
+.trust span{font-size:12px;line-height:16px;color:var(--t3)}
+.day{list-style:none;margin-top:20px;display:grid;gap:20px}
+.day img{width:100%;display:block;border-radius:12px;aspect-ratio:619/293;object-fit:cover}
+.day b{display:block;font-size:26px;line-height:32px;margin-top:12px;letter-spacing:-.02em}
+.day li:nth-child(n+2) b{color:var(--t3)}
+.day span{font-size:16px;color:var(--t1)}
+.reframe{margin:0 -20px;background:#000;text-align:center;padding:56px 20px}
+.reframe p.s{color:#C9D4CD;font-size:16px}
+.reframe h2{font-size:28px;line-height:40px;margin:12px 0 0;font-weight:500;color:#F2F4F2}
+.reframe h2 em{font-style:normal;font-weight:700;color:#E6FB9E;display:block}
+.reframe .lead{margin-top:20px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px}
+.ba figure{margin:0}.ba img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;display:block;background:#fff}
+.ba figcaption{font-size:13px;line-height:18px;color:var(--t2);margin-top:6px}.ba figcaption b{color:var(--t1);display:block}
+.ba figure:last-child figcaption b{color:var(--lime)}
+.bar2{display:flex;height:12px;border-radius:9999px;overflow:hidden;margin:16px 0 6px}
+.bar2 i:first-child{background:#9AA59F;width:68%}.bar2 i:last-child{background:#B58E6B;width:32%}
+.bar2l{display:flex;justify-content:space-between;font-size:13px;color:var(--t2)}
+.vs{width:100%;border-collapse:collapse;margin-top:20px;font-size:14px;line-height:20px}
+.vs th,.vs td{padding:12px 8px;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+.vs thead th{border-top:0;font-size:13px;color:var(--t3);font-weight:500}
+.vs td:last-child{color:var(--lime);font-weight:700}.vs th[scope=row]{color:var(--t3);font-weight:500;width:72px}
+.offer{display:grid;gap:12px;margin-top:20px}
+.ocard{border-radius:16px;padding:20px;background:var(--s1);border:1px solid var(--line);position:relative}
+.ocard.best{border:2px solid var(--lime)}
+.ocard .tag{position:absolute;top:-11px;left:16px;background:var(--lime);color:#0D1B14;font-size:12px;font-weight:700;padding:3px 10px;border-radius:9999px}
+.ocard h3{font-size:16px;line-height:24px;color:var(--t2);font-weight:500}
+.ocard .p{font-size:30px;line-height:38px;font-weight:700;margin:4px 0}
+.ocard .p small{font-size:14px;color:var(--t3);font-weight:500;margin-left:6px}
+.ocard p{font-size:14px;color:var(--t2)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header><img src="img/rs-logo.png" alt="RS"><span class="mono">RhaRa Shoe · 라라슈</span></header>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1122007340240070&ev=PageView&noscript=1"></noscript>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<nav class="bar" aria-label="상단">
+  <img src="img/rs-logo-light.png" alt="RS">
+  <span>RHARA SHOE</span>
+  <a class="btn sm js-wadiz" href="#">펀딩 참여</a>
+</nav>
 
-  <section class="hero">
-    <div class="mono">Made for Standing.</div>
-    <h1>서서 일하는<br>하루를 위해.</h1>
-    <p>하루 10시간 서서 일하는 식당 사장님들의 발 사진에서 시작한 신발과 인솔입니다.</p>
-    <div class="dots"><i></i><i></i><i></i><i></i></div>
+<main id="main" class="wrap">
+  <a class="evbar" href="#event">코엑스 현장 이벤트 · 팔로우만 해도 선물 →</a>
+  <div class="igbar"><a class="btn js-insta" href="#">라라슈 공식 인스타그램 팔로우하기<small>@rharashoe.official</small></a></div>
+
+  <!-- 01 히어로 — 광고 소재와 같은 장면·같은 문장 -->
+  <section class="hero2">
+    <p class="eyebrow"><b>MADE FOR STANDING</b> · 정형외과 전문의 설계 자문<sup style="font-size:10px">*</sup></p>
+    <img src="img/insole-dark-hero.jpg" width="740" height="630" alt="쿼드그립 아치가득 인솔 그레이 반굽 한 짝">
+    <h1>오후 4시,<br>발이 먼저<br><em>퇴근하고 싶을 때</em></h1>
+    <p class="lead">신발은 그대로, 아치 밑만 꽉 채우는 반굽 인솔</p>
+    <a class="btn js-wadiz" href="#">와디즈에서 펀딩 참여하기</a>
+    <p class="proof"><span class="dots"><i></i><i></i><i></i><i></i></span><span>지금 와디즈 펀딩 진행 중 · 12월 5일부터 차례로 발송</span></p>
+    <p class="note" style="color:#7E8F84">* 자문료를 지급한 설계 자문이에요. 자세한 고지는 아래 설계 자문 구역에 있어요.</p>
   </section>
 
-  <!-- 이벤트 블록: 아래 스크립트의 PHASE 값으로 바뀜 -->
-  <section class="event" id="event"></section>
+  <!-- 02 트러스트 바 -->
+  <section class="trust" aria-label="한눈에 보는 근거">
+    <div><b>63켤레</b><span>킨텍스 메가쇼<br>4일 현장 판매</span></div>
+    <div><b>설계 자문</b><span>정형외과<br>전문의 참여</span></div>
+    <div><b>M · L</b><span>자르지 않는<br>반굽 2사이즈</span></div>
+  </section>
 
-  <section class="prod">
-    <video src="img/brand-film.mp4" poster="img/brand-film-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="라라슈 브랜드 필름"></video>
-    <p class="vnote">브랜드 필름 · 소리를 켜고 보세요 · 일부 장면 AI 생성(Google Flow)</p>
-    <h3>쿼드그립 종일편한 워킹화</h3>
-    <div class="sub">42,500원 · 2026.11.11 OPEN</div>
-    <dl>
-      <dt>01</dt><dd>밑창 4점 쿼드그립 패드 — 폐타이어·폐벽지 새활용 고무</dd>
-      <dt>02</dt><dd>깔창 없는 일체형 안창 — 자체 소재 E-실리폴리렌</dd>
-      <dt>03</dt><dd>발목이 들어가는 입구 테두리를 두껍게</dd>
+  <!-- 03 페인 포인트 -->
+  <section class="rv" id="pain">
+    <p class="eyebrow"><b>혹시</b></p>
+    <h2>이런 하루<br>보내고 계신가요?</h2>
+    <ol class="day">
+      <li><img src="img/pain-1.jpg" alt="출근하자마자 운동화를 벗고 슬리퍼로 갈아 신는 발" loading="lazy"><b>AM 09:00</b><span>출근하자마자 슬리퍼로 쓱</span></li>
+      <li><img src="img/pain-2.jpg" alt="책상 아래에서 다리를 주무르는 손" loading="lazy"><b>PM 03:00</b><span>아무도 안 볼 때 조물조물</span></li>
+      <li><img src="img/pain-3.jpg" alt="퇴근 전 다리를 두드리는 손" loading="lazy"><b>PM 05:50</b><span>퇴근 전 마지막 버티기, 통! 통!</span></li>
+    </ol>
+  </section>
+
+  <!-- 03-2 관점 바꾸기 -->
+  <section class="reframe rv" aria-label="원인">
+    <p class="s">신발이 변한 게 아니에요</p>
+    <h2>하루를 버틴 발이<em>아침의 발이 아닐 뿐</em></h2>
+    <p class="lead">아침엔 편하던 신발이 오후엔 버거운 날,<br>신발 속 <b>아치 아래가 비어 있는지</b> 한번 보세요.</p>
+  </section>
+
+  <!-- 04 베네핏 -->
+  <section class="rv" id="insole">
+    <p class="eyebrow"><b>ARCH-FULL INSOLE</b> · 쿼드그립 아치가득 인솔</p>
+    <h2>비어 있던 아치 아래,<br>딱 한 장으로 채워요</h2>
+    <div class="ba">
+      <figure><img src="img/insole-before.jpg" alt="반투명 운동화 속 아치 아래가 비어 있는 모습" loading="lazy"><figcaption><b>신던 신발 그대로</b>아치 아래가 떠 있어요</figcaption></figure>
+      <figure><img src="img/insole-layer-after.jpg" alt="같은 운동화 속 깔창 밑에 아치가득 인솔을 깐 모습" loading="lazy"><figcaption><b>한 장 깔면</b>빈 곳이 채워져요</figcaption></figure>
+    </div>
+    <div class="benefits">
+      <div><b>① 아치 아래, 최고 15mm까지</b><p>발 아치 라인을 따라 가장 높은 곳이 15mm예요. 뒤꿈치 쪽은 3mm라 신발이 높아진 느낌이 적어요.</p></div>
+      <div><b>② 뒤꿈치를 감싸는 컵</b><p>뒤꿈치가 컵 안에 쏙 들어가 자리를 잡아 줘요.</p></div>
+      <div><b>③ 자르지 않는 반굽</b><p>쓰던 깔창 <strong>밑에</strong> 까는 방식이라 가위가 필요 없어요. 다른 신발로 옮기기도 쉬워요.</p></div>
+    </div>
+    <h3 style="font-size:18px;margin-top:32px">10초면 끝</h3>
+    <ol class="how">
+      <li><b>STEP 1</b>쓰던 깔창을 들어 올리고</li>
+      <li><b>STEP 2</b>뒤꿈치에 맞춰 깔고</li>
+      <li><b>STEP 3</b>깔창을 다시 덮으면 끝</li>
+    </ol>
+    <img class="media" src="img/insole-layer.gif" alt="쓰던 깔창 밑에 아치가득 인솔을 한 장 까는 모습" loading="lazy" style="background:#fff;margin-top:16px">
+  </section>
+
+  <!-- 05 현장 반응 -->
+  <section class="rv" id="proof">
+    <p class="eyebrow"><b>KINTEX MEGASHOW</b> · 2026.11</p>
+    <h2>신어 보고 산 사람,<br>4일 동안 63켤레</h2>
+    <p class="lead">킨텍스 메가쇼 부스에서 신던 신발에 직접 넣어 보고 골라 가셨어요.</p>
+    <img class="media" src="img/megashow-booth.jpg" alt="킨텍스 메가쇼 알앤디메이커스 라라슈 부스" loading="lazy" style="margin-top:20px">
+    <div class="bar2" aria-hidden="true"><i></i><i></i></div>
+    <div class="bar2l"><span>그레이 43켤레</span><span>모카무스 20켤레</span></div>
+    <img class="media" src="img/insole-pack-full.jpg" alt="쿼드그립 아치가득 인솔 그레이 한 쌍과 패키지" loading="lazy" style="margin-top:20px">
+    <img class="media" src="img/insole-pack-mocha.jpg" alt="쿼드그립 아치가득 인솔 모카무스 한 쌍과 패키지" loading="lazy" style="margin-top:12px">
+    <p class="note">실제 제품 사진 · 그레이 / 모카무스</p>
+  </section>
+
+  <!-- 06 비교 -->
+  <section class="rv" id="compare">
+    <p class="eyebrow"><b>고민되면</b></p>
+    <h2>새 신발 살까?<br>인솔 한 장 깔까?</h2>
+    <table class="vs">
+      <thead><tr><th></th><th>새 신발</th><th>아치가득 인솔</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">비용</th><td>새로 한 켤레</td><td>인솔 한 장 값</td></tr>
+        <tr><th scope="row">적응</th><td>새 신발에 다시 적응</td><td>신던 신발 그대로</td></tr>
+        <tr><th scope="row">여러 켤레</th><td>신발마다 따로</td><td>옮겨 깔면 끝</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 07 오퍼 스택 -->
+  <section class="rv" id="offer">
+    <p class="eyebrow"><b>WADIZ ONLY</b> · 펀딩 기간에만</p>
+    <h2>와디즈 펀딩가로<br>먼저 만나요</h2>
+    <div class="offer">
+      <div class="ocard"><span class="tag">와디즈 펀딩가</span><h3 style="font-size:20px;color:var(--t1);font-weight:700">아치가득 인솔 1개</h3><p>신던 신발 한 켤레에 한 장</p></div>
+      <div class="ocard best"><span class="tag">2개 세트 · 추천</span><h3 style="font-size:20px;color:var(--t1);font-weight:700">2개 세트 · 운동화 하나, 출근화 하나</h3><p>신발 두 켤레에 하나씩 깔아 두세요.</p></div>
+    </div>
+    <dl class="spec">
+      <dt>사이즈</dt><dd>M 15cm (신발 220~255mm) · L 17cm (신발 260~290mm)</dd>
+      <dt>컬러</dt><dd>그레이 · 모카무스</dd>
+      <dt>발송</dt><dd>12월 5일부터 차례로</dd>
     </dl>
+    <a class="btn js-wadiz" href="#" style="margin-top:24px">와디즈에서 펀딩 참여하기</a>
+    <p class="note">리워드별 수량과 마감은 와디즈 펀딩 페이지에서 확인해 주세요. 본 제품은 의료기기가 아닙니다.</p>
   </section>
 
-  <section class="prod">
-    <img src="img/insole.jpg" alt="라라슈 쿼드그립 아치가득 인솔">
-    <h3>쿼드그립 아치가득 인솔</h3>
-    <div class="sub">21,500원 · 가지고 계신 신발용</div>
-    <dl>
-      <dt>01</dt><dd>발 아치 라인을 따라 채운 구조</dd>
-      <dt>02</dt><dd>뒤꿈치를 감싸는 컵 구조</dd>
-      <dt>03</dt><dd>목공소 우드칩 배합 소재</dd>
-    </dl>
-  </section>
-  <p class="note">사진은 2026년 9월 시사출 샘플이며 양산품과 다를 수 있습니다.</p>
 
-  <section class="reo">
-    <img src="img/reo.jpg" alt="레오 사장">
-    <div><q>…바닥부터 봐.</q><span>레오네 주방 사장 · 레오 사장은 AI로 만든 캐릭터입니다</span></div>
+  <!-- 현장 이벤트: 코엑스 서울디자인페스티벌 11.26~29 (킨텍스와 같은 방식, 인스타만 @rharashoe.official) -->
+  <section id="event" class="rv">
+    <p class="eyebrow"><b>COEX 서울디자인페스티벌</b> · 11.26(목)~29(일) · 라라슈 부스</p>
+    <h2>하나만 해도 선물,<br>사진 올리면 룰렛까지</h2>
+    <div class="card">
+      <p class="step-h">STEP 1 · A 또는 B 하나만 해도 선물</p>
+      <ol class="steps">
+        <li><div><b>A · 와디즈 펀딩 '좋아요'</b><span>아래 버튼으로 와디즈 펀딩 페이지에서 좋아요를 누르고 화면을 보여 주세요.</span></div></li>
+        <li><div><b>B · 인스타 팔로우</b><span>@rharashoe.official을 팔로우하고 팔로우 화면을 보여 주세요.</span></div></li>
+      </ol>
+      <p class="evgift">STEP 1 선물 · <b>미세모 칫솔</b></p>
+      <div class="row evbtn">
+        <a class="btn js-wadiz" href="#">♡ 와디즈<br>좋아요</a>
+        <a class="btn ghost js-insta" href="#">인스타<br>팔로우</a>
+      </div>
+      <p class="step-h">STEP 2 · 부스 사진 올리고 태그하면 룰렛 1회</p>
+      <ol class="steps">
+        <li><div><b>부스 사진 + @rharashoe.official 태그</b><span>라라슈 부스 사진을 찍어 인스타그램 피드나 스토리에 올리고, 올린 화면을 보여 주세요.</span></div></li>
+      </ol>
+      <button type="button" class="btn ghost js-copy" data-copy="@rharashoe.official #라라슈 #RHARASHOE #서울디자인페스티벌 #이벤트참여" style="width:100%;border:0;font-family:inherit;cursor:pointer">태그 문구 복사하기</button>
+      <div class="reward" style="margin-top:16px">
+        <strong>룰렛 경품</strong>
+        <ul class="evprize">
+          <li><b>1등</b> 젤 볼펜 <small>원판 1칸</small></li>
+          <li><b>2등</b> 데이투나잇 왕모칫솔 1개 (파랑·검정 중 택1) <small>원판 2칸</small></li>
+          <li><b>3등</b> 칫솔형 치실 <small>원판 3칸</small></li>
+        </ul>
+        <p class="note">원판 8칸: 1등 1칸 · 2등 2칸 · 3등 3칸 · 꽝 2칸 (확률 1등 12.5% · 2등 25% · 3등 37.5% · 꽝 25%). 그날 1등 수량이 떨어지면 2등 상품으로 대신 드립니다.</p>
+      </div>
+      <p class="note">STEP 1 선물과 룰렛은 1인 1회 · 하루 준비 수량이 소진되면 그날 이벤트는 마감됩니다.</p>
+    </div>
   </section>
 
-  <section class="story">
-    <div class="mono">From Road to Floor.</div>
-    <h4>도로를 달리던 고무, 주방 바닥으로.</h4>
-    <p>워킹화 밑창의 그립 패드에는 폐타이어에서 나온 고무를 새활용했습니다. 신발 본체는 E-실리폴리렌입니다.</p>
+  <!-- 설계 자문 -->
+  <section class="rv" id="advisory">
+    <p class="eyebrow"><b>DESIGN ADVISORY</b> · 왜 이렇게 만들었나</p>
+    <h2>형태와 신는 방식을<br>정형외과 전문의와 같이 봤어요</h2>
+    <img class="media" src="img/doctor-lee.jpg" alt="정형외과 전문의 이문홍 원장" loading="lazy" style="margin-top:20px">
+    <p class="who">정형외과 전문의 이문홍 원장 · 설계 자문 (2026.10~)</p>
+    <p class="disc">이문홍 원장은 ㈜알앤디메이커스의 제품 설계 자문에 참여하고 자문료를 받았습니다. 본 제품은 의료기기가 아닙니다.</p>
   </section>
 
-  <footer>
-    <div>㈜알앤디메이커스 · 대전 · 라라슈 RhaRa Shoe</div>
-    <details>
-      <summary>개인정보 수집·이용 안내</summary>
-      <p>신청 시 이름·연락처·관심 제품(체험단은 업종·신발 사이즈 추가)을 수집합니다. 목적: 오픈·행사 안내 및 체험단 선정 연락. 보유기간: 목적 달성 후 즉시 파기(최대 1년). 동의를 거부할 수 있으며, 거부 시 신청이 제한됩니다. 마케팅 정보 수신은 별도 선택입니다.</p>
-    </details>
-    <p>Instagram <a href="https://instagram.com/rharashoe" style="color:#BBB">@rharashoe</a></p>
-  </footer>
-</div>
+  <!-- 브랜드 -->
+  <section class="rv story" id="brand">
+    <p class="eyebrow">ABOUT RHARA SHOE</p>
+    <p>"깔창이 자꾸 딸려 나와요." 서서 일하는 친구의 한마디에서 라라슈가 시작됐어요.</p>
+    <p>매일 같은 신발만 신을 수는 없으니, 좋아하는 스니커즈와 출근화를 신는 날을 위해 인솔을 만들었어요. 자르지 않고, 빼지 않고, 신던 깔창 밑에 한 장.</p>
+    <p class="eyebrow" style="margin-top:24px">Made for Standing. RHARA SHOE</p>
+    <video class="media" src="img/brand-film.mp4" poster="img/brand-film-poster.jpg" controls playsinline preload="none" aria-label="라라슈 브랜드 필름" style="margin-top:12px"></video>
+  </section>
+
+  <!-- 09 마지막 행동 -->
+  <section class="rv" style="text-align:center">
+    <h2>오늘 오후 4시,<br>신던 신발 그대로 한 장</h2>
+    <p class="lead" style="margin-bottom:20px">1개 · 2개 세트 리워드, 와디즈 펀딩가로 만나요</p>
+    <a class="btn js-wadiz" href="#">와디즈에서 펀딩 참여하기</a>
+    <p class="note">결제와 리워드 선택은 와디즈 펀딩 페이지에서 진행돼요. 12월 5일부터 차례로 보내 드려요.</p>
+  </section>
+</main>
+
+<div class="dock"><a class="btn js-wadiz" href="#">와디즈 펀딩 참여하기</a></div>
+
+<footer>
+  <div class="wrap">
+    <p><b style="color:#CFCFC8">RHARA SHOE 라라슈</b> · 알앤디메이커스 주식회사 · 대표 신동규 · 사업자등록번호 709-81-02967</p>
+    <p>대전광역시 유성구 국제과학7로 8 · 고객센터 0507-1317-2516 · Instagram <a class="js-insta" href="#">@rharashoe.official</a></p>
+    <p><a href="privacy.html">개인정보처리방침</a></p>
+    <details><summary>맞춤형 광고를 위한 행태정보 수집 안내</summary><p>이 페이지는 Meta(Facebook·Instagram) 픽셀로 방문 기록과 버튼 클릭 정보를 수집해 맞춤형 광고와 광고 성과 측정에 사용합니다. 수집 주체: Meta Platforms, Inc.(미국) · 보유 기간: 수집일로부터 최대 180일 · 브라우저 설정이나 Meta 광고 설정(facebook.com/adpreferences)에서 맞춤형 광고를 거부할 수 있습니다.</p></details>
+  </div>
+</footer>
 
 <script>
-// ===== 운영 설정: 여기만 바꾸면 됩니다 =====
-// PHASE: 'notify'(오픈 알림) | 'tester'(체험단) | 'fair'(박람회) | 'buy'(구매)
-const PHASE = 'notify';
-// 구글폼 '미리 채워진 링크'에서 복사: 폼 주소 + 유입경로 질문의 entry 번호
-const FORM_URL = 'https://forms.gle/BFvrsJiKGpZBQLm38';
-const SRC_ENTRY = '';           // 예: entry.123456789
-const STORE_URL = '';           // 11.11 이후 구매 링크
-// =========================================
+// ===== 운영 설정: 여기만 채우면 됩니다 (빈칸은 화면에 [확정 전]으로 표시) =====
+const CFG = {
+  WADIZ_URL: 'https://app.wadiz.io/links/QlsyJVHJyU',                            // 와디즈 펀딩 페이지 (11/25 오픈, 대표 제공 링크)
+  FUND_START: '11월 25일',                         // 펀딩 시작일 (대표 확정 10/28)
+  BOOTH: '',                                        // 부스 번호(현재 화면에 미사용)
+  GIFT: '미세모 칫솔',                              // STEP 1 선물 (알림 또는 팔로우)
+  PRIZES: [['1등', '젤 볼펜', ''], ['2등', '데이투나잇 왕모칫솔(파랑·검정 택1)', ''], ['3등', '칫솔형 치실', '']],  // [등수, 경품, 수량]
+  WALK_DATE: '11월 25일 오픈',                     // 워킹화 공개 시기 (L3 합의 10/30)
+  INSTA_URL: 'https://www.instagram.com/rharashoe.official/',
+  WALK_FORM: 'https://forms.gle/BFvrsJiKGpZBQLm38',
+  GA4_ID: '',                                     // 구글 애널리틱스 측정 ID (G-로 시작, 빈칸이면 미작동)
+  META_PIXEL_ID: '1122007340240070'                             // RHARA SHOE 전용 메타 픽셀 ID (빈칸이면 픽셀 미작동)
+};
+// ====================================================================
+const qs = new URLSearchParams(location.search); const src = qs.get('src') || qs.get('utm_source') || 'direct';
+const tbd = t => `<span class="tbd">${t} 확정 전</span>`;
+const set = (sel, html) => document.querySelectorAll(sel).forEach(el => el.innerHTML = html);
+const link = (sel, url) => document.querySelectorAll(sel).forEach(el => {
+  if (url) { el.href = url; el.target = '_blank'; el.rel = 'noopener'; }
+  else { el.removeAttribute('href'); el.setAttribute('aria-disabled', 'true'); if (!el.classList.contains('sm')) el.textContent += ' (11.11 오픈)'; }
+});
+const wadiz = !CFG.WADIZ_URL ? '' : CFG.WADIZ_URL.includes('/links/') ? CFG.WADIZ_URL : CFG.WADIZ_URL + (CFG.WADIZ_URL.includes('?') ? '&' : '?') + 'utm_source=' + encodeURIComponent(src) + '&utm_medium=landing';  // 와디즈 짧은 링크에는 꼬리표를 붙이지 않음(이동 실패 방지)
+link('.js-wadiz', wadiz);
+link('.js-insta', CFG.INSTA_URL);
+link('.js-walkform', CFG.WALK_FORM);
 
-const P = {
-  notify: { tag: '11.11 OPEN', title: '오픈 소식을<br>가장 먼저 받아보세요', items: [['01','오픈 당일 알림 문자 1회'],['02','박람회(킨텍스·코엑스) 일정 안내'],['03','알림은 언제든 해지할 수 있습니다']], cta: '오픈 알림 신청하기', note: '신청 30초 · 이름·연락처·관심 제품만 받습니다.' },
-  tester: { tag: '체험단 모집', title: '식당·주방 사장님<br>체험단을 모집합니다', items: [['대상','하루 6시간 이상 서서 일하시는 분'],['내용','워킹화 또는 인솔 제공 · 7일 착용'],['조건','SNS 후기 1회 ([협찬] 표기 필수)'],['인원','[N]명 · 마감 [날짜]']], cta: '체험단 신청하기', note: '선정되신 분께만 개별 연락드립니다.' },
-  fair: { tag: '박람회 현장', title: '부스에서 직접<br>신어보세요', items: [['킨텍스','메가쇼 11.12–15 · 부스 [번호]'],['코엑스','서울디자인페어 11.26–29 · 부스 [번호]'],['현장','신청하시면 오픈 혜택 안내를 보내드립니다']], cta: '현장 신청하기', note: '' },
-  buy: { tag: 'NOW OPEN', title: '라라슈,<br>지금 만나보세요', items: [['워킹화','42,500원'],['인솔','21,500원']], cta: '구매하러 가기', note: '' }
-}[PHASE];
+// 메타 픽셀 — ID가 있을 때만 불러옴. 페이지뷰 + 버튼 클릭 3종(전환 최적화·리타겟팅용)
+if (CFG.GA4_ID) {
+  const g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + CFG.GA4_ID; document.head.appendChild(g);
+  window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date()); gtag('config', CFG.GA4_ID, { campaign_source: src });
+  [['.js-wadiz','wadiz_notify_click'],['.js-insta','instagram_follow_click'],['.js-walkform','walking_notify_click']].forEach(([sel, name]) =>
+    document.querySelectorAll(sel).forEach(el => el.addEventListener('click', () => gtag('event', name, { src }))));
+}
+if (CFG.META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+  s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', CFG.META_PIXEL_ID);
+  fbq('track', 'PageView', {src});
+  const ev = { '.js-wadiz': 'WadizNotifyClick', '.js-insta': 'InstagramFollowClick', '.js-walkform': 'WalkingNotifyClick' };
+  Object.entries(ev).forEach(([sel, name]) => document.querySelectorAll(sel).forEach(el =>
+    el.addEventListener('click', () => fbq('trackCustom', name, {src}))));
+}
+set('.js-fund', CFG.FUND_START || tbd('날짜'));
+set('.js-booth', CFG.BOOTH || tbd('번호'));
+set('.js-gift', CFG.GIFT ? CFG.GIFT : tbd('선물'));
+document.querySelectorAll('.js-copy').forEach(el => el.addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(el.dataset.copy); el.textContent = '복사됐어요! 인스타에 붙여넣기'; }
+  catch (e) { el.textContent = el.dataset.copy; }
+}));
+set('.js-walkdate', CFG.WALK_DATE || 'COMING SOON');
+set('.js-prizes', CFG.PRIZES.map(([r, n, q]) => `<tr><td>${r} ${n || tbd('경품')}</td><td>${q ? q + '개' : ''}</td></tr>`).join(''));
 
-const src = new URLSearchParams(location.search).get('src') || 'direct';
-let href = PHASE === 'buy' ? STORE_URL : FORM_URL;
-if (href && PHASE !== 'buy' && SRC_ENTRY) href += (href.includes('?') ? '&' : '?') + 'usp=pp_url&' + SRC_ENTRY + '=' + encodeURIComponent(src);
-document.getElementById('event').innerHTML =
-  `<span class="tag">${P.tag}</span><h2>${P.title}</h2><ul>${P.items.map(([k,v]) => `<li><b>${k}</b>${v}</li>`).join('')}</ul>` +
-  (href ? `<a class="btn" href="${href}">${P.cta}</a>` : `<a class="btn off">${P.cta} (준비 중)</a>`) +
-  (P.note ? `<p class="note">${P.note}</p>` : '');
+// 섹션 등장 (한 번만)
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
 </script>
 </body>
 </html>

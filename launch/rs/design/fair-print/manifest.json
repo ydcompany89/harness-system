@@ -1,0 +1,170 @@
+[
+ {
+  "name": "01_namecard_v5",
+  "w": 94,
+  "h": 54,
+  "pages": 2,
+  "title": "명함 1종 v5 (90×50 · 엑스트라 린넨 250g 양면)"
+ },
+ {
+  "name": "12_counter_front_980x750",
+  "w": 980,
+  "h": 750,
+  "pages": 2,
+  "title": "카운터 앞판 980×750 ①RS ②re.feeel (각 1장)"
+ },
+ {
+  "name": "12_counter_front_1480x750",
+  "w": 1480,
+  "h": 750,
+  "pages": 2,
+  "title": "카운터 앞판 1480×750 ①RS ②re.feeel (각 1장)"
+ },
+ {
+  "name": "12_counter_side_600x750",
+  "w": 600,
+  "h": 750,
+  "pages": 2,
+  "title": "카운터 옆판 600×750 ①RS ②re.feeel (각 4장)"
+ },
+ {
+  "name": "03_table_sign_3face",
+  "w": 471,
+  "h": 216,
+  "pages": 1,
+  "title": "테이블 사인 3면 삼각기둥 (면 150×210, 펼침 465×216)"
+ },
+ {
+  "name": "11_nametag_100x70",
+  "w": 104,
+  "h": 74,
+  "pages": 8,
+  "title": "제품 네임택 1종 100×70 (내용 8종) — 아크릴 L자 꽂이"
+ },
+ {
+  "name": "04_pop_A4_x3",
+  "w": 216,
+  "h": 303,
+  "pages": 3,
+  "title": "POP A4 세로 ×3 v4 (워킹화 / 인솔 / 인스타 이벤트)"
+ },
+ {
+  "name": "05_welcome_bag_v5",
+  "w": 1070,
+  "h": 430,
+  "pages": 1,
+  "title": "쇼핑백 v7 크라프트 실크 1도 · 라라슈 전용 W360×H280×D150 (신발박스 340×230×130 수납)"
+ },
+ {
+  "name": "06_leaflet_A4_3fold",
+  "w": 303,
+  "h": 216,
+  "pages": 2,
+  "title": "리플렛+다국어 카탈로그 A4 3단 C접지 v4"
+ },
+ {
+  "name": "07c_xbanner_event_600x1800",
+  "w": 600,
+  "h": 1800,
+  "pages": 1,
+  "title": "X배너 600×1800 — 인스타 이벤트 전용 (re.feeel)"
+ },
+ {
+  "name": "07_xbanner_600x1800",
+  "w": 600,
+  "h": 1800,
+  "pages": 2,
+  "title": "X배너 600×1800 v4 ①라라슈 ②re.feeel (③정형외과 = 07b)"
+ },
+ {
+  "name": "07b_xbanner_doctor_600x1800",
+  "w": 600,
+  "h": 1800,
+  "pages": 1,
+  "title": "X배너 600×1800 v4 — 정형외과 전문의 설계 자문"
+ },
+ {
+  "name": "08_banner_950x2380_x6",
+  "w": 950,
+  "h": 2380,
+  "pages": 6,
+  "title": "백월 족자 950×2380 ×6 v4 (라라슈 3 + re.feeel 3)"
+ },
+ {
+  "name": "09_reo_standee",
+  "w": 830,
+  "h": 1780,
+  "pages": 1,
+  "title": "레오 등신대 830×1780mm (캐릭터 높이 1600)"
+ },
+ {
+  "name": "10a_foamex_RS_logo",
+  "w": 337,
+  "h": 348,
+  "pages": 1,
+  "title": "포맥스 사인 S1 RS 로고 컷팅 337×348"
+ },
+ {
+  "name": "10b_foamex_refeeel_seal",
+  "w": 320,
+  "h": 378,
+  "pages": 1,
+  "title": "포맥스 사인 S2 re.feeel 씰 원형 320×378"
+ },
+ {
+  "name": "10c_foamex_product_walking",
+  "w": 300,
+  "h": 160,
+  "pages": 1,
+  "title": "포맥스 사인 S3 제품명 — 종일편한 워킹화 300×160"
+ },
+ {
+  "name": "10c_foamex_product_insole",
+  "w": 300,
+  "h": 160,
+  "pages": 1,
+  "title": "포맥스 사인 S3 제품명 — 아치가득 인솔 300×160"
+ },
+ {
+  "name": "10d_foamex_event_qr",
+  "w": 300,
+  "h": 220,
+  "pages": 1,
+  "title": "포맥스 사인 S4 이벤트 QR (@re.feeel) 300×220"
+ },
+ {
+  "name": "10e_foamex_quadgrip_mini",
+  "w": 240,
+  "h": 120,
+  "pages": 1,
+  "title": "포맥스 사인 S5 쿼드그립 미니 240×120"
+ },
+ {
+  "name": "10f_foamex_refeeel_oral",
+  "w": 240,
+  "h": 100,
+  "pages": 1,
+  "title": "포맥스 사인 S6 re.feeel — ORAL CARE 240×100"
+ },
+ {
+  "name": "10f_foamex_refeeel_slipper",
+  "w": 240,
+  "h": 100,
+  "pages": 1,
+  "title": "포맥스 사인 S6 re.feeel — BATH SLIPPER 240×100"
+ },
+ {
+  "name": "10g_foamex_advisory",
+  "w": 260,
+  "h": 130,
+  "pages": 1,
+  "title": "포맥스 사인 S7 원장 코너 260×130"
+ },
+ {
+  "name": "10h_foamex_stand_leg",
+  "w": 160,
+  "h": 70,
+  "pages": 1,
+  "title": "포맥스 받침 다리 160×70 (공용)"
+ }
+]

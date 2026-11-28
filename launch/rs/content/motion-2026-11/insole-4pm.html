@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<!-- 메타 릴스·스토리용 9:16 모션 광고 (8초) · 아치가득 인솔 "오후 4시" — 화면 540x960, 2배로 캡처해 1080x1920 -->
+<style>
+:root{--lime:#C6F432;--forest:#0D1B14}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:540px;height:960px;background:#000;overflow:hidden;font-family:'Noto Sans CJK KR',sans-serif;letter-spacing:-.02em;color:#F2F4F2;-webkit-font-smoothing:antialiased}
+.stage{position:relative;width:540px;height:960px;overflow:hidden;background:radial-gradient(circle at 50% 45%,#13261A 0%,#000 65%)}
+.a{position:absolute;animation-fill-mode:both;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+/* 시계 */
+.clock{left:50%;top:250px;width:150px;height:150px;margin-left:-75px;border:5px solid var(--lime);border-radius:50%;animation:pop .6s 0s, fadeout .4s 2.4s forwards}
+.clock i{position:absolute;left:50%;top:50%;width:5px;background:var(--lime);border-radius:3px;transform-origin:50% 100%}
+.clock .h{height:38px;margin:-38px 0 0 -2.5px;animation:hour 1.4s .3s both cubic-bezier(.22,1,.36,1)}
+.clock .m{height:58px;margin:-58px 0 0 -2.5px;animation:minute 1.4s .3s both cubic-bezier(.22,1,.36,1)}
+.t1{left:0;right:0;text-align:center;top:440px;font-size:64px;font-weight:900;animation:up .6s .5s, fadeout .4s 2.4s forwards}
+.t2{left:0;right:0;text-align:center;top:520px;font-size:46px;font-weight:700;animation:up .6s 1.0s, fadeout .4s 2.4s forwards}
+.t3{left:0;right:0;text-align:center;top:582px;font-size:52px;font-weight:900;color:var(--lime);animation:up .6s 1.4s, fadeout .4s 2.4s forwards}
+.sweep{left:-540px;top:0;width:540px;height:960px;background:linear-gradient(90deg,transparent,rgba(198,244,50,.25),transparent);animation:sweep .7s 2.5s}
+/* 제품 */
+.glow{left:50%;top:250px;width:420px;height:420px;margin-left:-210px;border-radius:50%;background:radial-gradient(circle,rgba(198,244,50,.35),transparent 65%);animation:fadein .8s 2.7s, pulse 1.6s 3.5s infinite alternate}
+.prod{left:50%;top:230px;width:400px;margin-left:-200px;animation:prodin 1s 2.7s}
+.lab{font-size:22px;font-weight:700;background:rgba(13,27,20,.9);border:2px solid var(--lime);color:var(--lime);padding:8px 16px;border-radius:99px;white-space:nowrap}
+.l1{left:40px;top:300px;animation:popl .5s 3.6s}
+.l2{right:40px;top:470px;animation:popl .5s 4.0s}
+.l3{left:70px;top:620px;animation:popl .5s 4.4s}
+.copy{left:0;right:0;text-align:center;top:720px;font-size:30px;font-weight:700;line-height:1.4;animation:up .6s 4.9s}
+.copy b{color:var(--lime)}
+/* 엔딩 */
+.end{left:0;top:0;width:540px;height:960px;background:var(--forest);animation:wipe .6s 6.0s}
+.logo{left:50%;top:330px;width:110px;margin-left:-55px;animation:pop .6s 6.4s}
+.ms{left:0;right:0;text-align:center;top:450px;font-size:22px;font-weight:700;letter-spacing:.12em;color:var(--lime);animation:up .5s 6.6s}
+.cta{left:50%;top:510px;transform:translateX(-50%);background:var(--lime);color:var(--forest);font-weight:900;font-size:30px;padding:18px 34px;border-radius:16px;white-space:nowrap;animation:ctain .6s 6.8s}
+.note{left:0;right:0;text-align:center;bottom:250px;font-size:14px;opacity:.55;animation:fadein .5s 7.0s}
+.stage .a{animation-fill-mode:both}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes fadeout{to{opacity:0;transform:translateY(-30px)}}
+@keyframes hour{from{transform:rotate(-120deg)}to{transform:rotate(120deg)}}
+@keyframes minute{from{transform:rotate(-720deg)}to{transform:rotate(0deg)}}
+@keyframes sweep{from{left:-540px}to{left:540px}}
+@keyframes prodin{from{opacity:0;transform:translateY(120px) rotate(-25deg) scale(.7)}to{opacity:1;transform:none}}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes popl{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+@keyframes wipe{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(80% at 50% 50%)}}
+@keyframes ctain{from{opacity:0;transform:translate(-50%,30px)}to{opacity:1;transform:translate(-50%,0)}}
+</style></head><body>
+<div class="stage">
+  <div class="a clock"><i class="h"></i><i class="m"></i></div>
+  <p class="a t1">오후 4시,</p>
+  <p class="a t2">발이 먼저</p>
+  <p class="a t3">퇴근하고 싶을 때</p>
+  <div class="a sweep"></div>
+  <div class="a glow"></div>
+  <img class="a prod" src="../../landing/img/insole-dark-hero.jpg" style="mix-blend-mode:lighten">
+  <span class="a lab l1">뒤꿈치 컵</span>
+  <span class="a lab l2">아치 최고 15mm</span>
+  <span class="a lab l3">자르지 않는 반굽</span>
+  <p class="a copy">신발은 그대로,<br><b>아치 밑만 꽉 채우는</b> 반굽 인솔</p>
+  <div class="a end"></div>
+  <img class="a logo" src="../../landing/img/rs-logo-light.png">
+  <p class="a ms">MADE FOR STANDING</p>
+  <p class="a cta">와디즈 펀딩 진행 중 →</p>
+  <p class="a note">본 제품은 의료기기가 아닙니다</p>
+</div>
+</body></html>
